@@ -6,12 +6,12 @@ require 'generamba/version'
 Gem::Specification.new do |spec|
   spec.name          = "generamba"
   spec.version       = Generamba::VERSION
-  spec.authors       = ["Egor Tolstoy"]
-  spec.email         = ["e.tolstoy@rambler-co.ru"]
+  spec.authors       = ["Andrey Zarembo", "Egor Tolstoy"]
+  spec.email         = ["a.zarembo@rambler-co.ru", "e.tolstoy@rambler-co.ru"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "This generator is too brilliant to be real!"
+  spec.description   = "Someday we'll describe it"
+  spec.homepage      = "http://rambler.ru"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
