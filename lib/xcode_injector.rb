@@ -2,24 +2,19 @@ require 'xcodeproj'
 
 class Generamba::XcodeInjector
 	def initialize
+		@project = Xcodeproj::Project.open(File.dirname(__FILE__) + "/SynchronizationProblems.xcodeproj")
 	end
 
-	def test
-		
-
-
+	def list_files_in_group(groupName)
+		group = destinationGroupFromPath(groupName, @project)
+		print(group.files)
 	end
 
-	def listFilesInGroup(groupName)
-		project = Xcodeproj::Project.open(File.dirname(__FILE__) + "/SynchronizationProblems.xcodeproj")
-
-		groups = groupName.split("/")
-		finalGroup = project
-
-		groups.each do |group|
-			finalGroup = finalGroup[group]
-		end
-
-		print(finalGroup.files)
+	def add_file_to_group(groupName, filePath)
+		group = destinationGroupFromPath(groupName, @project)
+		group.new_file(filePath)
+		@project.save
 	end
+
+
 end
