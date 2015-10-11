@@ -14,7 +14,7 @@ module Generamba
 
 			finalGroup = @project
 
-			groups.each do |groupName|
+			groupNames.each do |groupName|
 				nextGroup = finalGroup[groupName]
 				if (nextGroup == nil)
 					nextGroup = finalGroup.new_group(groupName)
@@ -23,7 +23,15 @@ module Generamba
 				finalGroup = nextGroup
 			end
 
+			# Temporary
+			@project.save
+
 			return finalGroup
+		end
+
+		# Returns an array with filepaths to all of the module parts
+		def retreive_file_paths
+
 		end
 
 		private
