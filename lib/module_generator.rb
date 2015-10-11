@@ -18,7 +18,7 @@ module Generamba
 			# Creating a new subdirectory for files
 			FileUtils.mkdir_p moduleDirPath
 
-			# It will be loaded from template
+			# THis list should be loaded from a specific template
 			elementTypes = ["Assembly.h", "Assembly.m", "ViewController.h", "ViewController.m", "Presenter.h", "Presenter.m", "Interactor.h", "Interactor.m", "Router.h", "Router.m"]
 
 			elementTypes.each { |element| 
