@@ -16,11 +16,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		213823767DAF0830A3156098 /* nameRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = nameRouter.m; path = MyDir/nameRouter.m; sourceTree = "<group>"; };
-		3C53136153E99B141277ABDB /* nameViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = nameViewController.m; path = MyDir/nameViewController.m; sourceTree = "<group>"; };
-		84C600E82DBD216F9FDF5B97 /* nameViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = nameViewController.h; path = MyDir/nameViewController.h; sourceTree = "<group>"; };
-		878DE06CF8D486A00A5B9B48 /* nameInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = nameInteractor.m; path = MyDir/nameInteractor.m; sourceTree = "<group>"; };
-		9EFAFF70E24C75DF7B4AF81E /* nameRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = nameRouter.h; path = MyDir/nameRouter.h; sourceTree = "<group>"; };
+		2CDA1BB21DFDA72B9D45311E /* AuthorizationInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationInteractor.h; path = Classes/Modules/Authorization/AuthorizationInteractor.h; sourceTree = "<group>"; };
+		2DFF603C16B0E6DC20E7BD99 /* AuthorizationAssembly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationAssembly.h; path = Classes/Modules/Authorization/AuthorizationAssembly.h; sourceTree = "<group>"; };
+		3584C489A32F519CF2F57310 /* AuthorizationPresenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationPresenter.h; path = Classes/Modules/Authorization/AuthorizationPresenter.h; sourceTree = "<group>"; };
+		5DB6424AEA176008CDC0D22C /* AuthorizationRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationRouter.h; path = Classes/Modules/Authorization/AuthorizationRouter.h; sourceTree = "<group>"; };
+		73EFA4D06B43212BF72EB971 /* AuthorizationAssembly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationAssembly.m; path = Classes/Modules/Authorization/AuthorizationAssembly.m; sourceTree = "<group>"; };
+		797DAEED4162ADF9708AB5AD /* AuthorizationViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationViewController.m; path = Classes/Modules/Authorization/AuthorizationViewController.m; sourceTree = "<group>"; };
 		9F1381481BCA996D00A1F83C /* GenerambaTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenerambaTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F13814C1BCA996D00A1F83C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9F13814E1BCA996D00A1F83C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -31,11 +32,10 @@
 		9F1381571BCA996D00A1F83C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F13815A1BCA996D00A1F83C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F13815C1BCA996D00A1F83C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A833A699DE02E5DE5A74DA1E /* nameAssembly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = nameAssembly.h; path = MyDir/nameAssembly.h; sourceTree = "<group>"; };
-		B1E37192784738C60D044C0B /* nameInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = nameInteractor.h; path = MyDir/nameInteractor.h; sourceTree = "<group>"; };
-		B65618C7FAB9582835DC5F27 /* nameAssembly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = nameAssembly.m; path = MyDir/nameAssembly.m; sourceTree = "<group>"; };
-		C469420CDA621A37F9C7C614 /* namePresenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = namePresenter.h; path = MyDir/namePresenter.h; sourceTree = "<group>"; };
-		E2DAB7EA7B7115BCE1934E03 /* namePresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = namePresenter.m; path = MyDir/namePresenter.m; sourceTree = "<group>"; };
+		C24DBD019CD5F647BDEE16BB /* AuthorizationRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationRouter.m; path = Classes/Modules/Authorization/AuthorizationRouter.m; sourceTree = "<group>"; };
+		CE1745A68D386DA2417B419A /* AuthorizationViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationViewController.h; path = Classes/Modules/Authorization/AuthorizationViewController.h; sourceTree = "<group>"; };
+		D981D7894784CBF7C4A60F09 /* AuthorizationPresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationPresenter.m; path = Classes/Modules/Authorization/AuthorizationPresenter.m; sourceTree = "<group>"; };
+		EF78A73F7ABB66641A4FF3F9 /* AuthorizationInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationInteractor.m; path = Classes/Modules/Authorization/AuthorizationInteractor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,21 +49,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7A7340D3D6CF0E22402C9A1D /* MyModule */ = {
+		879A26F40200434209F4C916 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				A833A699DE02E5DE5A74DA1E /* nameAssembly.h */,
-				B65618C7FAB9582835DC5F27 /* nameAssembly.m */,
-				84C600E82DBD216F9FDF5B97 /* nameViewController.h */,
-				3C53136153E99B141277ABDB /* nameViewController.m */,
-				C469420CDA621A37F9C7C614 /* namePresenter.h */,
-				E2DAB7EA7B7115BCE1934E03 /* namePresenter.m */,
-				B1E37192784738C60D044C0B /* nameInteractor.h */,
-				878DE06CF8D486A00A5B9B48 /* nameInteractor.m */,
-				9EFAFF70E24C75DF7B4AF81E /* nameRouter.h */,
-				213823767DAF0830A3156098 /* nameRouter.m */,
+				2DFF603C16B0E6DC20E7BD99 /* AuthorizationAssembly.h */,
+				73EFA4D06B43212BF72EB971 /* AuthorizationAssembly.m */,
+				CE1745A68D386DA2417B419A /* AuthorizationViewController.h */,
+				797DAEED4162ADF9708AB5AD /* AuthorizationViewController.m */,
+				3584C489A32F519CF2F57310 /* AuthorizationPresenter.h */,
+				D981D7894784CBF7C4A60F09 /* AuthorizationPresenter.m */,
+				2CDA1BB21DFDA72B9D45311E /* AuthorizationInteractor.h */,
+				EF78A73F7ABB66641A4FF3F9 /* AuthorizationInteractor.m */,
+				5DB6424AEA176008CDC0D22C /* AuthorizationRouter.h */,
+				C24DBD019CD5F647BDEE16BB /* AuthorizationRouter.m */,
 			);
-			name = MyModule;
+			name = Modules;
 			sourceTree = "<group>";
 		};
 		9F13813F1BCA996D00A1F83C = {
@@ -71,7 +71,6 @@
 			children = (
 				9F13814A1BCA996D00A1F83C /* GenerambaTestProject */,
 				9F1381491BCA996D00A1F83C /* Products */,
-				7A7340D3D6CF0E22402C9A1D /* MyModule */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +94,7 @@
 				9F1381591BCA996D00A1F83C /* LaunchScreen.storyboard */,
 				9F13815C1BCA996D00A1F83C /* Info.plist */,
 				9F13814B1BCA996D00A1F83C /* Supporting Files */,
+				E9E6B9016892DD1750309279 /* Classes */,
 			);
 			path = GenerambaTestProject;
 			sourceTree = "<group>";
@@ -105,6 +105,14 @@
 				9F13814C1BCA996D00A1F83C /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E9E6B9016892DD1750309279 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				879A26F40200434209F4C916 /* Modules */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

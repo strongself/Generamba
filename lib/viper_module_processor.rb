@@ -23,9 +23,6 @@ module Generamba
 				finalGroup = nextGroup
 			end
 
-			# Temporary
-			@project.save
-
 			return finalGroup
 		end
 
