@@ -3,13 +3,13 @@
 require 'liquid'
 require 'tilt'
 
-class Generamba::FileGenerator
+class Generamba::FileContentGenerator
 	def initialize
 	end
 
 	# TODO: generate h and m files
 	def createElement(type)
-		template = Tilt.new(File.dirname(__FILE__) + '/templates/' + type + '.m.liquid')
+		template = Tilt.new(File.dirname(__FILE__) + '/templates/' + type + '.liquid')
 		module_info = {}
 		module_info['name'] = "Test Module"
 		module_info['fileName'] = "TestModule"

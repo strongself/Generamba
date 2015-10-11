@@ -2,23 +2,23 @@ module Generamba
 	# A model class for the whole VIPER Module
 	class ViperModule
 
-		attr_reader :name, :description, :files, :filePath, :groupPath
+		attr_reader :name, :description, :files, :groupPath
 
-		def initialize(name, description, filePath, groupPath)
+		def initialize(name, description, groupPath, files)
 			@name = name
 			@description = description
-			@filePath = filePath
 			@groupPath = groupPath
-			@files = Array.new
+			@files = files
 		end
 	end
 
 	class ModuleFile
 		attr_reader :name, :content, :path
 
-		def initialize(name, content)
+		def initialize(name, content, path)
 			@name = name
 			@content = content
+			@path = path
 		end
 	end
 end
