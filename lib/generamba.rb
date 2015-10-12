@@ -4,6 +4,7 @@ require "cli.rb"
 require "viper_module.rb"
 require "viper_module_processor.rb"
 require "module_generator.rb"
+require 'project_configuration'
 
 module Generamba
   # Your code goes here...
