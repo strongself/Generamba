@@ -1,5 +1,7 @@
 require 'thor'
 require 'xcodeproj'
+require 'liquid'
+require 'tilt'
 
 module Generamba::CLI
 	class Application < Thor
@@ -23,8 +25,8 @@ module Generamba::CLI
       			puts('No .xcodeproj files found in a given folder. Try generamba in another folder.')
       		elsif count == 1
       			moduleXcodeprojPath = File.absolute_path(projectFiles[0])
-			elsif count > 1
-				puts('Multiple .xcodeproj files found in a given folder. You should choose one manually.')
+			    elsif count > 1
+				    puts('Multiple .xcodeproj files found in a given folder. You should choose one manually.')
       		end
       	end
 
@@ -34,8 +36,55 @@ module Generamba::CLI
 
 		desc 'setup', 'Creates a Rambafile with a config for a given project'
 		def setup
-			name = ask('What is your name?')
-			puts(name)
+			properties = {}
+
+			properties['author_name'] = ask('The author name which will be used in the headers:')
+			properties['author_company'] = ask('The company name which will be used in the headers')
+			properties['prefix']  = ask('The project prefix (if any):')
+
+      xcodePath = ''
+      projectFiles = Dir['*.xcodeproj']
+      count = projectFiles.count
+      if count == 1
+        isRightPath = yes?('The path ro a .xcodeproj file of the project is ' + projectFiles[0] + '. Do you want to use it?')
+        if (isRightPath)
+          xcodePath = File.absolute_path(projectFiles[0])
+        else
+          xcodePath = ask('The path to a .xcodeproj file of the project:')
+        end
+      else
+        xcodePath = ask('The path to a .xcodeproj file of the project:')
+      end
+			properties['xcodeproj_path'] = xcodePath
+			project = Xcodeproj::Project.open(xcodePath)
+
+			targetsPrompt = ""
+			project.targets.each_with_index { |element, i| targetsPrompt += ("#{i}. #{element.name}" + "\n") }
+
+			projectTargetIndex = ask("Select the appropriate target for adding your modules (print the index):\n" + targetsPrompt)
+			projectTarget = project.targets[projectTargetIndex.to_i]
+
+			testTargetIndex = ask("Select the appropriate target for adding your tests (print the index):\n" + targetsPrompt)
+			testTarget = project.targets[testTargetIndex.to_i]
+
+			projectGroupPath = ask('The default group path for creating new modules:')
+			projectFilePath = ask('The default file path for creating new modules:')
+
+			testGroupPath = ask('The default group path for creating tests:')
+			testFilePath = ask('The default file path for creating tests:')
+
+			template = Tilt.new(File.dirname(__FILE__) + '/Rambafile.liquid')
+			properties['project_target'] = projectTarget.name
+			properties['project_file_path'] = projectFilePath
+			properties['project_group_path'] = projectGroupPath
+			properties['test_target'] = testTarget.name
+			properties['test_file_path'] = testFilePath
+			properties['test_group_path'] = testGroupPath
+			output = template.render(properties)
+
+			File.open('Rambafile', "w+") {|f|
+				f.write(output)
+			}
 		end
 	end
 end

@@ -1,3 +1,14 @@
-author: Egor Tolstoy
-company: 'Rambler&Co'
-year: 2015
+author: Egor
+company: 1
+year: 
+prefix: 2
+
+xcodeproj_path: /Users/etolstoy/Generamba/bin/GenerambaTestProject/GenerambaTestProject.xcodeproj
+
+project_target: GenerambaTestProject
+project_file_path: a
+project_group_path: a
+
+test_target: GenerambaTestProjectTests
+test_file_path: a
+test_group_path: a

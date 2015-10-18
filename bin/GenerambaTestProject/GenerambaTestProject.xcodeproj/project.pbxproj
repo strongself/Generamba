@@ -13,7 +13,18 @@
 		9F1381561BCA996D00A1F83C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1381541BCA996D00A1F83C /* Main.storyboard */; };
 		9F1381581BCA996D00A1F83C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F1381571BCA996D00A1F83C /* Assets.xcassets */; };
 		9F13815B1BCA996D00A1F83C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1381591BCA996D00A1F83C /* LaunchScreen.storyboard */; };
+		9FCE2FDA1BD41128003896E6 /* GenerambaTestProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FCE2FD91BD41128003896E6 /* GenerambaTestProjectTests.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9FCE2FDC1BD41128003896E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F1381401BCA996D00A1F83C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F1381471BCA996D00A1F83C;
+			remoteInfo = GenerambaTestProject;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2CDA1BB21DFDA72B9D45311E /* AuthorizationInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationInteractor.h; path = Classes/Modules/Authorization/AuthorizationInteractor.h; sourceTree = "<group>"; };
@@ -32,6 +43,9 @@
 		9F1381571BCA996D00A1F83C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F13815A1BCA996D00A1F83C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F13815C1BCA996D00A1F83C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FCE2FD71BD41128003896E6 /* GenerambaTestProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenerambaTestProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FCE2FD91BD41128003896E6 /* GenerambaTestProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenerambaTestProjectTests.m; sourceTree = "<group>"; };
+		9FCE2FDB1BD41128003896E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C24DBD019CD5F647BDEE16BB /* AuthorizationRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationRouter.m; path = Classes/Modules/Authorization/AuthorizationRouter.m; sourceTree = "<group>"; };
 		CE1745A68D386DA2417B419A /* AuthorizationViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationViewController.h; path = Classes/Modules/Authorization/AuthorizationViewController.h; sourceTree = "<group>"; };
 		D981D7894784CBF7C4A60F09 /* AuthorizationPresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationPresenter.m; path = Classes/Modules/Authorization/AuthorizationPresenter.m; sourceTree = "<group>"; };
@@ -40,6 +54,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		9F1381451BCA996D00A1F83C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FCE2FD41BD41128003896E6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -70,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				9F13814A1BCA996D00A1F83C /* GenerambaTestProject */,
+				9FCE2FD81BD41128003896E6 /* GenerambaTestProjectTests */,
 				9F1381491BCA996D00A1F83C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				9F1381481BCA996D00A1F83C /* GenerambaTestProject.app */,
+				9FCE2FD71BD41128003896E6 /* GenerambaTestProjectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,6 +128,15 @@
 				9F13814C1BCA996D00A1F83C /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9FCE2FD81BD41128003896E6 /* GenerambaTestProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				9FCE2FD91BD41128003896E6 /* GenerambaTestProjectTests.m */,
+				9FCE2FDB1BD41128003896E6 /* Info.plist */,
+			);
+			path = GenerambaTestProjectTests;
 			sourceTree = "<group>";
 		};
 		E9E6B9016892DD1750309279 /* Classes */ = {
@@ -135,6 +167,24 @@
 			productReference = 9F1381481BCA996D00A1F83C /* GenerambaTestProject.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9FCE2FD61BD41128003896E6 /* GenerambaTestProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FCE2FE01BD41128003896E6 /* Build configuration list for PBXNativeTarget "GenerambaTestProjectTests" */;
+			buildPhases = (
+				9FCE2FD31BD41128003896E6 /* Sources */,
+				9FCE2FD41BD41128003896E6 /* Frameworks */,
+				9FCE2FD51BD41128003896E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FCE2FDD1BD41128003896E6 /* PBXTargetDependency */,
+			);
+			name = GenerambaTestProjectTests;
+			productName = GenerambaTestProjectTests;
+			productReference = 9FCE2FD71BD41128003896E6 /* GenerambaTestProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -146,6 +196,10 @@
 				TargetAttributes = {
 					9F1381471BCA996D00A1F83C = {
 						CreatedOnToolsVersion = 7.0;
+					};
+					9FCE2FD61BD41128003896E6 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 9F1381471BCA996D00A1F83C;
 					};
 				};
 			};
@@ -163,6 +217,7 @@
 			projectRoot = "";
 			targets = (
 				9F1381471BCA996D00A1F83C /* GenerambaTestProject */,
+				9FCE2FD61BD41128003896E6 /* GenerambaTestProjectTests */,
 			);
 		};
 /* End PBXProject section */
@@ -175,6 +230,13 @@
 				9F13815B1BCA996D00A1F83C /* LaunchScreen.storyboard in Resources */,
 				9F1381581BCA996D00A1F83C /* Assets.xcassets in Resources */,
 				9F1381561BCA996D00A1F83C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FCE2FD51BD41128003896E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +253,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9FCE2FD31BD41128003896E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FCE2FDA1BD41128003896E6 /* GenerambaTestProjectTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9FCE2FDD1BD41128003896E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F1381471BCA996D00A1F83C /* GenerambaTestProject */;
+			targetProxy = 9FCE2FDC1BD41128003896E6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9F1381541BCA996D00A1F83C /* Main.storyboard */ = {
@@ -315,6 +393,30 @@
 			};
 			name = Release;
 		};
+		9FCE2FDE1BD41128003896E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GenerambaTestProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.rambler.GenerambaTestProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenerambaTestProject.app/GenerambaTestProject";
+			};
+			name = Debug;
+		};
+		9FCE2FDF1BD41128003896E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GenerambaTestProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.rambler.GenerambaTestProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenerambaTestProject.app/GenerambaTestProject";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -335,6 +437,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		9FCE2FE01BD41128003896E6 /* Build configuration list for PBXNativeTarget "GenerambaTestProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FCE2FDE1BD41128003896E6 /* Debug */,
+				9FCE2FDF1BD41128003896E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
