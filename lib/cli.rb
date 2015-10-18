@@ -12,23 +12,22 @@ module Generamba::CLI
 	  method_option :group_path, :aliases => '-g', :desc => 'Provides a group path to the module group in the Xcode file'
 	  method_option :xcodeproj_path, :aliases => '-x', :desc => 'Provides a path to .xcodeproj file'
 	  def gen(moduleName)
+        doesRambafileExist = Dir['Rambafile'].count > 0
+
+        if (doesRambafileExist == false)
+          puts('Rambafile not found! Run `generamba setup` in the working directory instead!')
+          return;
+        end
+
+        config = Generamba::ProjectConfiguration;
+
       	moduleDescription = options[:description] ? options[:description] : "Sample Description"
-      	moduleFilePath = options[:file_path] ? options[:file_path] : File.basename(Dir.getwd)
-      	moduleGroupPath = options[:group_path] ? options[:group_path] : moduleName
-      	moduleXcodeprojPath = ""
+      	moduleFilePath = config.project_file_path
+      	moduleGroupPath = config.project_group_path
+      	moduleXcodeprojPath = config.xcodeproj_path
       	if options[:xcodeproj_path]
       		moduleXcodeprojPath = options[:xcodeproj_path]
-      	else
-      		projectFiles = Dir['*.xcodeproj']
-      		count = projectFiles.count
-      		if count == 0
-      			puts('No .xcodeproj files found in a given folder. Try generamba in another folder.')
-      		elsif count == 1
-      			moduleXcodeprojPath = File.absolute_path(projectFiles[0])
-			    elsif count > 1
-				    puts('Multiple .xcodeproj files found in a given folder. You should choose one manually.')
-      		end
-      	end
+        end
 
       	generator = Generamba::ModuleGenerator.new()
       	generator.generateModule(moduleName, moduleDescription, moduleFilePath, moduleGroupPath, moduleXcodeprojPath)
