@@ -9,32 +9,32 @@ module Generamba
 		end
 
 		def generate_module(template_name, name, description)
-			# Setting up template variables
-			template_spec = TemplateHelper.obtain_spec(template_name)
+			# Setting up template
+			# TODO: We should create this model in the cli files
+			code_module = CodeModule.new(name, description)
 
-			configuration = ProjectConfiguration
-			file_content_generator = FileContentGenerator.new
+			# Setting up template variables
+			template = ModuleTemplate.new(template_name)
 			processor = ViperModuleProcessor.new()
-			project = Xcodeproj::Project.open(configuration.xcodeproj_path)
-			code_module = CodeModule.new(template_spec)
+			project = Xcodeproj::Project.open(ProjectConfiguration.xcodeproj_path)
 
 			# Получаем таргет проекта
 			project_target = nil
 			targets = project.targets
 			targets.each { |target|
-				if target.name == configuration.project_target
+				if target.name == ProjectConfiguration.project_target
 					project_target = target
 				end
 			}
 
-			module_dir_path = configuration.project_file_path + name
-			module_group_path = configuration.project_group_path + name
+			module_dir_path = ProjectConfiguration.project_file_path + name
+			module_group_path = ProjectConfiguration.project_group_path + name
 			FileUtils.mkdir_p module_dir_path
 
-			code_module.files.each { |file|
-				file_name = configuration.prefix + name + File.basename(file['name'])
+			template.files.each { |file|
+				file_name = ProjectConfiguration.prefix + name + File.basename(file['name'])
 				file_group = File.dirname(file['name'])
-				file_content = file_content_generator.create_element(code_module.template_path + '/' + file['path'], name, description, file_name, configuration)
+				file_content = ContentGenerator.create_file_content(file, code_module, template)
 				file_path = module_dir_path + "/" + file_group + "/" + file_name
 				FileUtils.mkdir_p File.dirname(file_path)
 				File.open(file_path, "w+") {|f|

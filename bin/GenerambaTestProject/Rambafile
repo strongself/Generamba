@@ -2,6 +2,7 @@ author: Egor Tolstoy
 company: Rambler&Co
 year: 2015
 prefix: RDS
+project_name: GenerambaTestProject
 
 xcodeproj_path: /Users/etolstoy/Generamba/bin/GenerambaTestProject/GenerambaTestProject.xcodeproj
 

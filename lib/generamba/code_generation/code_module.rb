@@ -1,14 +1,32 @@
-require 'settingslogic'
-
 module Generamba
-  class CodeModule
-    attr_reader :files, :template_name, :template_path
 
-    def initialize(path)
-      @spec = Settingslogic.new(path)
-      @files = @spec['module_files']
-      @template_name = @spec.name
-      @template_path = File.dirname(path)
+  # Represents currently generating code module
+  class CodeModule
+    attr_reader :name, :description, :author, :company, :year, :prefix, :project_name
+
+    def initialize(name, description)
+      @name = name
+      @description = description
+    end
+
+    def author
+      ProjectConfiguration.author
+    end
+
+    def company
+      ProjectConfiguration.company
+    end
+
+    def year
+      ProjectConfiguration.year
+    end
+
+    def prefix
+      ProjectConfiguration.prefix
+    end
+
+    def project_name
+      ProjectConfiguration.project_name
     end
   end
 end
