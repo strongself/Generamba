@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+#import "RDSAuthInteractor.h"
+
 @interface ViewController ()
 
 @end

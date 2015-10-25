@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    generamba (0.1.2)
+    generamba (0.1.0)
       liquid
       settingslogic
       thor

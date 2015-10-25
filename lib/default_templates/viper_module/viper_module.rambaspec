@@ -1,0 +1,33 @@
+name: "viper_module"
+summary: "Basic VIPER module template"
+author: "Egor Tolstoy"
+version: "0.0.1"
+update: "25.10.15"
+license: "MIT"
+
+module_files:
+# Assembly layer
+- {name: Assembly/Assembly.h, path: Code/Assembly/assembly.h.liquid}
+- {name: Assembly/Assembly.m, path: Code/Assembly/assembly.m.liquid}
+
+# View layer
+- {name: View/ViewInput.h, path: Code/View/view_input.h.liquid}
+- {name: View/ViewOutput.h, path: Code/View/view_output.h.liquid}
+- {name: View/ViewController.h, path: Code/View/viewcontroller.h.liquid}
+- {name: View/ViewController.m, path: Code/View/viewcontroller.m.liquid}
+
+# Presenter layer
+- {name: Presenter/ModuleInput.h, path: Code/Presenter/module_input.h.liquid}
+- {name: Presenter/Presenter.h, path: Code/Presenter/presenter.h.liquid}
+- {name: Presenter/Presenter.m, path: Code/Presenter/presenter.m.liquid}
+
+# Interactor layer
+- {name: Interactor/InteractorInput.h, path: Code/Interactor/interactor_input.h.liquid}
+- {name: Interactor/InteractorOutput.h, path: Code/Interactor/interactor_output.h.liquid}
+- {name: Interactor/Interactor.h, path: Code/Interactor/interactor.h.liquid}
+- {name: Interactor/Interactor.m, path: Code/Interactor/interactor.m.liquid}
+
+# Router layer
+- {name: Router/RouterInput.h, path: Code/Router/router_input.h.liquid}
+- {name: Router/Router.h, path: Code/Router/router.h.liquid}
+- {name: Router/Router.m, path: Code/Router/router.m.liquid}

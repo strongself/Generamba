@@ -7,18 +7,26 @@ class Generamba::FileContentGenerator
 	def initialize
 	end
 
-	# TODO: generate h and m files
-	def createElement(type)
-		template = Tilt.new(File.dirname(__FILE__) + '/templates/' + type + '.liquid')
-		module_info = {}
-		module_info['name'] = "Test Module"
-		module_info['fileName'] = "TestModule"
-		module_info['description'] = "Test module to test scripts"
-		module_info['viewType'] = "Controller"
+	def create_element(template_path, module_name, module_description, file_name, configuration)
+		template = Tilt.new(template_path)
+		module_info = {
+				'name' => module_name,
+				'file_name' => file_name,
+				'description' => module_description
+		}
 
-		developer = { 'name' => "Andrey Zarembo",'company' => "Rambler & Co" }
+		developer = {
+				'name' => configuration.author,
+				'company' => configuration.company
+		}
 
-		scope = { 'year' => '2015', 'date' => '12.12.2015', 'developer' => developer, 'module_info' => module_info,'prefix' => 'RCM' }
+		scope = {
+				'year' => configuration.year,
+				'date' => Time.now.strftime("%d/%m/%Y"),
+				'developer' => developer,
+				'module_info' => module_info,
+				'prefix' => configuration.prefix
+		}
 
 		output = template.render(scope)
 		return output
