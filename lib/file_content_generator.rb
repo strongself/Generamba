@@ -8,8 +8,8 @@ class Generamba::FileContentGenerator
 	end
 
 	# TODO: generate h and m files
-	def createElement(type)
-		template = Tilt.new(File.dirname(__FILE__) + '/templates/' + type + '.liquid')
+	def createElement(template_path)
+		template = Tilt.new(Dir.getwd + '/' + template_path)
 		module_info = {}
 		module_info['name'] = "Test Module"
 		module_info['fileName'] = "TestModule"

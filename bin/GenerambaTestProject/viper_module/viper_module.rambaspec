@@ -1,0 +1,18 @@
+name: "viper_module"
+summary: "Basic VIPER module template"
+author: "Egor Tolstoy"
+version: "0.0.1"
+update: "25.10.15"
+license: "MIT"
+
+module_files:
+- {name: Assembly/Assembly.h, path: Assembly/assembly.h.liquid}
+- {name: Assembly/Assembly.m, path: Assembly/assembly.m.liquid}
+#- Interactor/Interactor.h: Interactor/interactor.h.liquid
+#- Interactor/Interactor.m: Interactor/interactor.m.liquid
+#- Presenter/Presenter.h: Presenter/presenter.h.liquid
+#- Presenter/Presenter.m: Presenter/presenter.m.liquid
+#- Router/Router.h: Router/router.h.liquid
+#- Router/Router.m: Router/router.m.liquid
+#- View/ViewController.h: View/viewcontroller.h.liquid
+#- View/ViewController.m: View/viewcontroller.m.liquid
