@@ -1,54 +1,64 @@
 require 'fileutils'
 
 require 'generamba/helpers/template_helper.rb'
+require 'generamba/helpers/xcodeproj_helper.rb'
 
 module Generamba
+
+	# Responsible for creating the whole code module using information from the CLI
 	class ModuleGenerator
 
 		def initialize
 		end
 
 		def generate_module(template_name, name, description)
-			# Setting up template
-			# TODO: We should create this model in the cli files
+			# Setting up CodeModule and ModuleTemplate objects.
+			# TODO: Move it to the CLI infrastructure
 			code_module = CodeModule.new(name, description)
-
-			# Setting up template variables
 			template = ModuleTemplate.new(template_name)
-			processor = ViperModuleProcessor.new()
-			project = Xcodeproj::Project.open(ProjectConfiguration.xcodeproj_path)
 
-			# Получаем таргет проекта
-			project_target = nil
-			targets = project.targets
-			targets.each { |target|
-				if target.name == ProjectConfiguration.project_target
-					project_target = target
-				end
-			}
+			# Setting up Xcode objects
+			project = XcodeprojHelper.obtain_project(ProjectConfiguration.xcodeproj_path)
+			project_target = XcodeprojHelper.obtain_target(ProjectConfiguration.project_target,
+																										 project)
 
-			module_dir_path = ProjectConfiguration.project_file_path + name
-			module_group_path = ProjectConfiguration.project_group_path + name
+			# Configuring the whole module file path
+			module_dir_path = Pathname.new(ProjectConfiguration.project_group_path)
+														.join(name)
 			FileUtils.mkdir_p module_dir_path
 
-			template.files.each { |file|
+			# Configuring the whole module Xcode group path
+			module_group_path = Pathname.new(ProjectConfiguration.project_group_path)
+															.join(name)
+
+			template.files.each do |file|
+				# The target file's name consists of three parameters: project prefix, module name and template file name.
+				# E.g. RDS + Authorization + Presenter.h = RDSAuthorizationPresenter.h
 				file_name = ProjectConfiguration.prefix + name + File.basename(file['name'])
 				file_group = File.dirname(file['name'])
-				file_content = ContentGenerator.create_file_content(file, code_module, template)
-				file_path = module_dir_path + "/" + file_group + "/" + file_name
-				FileUtils.mkdir_p File.dirname(file_path)
-				File.open(file_path, "w+") {|f|
-					f.write(file_content)
-				}
 
-				module_group = processor.retreive_or_create_pbxgroup(project, module_group_path + "/" + file_group)
-				xcode_file = module_group.new_file(File.absolute_path(file_path))
-				if File.extname(file_name) == '.m'
-					project_target.add_file_references([xcode_file])
+				# Generating the content of the code file
+				file_content = ContentGenerator.create_file_content(file,
+																														code_module,
+																														template)
+				file_path = module_dir_path
+												.join(file_group)
+												.join(file_name)
+
+				# Creating the file in the filesystem
+				FileUtils.mkdir_p File.dirname(file_path)
+				File.open(file_path, 'w+') do |f|
+					f.write(file_content)
 				end
 
-			}
+				# Creating the file in the Xcode project
+				XcodeprojHelper.add_file_to_project_and_target(project,
+																											 project_target,
+																											 module_group_path.join(file_group),
+																											 file_path)
+			end
 
+			# Saving the current changes in the Xcode project
 			project.save
 		end
 	end
