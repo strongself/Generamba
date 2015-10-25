@@ -8,7 +8,7 @@ class Generamba::FileContentGenerator
 	end
 
 	def create_element(template_path, module_name, module_description, file_name, configuration)
-		template = Tilt.new(Dir.getwd + '/' + template_path)
+		template = Tilt.new(template_path)
 		module_info = {
 				'name' => module_name,
 				'file_name' => file_name,

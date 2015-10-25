@@ -7,11 +7,14 @@ module Generamba
 		end
 
 		def generate_module(template, name, description)
+			template_path = File.dirname(__FILE__) + "/default_templates/" + template
+			template_spec = Dir[template_path + "/" + template + '.rambaspec'][0]
+
 			configuration = ProjectConfiguration
 			file_content_generator = FileContentGenerator.new
 			processor = ViperModuleProcessor.new()
 			project = Xcodeproj::Project.open(configuration.xcodeproj_path)
-			code_module = CodeModule.new("viper_module/viper_module.rambaspec")
+			code_module = CodeModule.new(template_spec)
 
 			module_dir_path = configuration.project_file_path + name
 			module_group_path = configuration.project_group_path + name
@@ -20,7 +23,7 @@ module Generamba
 			code_module.files.each { |file|
 				file_name = configuration.prefix + name + File.basename(file['name'])
 				file_group = File.dirname(file['name'])
-				file_content = file_content_generator.create_element(code_module.name + '/' + file['path'], name, description, file_name, configuration)
+				file_content = file_content_generator.create_element(template_path + '/' + file['path'], name, description, file_name, configuration)
 				file_path = module_dir_path + "/" + file_group + "/" + file_name
 				FileUtils.mkdir_p File.dirname(file_path)
 				File.open(file_path, "w+") {|f|
