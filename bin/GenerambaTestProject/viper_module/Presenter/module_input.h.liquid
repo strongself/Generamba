@@ -6,13 +6,15 @@
 //  Copyright {{ year }} {{ developer.company }}. All rights reserved.
 //
 
-#import <Typhoon/Typhoon.h>
+#import <Foundation/Foundation.h>
+
+@protocol {{ prefix }}{{ module_info.name }}ModuleInput <NSObject>
 
 /**
  @author {{ developer.name }}
 
- {{ module_info.description }}
+ Метод инициирует стартовую конфигурацию текущего модуля
  */
-@interface {{ prefix }}{{ module_info.name }}Assembly : TyphoonAssembly
+- (void)configureCurrentModule;
 
 @end

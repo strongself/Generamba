@@ -27,8 +27,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		12E57D5265E46E56AA2F369B /* AuthAssembly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthAssembly.m; path = Classes/Modules/Auth/Assembly/AuthAssembly.m; sourceTree = "<group>"; };
-		18A79698D28B2EEDBE5780AC /* AuthAssembly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthAssembly.h; path = Classes/Modules/Auth/Assembly/AuthAssembly.h; sourceTree = "<group>"; };
+		079F2FAEC6CE660DAC8D2A9B /* RDSAuthViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSAuthViewController.m; path = Classes/Modules/Auth/View/RDSAuthViewController.m; sourceTree = "<group>"; };
+		1492578E95A67CD9CCCA320C /* RDSAuthViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthViewController.h; path = Classes/Modules/Auth/View/RDSAuthViewController.h; sourceTree = "<group>"; };
+		3966DF960A265C020484734B /* RDSAuthInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthInteractor.h; path = Classes/Modules/Auth/Interactor/RDSAuthInteractor.h; sourceTree = "<group>"; };
+		5539098C780FFF05FCF5F91E /* RDSAuthInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSAuthInteractor.m; path = Classes/Modules/Auth/Interactor/RDSAuthInteractor.m; sourceTree = "<group>"; };
+		6F44EFB2A8F59A48005A8791 /* RDSAuthModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthModuleInput.h; path = Classes/Modules/Auth/Presenter/RDSAuthModuleInput.h; sourceTree = "<group>"; };
+		6FB0E16F23B7F7EE58D0146B /* RDSAuthAssembly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSAuthAssembly.m; path = Classes/Modules/Auth/Assembly/RDSAuthAssembly.m; sourceTree = "<group>"; };
+		6FC8226D21BD14E7C1BF3BCC /* RDSAuthViewOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthViewOutput.h; path = Classes/Modules/Auth/View/RDSAuthViewOutput.h; sourceTree = "<group>"; };
 		9F1381481BCA996D00A1F83C /* GenerambaTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenerambaTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F13814C1BCA996D00A1F83C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9F13814E1BCA996D00A1F83C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,9 +44,18 @@
 		9F1381571BCA996D00A1F83C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F13815A1BCA996D00A1F83C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F13815C1BCA996D00A1F83C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F851AC238131A93E7997270 /* RDSAuthAssembly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthAssembly.h; path = Classes/Modules/Auth/Assembly/RDSAuthAssembly.h; sourceTree = "<group>"; };
 		9FCE2FD71BD41128003896E6 /* GenerambaTestProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenerambaTestProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FCE2FD91BD41128003896E6 /* GenerambaTestProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenerambaTestProjectTests.m; sourceTree = "<group>"; };
 		9FCE2FDB1BD41128003896E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8A81F883EC35A34625E0C3D /* RDSAuthRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSAuthRouter.m; path = Classes/Modules/Auth/Router/RDSAuthRouter.m; sourceTree = "<group>"; };
+		AA850248FEE3FA66E99C308A /* RDSAuthInteractorOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthInteractorOutput.h; path = Classes/Modules/Auth/Interactor/RDSAuthInteractorOutput.h; sourceTree = "<group>"; };
+		BE6B8188DE58ABDDEB71298B /* RDSAuthViewInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthViewInput.h; path = Classes/Modules/Auth/View/RDSAuthViewInput.h; sourceTree = "<group>"; };
+		D27044C92FEC25EC244026FA /* RDSAuthInteractorInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthInteractorInput.h; path = Classes/Modules/Auth/Interactor/RDSAuthInteractorInput.h; sourceTree = "<group>"; };
+		D4FCC443DEC182FE65CF4161 /* RDSAuthPresenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthPresenter.h; path = Classes/Modules/Auth/Presenter/RDSAuthPresenter.h; sourceTree = "<group>"; };
+		DC669972D9752CDD5C5DFD2A /* RDSAuthPresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSAuthPresenter.m; path = Classes/Modules/Auth/Presenter/RDSAuthPresenter.m; sourceTree = "<group>"; };
+		E8DBD599A835A453B1284B25 /* RDSAuthRouterInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthRouterInput.h; path = Classes/Modules/Auth/Router/RDSAuthRouterInput.h; sourceTree = "<group>"; };
+		F7AFCE9756EBEAEE26F4101B /* RDSAuthRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthRouter.h; path = Classes/Modules/Auth/Router/RDSAuthRouter.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,21 +76,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		013C4751C96AFA8D27989443 /* Classes */ = {
+		80DBE43F5ADF87B7935A0D77 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				C0BDE8067D9040C2A6A7543E /* Modules */,
+				E8DBD599A835A453B1284B25 /* RDSAuthRouterInput.h */,
+				F7AFCE9756EBEAEE26F4101B /* RDSAuthRouter.h */,
+				A8A81F883EC35A34625E0C3D /* RDSAuthRouter.m */,
 			);
-			name = Classes;
+			name = Router;
 			sourceTree = "<group>";
 		};
-		9CF08420B80F99A9D1A9018C /* Auth */ = {
+		83F99FA6BB577ACF2A492407 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				18A79698D28B2EEDBE5780AC /* AuthAssembly.h */,
-				12E57D5265E46E56AA2F369B /* AuthAssembly.m */,
+				A8044E91F3C544FE270D7AD8 /* Assembly */,
+				C6C849F07A51018082987BC6 /* View */,
+				E2960E4EDCBB321DD7327F72 /* Presenter */,
+				ECABD9B61A4280EA331ABF46 /* Interactor */,
+				80DBE43F5ADF87B7935A0D77 /* Router */,
 			);
 			name = Auth;
+			sourceTree = "<group>";
+		};
+		8A2983E89F71278F473794B4 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				83F99FA6BB577ACF2A492407 /* Auth */,
+			);
+			name = Modules;
 			sourceTree = "<group>";
 		};
 		9F13813F1BCA996D00A1F83C = {
@@ -109,7 +136,7 @@
 				9F1381591BCA996D00A1F83C /* LaunchScreen.storyboard */,
 				9F13815C1BCA996D00A1F83C /* Info.plist */,
 				9F13814B1BCA996D00A1F83C /* Supporting Files */,
-				013C4751C96AFA8D27989443 /* Classes */,
+				E29A4FCB38F30454A781AD01 /* Classes */,
 			);
 			path = GenerambaTestProject;
 			sourceTree = "<group>";
@@ -131,12 +158,53 @@
 			path = GenerambaTestProjectTests;
 			sourceTree = "<group>";
 		};
-		C0BDE8067D9040C2A6A7543E /* Modules */ = {
+		A8044E91F3C544FE270D7AD8 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				9CF08420B80F99A9D1A9018C /* Auth */,
+				9F851AC238131A93E7997270 /* RDSAuthAssembly.h */,
+				6FB0E16F23B7F7EE58D0146B /* RDSAuthAssembly.m */,
 			);
-			name = Modules;
+			name = Assembly;
+			sourceTree = "<group>";
+		};
+		C6C849F07A51018082987BC6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE6B8188DE58ABDDEB71298B /* RDSAuthViewInput.h */,
+				6FC8226D21BD14E7C1BF3BCC /* RDSAuthViewOutput.h */,
+				1492578E95A67CD9CCCA320C /* RDSAuthViewController.h */,
+				079F2FAEC6CE660DAC8D2A9B /* RDSAuthViewController.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E2960E4EDCBB321DD7327F72 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				6F44EFB2A8F59A48005A8791 /* RDSAuthModuleInput.h */,
+				D4FCC443DEC182FE65CF4161 /* RDSAuthPresenter.h */,
+				DC669972D9752CDD5C5DFD2A /* RDSAuthPresenter.m */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		E29A4FCB38F30454A781AD01 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8A2983E89F71278F473794B4 /* Modules */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		ECABD9B61A4280EA331ABF46 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D27044C92FEC25EC244026FA /* RDSAuthInteractorInput.h */,
+				AA850248FEE3FA66E99C308A /* RDSAuthInteractorOutput.h */,
+				3966DF960A265C020484734B /* RDSAuthInteractor.h */,
+				5539098C780FFF05FCF5F91E /* RDSAuthInteractor.m */,
+			);
+			name = Interactor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

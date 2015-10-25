@@ -1,16 +1,17 @@
 //
-//  {{ prefix }}{{ module_info.fileName }}ModuleAssembly.m
-//  Проект:   {{ project }}
+//  {{ module_info.file_name }}
+//  {{ module_info.project_name }}
 //
-//  Модуль:   {{ module_info_info.name }}
-//  Описание: {{ module_info.description }}
-//
-//  Создан {{ developer.name }}  {{ date }}
-//  {{ developer.company }} {{ year }}
+//  Created by {{ developer.name }} on  {{ date }}.
+//  Copyright {{ year }} {{ developer.company }}. All rights reserved.
 //
 
-#import "{{ prefix }}{{ module_info.fileName }}{{module_info.fileName}}Assembly.h"
-#import "{{ prefix }}{{ module_info.fileName }}View{{ module_info.viewType }}.h"
-#import "{{ prefix }}{{ module_info.fileName }}Interactor.h"
-#import "{{ prefix }}{{ module_info.fileName }}Presenter.h"
-#import "{{ prefix }}{{ module_info.fileName }}Router.h"
+#import "{{ prefix }}{{ module_info.name }}InteractorInput.h"
+
+@protocol {{ prefix }}{{ module_info.name }}InteractorOutput;
+
+@interface {{ prefix }}{{ module_info.name }}Interactor : NSObject <{{ prefix }}{{ module_info.name }}InteractorInput>
+
+@property (nonatomic, weak) id<{{ prefix }}{{ module_info.name }}InteractorOutput> output;
+
+@end
