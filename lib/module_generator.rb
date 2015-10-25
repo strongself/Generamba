@@ -16,6 +16,15 @@ module Generamba
 			project = Xcodeproj::Project.open(configuration.xcodeproj_path)
 			code_module = CodeModule.new(template_spec)
 
+			# Получаем таргет проекта
+			project_target = nil
+			targets = project.targets
+			targets.each { |target|
+				if target.name == configuration.project_target
+					project_target = target
+				end
+			}
+
 			module_dir_path = configuration.project_file_path + name
 			module_group_path = configuration.project_group_path + name
 			FileUtils.mkdir_p module_dir_path
@@ -31,7 +40,11 @@ module Generamba
 				}
 
 				module_group = processor.retreive_or_create_pbxgroup(project, module_group_path + "/" + file_group)
-				module_group.new_file(File.absolute_path(file_path))
+				xcode_file = module_group.new_file(File.absolute_path(file_path))
+				if File.extname(file_name) == '.m'
+					project_target.add_file_references([xcode_file])
+				end
+
 			}
 
 			project.save
