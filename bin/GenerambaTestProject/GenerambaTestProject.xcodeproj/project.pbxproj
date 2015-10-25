@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9F13814D1BCA996D00A1F83C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13814C1BCA996D00A1F83C /* main.m */; };
+		9F1381501BCA996D00A1F83C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13814F1BCA996D00A1F83C /* AppDelegate.m */; };
+		9F1381531BCA996D00A1F83C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1381521BCA996D00A1F83C /* ViewController.m */; };
+		9F1381561BCA996D00A1F83C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1381541BCA996D00A1F83C /* Main.storyboard */; };
+		9F1381581BCA996D00A1F83C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F1381571BCA996D00A1F83C /* Assets.xcassets */; };
+		9F13815B1BCA996D00A1F83C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1381591BCA996D00A1F83C /* LaunchScreen.storyboard */; };
+		9FCE2FDA1BD41128003896E6 /* GenerambaTestProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FCE2FD91BD41128003896E6 /* GenerambaTestProjectTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9FCE2FDC1BD41128003896E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F1381401BCA996D00A1F83C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F1381471BCA996D00A1F83C;
+			remoteInfo = GenerambaTestProject;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2CDA1BB21DFDA72B9D45311E /* AuthorizationInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationInteractor.h; path = Classes/Modules/Authorization/AuthorizationInteractor.h; sourceTree = "<group>"; };
+		2DFF603C16B0E6DC20E7BD99 /* AuthorizationAssembly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationAssembly.h; path = Classes/Modules/Authorization/AuthorizationAssembly.h; sourceTree = "<group>"; };
+		3584C489A32F519CF2F57310 /* AuthorizationPresenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationPresenter.h; path = Classes/Modules/Authorization/AuthorizationPresenter.h; sourceTree = "<group>"; };
+		5DB6424AEA176008CDC0D22C /* AuthorizationRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationRouter.h; path = Classes/Modules/Authorization/AuthorizationRouter.h; sourceTree = "<group>"; };
+		73EFA4D06B43212BF72EB971 /* AuthorizationAssembly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationAssembly.m; path = Classes/Modules/Authorization/AuthorizationAssembly.m; sourceTree = "<group>"; };
+		797DAEED4162ADF9708AB5AD /* AuthorizationViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationViewController.m; path = Classes/Modules/Authorization/AuthorizationViewController.m; sourceTree = "<group>"; };
+		9F1381481BCA996D00A1F83C /* GenerambaTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenerambaTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F13814C1BCA996D00A1F83C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9F13814E1BCA996D00A1F83C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9F13814F1BCA996D00A1F83C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9F1381511BCA996D00A1F83C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9F1381521BCA996D00A1F83C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9F1381551BCA996D00A1F83C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9F1381571BCA996D00A1F83C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9F13815A1BCA996D00A1F83C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9F13815C1BCA996D00A1F83C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FCE2FD71BD41128003896E6 /* GenerambaTestProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenerambaTestProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FCE2FD91BD41128003896E6 /* GenerambaTestProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenerambaTestProjectTests.m; sourceTree = "<group>"; };
+		9FCE2FDB1BD41128003896E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C24DBD019CD5F647BDEE16BB /* AuthorizationRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationRouter.m; path = Classes/Modules/Authorization/AuthorizationRouter.m; sourceTree = "<group>"; };
+		CE1745A68D386DA2417B419A /* AuthorizationViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationViewController.h; path = Classes/Modules/Authorization/AuthorizationViewController.h; sourceTree = "<group>"; };
+		D981D7894784CBF7C4A60F09 /* AuthorizationPresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationPresenter.m; path = Classes/Modules/Authorization/AuthorizationPresenter.m; sourceTree = "<group>"; };
+		EF78A73F7ABB66641A4FF3F9 /* AuthorizationInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationInteractor.m; path = Classes/Modules/Authorization/AuthorizationInteractor.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9F1381451BCA996D00A1F83C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FCE2FD41BD41128003896E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		879A26F40200434209F4C916 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				2DFF603C16B0E6DC20E7BD99 /* AuthorizationAssembly.h */,
+				73EFA4D06B43212BF72EB971 /* AuthorizationAssembly.m */,
+				CE1745A68D386DA2417B419A /* AuthorizationViewController.h */,
+				797DAEED4162ADF9708AB5AD /* AuthorizationViewController.m */,
+				3584C489A32F519CF2F57310 /* AuthorizationPresenter.h */,
+				D981D7894784CBF7C4A60F09 /* AuthorizationPresenter.m */,
+				2CDA1BB21DFDA72B9D45311E /* AuthorizationInteractor.h */,
+				EF78A73F7ABB66641A4FF3F9 /* AuthorizationInteractor.m */,
+				5DB6424AEA176008CDC0D22C /* AuthorizationRouter.h */,
+				C24DBD019CD5F647BDEE16BB /* AuthorizationRouter.m */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		9F13813F1BCA996D00A1F83C = {
+			isa = PBXGroup;
+			children = (
+				9F13814A1BCA996D00A1F83C /* GenerambaTestProject */,
+				9FCE2FD81BD41128003896E6 /* GenerambaTestProjectTests */,
+				9F1381491BCA996D00A1F83C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9F1381491BCA996D00A1F83C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9F1381481BCA996D00A1F83C /* GenerambaTestProject.app */,
+				9FCE2FD71BD41128003896E6 /* GenerambaTestProjectTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9F13814A1BCA996D00A1F83C /* GenerambaTestProject */ = {
+			isa = PBXGroup;
+			children = (
+				9F13814E1BCA996D00A1F83C /* AppDelegate.h */,
+				9F13814F1BCA996D00A1F83C /* AppDelegate.m */,
+				9F1381511BCA996D00A1F83C /* ViewController.h */,
+				9F1381521BCA996D00A1F83C /* ViewController.m */,
+				9F1381541BCA996D00A1F83C /* Main.storyboard */,
+				9F1381571BCA996D00A1F83C /* Assets.xcassets */,
+				9F1381591BCA996D00A1F83C /* LaunchScreen.storyboard */,
+				9F13815C1BCA996D00A1F83C /* Info.plist */,
+				9F13814B1BCA996D00A1F83C /* Supporting Files */,
+				E9E6B9016892DD1750309279 /* Classes */,
+			);
+			path = GenerambaTestProject;
+			sourceTree = "<group>";
+		};
+		9F13814B1BCA996D00A1F83C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9F13814C1BCA996D00A1F83C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9FCE2FD81BD41128003896E6 /* GenerambaTestProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				9FCE2FD91BD41128003896E6 /* GenerambaTestProjectTests.m */,
+				9FCE2FDB1BD41128003896E6 /* Info.plist */,
+			);
+			path = GenerambaTestProjectTests;
+			sourceTree = "<group>";
+		};
+		E9E6B9016892DD1750309279 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				879A26F40200434209F4C916 /* Modules */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9F1381471BCA996D00A1F83C /* GenerambaTestProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F13815F1BCA996D00A1F83C /* Build configuration list for PBXNativeTarget "GenerambaTestProject" */;
+			buildPhases = (
+				9F1381441BCA996D00A1F83C /* Sources */,
+				9F1381451BCA996D00A1F83C /* Frameworks */,
+				9F1381461BCA996D00A1F83C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GenerambaTestProject;
+			productName = GenerambaTestProject;
+			productReference = 9F1381481BCA996D00A1F83C /* GenerambaTestProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9FCE2FD61BD41128003896E6 /* GenerambaTestProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FCE2FE01BD41128003896E6 /* Build configuration list for PBXNativeTarget "GenerambaTestProjectTests" */;
+			buildPhases = (
+				9FCE2FD31BD41128003896E6 /* Sources */,
+				9FCE2FD41BD41128003896E6 /* Frameworks */,
+				9FCE2FD51BD41128003896E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FCE2FDD1BD41128003896E6 /* PBXTargetDependency */,
+			);
+			name = GenerambaTestProjectTests;
+			productName = GenerambaTestProjectTests;
+			productReference = 9FCE2FD71BD41128003896E6 /* GenerambaTestProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9F1381401BCA996D00A1F83C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Rambler;
+				TargetAttributes = {
+					9F1381471BCA996D00A1F83C = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					9FCE2FD61BD41128003896E6 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 9F1381471BCA996D00A1F83C;
+					};
+				};
+			};
+			buildConfigurationList = 9F1381431BCA996D00A1F83C /* Build configuration list for PBXProject "GenerambaTestProject" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9F13813F1BCA996D00A1F83C;
+			productRefGroup = 9F1381491BCA996D00A1F83C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9F1381471BCA996D00A1F83C /* GenerambaTestProject */,
+				9FCE2FD61BD41128003896E6 /* GenerambaTestProjectTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9F1381461BCA996D00A1F83C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F13815B1BCA996D00A1F83C /* LaunchScreen.storyboard in Resources */,
+				9F1381581BCA996D00A1F83C /* Assets.xcassets in Resources */,
+				9F1381561BCA996D00A1F83C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FCE2FD51BD41128003896E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9F1381441BCA996D00A1F83C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F1381531BCA996D00A1F83C /* ViewController.m in Sources */,
+				9F1381501BCA996D00A1F83C /* AppDelegate.m in Sources */,
+				9F13814D1BCA996D00A1F83C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FCE2FD31BD41128003896E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FCE2FDA1BD41128003896E6 /* GenerambaTestProjectTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9FCE2FDD1BD41128003896E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F1381471BCA996D00A1F83C /* GenerambaTestProject */;
+			targetProxy = 9FCE2FDC1BD41128003896E6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9F1381541BCA996D00A1F83C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F1381551BCA996D00A1F83C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9F1381591BCA996D00A1F83C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F13815A1BCA996D00A1F83C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9F13815D1BCA996D00A1F83C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9F13815E1BCA996D00A1F83C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9F1381601BCA996D00A1F83C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GenerambaTestProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.rambler.GenerambaTestProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9F1381611BCA996D00A1F83C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GenerambaTestProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.rambler.GenerambaTestProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9FCE2FDE1BD41128003896E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GenerambaTestProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.rambler.GenerambaTestProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenerambaTestProject.app/GenerambaTestProject";
+			};
+			name = Debug;
+		};
+		9FCE2FDF1BD41128003896E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GenerambaTestProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.rambler.GenerambaTestProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenerambaTestProject.app/GenerambaTestProject";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9F1381431BCA996D00A1F83C /* Build configuration list for PBXProject "GenerambaTestProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F13815D1BCA996D00A1F83C /* Debug */,
+				9F13815E1BCA996D00A1F83C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F13815F1BCA996D00A1F83C /* Build configuration list for PBXNativeTarget "GenerambaTestProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F1381601BCA996D00A1F83C /* Debug */,
+				9F1381611BCA996D00A1F83C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9FCE2FE01BD41128003896E6 /* Build configuration list for PBXNativeTarget "GenerambaTestProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FCE2FDE1BD41128003896E6 /* Debug */,
+				9FCE2FDF1BD41128003896E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9F1381401BCA996D00A1F83C /* Project object */;
+}

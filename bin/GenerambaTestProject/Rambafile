@@ -1,0 +1,14 @@
+author: Egor Tolstoy
+company: Rambler&Co
+year: 2015
+prefix: RDS
+
+xcodeproj_path: /Users/etolstoy/Generamba/bin/GenerambaTestProject/GenerambaTestProject.xcodeproj
+
+project_target: GenerambaTestProject
+project_file_path: GenerambaTestProject/Classes/Modules/
+project_group_path: GenerambaTestProject/Classes/Modules/
+
+test_target: GenerambaTestProjectTests
+test_file_path: GenerambaTestProjectTests/Modules/
+test_group_path: GenerambaTestProjectTests/Modules/
