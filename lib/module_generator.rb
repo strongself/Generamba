@@ -28,6 +28,7 @@ module Generamba
 				}
 
 				module_group = processor.retreive_or_create_pbxgroup(project, module_group_path)
+				module_group = processor.retreive_or_create_pbxgroup(project, module_group_path + "/" + file_group)
 				module_group.new_file(File.absolute_path(file_path))
 			}
 
