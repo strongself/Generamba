@@ -18,7 +18,7 @@ module Generamba
     end
 
     def year
-      ProjectConfiguration.year
+      Time.now.year.to_s
     end
 
     def prefix
