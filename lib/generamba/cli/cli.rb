@@ -72,18 +72,14 @@ module Generamba::CLI
 			test_group_path = ask('The default group path for creating tests:')
 			test_file_path = ask('The default file path for creating tests:')
 
-			template = Tilt.new(File.dirname(__FILE__) + '/Rambafile.liquid')
 			properties['project_target'] = project_target.name
 			properties['project_file_path'] = project_file_path
 			properties['project_group_path'] = project_group_path
 			properties['test_target'] = test_target.name
 			properties['test_file_path'] = test_file_path
 			properties['test_group_path'] = test_group_path
-			output = template.render(properties)
 
-			File.open('Rambafile', 'w+') {|f|
-				f.write(output)
-			}
+			RambafileGenerator.create_rambafile(properties)
 		end
 	end
 end
