@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    generamba (0.1.0)
+    generamba (0.2.0)
+      git
       liquid
       settingslogic
       thor
@@ -20,6 +21,7 @@ GEM
     claide (0.9.1)
     colored (1.2)
     diff-lcs (1.2.5)
+    git (1.2.9.1)
     i18n (0.7.0)
     json (1.8.3)
     liquid (3.0.6)

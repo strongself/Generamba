@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A758AF79AEC3AFBADB0DF2B /* RDSLogin2Assembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1B6E231AE8B9E5975F451A /* RDSLogin2Assembly.m */; };
+		1F3DFC5AAB37CE8F2C200FDC /* RDSLoginPresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5049143C558A3F899724698 /* RDSLoginPresenterTests.m */; };
+		21AC9C0DB10B55859C69A4D6 /* RDSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240A8C20776D10FA89D9FF80 /* RDSLoginViewController.m */; };
+		2BFDC646B52876BE68725AD5 /* RDSLoginAssemblyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B6E66A9619AF2B49729A49 /* RDSLoginAssemblyTests.m */; };
+		3655FE30927FAA58A7CFC45F /* RDSLoginRouterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FE1E1FFC18DEF0061CB8CF /* RDSLoginRouterTests.m */; };
+		38EDA89A3CFCD2388C0D7DB9 /* RDSLoginAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE2BF1E051818D1B911A7D /* RDSLoginAssembly.m */; };
+		39F58DC7984EF0408AC58BA9 /* RDSLoginInteractorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E5360C4644C688C06B5E19 /* RDSLoginInteractorTests.m */; };
+		3DDAF1EE8189486FE52F188C /* RDSLogin2InteractorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE632544F0612BA023A9165D /* RDSLogin2InteractorTests.m */; };
+		4652AA642F9273733FAF7DDC /* RDSLogin2Interactor.m in Sources */ = {isa = PBXBuildFile; fileRef = B93A62EFFC409AA9A6D818DD /* RDSLogin2Interactor.m */; };
+		69CF06EBA84EEA90317A84E3 /* RDSLogin2AssemblyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A6F3E2429DB41D4D28A68F /* RDSLogin2AssemblyTests.m */; };
+		7C63139A0B4F09F37CCA10B8 /* RDSLoginViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2C8D924D45231BFFFB0B0A /* RDSLoginViewControllerTests.m */; };
+		7CEEFB17429E4E6D5EEC4422 /* RDSLogin2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E14CBBD0DCA7C9648637CD /* RDSLogin2ViewController.m */; };
+		89CC28FD4267E1EC74D5AFAE /* RDSLogin2Router.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E50C4B77B250D72EC75C9C /* RDSLogin2Router.m */; };
 		9F13814D1BCA996D00A1F83C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13814C1BCA996D00A1F83C /* main.m */; };
 		9F1381501BCA996D00A1F83C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13814F1BCA996D00A1F83C /* AppDelegate.m */; };
 		9F1381531BCA996D00A1F83C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1381521BCA996D00A1F83C /* ViewController.m */; };
@@ -14,6 +27,15 @@
 		9F1381581BCA996D00A1F83C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F1381571BCA996D00A1F83C /* Assets.xcassets */; };
 		9F13815B1BCA996D00A1F83C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1381591BCA996D00A1F83C /* LaunchScreen.storyboard */; };
 		9FCE2FDA1BD41128003896E6 /* GenerambaTestProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FCE2FD91BD41128003896E6 /* GenerambaTestProjectTests.m */; };
+		A6178A93F32D4A3889B7BB76 /* RDSLoginInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEDDBF9B43012B2B84977AA /* RDSLoginInteractor.m */; };
+		A70B1C5E81476CBBECC78FF6 /* RDSLogin2RouterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 915A5EED4C864C4B405097DE /* RDSLogin2RouterTests.m */; };
+		A7F1F61A1270AB62CBCEAC9E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F932D915213E7DBA670BAE04 /* libPods.a */; };
+		AF85A307818E01231F35F729 /* RDSLoginRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7564AE4CF3045E7D20C887 /* RDSLoginRouter.m */; };
+		B9C0D992E8BFF45241BA62E2 /* RDSLogin2ViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB4A1058A0FB46323C76DBF /* RDSLogin2ViewControllerTests.m */; };
+		C2E8BA34B76764040EEBF727 /* libPods-GenerambaTestProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB747DE4D3BD0766F369617E /* libPods-GenerambaTestProjectTests.a */; };
+		D496C0D031C346D23D354118 /* RDSLogin2PresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D78A7628FD369924F17475B /* RDSLogin2PresenterTests.m */; };
+		EC190A1A4A70AEC9E885DF10 /* RDSLogin2Presenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA550D2D8E10A4F4DD3191 /* RDSLogin2Presenter.m */; };
+		F06383834895E9F4F720686F /* RDSLoginPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D9520FBADA03DD53A055F514 /* RDSLoginPresenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,13 +49,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		079F2FAEC6CE660DAC8D2A9B /* RDSAuthViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSAuthViewController.m; path = Classes/Modules/Auth/View/RDSAuthViewController.m; sourceTree = "<group>"; };
-		1492578E95A67CD9CCCA320C /* RDSAuthViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthViewController.h; path = Classes/Modules/Auth/View/RDSAuthViewController.h; sourceTree = "<group>"; };
-		3966DF960A265C020484734B /* RDSAuthInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthInteractor.h; path = Classes/Modules/Auth/Interactor/RDSAuthInteractor.h; sourceTree = "<group>"; };
-		5539098C780FFF05FCF5F91E /* RDSAuthInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSAuthInteractor.m; path = Classes/Modules/Auth/Interactor/RDSAuthInteractor.m; sourceTree = "<group>"; };
-		6F44EFB2A8F59A48005A8791 /* RDSAuthModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthModuleInput.h; path = Classes/Modules/Auth/Presenter/RDSAuthModuleInput.h; sourceTree = "<group>"; };
-		6FB0E16F23B7F7EE58D0146B /* RDSAuthAssembly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSAuthAssembly.m; path = Classes/Modules/Auth/Assembly/RDSAuthAssembly.m; sourceTree = "<group>"; };
-		6FC8226D21BD14E7C1BF3BCC /* RDSAuthViewOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthViewOutput.h; path = Classes/Modules/Auth/View/RDSAuthViewOutput.h; sourceTree = "<group>"; };
+		09405B6A1F6F70EE743F6056 /* RDSLogin2ViewOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLogin2ViewOutput.h; path = Classes/Modules/Login2/View/RDSLogin2ViewOutput.h; sourceTree = "<group>"; };
+		0ABE2BF1E051818D1B911A7D /* RDSLoginAssembly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLoginAssembly.m; path = Classes/Modules/Login/Assembly/RDSLoginAssembly.m; sourceTree = "<group>"; };
+		1435E530FF289D9DD4F148A9 /* RDSLogin2ViewInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLogin2ViewInput.h; path = Classes/Modules/Login2/View/RDSLogin2ViewInput.h; sourceTree = "<group>"; };
+		1518B7C84D1FF2A6D28AED8D /* Pods-GenerambaTestProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenerambaTestProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GenerambaTestProjectTests/Pods-GenerambaTestProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		176CF72059593246BEE18325 /* RDSLoginInteractorInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLoginInteractorInput.h; path = Classes/Modules/Login/Interactor/RDSLoginInteractorInput.h; sourceTree = "<group>"; };
+		1EDF95B718543D2AA8365914 /* RDSLoginViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLoginViewController.h; path = Classes/Modules/Login/View/RDSLoginViewController.h; sourceTree = "<group>"; };
+		1F7BBBFC272F552DE4A84182 /* RDSLogin2Router.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLogin2Router.h; path = Classes/Modules/Login2/Router/RDSLogin2Router.h; sourceTree = "<group>"; };
+		240A8C20776D10FA89D9FF80 /* RDSLoginViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLoginViewController.m; path = Classes/Modules/Login/View/RDSLoginViewController.m; sourceTree = "<group>"; };
+		26A6F3E2429DB41D4D28A68F /* RDSLogin2AssemblyTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLogin2AssemblyTests.m; path = Modules/Login2/Assembly/RDSLogin2AssemblyTests.m; sourceTree = "<group>"; };
+		2DCEEED2E48C47598DB81716 /* RDSLogin2ModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLogin2ModuleInput.h; path = Classes/Modules/Login2/Presenter/RDSLogin2ModuleInput.h; sourceTree = "<group>"; };
+		3488779764CE2A3C30F49C18 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		37E5360C4644C688C06B5E19 /* RDSLoginInteractorTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLoginInteractorTests.m; path = Modules/Login/Interactor/RDSLoginInteractorTests.m; sourceTree = "<group>"; };
+		3A464AAEA91A31D916F60886 /* RDSLogin2Interactor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLogin2Interactor.h; path = Classes/Modules/Login2/Interactor/RDSLogin2Interactor.h; sourceTree = "<group>"; };
+		3D78A7628FD369924F17475B /* RDSLogin2PresenterTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLogin2PresenterTests.m; path = Modules/Login2/Presenter/RDSLogin2PresenterTests.m; sourceTree = "<group>"; };
+		4704B21AEA1FD819704BF6D3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4EAA550D2D8E10A4F4DD3191 /* RDSLogin2Presenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLogin2Presenter.m; path = Classes/Modules/Login2/Presenter/RDSLogin2Presenter.m; sourceTree = "<group>"; };
+		4FB530CE1D4590DB802CADDD /* RDSLoginAssembly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLoginAssembly.h; path = Classes/Modules/Login/Assembly/RDSLoginAssembly.h; sourceTree = "<group>"; };
+		57D9D90326564E12EB7C4B6A /* RDSLogin2Assembly_Testable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLogin2Assembly_Testable.h; path = Modules/Login2/Assembly/RDSLogin2Assembly_Testable.h; sourceTree = "<group>"; };
+		58E96518959C94681523F2B5 /* RDSLoginInteractorOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLoginInteractorOutput.h; path = Classes/Modules/Login/Interactor/RDSLoginInteractorOutput.h; sourceTree = "<group>"; };
+		5DD43FE483F45237725AA974 /* RDSLoginViewInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLoginViewInput.h; path = Classes/Modules/Login/View/RDSLoginViewInput.h; sourceTree = "<group>"; };
+		5E1B6E231AE8B9E5975F451A /* RDSLogin2Assembly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLogin2Assembly.m; path = Classes/Modules/Login2/Assembly/RDSLogin2Assembly.m; sourceTree = "<group>"; };
+		5E22CD6F63AE5FBDD0C44E38 /* RDSLogin2Presenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLogin2Presenter.h; path = Classes/Modules/Login2/Presenter/RDSLogin2Presenter.h; sourceTree = "<group>"; };
+		69FB38EA00686EDE81DDE010 /* RDSLogin2ViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLogin2ViewController.h; path = Classes/Modules/Login2/View/RDSLogin2ViewController.h; sourceTree = "<group>"; };
+		75B6E66A9619AF2B49729A49 /* RDSLoginAssemblyTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLoginAssemblyTests.m; path = Modules/Login/Assembly/RDSLoginAssemblyTests.m; sourceTree = "<group>"; };
+		7CBB1828024531773AC95E86 /* RDSLoginRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLoginRouter.h; path = Classes/Modules/Login/Router/RDSLoginRouter.h; sourceTree = "<group>"; };
+		8C5C71804ED27F42CE644B08 /* RDSLoginViewOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLoginViewOutput.h; path = Classes/Modules/Login/View/RDSLoginViewOutput.h; sourceTree = "<group>"; };
+		915A5EED4C864C4B405097DE /* RDSLogin2RouterTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLogin2RouterTests.m; path = Modules/Login2/Router/RDSLogin2RouterTests.m; sourceTree = "<group>"; };
 		9F1381481BCA996D00A1F83C /* GenerambaTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenerambaTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F13814C1BCA996D00A1F83C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9F13814E1BCA996D00A1F83C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,18 +86,32 @@
 		9F1381571BCA996D00A1F83C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F13815A1BCA996D00A1F83C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F13815C1BCA996D00A1F83C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F851AC238131A93E7997270 /* RDSAuthAssembly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthAssembly.h; path = Classes/Modules/Auth/Assembly/RDSAuthAssembly.h; sourceTree = "<group>"; };
 		9FCE2FD71BD41128003896E6 /* GenerambaTestProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenerambaTestProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FCE2FD91BD41128003896E6 /* GenerambaTestProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenerambaTestProjectTests.m; sourceTree = "<group>"; };
 		9FCE2FDB1BD41128003896E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A8A81F883EC35A34625E0C3D /* RDSAuthRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSAuthRouter.m; path = Classes/Modules/Auth/Router/RDSAuthRouter.m; sourceTree = "<group>"; };
-		AA850248FEE3FA66E99C308A /* RDSAuthInteractorOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthInteractorOutput.h; path = Classes/Modules/Auth/Interactor/RDSAuthInteractorOutput.h; sourceTree = "<group>"; };
-		BE6B8188DE58ABDDEB71298B /* RDSAuthViewInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthViewInput.h; path = Classes/Modules/Auth/View/RDSAuthViewInput.h; sourceTree = "<group>"; };
-		D27044C92FEC25EC244026FA /* RDSAuthInteractorInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthInteractorInput.h; path = Classes/Modules/Auth/Interactor/RDSAuthInteractorInput.h; sourceTree = "<group>"; };
-		D4FCC443DEC182FE65CF4161 /* RDSAuthPresenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthPresenter.h; path = Classes/Modules/Auth/Presenter/RDSAuthPresenter.h; sourceTree = "<group>"; };
-		DC669972D9752CDD5C5DFD2A /* RDSAuthPresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSAuthPresenter.m; path = Classes/Modules/Auth/Presenter/RDSAuthPresenter.m; sourceTree = "<group>"; };
-		E8DBD599A835A453B1284B25 /* RDSAuthRouterInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthRouterInput.h; path = Classes/Modules/Auth/Router/RDSAuthRouterInput.h; sourceTree = "<group>"; };
-		F7AFCE9756EBEAEE26F4101B /* RDSAuthRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSAuthRouter.h; path = Classes/Modules/Auth/Router/RDSAuthRouter.h; sourceTree = "<group>"; };
+		A7CBC8267544FBDDEE2038F5 /* RDSLoginPresenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLoginPresenter.h; path = Classes/Modules/Login/Presenter/RDSLoginPresenter.h; sourceTree = "<group>"; };
+		AB7564AE4CF3045E7D20C887 /* RDSLoginRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLoginRouter.m; path = Classes/Modules/Login/Router/RDSLoginRouter.m; sourceTree = "<group>"; };
+		ACEFD9153429155F9347C18E /* RDSLoginInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLoginInteractor.h; path = Classes/Modules/Login/Interactor/RDSLoginInteractor.h; sourceTree = "<group>"; };
+		AE632544F0612BA023A9165D /* RDSLogin2InteractorTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLogin2InteractorTests.m; path = Modules/Login2/Interactor/RDSLogin2InteractorTests.m; sourceTree = "<group>"; };
+		B4BD49E1CD19EF13A506CD60 /* RDSLogin2RouterInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLogin2RouterInput.h; path = Classes/Modules/Login2/Router/RDSLogin2RouterInput.h; sourceTree = "<group>"; };
+		B4FE1E1FFC18DEF0061CB8CF /* RDSLoginRouterTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLoginRouterTests.m; path = Modules/Login/Router/RDSLoginRouterTests.m; sourceTree = "<group>"; };
+		B66E4FCD7FC0538674C83788 /* RDSLoginAssembly_Testable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLoginAssembly_Testable.h; path = Modules/Login/Assembly/RDSLoginAssembly_Testable.h; sourceTree = "<group>"; };
+		B93A62EFFC409AA9A6D818DD /* RDSLogin2Interactor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLogin2Interactor.m; path = Classes/Modules/Login2/Interactor/RDSLogin2Interactor.m; sourceTree = "<group>"; };
+		BB747DE4D3BD0766F369617E /* libPods-GenerambaTestProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GenerambaTestProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1CEA70EEF723C1284C3D26 /* RDSLoginModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLoginModuleInput.h; path = Classes/Modules/Login/Presenter/RDSLoginModuleInput.h; sourceTree = "<group>"; };
+		BFDB4E21F1BEA574A95469A4 /* RDSLogin2InteractorOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLogin2InteractorOutput.h; path = Classes/Modules/Login2/Interactor/RDSLogin2InteractorOutput.h; sourceTree = "<group>"; };
+		C494643FD8797A4F426A4D43 /* RDSLogin2Assembly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLogin2Assembly.h; path = Classes/Modules/Login2/Assembly/RDSLogin2Assembly.h; sourceTree = "<group>"; };
+		C7CC6995D9A8D4D16C19766E /* RDSLoginRouterInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLoginRouterInput.h; path = Classes/Modules/Login/Router/RDSLoginRouterInput.h; sourceTree = "<group>"; };
+		CB2C8D924D45231BFFFB0B0A /* RDSLoginViewControllerTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLoginViewControllerTests.m; path = Modules/Login/View/RDSLoginViewControllerTests.m; sourceTree = "<group>"; };
+		D9520FBADA03DD53A055F514 /* RDSLoginPresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLoginPresenter.m; path = Classes/Modules/Login/Presenter/RDSLoginPresenter.m; sourceTree = "<group>"; };
+		D9E14CBBD0DCA7C9648637CD /* RDSLogin2ViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLogin2ViewController.m; path = Classes/Modules/Login2/View/RDSLogin2ViewController.m; sourceTree = "<group>"; };
+		DCEDDBF9B43012B2B84977AA /* RDSLoginInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLoginInteractor.m; path = Classes/Modules/Login/Interactor/RDSLoginInteractor.m; sourceTree = "<group>"; };
+		E463FEE6C2704FB1AEFC87CD /* RDSLogin2InteractorInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDSLogin2InteractorInput.h; path = Classes/Modules/Login2/Interactor/RDSLogin2InteractorInput.h; sourceTree = "<group>"; };
+		E5E50C4B77B250D72EC75C9C /* RDSLogin2Router.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLogin2Router.m; path = Classes/Modules/Login2/Router/RDSLogin2Router.m; sourceTree = "<group>"; };
+		F2E6114000D838F37A57EFC6 /* Pods-GenerambaTestProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenerambaTestProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GenerambaTestProjectTests/Pods-GenerambaTestProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		F5049143C558A3F899724698 /* RDSLoginPresenterTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLoginPresenterTests.m; path = Modules/Login/Presenter/RDSLoginPresenterTests.m; sourceTree = "<group>"; };
+		F932D915213E7DBA670BAE04 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB4A1058A0FB46323C76DBF /* RDSLogin2ViewControllerTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDSLogin2ViewControllerTests.m; path = Modules/Login2/View/RDSLogin2ViewControllerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7F1F61A1270AB62CBCEAC9E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,40 +127,146 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2E8BA34B76764040EEBF727 /* libPods-GenerambaTestProjectTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		80DBE43F5ADF87B7935A0D77 /* Router */ = {
+		054B39AA008401D86C1B125D /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				E8DBD599A835A453B1284B25 /* RDSAuthRouterInput.h */,
-				F7AFCE9756EBEAEE26F4101B /* RDSAuthRouter.h */,
-				A8A81F883EC35A34625E0C3D /* RDSAuthRouter.m */,
+				C494643FD8797A4F426A4D43 /* RDSLogin2Assembly.h */,
+				5E1B6E231AE8B9E5975F451A /* RDSLogin2Assembly.m */,
+			);
+			name = Assembly;
+			sourceTree = "<group>";
+		};
+		0C95D388DD170D8403D1C12A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				37E5360C4644C688C06B5E19 /* RDSLoginInteractorTests.m */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		2B0D914A7A9C60F63E3FEC92 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1435E530FF289D9DD4F148A9 /* RDSLogin2ViewInput.h */,
+				09405B6A1F6F70EE743F6056 /* RDSLogin2ViewOutput.h */,
+				69FB38EA00686EDE81DDE010 /* RDSLogin2ViewController.h */,
+				D9E14CBBD0DCA7C9648637CD /* RDSLogin2ViewController.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2D241E3F3065A0E4A07A8D81 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB2C8D924D45231BFFFB0B0A /* RDSLoginViewControllerTests.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2D4860623688AD250AA801DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FAB4A1058A0FB46323C76DBF /* RDSLogin2ViewControllerTests.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		37DF28C7A17282F5A845E65F /* Login2 */ = {
+			isa = PBXGroup;
+			children = (
+				054B39AA008401D86C1B125D /* Assembly */,
+				2B0D914A7A9C60F63E3FEC92 /* View */,
+				D17DB29B66E7207E19984C6A /* Presenter */,
+				40158A5BCAB002F518B95E9E /* Interactor */,
+				79D5BCC3B2AD9C2EE78B0DD3 /* Router */,
+			);
+			name = Login2;
+			sourceTree = "<group>";
+		};
+		3EE1171D37E64361F2E3CC1B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				915A5EED4C864C4B405097DE /* RDSLogin2RouterTests.m */,
 			);
 			name = Router;
 			sourceTree = "<group>";
 		};
-		83F99FA6BB577ACF2A492407 /* Auth */ = {
+		40158A5BCAB002F518B95E9E /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				A8044E91F3C544FE270D7AD8 /* Assembly */,
-				C6C849F07A51018082987BC6 /* View */,
-				E2960E4EDCBB321DD7327F72 /* Presenter */,
-				ECABD9B61A4280EA331ABF46 /* Interactor */,
-				80DBE43F5ADF87B7935A0D77 /* Router */,
+				E463FEE6C2704FB1AEFC87CD /* RDSLogin2InteractorInput.h */,
+				BFDB4E21F1BEA574A95469A4 /* RDSLogin2InteractorOutput.h */,
+				3A464AAEA91A31D916F60886 /* RDSLogin2Interactor.h */,
+				B93A62EFFC409AA9A6D818DD /* RDSLogin2Interactor.m */,
 			);
-			name = Auth;
+			name = Interactor;
 			sourceTree = "<group>";
 		};
-		8A2983E89F71278F473794B4 /* Modules */ = {
+		6E2DC349E5D53E5F3C52A5FD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				83F99FA6BB577ACF2A492407 /* Auth */,
+				3488779764CE2A3C30F49C18 /* Pods.debug.xcconfig */,
+				4704B21AEA1FD819704BF6D3 /* Pods.release.xcconfig */,
+				1518B7C84D1FF2A6D28AED8D /* Pods-GenerambaTestProjectTests.debug.xcconfig */,
+				F2E6114000D838F37A57EFC6 /* Pods-GenerambaTestProjectTests.release.xcconfig */,
 			);
-			name = Modules;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		79D5BCC3B2AD9C2EE78B0DD3 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				B4BD49E1CD19EF13A506CD60 /* RDSLogin2RouterInput.h */,
+				1F7BBBFC272F552DE4A84182 /* RDSLogin2Router.h */,
+				E5E50C4B77B250D72EC75C9C /* RDSLogin2Router.m */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		7C07F50EE966E4675905E76C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B3A61CC98420F71ABA354338 /* Assembly */,
+				2D241E3F3065A0E4A07A8D81 /* View */,
+				BE94DC6DA19ACA03849B0547 /* Presenter */,
+				0C95D388DD170D8403D1C12A /* Interactor */,
+				8A014B19397113AD31494FB1 /* Router */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		7C478A7D0B76D9EC47903C2E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BD1CEA70EEF723C1284C3D26 /* RDSLoginModuleInput.h */,
+				A7CBC8267544FBDDEE2038F5 /* RDSLoginPresenter.h */,
+				D9520FBADA03DD53A055F514 /* RDSLoginPresenter.m */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		89E947059872BAC10A73B48D /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				26A6F3E2429DB41D4D28A68F /* RDSLogin2AssemblyTests.m */,
+				57D9D90326564E12EB7C4B6A /* RDSLogin2Assembly_Testable.h */,
+			);
+			name = Assembly;
+			sourceTree = "<group>";
+		};
+		8A014B19397113AD31494FB1 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				B4FE1E1FFC18DEF0061CB8CF /* RDSLoginRouterTests.m */,
+			);
+			name = Router;
 			sourceTree = "<group>";
 		};
 		9F13813F1BCA996D00A1F83C = {
@@ -112,6 +275,8 @@
 				9F13814A1BCA996D00A1F83C /* GenerambaTestProject */,
 				9FCE2FD81BD41128003896E6 /* GenerambaTestProjectTests */,
 				9F1381491BCA996D00A1F83C /* Products */,
+				6E2DC349E5D53E5F3C52A5FD /* Pods */,
+				CB2935E37C55A8E8BE5F50EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,7 +301,7 @@
 				9F1381591BCA996D00A1F83C /* LaunchScreen.storyboard */,
 				9F13815C1BCA996D00A1F83C /* Info.plist */,
 				9F13814B1BCA996D00A1F83C /* Supporting Files */,
-				E29A4FCB38F30454A781AD01 /* Classes */,
+				F708A7EC5B51C7D57542260E /* Classes */,
 			);
 			path = GenerambaTestProject;
 			sourceTree = "<group>";
@@ -154,57 +319,152 @@
 			children = (
 				9FCE2FD91BD41128003896E6 /* GenerambaTestProjectTests.m */,
 				9FCE2FDB1BD41128003896E6 /* Info.plist */,
+				EE7371CFF28EDCF6F9860E53 /* Modules */,
 			);
 			path = GenerambaTestProjectTests;
 			sourceTree = "<group>";
 		};
-		A8044E91F3C544FE270D7AD8 /* Assembly */ = {
+		A6DF632EDC3F523977F996D1 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				9F851AC238131A93E7997270 /* RDSAuthAssembly.h */,
-				6FB0E16F23B7F7EE58D0146B /* RDSAuthAssembly.m */,
+				4FB530CE1D4590DB802CADDD /* RDSLoginAssembly.h */,
+				0ABE2BF1E051818D1B911A7D /* RDSLoginAssembly.m */,
 			);
 			name = Assembly;
 			sourceTree = "<group>";
 		};
-		C6C849F07A51018082987BC6 /* View */ = {
+		AD30734AA71E92D545ACF221 /* Login2 */ = {
 			isa = PBXGroup;
 			children = (
-				BE6B8188DE58ABDDEB71298B /* RDSAuthViewInput.h */,
-				6FC8226D21BD14E7C1BF3BCC /* RDSAuthViewOutput.h */,
-				1492578E95A67CD9CCCA320C /* RDSAuthViewController.h */,
-				079F2FAEC6CE660DAC8D2A9B /* RDSAuthViewController.m */,
+				89E947059872BAC10A73B48D /* Assembly */,
+				2D4860623688AD250AA801DC /* View */,
+				CCC8BB2A79D666E03E4B75EA /* Presenter */,
+				F43363109586D793EB64DCC3 /* Interactor */,
+				3EE1171D37E64361F2E3CC1B /* Router */,
+			);
+			name = Login2;
+			sourceTree = "<group>";
+		};
+		B3A61CC98420F71ABA354338 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				75B6E66A9619AF2B49729A49 /* RDSLoginAssemblyTests.m */,
+				B66E4FCD7FC0538674C83788 /* RDSLoginAssembly_Testable.h */,
+			);
+			name = Assembly;
+			sourceTree = "<group>";
+		};
+		B5F7F35D399689FD658537A7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5DD43FE483F45237725AA974 /* RDSLoginViewInput.h */,
+				8C5C71804ED27F42CE644B08 /* RDSLoginViewOutput.h */,
+				1EDF95B718543D2AA8365914 /* RDSLoginViewController.h */,
+				240A8C20776D10FA89D9FF80 /* RDSLoginViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
 		};
-		E2960E4EDCBB321DD7327F72 /* Presenter */ = {
+		BE94DC6DA19ACA03849B0547 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				6F44EFB2A8F59A48005A8791 /* RDSAuthModuleInput.h */,
-				D4FCC443DEC182FE65CF4161 /* RDSAuthPresenter.h */,
-				DC669972D9752CDD5C5DFD2A /* RDSAuthPresenter.m */,
+				F5049143C558A3F899724698 /* RDSLoginPresenterTests.m */,
 			);
 			name = Presenter;
 			sourceTree = "<group>";
 		};
-		E29A4FCB38F30454A781AD01 /* Classes */ = {
+		CB2935E37C55A8E8BE5F50EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8A2983E89F71278F473794B4 /* Modules */,
+				F932D915213E7DBA670BAE04 /* libPods.a */,
+				BB747DE4D3BD0766F369617E /* libPods-GenerambaTestProjectTests.a */,
 			);
-			name = Classes;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		ECABD9B61A4280EA331ABF46 /* Interactor */ = {
+		CCC8BB2A79D666E03E4B75EA /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				D27044C92FEC25EC244026FA /* RDSAuthInteractorInput.h */,
-				AA850248FEE3FA66E99C308A /* RDSAuthInteractorOutput.h */,
-				3966DF960A265C020484734B /* RDSAuthInteractor.h */,
-				5539098C780FFF05FCF5F91E /* RDSAuthInteractor.m */,
+				3D78A7628FD369924F17475B /* RDSLogin2PresenterTests.m */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		D17DB29B66E7207E19984C6A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2DCEEED2E48C47598DB81716 /* RDSLogin2ModuleInput.h */,
+				5E22CD6F63AE5FBDD0C44E38 /* RDSLogin2Presenter.h */,
+				4EAA550D2D8E10A4F4DD3191 /* RDSLogin2Presenter.m */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		D18B10C06DE037AACCA510F7 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				DAFBBCB103A231E53A7B9BBB /* Login */,
+				37DF28C7A17282F5A845E65F /* Login2 */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		DAFBBCB103A231E53A7B9BBB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A6DF632EDC3F523977F996D1 /* Assembly */,
+				B5F7F35D399689FD658537A7 /* View */,
+				7C478A7D0B76D9EC47903C2E /* Presenter */,
+				DC09AE4C12F837EA063E5D0F /* Interactor */,
+				EF3DB7DA1E8BE4DD2209ED3B /* Router */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		DC09AE4C12F837EA063E5D0F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				176CF72059593246BEE18325 /* RDSLoginInteractorInput.h */,
+				58E96518959C94681523F2B5 /* RDSLoginInteractorOutput.h */,
+				ACEFD9153429155F9347C18E /* RDSLoginInteractor.h */,
+				DCEDDBF9B43012B2B84977AA /* RDSLoginInteractor.m */,
 			);
 			name = Interactor;
+			sourceTree = "<group>";
+		};
+		EE7371CFF28EDCF6F9860E53 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				7C07F50EE966E4675905E76C /* Login */,
+				AD30734AA71E92D545ACF221 /* Login2 */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		EF3DB7DA1E8BE4DD2209ED3B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				C7CC6995D9A8D4D16C19766E /* RDSLoginRouterInput.h */,
+				7CBB1828024531773AC95E86 /* RDSLoginRouter.h */,
+				AB7564AE4CF3045E7D20C887 /* RDSLoginRouter.m */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		F43363109586D793EB64DCC3 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				AE632544F0612BA023A9165D /* RDSLogin2InteractorTests.m */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		F708A7EC5B51C7D57542260E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D18B10C06DE037AACCA510F7 /* Modules */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,9 +474,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F13815F1BCA996D00A1F83C /* Build configuration list for PBXNativeTarget "GenerambaTestProject" */;
 			buildPhases = (
+				E92A0AF65FCDD244E43E04EE /* Check Pods Manifest.lock */,
 				9F1381441BCA996D00A1F83C /* Sources */,
 				9F1381451BCA996D00A1F83C /* Frameworks */,
 				9F1381461BCA996D00A1F83C /* Resources */,
+				B817BCD59F1C3009F947C674 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,9 +493,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9FCE2FE01BD41128003896E6 /* Build configuration list for PBXNativeTarget "GenerambaTestProjectTests" */;
 			buildPhases = (
+				9C4B186E6166689350958906 /* Check Pods Manifest.lock */,
 				9FCE2FD31BD41128003896E6 /* Sources */,
 				9FCE2FD41BD41128003896E6 /* Frameworks */,
 				9FCE2FD51BD41128003896E6 /* Resources */,
+				D252C736FC0142931E1144ED /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -302,6 +566,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9C4B186E6166689350958906 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B817BCD59F1C3009F947C674 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D252C736FC0142931E1144ED /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GenerambaTestProjectTests/Pods-GenerambaTestProjectTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E92A0AF65FCDD244E43E04EE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9F1381441BCA996D00A1F83C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -310,6 +637,16 @@
 				9F1381531BCA996D00A1F83C /* ViewController.m in Sources */,
 				9F1381501BCA996D00A1F83C /* AppDelegate.m in Sources */,
 				9F13814D1BCA996D00A1F83C /* main.m in Sources */,
+				38EDA89A3CFCD2388C0D7DB9 /* RDSLoginAssembly.m in Sources */,
+				21AC9C0DB10B55859C69A4D6 /* RDSLoginViewController.m in Sources */,
+				F06383834895E9F4F720686F /* RDSLoginPresenter.m in Sources */,
+				A6178A93F32D4A3889B7BB76 /* RDSLoginInteractor.m in Sources */,
+				AF85A307818E01231F35F729 /* RDSLoginRouter.m in Sources */,
+				1A758AF79AEC3AFBADB0DF2B /* RDSLogin2Assembly.m in Sources */,
+				7CEEFB17429E4E6D5EEC4422 /* RDSLogin2ViewController.m in Sources */,
+				EC190A1A4A70AEC9E885DF10 /* RDSLogin2Presenter.m in Sources */,
+				4652AA642F9273733FAF7DDC /* RDSLogin2Interactor.m in Sources */,
+				89CC28FD4267E1EC74D5AFAE /* RDSLogin2Router.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +655,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FCE2FDA1BD41128003896E6 /* GenerambaTestProjectTests.m in Sources */,
+				2BFDC646B52876BE68725AD5 /* RDSLoginAssemblyTests.m in Sources */,
+				7C63139A0B4F09F37CCA10B8 /* RDSLoginViewControllerTests.m in Sources */,
+				1F3DFC5AAB37CE8F2C200FDC /* RDSLoginPresenterTests.m in Sources */,
+				39F58DC7984EF0408AC58BA9 /* RDSLoginInteractorTests.m in Sources */,
+				3655FE30927FAA58A7CFC45F /* RDSLoginRouterTests.m in Sources */,
+				69CF06EBA84EEA90317A84E3 /* RDSLogin2AssemblyTests.m in Sources */,
+				B9C0D992E8BFF45241BA62E2 /* RDSLogin2ViewControllerTests.m in Sources */,
+				D496C0D031C346D23D354118 /* RDSLogin2PresenterTests.m in Sources */,
+				3DDAF1EE8189486FE52F188C /* RDSLogin2InteractorTests.m in Sources */,
+				A70B1C5E81476CBBECC78FF6 /* RDSLogin2RouterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +780,7 @@
 		};
 		9F1381601BCA996D00A1F83C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3488779764CE2A3C30F49C18 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GenerambaTestProject/Info.plist;
@@ -444,6 +792,7 @@
 		};
 		9F1381611BCA996D00A1F83C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4704B21AEA1FD819704BF6D3 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GenerambaTestProject/Info.plist;
@@ -455,6 +804,7 @@
 		};
 		9FCE2FDE1BD41128003896E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1518B7C84D1FF2A6D28AED8D /* Pods-GenerambaTestProjectTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = GenerambaTestProjectTests/Info.plist;
@@ -467,6 +817,7 @@
 		};
 		9FCE2FDF1BD41128003896E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2E6114000D838F37A57EFC6 /* Pods-GenerambaTestProjectTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = GenerambaTestProjectTests/Info.plist;
