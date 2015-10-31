@@ -7,7 +7,7 @@ module Generamba
 	class ContentGenerator
 
     # Generates and returns a body of a specific code file.
-    # @param file [string, string] A hashmap with template's filename and filepath
+    # @param file []Hash<String,String>] A hashmap with template's filename and filepath
     # @param code_module [CodeModule] The model describing a generating module
     # @param template [ModuleTemplate] The model sescriving a Generamba template used for code generation
     #

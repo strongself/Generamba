@@ -34,7 +34,10 @@ module Generamba
 			template.files.each do |file|
 				# The target file's name consists of three parameters: project prefix, module name and template file name.
 				# E.g. RDS + Authorization + Presenter.h = RDSAuthorizationPresenter.h
-				file_name = ProjectConfiguration.prefix + name + File.basename(file['name'])
+				file_basename = name + File.basename(file['name'])
+				prefix = ProjectConfiguration.prefix
+				file_name = prefix ? prefix + file_basename : file_basename
+
 				file_group = File.dirname(file['name'])
 
 				# Generating the content of the code file

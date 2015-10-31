@@ -7,30 +7,21 @@ module Generamba::CLI
 	class Application < Thor
 
 	  desc 'gen MODULE_NAME', 'Creates a new VIPER module with a given name'
+		method_option :template, :aliases => '-t', :desc => 'Provides a name for the template to be used'
 	  method_option :description, :aliases => '-d', :desc => 'Provides a full description to the module'
-	  method_option :file_path, :aliases => '-p', :desc => 'Provides a file path, where the module directory will be created'
-	  method_option :group_path, :aliases => '-g', :desc => 'Provides a group path to the module group in the Xcode file'
-	  method_option :xcodeproj_path, :aliases => '-x', :desc => 'Provides a path to .xcodeproj file'
-	  def gen(moduleName)
-        doesRambafileExist = Dir['Rambafile'].count > 0
+	  def gen(module_name)
+        does_rambafile_exist = Dir['Rambafile'].count > 0
 
-        if (doesRambafileExist == false)
+        if (does_rambafile_exist == false)
           puts('Rambafile not found! Run `generamba setup` in the working directory instead!')
-          return;
+          return
         end
 
-        config = Generamba::ProjectConfiguration;
-
-      	moduleDescription = options[:description] ? options[:description] : "Sample Description"
-      	moduleFilePath = config.project_file_path
-      	moduleGroupPath = config.project_group_path
-      	moduleXcodeprojPath = config.xcodeproj_path
-      	if options[:xcodeproj_path]
-      		moduleXcodeprojPath = options[:xcodeproj_path]
-        end
+      	module_description = options[:description] ? options[:description] : 'Sample Description'
+				template_name = options[:template] ? options[:template] : 'viper_module'
 
       	generator = Generamba::ModuleGenerator.new()
-      	generator.generateModule(moduleName, moduleDescription, moduleFilePath, moduleGroupPath, moduleXcodeprojPath)
+      	generator.generate_module(template_name, module_name, module_description)
 		end
 
 		desc 'setup', 'Creates a Rambafile with a config for a given project'
@@ -41,47 +32,42 @@ module Generamba::CLI
 			properties['author_company'] = ask('The company name which will be used in the headers')
 			properties['prefix']  = ask('The project prefix (if any):')
 
-      xcodePath = ''
-      projectFiles = Dir['*.xcodeproj']
-      count = projectFiles.count
+      project_files = Dir['*.xcodeproj']
+      count = project_files.count
       if count == 1
-        isRightPath = yes?('The path ro a .xcodeproj file of the project is ' + projectFiles[0] + '. Do you want to use it?')
-        if (isRightPath)
-          xcodePath = File.absolute_path(projectFiles[0])
-        else
-          xcodePath = ask('The path to a .xcodeproj file of the project:')
-        end
+        is_right_path = yes?("The path to a .xcodeproj file of the project is #{project_files[0]}. Do you want to use it (yes/no)?")
+				xcode_path = is_right_path ? File.absolute_path(project_files[0]) : ask('The path to a .xcodeproj file of the project:')
       else
-        xcodePath = ask('The path to a .xcodeproj file of the project:')
+				xcode_path = ask('The path to a .xcodeproj file of the project:')
       end
-			properties['xcodeproj_path'] = xcodePath
-			project = Xcodeproj::Project.open(xcodePath)
+			properties['xcodeproj_path'] = xcode_path
+			project = Xcodeproj::Project.open(xcode_path)
 
-			targetsPrompt = ""
-			project.targets.each_with_index { |element, i| targetsPrompt += ("#{i}. #{element.name}" + "\n") }
+			targets_prompt = ''
+			project.targets.each_with_index { |element, i| targets_prompt += ("#{i}. #{element.name}" + "\n") }
 
-			projectTargetIndex = ask("Select the appropriate target for adding your modules (print the index):\n" + targetsPrompt)
-			projectTarget = project.targets[projectTargetIndex.to_i]
+			project_target_index = ask("Select the appropriate target for adding your modules (print the index):\n" + targets_prompt)
+			project_target = project.targets[project_target_index.to_i]
 
-			testTargetIndex = ask("Select the appropriate target for adding your tests (print the index):\n" + targetsPrompt)
-			testTarget = project.targets[testTargetIndex.to_i]
+			test_target_index = ask("Select the appropriate target for adding your tests (print the index):\n" + targets_prompt)
+			test_target = project.targets[test_target_index.to_i]
 
-			projectGroupPath = ask('The default group path for creating new modules:')
-			projectFilePath = ask('The default file path for creating new modules:')
+			project_group_path = ask('The default group path for creating new modules:')
+			project_file_path = ask('The default file path for creating new modules:')
 
-			testGroupPath = ask('The default group path for creating tests:')
-			testFilePath = ask('The default file path for creating tests:')
+			test_group_path = ask('The default group path for creating tests:')
+			test_file_path = ask('The default file path for creating tests:')
 
 			template = Tilt.new(File.dirname(__FILE__) + '/Rambafile.liquid')
-			properties['project_target'] = projectTarget.name
-			properties['project_file_path'] = projectFilePath
-			properties['project_group_path'] = projectGroupPath
-			properties['test_target'] = testTarget.name
-			properties['test_file_path'] = testFilePath
-			properties['test_group_path'] = testGroupPath
+			properties['project_target'] = project_target.name
+			properties['project_file_path'] = project_file_path
+			properties['project_group_path'] = project_group_path
+			properties['test_target'] = test_target.name
+			properties['test_file_path'] = test_file_path
+			properties['test_group_path'] = test_group_path
 			output = template.render(properties)
 
-			File.open('Rambafile', "w+") {|f|
+			File.open('Rambafile', 'w+') {|f|
 				f.write(output)
 			}
 		end
