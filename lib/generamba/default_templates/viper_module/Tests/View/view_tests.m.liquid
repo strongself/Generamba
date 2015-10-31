@@ -1,0 +1,52 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+#import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
+
+#import "{{ prefix }}{{ module_info.name }}ViewController.h"
+
+#import "{{ prefix }}{{ module_info.name }}ViewOutput.h"
+
+@interface {{ prefix }}{{ module_info.name }}ViewControllerTests : XCTestCase
+
+@property (strong, nonatomic) {{ prefix }}{{ module_info.name }}ViewController *controller;
+
+@property (strong, nonatomic) id mockOutput;
+
+@end
+
+@implementation {{ prefix }}{{ module_info.name }}ViewControllerTests
+
+#pragma mark - Настройка окружения для тестирования
+
+- (void)setUp {
+    [super setUp];
+
+    self.controller = [[{{ prefix }}{{ module_info.name }}ViewController alloc] init];
+
+    self.mockOutput = OCMProtocolMock(@protocol({{ prefix }}{{ module_info.name }}ViewOutput));
+
+    self.controller.output = self.mockOutput;
+}
+
+- (void)tearDown {
+    self.controller = nil;
+
+    self.mockOutput = nil;
+
+    [super tearDown];
+}
+
+#pragma mark - Тестирование жизненного цикла
+
+#pragma mark - Тестирование методов интерфейса
+
+#pragma mark - Тестирование методов {{ prefix }}{{ module_info.name }}ViewInput
+
+@end

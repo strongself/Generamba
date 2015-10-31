@@ -33,5 +33,18 @@ code_files:
 - {name: Router/Router.m, path: Code/Router/router.m.liquid}
 
 test_files:
+# Assembly tests
+- {name: Assembly/AssemblyTests.m, path: Tests/Assembly/assembly_tests.m.liquid}
+- {name: Assembly/Assembly_Testable.h, path: Tests/Assembly/assembly_testable.h.liquid}
+
+# View tests
+- {name: View/ViewControllerTests.m, path: Tests/View/view_tests.m.liquid}
+
 # Presenter tests
 - {name: Presenter/PresenterTests.m, path: Tests/Presenter/presenter_tests.m.liquid}
+
+# Interactor tests
+- {name: Interactor/InteractorTests.m, path: Tests/Interactor/interactor_tests.m.liquid}
+
+# Router tests
+- {name: Router/RouterTests.m, path: Tests/Router/router_tests.m.liquid}

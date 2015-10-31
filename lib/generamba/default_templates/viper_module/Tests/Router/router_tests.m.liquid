@@ -1,0 +1,36 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+#import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
+
+#import "{{ prefix }}{{ module_info.name }}Router.h"
+
+@interface {{ prefix }}{{ module_info.name }}RouterTests : XCTestCase
+
+@property (strong, nonatomic) {{ prefix }}{{ module_info.name }}Router *router;
+
+@end
+
+@implementation {{ prefix }}{{ module_info.name }}RouterTests
+
+#pragma mark - Настройка окружения для тестирования
+
+- (void)setUp {
+    [super setUp];
+
+    self.router = [[{{ prefix }}{{ module_info.name }}Router alloc] init];
+}
+
+- (void)tearDown {
+    self.router = nil;
+
+    [super tearDown];
+}
+
+@end

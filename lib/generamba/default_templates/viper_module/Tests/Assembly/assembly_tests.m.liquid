@@ -1,0 +1,107 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+#import <RamblerMcFlurry/Testing.h>
+#import <Typhoon/Typhoon.h>
+
+#import "{{ prefix }}{{ module_info.name }}Assembly.h"
+#import "{{ prefix }}{{ module_info.name }}Assembly_Testable.h"
+
+#import "{{ prefix }}{{ module_info.name }}ViewController.h"
+#import "{{ prefix }}{{ module_info.name }}Presenter.h"
+#import "{{ prefix }}{{ module_info.name }}Interactor.h"
+#import "{{ prefix }}{{ module_info.name }}Router.h"
+
+@interface {{ prefix }}{{ module_info.name }}AssemblyTests : RamblerTyphoonAssemblyTests
+
+@property (strong, nonatomic) {{ prefix }}{{ module_info.name }}Assembly *assembly;
+
+@end
+
+@implementation {{ prefix }}{{ module_info.name }}AssemblyTests
+
+#pragma mark - Настройка окружения для тестирования
+
+- (void)setUp {
+    [super setUp];
+
+    self.assembly = [[{{ prefix }}{{ module_info.name }}Assembly alloc] init];
+    [self.assembly activate];
+}
+
+- (void)tearDown {
+    self.assembly = nil;
+
+    [super tearDown];
+}
+
+#pragma mark - Тестирование создания элементов модуля
+
+- (void)testThatAssemblyCreatesViewController {
+    // given
+    Class targetClass = [{{ prefix }}{{ module_info.name }}ViewController class];
+    NSArray *dependencies = @[
+                              RamblerSelector(output)
+                              ];
+    // when
+    id result = [self.assembly view{{ module_info.name }}Module];
+
+    // then
+    [self verifyTargetDependency:result
+                       withClass:targetClass
+                    dependencies:dependencies];
+}
+
+- (void)testThatAssemblyCreatesPresenter {
+    // given
+    Class targetClass = [{{ prefix }}{{ module_info.name }}Presenter class];
+    NSArray *dependencies = @[
+                              RamblerSelector(interactor),
+                              RamblerSelector(view),
+                              RamblerSelector(router)
+                              ];
+    // when
+    id result = [self.assembly presenter{{ module_info.name }}Module];
+
+    // then
+    [self verifyTargetDependency:result
+                       withClass:targetClass
+                    dependencies:dependencies];
+}
+
+- (void)testThatAssemblyCreatesInteractor {
+    // given
+    Class targetClass = [{{ prefix }}{{ module_info.name }}Interactor class];
+    NSArray *dependencies = @[
+                              RamblerSelector(output)
+                              ];
+    // when
+    id result = [self.assembly interactor{{ module_info.name }}Module];
+
+    // then
+    [self verifyTargetDependency:result
+                       withClass:targetClass
+                    dependencies:dependencies];
+}
+
+- (void)testThatAssemblyCreatesRouter {
+    // given
+    Class targetClass = [{{ prefix }}{{ module_info.name }}Router class];
+    NSArray *dependencies = @[
+                              RamblerSelector(transitionHandler)
+                              ];
+    // when
+    id result = [self.assembly router{{ module_info.name }}Module];
+
+    // then
+    [self verifyTargetDependency:result
+                       withClass:targetClass
+                    dependencies:dependencies];
+}
+
+@end
