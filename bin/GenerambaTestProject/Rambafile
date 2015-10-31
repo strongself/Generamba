@@ -1,15 +1,28 @@
+### Author settings
 author: Egor Tolstoy
 company: Rambler&Co
-year: 2015
-prefix: RDS
-project_name: GenerambaTestProject
 
+### Xcode project settings
+project_name: GenerambaTestProject
+prefix: RDS
 xcodeproj_path: /Users/etolstoy/Generamba/bin/GenerambaTestProject/GenerambaTestProject.xcodeproj
 
+### Code generation settings section
+# The main project target name
 project_target: GenerambaTestProject
-project_file_path: GenerambaTestProject/Classes/Modules/
-project_group_path: GenerambaTestProject/Classes/Modules/
 
+# The file path for new modules
+project_file_path: Classes/
+
+# The Xcode group path to new modules
+project_group_path: Classes/
+
+### Tests generation settings section
+# The tests target name
 test_target: GenerambaTestProjectTests
-test_file_path: GenerambaTestProjectTests/Modules/
-test_group_path: GenerambaTestProjectTests/Modules/
+
+# The file path for new tests
+test_file_path: Classes/
+
+# The Xcode group path to new tests
+test_group_path: Classes/

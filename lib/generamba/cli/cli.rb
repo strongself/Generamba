@@ -2,6 +2,7 @@ require 'thor'
 require 'xcodeproj'
 require 'liquid'
 require 'tilt'
+require 'git'
 
 module Generamba::CLI
 	class Application < Thor
@@ -37,7 +38,7 @@ module Generamba::CLI
 				properties['author_name'] = ask('The author name which will be used in the headers:')
 			end
 
-			properties['author_company'] = ask('The company name which will be used in the headers')
+			properties['author_company'] = ask('The company name which will be used in the headers:')
 
 			project_name = Pathname.new(Dir.getwd).basename.to_s
 			is_right_project_name = yes?("The name of your project is #{project_name}. Do you want to use it? (yes/no)")
@@ -79,7 +80,7 @@ module Generamba::CLI
 			properties['test_file_path'] = test_file_path
 			properties['test_group_path'] = test_group_path
 
-			RambafileGenerator.create_rambafile(properties)
+			Generamba::RambafileGenerator.create_rambafile(properties)
 		end
 	end
 end
