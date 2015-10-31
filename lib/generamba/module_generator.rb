@@ -21,17 +21,49 @@ module Generamba
 			project = XcodeprojHelper.obtain_project(ProjectConfiguration.xcodeproj_path)
 			project_target = XcodeprojHelper.obtain_target(ProjectConfiguration.project_target,
 																										 project)
+			test_target = XcodeprojHelper.obtain_target(ProjectConfiguration.test_target,
+																									project)
 
-			# Configuring the whole module file path
+			# Configuring file paths
 			module_dir_path = Pathname.new(ProjectConfiguration.project_group_path)
 														.join(name)
+			test_dir_path = Pathname.new(ProjectConfiguration.test_group_path)
+													.join(name)
 			FileUtils.mkdir_p module_dir_path
+			FileUtils.mkdir_p test_dir_path
 
-			# Configuring the whole module Xcode group path
+			# Configuring group paths
 			module_group_path = Pathname.new(ProjectConfiguration.project_group_path)
 															.join(name)
+			test_group_path = Pathname.new(ProjectConfiguration.test_group_path)
+														.join(name)
 
-			template.files.each do |file|
+			# Creating code files
+			process_files(template.code_files,
+										name,
+									 	code_module,
+									 	template,
+										project,
+									 	project_target,
+										module_group_path,
+										module_dir_path)
+
+			# Creating test files
+			process_files(template.test_files,
+										name,
+										code_module,
+										template,
+										project,
+										test_target,
+										test_group_path,
+										test_dir_path)
+
+			# Saving the current changes in the Xcode project
+			project.save
+		end
+
+		def process_files(files, name, code_module, template, project, target, group_path, dir_path)
+			files.each do |file|
 				# The target file's name consists of three parameters: project prefix, module name and template file name.
 				# E.g. RDS + Authorization + Presenter.h = RDSAuthorizationPresenter.h
 				file_basename = name + File.basename(file['name'])
@@ -44,7 +76,7 @@ module Generamba
 				file_content = ContentGenerator.create_file_content(file,
 																														code_module,
 																														template)
-				file_path = module_dir_path
+				file_path = dir_path
 												.join(file_group)
 												.join(file_name)
 
@@ -56,13 +88,10 @@ module Generamba
 
 				# Creating the file in the Xcode project
 				XcodeprojHelper.add_file_to_project_and_target(project,
-																											 project_target,
-																											 module_group_path.join(file_group),
+																											 target,
+																											 group_path.join(file_group),
 																											 file_path)
 			end
-
-			# Saving the current changes in the Xcode project
-			project.save
 		end
 	end
 end
