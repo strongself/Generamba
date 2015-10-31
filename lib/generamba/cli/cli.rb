@@ -28,18 +28,27 @@ module Generamba::CLI
 		def setup
 			properties = {}
 
-			properties['author_name'] = ask('The author name which will be used in the headers:')
+			git_username = Git.init.config['user.name']
+
+			if git_username != nil
+				is_right_name = yes?("Your name in git is configured as #{git_username}. Do you want to use it in code headers? (yes/no)")
+				properties['author_name'] = is_right_name ? git_username : ask('The author name which will be used in the headers:')
+			else
+				properties['author_name'] = ask('The author name which will be used in the headers:')
+			end
+
 			properties['author_company'] = ask('The company name which will be used in the headers')
 			properties['prefix']  = ask('The project prefix (if any):')
 
       project_files = Dir['*.xcodeproj']
       count = project_files.count
       if count == 1
-        is_right_path = yes?("The path to a .xcodeproj file of the project is #{project_files[0]}. Do you want to use it (yes/no)?")
+        is_right_path = yes?("The path to a .xcodeproj file of the project is #{project_files[0]}. Do you want to use it? (yes/no)")
 				xcode_path = is_right_path ? File.absolute_path(project_files[0]) : ask('The path to a .xcodeproj file of the project:')
       else
 				xcode_path = ask('The path to a .xcodeproj file of the project:')
-      end
+			end
+
 			properties['xcodeproj_path'] = xcode_path
 			project = Xcodeproj::Project.open(xcode_path)
 
