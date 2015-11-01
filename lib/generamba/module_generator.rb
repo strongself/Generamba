@@ -39,6 +39,7 @@ module Generamba
 														.join(name)
 
 			# Creating code files
+			puts('Creating code files...')
 			process_files(template.code_files,
 										name,
 									 	code_module,
@@ -49,6 +50,7 @@ module Generamba
 										module_dir_path)
 
 			# Creating test files
+			puts('Creating test files...')
 			process_files(template.test_files,
 										name,
 										code_module,
@@ -60,6 +62,7 @@ module Generamba
 
 			# Saving the current changes in the Xcode project
 			project.save
+			puts("Module #{name} successfully created!")
 		end
 
 		def process_files(files, name, code_module, template, project, target, group_path, dir_path)
