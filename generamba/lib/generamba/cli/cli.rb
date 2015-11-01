@@ -82,6 +82,7 @@ module Generamba::CLI
 			properties['test_group_path'] = test_group_path
 
 			Generamba::RambafileGenerator.create_rambafile(properties)
+			puts('Rambafile successfully created! Now run generamba gen YOUR_MODULE_NAME')
 		end
 	end
 end
