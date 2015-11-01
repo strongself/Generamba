@@ -18,8 +18,9 @@ module Generamba::CLI
           return
         end
 
-      	module_description = options[:description] ? options[:description] : 'Sample Description'
-				template_name = options[:template] ? options[:template] : 'viper_module'
+				default_module_description = "#{module_name} module"
+				module_description = options[:description] ? options[:description] : default_module_description
+				template_name = options[:template] ? options[:template] : 'rambler_viper_controller'
 
       	generator = Generamba::ModuleGenerator.new()
       	generator.generate_module(template_name, module_name, module_description)
