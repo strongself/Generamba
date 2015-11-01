@@ -1,0 +1,17 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+#import "{{ prefix }}{{ module_info.name }}InteractorInput.h"
+
+@protocol {{ prefix }}{{ module_info.name }}InteractorOutput;
+
+@interface {{ prefix }}{{ module_info.name }}Interactor : NSObject <{{ prefix }}{{ module_info.name }}InteractorInput>
+
+@property (nonatomic, weak) id<{{ prefix }}{{ module_info.name }}InteractorOutput> output;
+
+@end

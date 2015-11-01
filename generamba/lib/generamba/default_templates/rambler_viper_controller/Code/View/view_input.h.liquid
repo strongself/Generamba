@@ -1,0 +1,20 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@protocol {{ prefix }}{{ module_info.name }}ViewInput <NSObject>
+
+/**
+ @author {{ developer.name }}
+
+ Метод настраивает начальный стейт экрана
+ */
+- (void)setupInitialState;
+
+@end

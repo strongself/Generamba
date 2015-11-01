@@ -1,0 +1,27 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+#import "{{ prefix }}{{ module_info.name }}Presenter.h"
+
+#import "{{ prefix }}{{ module_info.name }}ViewInput.h"
+#import "{{ prefix }}{{ module_info.name }}InteractorInput.h"
+#import "{{ prefix }}{{ module_info.name }}RouterInput.h"
+
+@implementation {{ prefix }}{{ module_info.name }}Presenter
+
+#pragma mark - Методы {{ prefix }}{{ module_info.name }}ModuleInput
+
+- (void)configureCurrentModule {
+    [self.view setupInitialState];
+}
+
+#pragma mark - Методы {{ prefix }}{{ module_info.name }}InteractorOutput
+
+#pragma mark - Методы {{ prefix }}{{ module_info.name }}ViewOutput
+
+@end

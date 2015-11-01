@@ -1,0 +1,73 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+#import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
+
+#import "{{ prefix }}{{ module_info.name }}Presenter.h"
+
+#import "{{ prefix }}{{ module_info.name }}ViewInput.h"
+#import "{{ prefix }}{{ module_info.name }}InteractorInput.h"
+#import "{{ prefix }}{{ module_info.name }}RouterInput.h"
+
+@interface {{ prefix }}{{ module_info.name }}PresenterTests : XCTestCase
+
+@property (strong, nonatomic) {{ prefix }}{{ module_info.name }}Presenter *presenter;
+
+@property (strong, nonatomic) id mockInteractor;
+@property (strong, nonatomic) id mockRouter;
+@property (strong, nonatomic) id mockView;
+
+@end
+
+@implementation {{ prefix }}{{ module_info.name }}PresenterTests
+
+#pragma mark - Настройка окружения для тестирования
+
+- (void)setUp {
+    [super setUp];
+
+    self.presenter = [[{{ prefix }}{{ module_info.name }}Presenter alloc] init];
+
+    self.mockInteractor = OCMProtocolMock(@protocol({{ prefix }}{{ module_info.name }}InteractorInput));
+    self.mockRouter = OCMProtocolMock(@protocol({{ prefix }}{{ module_info.name }}RouterInput));
+    self.mockView = OCMProtocolMock(@protocol({{ prefix }}{{ module_info.name }}ViewInput));
+
+    self.presenter.interactor = self.mockInteractor;
+    self.presenter.router = self.mockRouter;
+    self.presenter.view = self.mockView;
+}
+
+- (void)tearDown {
+    self.presenter = nil;
+
+    self.mockView = nil;
+    self.mockRouter = nil;
+    self.mockInteractor = nil;
+
+    [super tearDown];
+}
+
+#pragma mark - Тестирование методов {{ prefix }}{{ module_info.name }}ModuleInput
+
+- (void)testThatPresenterConfiguresModule {
+    // given
+
+
+    // when
+    [self.presenter configureCurrentModule];
+
+    // then
+    OCMVerify([self.mockView setupInitialState]);
+}
+
+#pragma mark - Тестирование методов {{ prefix }}{{ module_info.name }}ViewOutput
+
+#pragma mark - Тестирование методов {{ prefix }}{{ module_info.name }}InteractorOutput
+
+@end

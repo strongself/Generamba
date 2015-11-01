@@ -1,0 +1,712 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		416C37A79DBB922CCBEBADA6 /* AuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E185D2081DBFFF9EB9F935 /* AuthorizationViewController.m */; };
+		433487BCC2B29FD788853ED2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F5A858CAC6C38D50FF67C6 /* libPods.a */; };
+		6D08254532D36E2929146603 /* AuthorizationRouterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 901D79E285C4B6F019741745 /* AuthorizationRouterTests.m */; };
+		8F11B0C3168E29AF040F311E /* AuthorizationViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2B53862E6398D9C64612E9 /* AuthorizationViewControllerTests.m */; };
+		9E1EDDA2F2318DE97AA2D33F /* libPods-GenerambaSandboxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3461790D9C2677B77603B2 /* libPods-GenerambaSandboxTests.a */; };
+		9F2408FF1BE6634C0089ED51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2408FE1BE6634C0089ED51 /* main.m */; };
+		9F2409021BE6634C0089ED51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2409011BE6634C0089ED51 /* AppDelegate.m */; };
+		9F2409051BE6634C0089ED51 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2409041BE6634C0089ED51 /* ViewController.m */; };
+		9F2409081BE6634C0089ED51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F2409061BE6634C0089ED51 /* Main.storyboard */; };
+		9F24090A1BE6634C0089ED51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F2409091BE6634C0089ED51 /* Assets.xcassets */; };
+		9F24090D1BE6634C0089ED51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F24090B1BE6634C0089ED51 /* LaunchScreen.storyboard */; };
+		9F24091B1BE663540089ED51 /* GenerambaSandboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F24091A1BE663540089ED51 /* GenerambaSandboxTests.m */; };
+		9F4827E18C5E40C75359D9FF /* AuthorizationPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EEBD339D058350FD13A6278C /* AuthorizationPresenter.m */; };
+		C6A19FD41E187E212FD32B0A /* AuthorizationRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA804B521D897339DF798D /* AuthorizationRouter.m */; };
+		C7808086F3C7BA8DEB87F5C9 /* AuthorizationInteractorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFBAC4CD408ED58ECC28853 /* AuthorizationInteractorTests.m */; };
+		D4F4B6662414982040B6BE87 /* AuthorizationPresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2663A545B6C1AA6C4EA62362 /* AuthorizationPresenterTests.m */; };
+		D76F0A28C5C36CD4D0CFD7A8 /* AuthorizationAssemblyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CBC92874366AE04AE514E /* AuthorizationAssemblyTests.m */; };
+		DBF6E8AD38B4B7F1FFEA44AE /* AuthorizationAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF3291D9C4C331E6F6BD9C9 /* AuthorizationAssembly.m */; };
+		E7905867B45024BAC33AD821 /* AuthorizationInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F6329F52706D342840B2A0 /* AuthorizationInteractor.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9F24091D1BE663540089ED51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F2408F21BE6634C0089ED51 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F2408F91BE6634C0089ED51;
+			remoteInfo = GenerambaSandbox;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		043484D6F40C51CC3454FD20 /* AuthorizationViewOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationViewOutput.h; path = Classes/Modules/Authorization/View/AuthorizationViewOutput.h; sourceTree = "<group>"; };
+		170666F1D04759E670AE6119 /* Pods-GenerambaSandboxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenerambaSandboxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GenerambaSandboxTests/Pods-GenerambaSandboxTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1AFBAC4CD408ED58ECC28853 /* AuthorizationInteractorTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationInteractorTests.m; path = Classes/Modules/Authorization/Interactor/AuthorizationInteractorTests.m; sourceTree = "<group>"; };
+		2663A545B6C1AA6C4EA62362 /* AuthorizationPresenterTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationPresenterTests.m; path = Classes/Modules/Authorization/Presenter/AuthorizationPresenterTests.m; sourceTree = "<group>"; };
+		2942EB0DA03B776280CC310B /* AuthorizationModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationModuleInput.h; path = Classes/Modules/Authorization/Presenter/AuthorizationModuleInput.h; sourceTree = "<group>"; };
+		2B2B53862E6398D9C64612E9 /* AuthorizationViewControllerTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationViewControllerTests.m; path = Classes/Modules/Authorization/View/AuthorizationViewControllerTests.m; sourceTree = "<group>"; };
+		422CBC92874366AE04AE514E /* AuthorizationAssemblyTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationAssemblyTests.m; path = Classes/Modules/Authorization/Assembly/AuthorizationAssemblyTests.m; sourceTree = "<group>"; };
+		489BC633C65EE33D8D703B89 /* AuthorizationInteractorOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationInteractorOutput.h; path = Classes/Modules/Authorization/Interactor/AuthorizationInteractorOutput.h; sourceTree = "<group>"; };
+		5969DBEBC0FA1FEE4B422DF8 /* AuthorizationInteractorInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationInteractorInput.h; path = Classes/Modules/Authorization/Interactor/AuthorizationInteractorInput.h; sourceTree = "<group>"; };
+		6FDD246D78EEBD739BF1C8C9 /* Pods-GenerambaSandboxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenerambaSandboxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GenerambaSandboxTests/Pods-GenerambaSandboxTests.release.xcconfig"; sourceTree = "<group>"; };
+		732A57922F3EDFA93B2BDFB4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		75E185D2081DBFFF9EB9F935 /* AuthorizationViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationViewController.m; path = Classes/Modules/Authorization/View/AuthorizationViewController.m; sourceTree = "<group>"; };
+		7DE90AE05BC30B94708F52B4 /* AuthorizationRouterInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationRouterInput.h; path = Classes/Modules/Authorization/Router/AuthorizationRouterInput.h; sourceTree = "<group>"; };
+		88AA804B521D897339DF798D /* AuthorizationRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationRouter.m; path = Classes/Modules/Authorization/Router/AuthorizationRouter.m; sourceTree = "<group>"; };
+		901D79E285C4B6F019741745 /* AuthorizationRouterTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationRouterTests.m; path = Classes/Modules/Authorization/Router/AuthorizationRouterTests.m; sourceTree = "<group>"; };
+		95F5A858CAC6C38D50FF67C6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F2408FA1BE6634C0089ED51 /* GenerambaSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenerambaSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F2408FE1BE6634C0089ED51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9F2409001BE6634C0089ED51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9F2409011BE6634C0089ED51 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9F2409031BE6634C0089ED51 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9F2409041BE6634C0089ED51 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9F2409071BE6634C0089ED51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9F2409091BE6634C0089ED51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9F24090C1BE6634C0089ED51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9F24090E1BE6634C0089ED51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F2409181BE663540089ED51 /* GenerambaSandboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenerambaSandboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F24091A1BE663540089ED51 /* GenerambaSandboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenerambaSandboxTests.m; sourceTree = "<group>"; };
+		9F24091C1BE663540089ED51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABBEB1202FC60A7F8D5F67B0 /* AuthorizationViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationViewController.h; path = Classes/Modules/Authorization/View/AuthorizationViewController.h; sourceTree = "<group>"; };
+		AE21D25E2FB2A8CA4A278C9F /* AuthorizationRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationRouter.h; path = Classes/Modules/Authorization/Router/AuthorizationRouter.h; sourceTree = "<group>"; };
+		B3F6329F52706D342840B2A0 /* AuthorizationInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationInteractor.m; path = Classes/Modules/Authorization/Interactor/AuthorizationInteractor.m; sourceTree = "<group>"; };
+		BBF3291D9C4C331E6F6BD9C9 /* AuthorizationAssembly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationAssembly.m; path = Classes/Modules/Authorization/Assembly/AuthorizationAssembly.m; sourceTree = "<group>"; };
+		BE874CFC398E822EE59F8E4F /* AuthorizationInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationInteractor.h; path = Classes/Modules/Authorization/Interactor/AuthorizationInteractor.h; sourceTree = "<group>"; };
+		C7B5E98F44E441F9646592FC /* AuthorizationAssembly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationAssembly.h; path = Classes/Modules/Authorization/Assembly/AuthorizationAssembly.h; sourceTree = "<group>"; };
+		D18026800902BEC802954D04 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D7D7A5FB8F6760E37F64CADA /* AuthorizationViewInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationViewInput.h; path = Classes/Modules/Authorization/View/AuthorizationViewInput.h; sourceTree = "<group>"; };
+		DA3461790D9C2677B77603B2 /* libPods-GenerambaSandboxTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GenerambaSandboxTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEBD339D058350FD13A6278C /* AuthorizationPresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationPresenter.m; path = Classes/Modules/Authorization/Presenter/AuthorizationPresenter.m; sourceTree = "<group>"; };
+		EF0DBD1908FE0929527DCF85 /* AuthorizationPresenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationPresenter.h; path = Classes/Modules/Authorization/Presenter/AuthorizationPresenter.h; sourceTree = "<group>"; };
+		FDC7B41D3CD276B224363181 /* AuthorizationAssembly_Testable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationAssembly_Testable.h; path = Classes/Modules/Authorization/Assembly/AuthorizationAssembly_Testable.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9F2408F71BE6634C0089ED51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				433487BCC2B29FD788853ED2 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F2409151BE663540089ED51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E1EDDA2F2318DE97AA2D33F /* libPods-GenerambaSandboxTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		160EE2E8C109D269C9308D6D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				79F031AF446B8FD6C4BC9D8D /* Modules */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		20FFB8EBCB222679CDBE1F5A /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				963D97356B5CD2CDE05055D3 /* Authorization */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		2451970A84100AB323995024 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D7D7A5FB8F6760E37F64CADA /* AuthorizationViewInput.h */,
+				043484D6F40C51CC3454FD20 /* AuthorizationViewOutput.h */,
+				ABBEB1202FC60A7F8D5F67B0 /* AuthorizationViewController.h */,
+				75E185D2081DBFFF9EB9F935 /* AuthorizationViewController.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2C713E2721ADC6C73DFD1FE2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				732A57922F3EDFA93B2BDFB4 /* Pods.debug.xcconfig */,
+				D18026800902BEC802954D04 /* Pods.release.xcconfig */,
+				170666F1D04759E670AE6119 /* Pods-GenerambaSandboxTests.debug.xcconfig */,
+				6FDD246D78EEBD739BF1C8C9 /* Pods-GenerambaSandboxTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3F4C43BA43244EAD44977347 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				20FFB8EBCB222679CDBE1F5A /* Modules */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		48C0C75F8E616DFAF38312C9 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				422CBC92874366AE04AE514E /* AuthorizationAssemblyTests.m */,
+				FDC7B41D3CD276B224363181 /* AuthorizationAssembly_Testable.h */,
+			);
+			name = Assembly;
+			sourceTree = "<group>";
+		};
+		667EFBAFC58D8F101DC6FE5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95F5A858CAC6C38D50FF67C6 /* libPods.a */,
+				DA3461790D9C2677B77603B2 /* libPods-GenerambaSandboxTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		79F031AF446B8FD6C4BC9D8D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C63601481D097FA3A0C329CB /* Authorization */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		80DC056F06A576B94297CBD0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2942EB0DA03B776280CC310B /* AuthorizationModuleInput.h */,
+				EF0DBD1908FE0929527DCF85 /* AuthorizationPresenter.h */,
+				EEBD339D058350FD13A6278C /* AuthorizationPresenter.m */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		963D97356B5CD2CDE05055D3 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				A2ADA6AA515E29B3CA082141 /* Assembly */,
+				2451970A84100AB323995024 /* View */,
+				80DC056F06A576B94297CBD0 /* Presenter */,
+				BE670620989E1637B888E79E /* Interactor */,
+				B154ECD79EC83D8AF7C19D2C /* Router */,
+			);
+			name = Authorization;
+			sourceTree = "<group>";
+		};
+		9F2408F11BE6634C0089ED51 = {
+			isa = PBXGroup;
+			children = (
+				9F2408FC1BE6634C0089ED51 /* GenerambaSandbox */,
+				9F2409191BE663540089ED51 /* GenerambaSandboxTests */,
+				9F2408FB1BE6634C0089ED51 /* Products */,
+				2C713E2721ADC6C73DFD1FE2 /* Pods */,
+				667EFBAFC58D8F101DC6FE5F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9F2408FB1BE6634C0089ED51 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9F2408FA1BE6634C0089ED51 /* GenerambaSandbox.app */,
+				9F2409181BE663540089ED51 /* GenerambaSandboxTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9F2408FC1BE6634C0089ED51 /* GenerambaSandbox */ = {
+			isa = PBXGroup;
+			children = (
+				9F2409001BE6634C0089ED51 /* AppDelegate.h */,
+				9F2409011BE6634C0089ED51 /* AppDelegate.m */,
+				9F2409031BE6634C0089ED51 /* ViewController.h */,
+				9F2409041BE6634C0089ED51 /* ViewController.m */,
+				9F2409061BE6634C0089ED51 /* Main.storyboard */,
+				9F2409091BE6634C0089ED51 /* Assets.xcassets */,
+				9F24090B1BE6634C0089ED51 /* LaunchScreen.storyboard */,
+				9F24090E1BE6634C0089ED51 /* Info.plist */,
+				9F2408FD1BE6634C0089ED51 /* Supporting Files */,
+				3F4C43BA43244EAD44977347 /* Classes */,
+			);
+			path = GenerambaSandbox;
+			sourceTree = "<group>";
+		};
+		9F2408FD1BE6634C0089ED51 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9F2408FE1BE6634C0089ED51 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9F2409191BE663540089ED51 /* GenerambaSandboxTests */ = {
+			isa = PBXGroup;
+			children = (
+				9F24091A1BE663540089ED51 /* GenerambaSandboxTests.m */,
+				9F24091C1BE663540089ED51 /* Info.plist */,
+				160EE2E8C109D269C9308D6D /* Classes */,
+			);
+			path = GenerambaSandboxTests;
+			sourceTree = "<group>";
+		};
+		A2ADA6AA515E29B3CA082141 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				C7B5E98F44E441F9646592FC /* AuthorizationAssembly.h */,
+				BBF3291D9C4C331E6F6BD9C9 /* AuthorizationAssembly.m */,
+			);
+			name = Assembly;
+			sourceTree = "<group>";
+		};
+		B154ECD79EC83D8AF7C19D2C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				7DE90AE05BC30B94708F52B4 /* AuthorizationRouterInput.h */,
+				AE21D25E2FB2A8CA4A278C9F /* AuthorizationRouter.h */,
+				88AA804B521D897339DF798D /* AuthorizationRouter.m */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		B53FE5C2A51FC09126356F84 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2663A545B6C1AA6C4EA62362 /* AuthorizationPresenterTests.m */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		BE670620989E1637B888E79E /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				5969DBEBC0FA1FEE4B422DF8 /* AuthorizationInteractorInput.h */,
+				489BC633C65EE33D8D703B89 /* AuthorizationInteractorOutput.h */,
+				BE874CFC398E822EE59F8E4F /* AuthorizationInteractor.h */,
+				B3F6329F52706D342840B2A0 /* AuthorizationInteractor.m */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		C63601481D097FA3A0C329CB /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				48C0C75F8E616DFAF38312C9 /* Assembly */,
+				C8496310F9170F5BD5D1306D /* View */,
+				B53FE5C2A51FC09126356F84 /* Presenter */,
+				FD88C3DF3ABE0F33A79BB8E2 /* Interactor */,
+				DB12D7E54655A342EFE32417 /* Router */,
+			);
+			name = Authorization;
+			sourceTree = "<group>";
+		};
+		C8496310F9170F5BD5D1306D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B2B53862E6398D9C64612E9 /* AuthorizationViewControllerTests.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		DB12D7E54655A342EFE32417 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				901D79E285C4B6F019741745 /* AuthorizationRouterTests.m */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		FD88C3DF3ABE0F33A79BB8E2 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				1AFBAC4CD408ED58ECC28853 /* AuthorizationInteractorTests.m */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9F2408F91BE6634C0089ED51 /* GenerambaSandbox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F2409111BE6634C0089ED51 /* Build configuration list for PBXNativeTarget "GenerambaSandbox" */;
+			buildPhases = (
+				AA67A499A33EA2E379F693F4 /* Check Pods Manifest.lock */,
+				9F2408F61BE6634C0089ED51 /* Sources */,
+				9F2408F71BE6634C0089ED51 /* Frameworks */,
+				9F2408F81BE6634C0089ED51 /* Resources */,
+				6E946C6479F0E11B1BFF62C2 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GenerambaSandbox;
+			productName = GenerambaSandbox;
+			productReference = 9F2408FA1BE6634C0089ED51 /* GenerambaSandbox.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9F2409171BE663540089ED51 /* GenerambaSandboxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F24091F1BE663540089ED51 /* Build configuration list for PBXNativeTarget "GenerambaSandboxTests" */;
+			buildPhases = (
+				1303FC09A348E64C3AA2927A /* Check Pods Manifest.lock */,
+				9F2409141BE663540089ED51 /* Sources */,
+				9F2409151BE663540089ED51 /* Frameworks */,
+				9F2409161BE663540089ED51 /* Resources */,
+				CC0ED4701306C07C4C74B9A6 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F24091E1BE663540089ED51 /* PBXTargetDependency */,
+			);
+			name = GenerambaSandboxTests;
+			productName = GenerambaSandboxTests;
+			productReference = 9F2409181BE663540089ED51 /* GenerambaSandboxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9F2408F21BE6634C0089ED51 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = rambler;
+				TargetAttributes = {
+					9F2408F91BE6634C0089ED51 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					9F2409171BE663540089ED51 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 9F2408F91BE6634C0089ED51;
+					};
+				};
+			};
+			buildConfigurationList = 9F2408F51BE6634C0089ED51 /* Build configuration list for PBXProject "GenerambaSandbox" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9F2408F11BE6634C0089ED51;
+			productRefGroup = 9F2408FB1BE6634C0089ED51 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9F2408F91BE6634C0089ED51 /* GenerambaSandbox */,
+				9F2409171BE663540089ED51 /* GenerambaSandboxTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9F2408F81BE6634C0089ED51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F24090D1BE6634C0089ED51 /* LaunchScreen.storyboard in Resources */,
+				9F24090A1BE6634C0089ED51 /* Assets.xcassets in Resources */,
+				9F2409081BE6634C0089ED51 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F2409161BE663540089ED51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1303FC09A348E64C3AA2927A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6E946C6479F0E11B1BFF62C2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA67A499A33EA2E379F693F4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CC0ED4701306C07C4C74B9A6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GenerambaSandboxTests/Pods-GenerambaSandboxTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9F2408F61BE6634C0089ED51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F2409051BE6634C0089ED51 /* ViewController.m in Sources */,
+				9F2409021BE6634C0089ED51 /* AppDelegate.m in Sources */,
+				9F2408FF1BE6634C0089ED51 /* main.m in Sources */,
+				DBF6E8AD38B4B7F1FFEA44AE /* AuthorizationAssembly.m in Sources */,
+				416C37A79DBB922CCBEBADA6 /* AuthorizationViewController.m in Sources */,
+				9F4827E18C5E40C75359D9FF /* AuthorizationPresenter.m in Sources */,
+				E7905867B45024BAC33AD821 /* AuthorizationInteractor.m in Sources */,
+				C6A19FD41E187E212FD32B0A /* AuthorizationRouter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F2409141BE663540089ED51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F24091B1BE663540089ED51 /* GenerambaSandboxTests.m in Sources */,
+				D76F0A28C5C36CD4D0CFD7A8 /* AuthorizationAssemblyTests.m in Sources */,
+				8F11B0C3168E29AF040F311E /* AuthorizationViewControllerTests.m in Sources */,
+				D4F4B6662414982040B6BE87 /* AuthorizationPresenterTests.m in Sources */,
+				C7808086F3C7BA8DEB87F5C9 /* AuthorizationInteractorTests.m in Sources */,
+				6D08254532D36E2929146603 /* AuthorizationRouterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9F24091E1BE663540089ED51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F2408F91BE6634C0089ED51 /* GenerambaSandbox */;
+			targetProxy = 9F24091D1BE663540089ED51 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9F2409061BE6634C0089ED51 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F2409071BE6634C0089ED51 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9F24090B1BE6634C0089ED51 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F24090C1BE6634C0089ED51 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9F24090F1BE6634C0089ED51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9F2409101BE6634C0089ED51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9F2409121BE6634C0089ED51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 732A57922F3EDFA93B2BDFB4 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GenerambaSandbox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.rambler.GenerambaSandbox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9F2409131BE6634C0089ED51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D18026800902BEC802954D04 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GenerambaSandbox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.rambler.GenerambaSandbox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9F2409201BE663540089ED51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 170666F1D04759E670AE6119 /* Pods-GenerambaSandboxTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GenerambaSandboxTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.rambler.GenerambaSandboxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenerambaSandbox.app/GenerambaSandbox";
+			};
+			name = Debug;
+		};
+		9F2409211BE663540089ED51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FDD246D78EEBD739BF1C8C9 /* Pods-GenerambaSandboxTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GenerambaSandboxTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.rambler.GenerambaSandboxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenerambaSandbox.app/GenerambaSandbox";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9F2408F51BE6634C0089ED51 /* Build configuration list for PBXProject "GenerambaSandbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F24090F1BE6634C0089ED51 /* Debug */,
+				9F2409101BE6634C0089ED51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F2409111BE6634C0089ED51 /* Build configuration list for PBXNativeTarget "GenerambaSandbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F2409121BE6634C0089ED51 /* Debug */,
+				9F2409131BE6634C0089ED51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F24091F1BE663540089ED51 /* Build configuration list for PBXNativeTarget "GenerambaSandboxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F2409201BE663540089ED51 /* Debug */,
+				9F2409211BE663540089ED51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9F2408F21BE6634C0089ED51 /* Project object */;
+}

@@ -1,0 +1,58 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+#import "{{ prefix }}{{ module_info.name }}Assembly.h"
+
+#import "{{ prefix }}{{ module_info.name }}ViewController.h"
+#import "{{ prefix }}{{ module_info.name }}Interactor.h"
+#import "{{ prefix }}{{ module_info.name }}Presenter.h"
+#import "{{ prefix }}{{ module_info.name }}Router.h"
+
+#import <ViperMcFlurry/ViperMcFlurry.h>
+
+@implementation {{ prefix }}{{ module_info.name }}Assembly
+
+- ({{ prefix }}{{ module_info.name }}ViewController *)view{{ module_info.name }}Module {
+    return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}ViewController class]
+                          configuration:^(TyphoonDefinition *definition) {
+                              [definition injectProperty:@selector(output)
+                                                    with:[self presenter{{ module_info.name }}Module]];
+                              [definition injectProperty:@selector(moduleInput)
+                                                    with:[self presenter{{ module_info.name }}Module]];
+                          }];
+}
+
+- ({{ prefix }}{{ module_info.name }}Presenter *)presenter{{ module_info.name }}Module {
+    return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}Presenter class]
+                          configuration:^(TyphoonDefinition *definition) {
+                              [definition injectProperty:@selector(view)
+                                                    with:[self view{{ module_info.name }}Module]];
+                              [definition injectProperty:@selector(interactor)
+                                                    with:[self interactor{{ module_info.name }}Module]];
+                              [definition injectProperty:@selector(router)
+                                                    with:[self router{{ module_info.name }}Module]];
+                          }];
+}
+
+- ({{ prefix }}{{ module_info.name }}Interactor *)interactor{{ module_info.name }}Module {
+    return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}Interactor class]
+                          configuration:^(TyphoonDefinition *definition) {
+                              [definition injectProperty:@selector(output)
+                                                    with:[self presenter{{ module_info.name }}Module]];
+                          }];
+}
+
+- ({{ prefix }}{{ module_info.name }}Router *)router{{ module_info.name }}Module {
+    return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}Router class]
+                          configuration:^(TyphoonDefinition *definition) {
+                              [definition injectProperty:@selector(transitionHandler)
+                                                    with:[self view{{ module_info.name }}Module]];
+                          }];
+}
+
+@end

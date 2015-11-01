@@ -1,0 +1,48 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+#import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
+
+#import "{{ prefix }}{{ module_info.name }}Interactor.h"
+
+#import "{{ prefix }}{{ module_info.name }}InteractorOutput.h"
+
+@interface {{ prefix }}{{ module_info.name }}InteractorTests : XCTestCase
+
+@property (strong, nonatomic) {{ prefix }}{{ module_info.name }}Interactor *interactor;
+
+@property (strong, nonatomic) id mockOutput;
+
+@end
+
+@implementation {{ prefix }}{{ module_info.name }}InteractorTests
+
+#pragma mark - Настройка окружения для тестирования
+
+- (void)setUp {
+    [super setUp];
+
+    self.interactor = [[{{ prefix }}{{ module_info.name }}Interactor alloc] init];
+
+    self.mockOutput = OCMProtocolMock(@protocol({{ prefix }}{{ module_info.name }}InteractorOutput));
+
+    self.interactor.output = self.mockOutput;
+}
+
+- (void)tearDown {
+    self.interactor = nil;
+
+    self.mockOutput = nil;
+
+    [super tearDown];
+}
+
+#pragma mark - Тестирование методов {{ prefix }}{{ module_info.name }}InteractorInput
+
+@end
