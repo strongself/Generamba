@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		416C37A79DBB922CCBEBADA6 /* AuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E185D2081DBFFF9EB9F935 /* AuthorizationViewController.m */; };
 		433487BCC2B29FD788853ED2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F5A858CAC6C38D50FF67C6 /* libPods.a */; };
+		6D08254532D36E2929146603 /* AuthorizationRouterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 901D79E285C4B6F019741745 /* AuthorizationRouterTests.m */; };
+		8F11B0C3168E29AF040F311E /* AuthorizationViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2B53862E6398D9C64612E9 /* AuthorizationViewControllerTests.m */; };
 		9E1EDDA2F2318DE97AA2D33F /* libPods-GenerambaSandboxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3461790D9C2677B77603B2 /* libPods-GenerambaSandboxTests.a */; };
 		9F2408FF1BE6634C0089ED51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2408FE1BE6634C0089ED51 /* main.m */; };
 		9F2409021BE6634C0089ED51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2409011BE6634C0089ED51 /* AppDelegate.m */; };
@@ -16,6 +19,13 @@
 		9F24090A1BE6634C0089ED51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F2409091BE6634C0089ED51 /* Assets.xcassets */; };
 		9F24090D1BE6634C0089ED51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F24090B1BE6634C0089ED51 /* LaunchScreen.storyboard */; };
 		9F24091B1BE663540089ED51 /* GenerambaSandboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F24091A1BE663540089ED51 /* GenerambaSandboxTests.m */; };
+		9F4827E18C5E40C75359D9FF /* AuthorizationPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EEBD339D058350FD13A6278C /* AuthorizationPresenter.m */; };
+		C6A19FD41E187E212FD32B0A /* AuthorizationRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA804B521D897339DF798D /* AuthorizationRouter.m */; };
+		C7808086F3C7BA8DEB87F5C9 /* AuthorizationInteractorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFBAC4CD408ED58ECC28853 /* AuthorizationInteractorTests.m */; };
+		D4F4B6662414982040B6BE87 /* AuthorizationPresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2663A545B6C1AA6C4EA62362 /* AuthorizationPresenterTests.m */; };
+		D76F0A28C5C36CD4D0CFD7A8 /* AuthorizationAssemblyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CBC92874366AE04AE514E /* AuthorizationAssemblyTests.m */; };
+		DBF6E8AD38B4B7F1FFEA44AE /* AuthorizationAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF3291D9C4C331E6F6BD9C9 /* AuthorizationAssembly.m */; };
+		E7905867B45024BAC33AD821 /* AuthorizationInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F6329F52706D342840B2A0 /* AuthorizationInteractor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,9 +39,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043484D6F40C51CC3454FD20 /* AuthorizationViewOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationViewOutput.h; path = Classes/Modules/Authorization/View/AuthorizationViewOutput.h; sourceTree = "<group>"; };
 		170666F1D04759E670AE6119 /* Pods-GenerambaSandboxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenerambaSandboxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GenerambaSandboxTests/Pods-GenerambaSandboxTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1AFBAC4CD408ED58ECC28853 /* AuthorizationInteractorTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationInteractorTests.m; path = Classes/Modules/Authorization/Interactor/AuthorizationInteractorTests.m; sourceTree = "<group>"; };
+		2663A545B6C1AA6C4EA62362 /* AuthorizationPresenterTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationPresenterTests.m; path = Classes/Modules/Authorization/Presenter/AuthorizationPresenterTests.m; sourceTree = "<group>"; };
+		2942EB0DA03B776280CC310B /* AuthorizationModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationModuleInput.h; path = Classes/Modules/Authorization/Presenter/AuthorizationModuleInput.h; sourceTree = "<group>"; };
+		2B2B53862E6398D9C64612E9 /* AuthorizationViewControllerTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationViewControllerTests.m; path = Classes/Modules/Authorization/View/AuthorizationViewControllerTests.m; sourceTree = "<group>"; };
+		422CBC92874366AE04AE514E /* AuthorizationAssemblyTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationAssemblyTests.m; path = Classes/Modules/Authorization/Assembly/AuthorizationAssemblyTests.m; sourceTree = "<group>"; };
+		489BC633C65EE33D8D703B89 /* AuthorizationInteractorOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationInteractorOutput.h; path = Classes/Modules/Authorization/Interactor/AuthorizationInteractorOutput.h; sourceTree = "<group>"; };
+		5969DBEBC0FA1FEE4B422DF8 /* AuthorizationInteractorInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationInteractorInput.h; path = Classes/Modules/Authorization/Interactor/AuthorizationInteractorInput.h; sourceTree = "<group>"; };
 		6FDD246D78EEBD739BF1C8C9 /* Pods-GenerambaSandboxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenerambaSandboxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GenerambaSandboxTests/Pods-GenerambaSandboxTests.release.xcconfig"; sourceTree = "<group>"; };
 		732A57922F3EDFA93B2BDFB4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		75E185D2081DBFFF9EB9F935 /* AuthorizationViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationViewController.m; path = Classes/Modules/Authorization/View/AuthorizationViewController.m; sourceTree = "<group>"; };
+		7DE90AE05BC30B94708F52B4 /* AuthorizationRouterInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationRouterInput.h; path = Classes/Modules/Authorization/Router/AuthorizationRouterInput.h; sourceTree = "<group>"; };
+		88AA804B521D897339DF798D /* AuthorizationRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationRouter.m; path = Classes/Modules/Authorization/Router/AuthorizationRouter.m; sourceTree = "<group>"; };
+		901D79E285C4B6F019741745 /* AuthorizationRouterTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationRouterTests.m; path = Classes/Modules/Authorization/Router/AuthorizationRouterTests.m; sourceTree = "<group>"; };
 		95F5A858CAC6C38D50FF67C6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F2408FA1BE6634C0089ED51 /* GenerambaSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenerambaSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F2408FE1BE6634C0089ED51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -46,8 +68,18 @@
 		9F2409181BE663540089ED51 /* GenerambaSandboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenerambaSandboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F24091A1BE663540089ED51 /* GenerambaSandboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenerambaSandboxTests.m; sourceTree = "<group>"; };
 		9F24091C1BE663540089ED51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABBEB1202FC60A7F8D5F67B0 /* AuthorizationViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationViewController.h; path = Classes/Modules/Authorization/View/AuthorizationViewController.h; sourceTree = "<group>"; };
+		AE21D25E2FB2A8CA4A278C9F /* AuthorizationRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationRouter.h; path = Classes/Modules/Authorization/Router/AuthorizationRouter.h; sourceTree = "<group>"; };
+		B3F6329F52706D342840B2A0 /* AuthorizationInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationInteractor.m; path = Classes/Modules/Authorization/Interactor/AuthorizationInteractor.m; sourceTree = "<group>"; };
+		BBF3291D9C4C331E6F6BD9C9 /* AuthorizationAssembly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationAssembly.m; path = Classes/Modules/Authorization/Assembly/AuthorizationAssembly.m; sourceTree = "<group>"; };
+		BE874CFC398E822EE59F8E4F /* AuthorizationInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationInteractor.h; path = Classes/Modules/Authorization/Interactor/AuthorizationInteractor.h; sourceTree = "<group>"; };
+		C7B5E98F44E441F9646592FC /* AuthorizationAssembly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationAssembly.h; path = Classes/Modules/Authorization/Assembly/AuthorizationAssembly.h; sourceTree = "<group>"; };
 		D18026800902BEC802954D04 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D7D7A5FB8F6760E37F64CADA /* AuthorizationViewInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationViewInput.h; path = Classes/Modules/Authorization/View/AuthorizationViewInput.h; sourceTree = "<group>"; };
 		DA3461790D9C2677B77603B2 /* libPods-GenerambaSandboxTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GenerambaSandboxTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEBD339D058350FD13A6278C /* AuthorizationPresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationPresenter.m; path = Classes/Modules/Authorization/Presenter/AuthorizationPresenter.m; sourceTree = "<group>"; };
+		EF0DBD1908FE0929527DCF85 /* AuthorizationPresenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationPresenter.h; path = Classes/Modules/Authorization/Presenter/AuthorizationPresenter.h; sourceTree = "<group>"; };
+		FDC7B41D3CD276B224363181 /* AuthorizationAssembly_Testable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationAssembly_Testable.h; path = Classes/Modules/Authorization/Assembly/AuthorizationAssembly_Testable.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +102,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		160EE2E8C109D269C9308D6D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				79F031AF446B8FD6C4BC9D8D /* Modules */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		20FFB8EBCB222679CDBE1F5A /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				963D97356B5CD2CDE05055D3 /* Authorization */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		2451970A84100AB323995024 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D7D7A5FB8F6760E37F64CADA /* AuthorizationViewInput.h */,
+				043484D6F40C51CC3454FD20 /* AuthorizationViewOutput.h */,
+				ABBEB1202FC60A7F8D5F67B0 /* AuthorizationViewController.h */,
+				75E185D2081DBFFF9EB9F935 /* AuthorizationViewController.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		2C713E2721ADC6C73DFD1FE2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +140,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3F4C43BA43244EAD44977347 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				20FFB8EBCB222679CDBE1F5A /* Modules */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		48C0C75F8E616DFAF38312C9 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				422CBC92874366AE04AE514E /* AuthorizationAssemblyTests.m */,
+				FDC7B41D3CD276B224363181 /* AuthorizationAssembly_Testable.h */,
+			);
+			name = Assembly;
+			sourceTree = "<group>";
+		};
 		667EFBAFC58D8F101DC6FE5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +164,36 @@
 				DA3461790D9C2677B77603B2 /* libPods-GenerambaSandboxTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		79F031AF446B8FD6C4BC9D8D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C63601481D097FA3A0C329CB /* Authorization */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		80DC056F06A576B94297CBD0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2942EB0DA03B776280CC310B /* AuthorizationModuleInput.h */,
+				EF0DBD1908FE0929527DCF85 /* AuthorizationPresenter.h */,
+				EEBD339D058350FD13A6278C /* AuthorizationPresenter.m */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		963D97356B5CD2CDE05055D3 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				A2ADA6AA515E29B3CA082141 /* Assembly */,
+				2451970A84100AB323995024 /* View */,
+				80DC056F06A576B94297CBD0 /* Presenter */,
+				BE670620989E1637B888E79E /* Interactor */,
+				B154ECD79EC83D8AF7C19D2C /* Router */,
+			);
+			name = Authorization;
 			sourceTree = "<group>";
 		};
 		9F2408F11BE6634C0089ED51 = {
@@ -122,6 +228,7 @@
 				9F24090B1BE6634C0089ED51 /* LaunchScreen.storyboard */,
 				9F24090E1BE6634C0089ED51 /* Info.plist */,
 				9F2408FD1BE6634C0089ED51 /* Supporting Files */,
+				3F4C43BA43244EAD44977347 /* Classes */,
 			);
 			path = GenerambaSandbox;
 			sourceTree = "<group>";
@@ -139,8 +246,83 @@
 			children = (
 				9F24091A1BE663540089ED51 /* GenerambaSandboxTests.m */,
 				9F24091C1BE663540089ED51 /* Info.plist */,
+				160EE2E8C109D269C9308D6D /* Classes */,
 			);
 			path = GenerambaSandboxTests;
+			sourceTree = "<group>";
+		};
+		A2ADA6AA515E29B3CA082141 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				C7B5E98F44E441F9646592FC /* AuthorizationAssembly.h */,
+				BBF3291D9C4C331E6F6BD9C9 /* AuthorizationAssembly.m */,
+			);
+			name = Assembly;
+			sourceTree = "<group>";
+		};
+		B154ECD79EC83D8AF7C19D2C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				7DE90AE05BC30B94708F52B4 /* AuthorizationRouterInput.h */,
+				AE21D25E2FB2A8CA4A278C9F /* AuthorizationRouter.h */,
+				88AA804B521D897339DF798D /* AuthorizationRouter.m */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		B53FE5C2A51FC09126356F84 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2663A545B6C1AA6C4EA62362 /* AuthorizationPresenterTests.m */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		BE670620989E1637B888E79E /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				5969DBEBC0FA1FEE4B422DF8 /* AuthorizationInteractorInput.h */,
+				489BC633C65EE33D8D703B89 /* AuthorizationInteractorOutput.h */,
+				BE874CFC398E822EE59F8E4F /* AuthorizationInteractor.h */,
+				B3F6329F52706D342840B2A0 /* AuthorizationInteractor.m */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		C63601481D097FA3A0C329CB /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				48C0C75F8E616DFAF38312C9 /* Assembly */,
+				C8496310F9170F5BD5D1306D /* View */,
+				B53FE5C2A51FC09126356F84 /* Presenter */,
+				FD88C3DF3ABE0F33A79BB8E2 /* Interactor */,
+				DB12D7E54655A342EFE32417 /* Router */,
+			);
+			name = Authorization;
+			sourceTree = "<group>";
+		};
+		C8496310F9170F5BD5D1306D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B2B53862E6398D9C64612E9 /* AuthorizationViewControllerTests.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		DB12D7E54655A342EFE32417 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				901D79E285C4B6F019741745 /* AuthorizationRouterTests.m */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		FD88C3DF3ABE0F33A79BB8E2 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				1AFBAC4CD408ED58ECC28853 /* AuthorizationInteractorTests.m */,
+			);
+			name = Interactor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +495,11 @@
 				9F2409051BE6634C0089ED51 /* ViewController.m in Sources */,
 				9F2409021BE6634C0089ED51 /* AppDelegate.m in Sources */,
 				9F2408FF1BE6634C0089ED51 /* main.m in Sources */,
+				DBF6E8AD38B4B7F1FFEA44AE /* AuthorizationAssembly.m in Sources */,
+				416C37A79DBB922CCBEBADA6 /* AuthorizationViewController.m in Sources */,
+				9F4827E18C5E40C75359D9FF /* AuthorizationPresenter.m in Sources */,
+				E7905867B45024BAC33AD821 /* AuthorizationInteractor.m in Sources */,
+				C6A19FD41E187E212FD32B0A /* AuthorizationRouter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +508,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F24091B1BE663540089ED51 /* GenerambaSandboxTests.m in Sources */,
+				D76F0A28C5C36CD4D0CFD7A8 /* AuthorizationAssemblyTests.m in Sources */,
+				8F11B0C3168E29AF040F311E /* AuthorizationViewControllerTests.m in Sources */,
+				D4F4B6662414982040B6BE87 /* AuthorizationPresenterTests.m in Sources */,
+				C7808086F3C7BA8DEB87F5C9 /* AuthorizationInteractorTests.m in Sources */,
+				6D08254532D36E2929146603 /* AuthorizationRouterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
