@@ -25,9 +25,9 @@ module Generamba
 																									project)
 
 			# Configuring file paths
-			module_dir_path = Pathname.new(ProjectConfiguration.project_group_path)
+			module_dir_path = Pathname.new(ProjectConfiguration.project_file_path)
 														.join(name)
-			test_dir_path = Pathname.new(ProjectConfiguration.test_group_path)
+			test_dir_path = Pathname.new(ProjectConfiguration.test_file_path)
 													.join(name)
 			FileUtils.mkdir_p module_dir_path
 			FileUtils.mkdir_p test_dir_path
