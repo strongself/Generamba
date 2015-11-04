@@ -19,6 +19,15 @@ module Generamba
       puts('The local path is right! Installing template to the current project directory...')
       FileUtils.mkdir_p template_name
       FileUtils.copy_entry(local_path, Pathname.new(template_name))
+
+      rambafile = YAML.load_file('Rambafile')
+
+      templates = rambafile['project_templates'] ? SortedSet.new(rambafile['project_templates']) : SortedSet.new
+      templates.add(template_name)
+
+      rambafile['project_templates'] = templates.to_a
+      File.open('Rambafile', 'w') {|f| f.write rambafile.to_yaml }
+
       puts("Installing is finished! Now you can call: generamba gen #{template_name}")
     end
   end
