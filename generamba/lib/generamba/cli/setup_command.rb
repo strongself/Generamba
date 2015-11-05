@@ -3,7 +3,6 @@ require 'xcodeproj'
 require 'liquid'
 require 'tilt'
 require 'git'
-require 'generamba/cli/gen_command.rb'
 
 module Generamba::CLI
   class Application < Thor
@@ -14,19 +13,17 @@ module Generamba::CLI
 
       git_username = Git.init.config['user.name']
 
-      if git_username != nil
-        is_right_name = yes?("Your name in git is configured as #{git_username}. Do you want to use it in code headers? (yes/no)")
-        properties['author_name'] = is_right_name ? git_username : ask('The author name which will be used in the headers:')
+      if git_username != nil && yes?("Your name in git is configured as #{git_username}. Do you want to use it in code headers? (yes/no)")
+        properties['author_name'] = git_username
       else
-        properties['author_name'] = ask('The author name which will be used in the headers:')
+        properties['author_name'] = askNonEmptyString('The author name which will be used in the headers:','User name should not be empty')
       end
 
       properties['author_company'] = ask('The company name which will be used in the headers:')
 
       project_name = Pathname.new(Dir.getwd).basename.to_s
       is_right_project_name = yes?("The name of your project is #{project_name}. Do you want to use it? (yes/no)")
-      properties['project_name'] = is_right_project_name ? project_name : ask('The project name:')
-
+      properties['project_name'] = is_right_project_name ? project_name : askNonEmptyString('The project name:','Project name should not be empty')
       properties['prefix']  = ask('The project prefix (if any):')
 
       project_files = Dir['*.xcodeproj']
@@ -44,11 +41,8 @@ module Generamba::CLI
       targets_prompt = ''
       project.targets.each_with_index { |element, i| targets_prompt += ("#{i}. #{element.name}" + "\n") }
 
-      project_target_index = ask("Select the appropriate target for adding your modules (print the index):\n" + targets_prompt)
-      project_target = project.targets[project_target_index.to_i]
-
-      test_target_index = ask("Select the appropriate target for adding your tests (print the index):\n" + targets_prompt)
-      test_target = project.targets[test_target_index.to_i]
+      project_target = askIndex("Select the appropriate target for adding your MODULES (type the index):\n" + targets_prompt,project.targets)
+      test_target = askIndex("Select the appropriate target for adding your TESTS (type the index):\n" + targets_prompt,project.targets)
 
       project_group_path = ask('The default group path for creating new modules:')
       project_file_path = ask('The default file path for creating new modules:')
@@ -64,7 +58,7 @@ module Generamba::CLI
       properties['test_group_path'] = test_group_path
 
       Generamba::RambafileGenerator.create_rambafile(properties)
-      puts('Rambafile successfully created! Now run generamba gen YOUR_MODULE_NAME')
+      puts('Rambafile successfully created! Now run generamba gen [MODULE_NAME]')
     end
   end
 end
