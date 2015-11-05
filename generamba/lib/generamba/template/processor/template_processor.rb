@@ -5,6 +5,8 @@ require 'generamba/template/installer/remote_installer.rb'
 module Generamba
   class TemplateProcessor
     def install_templates
+      clear_installed_templates
+
       rambafile = YAML.load_file(RAMBAFILE_NAME)
 
       templates = rambafile['project_templates']
@@ -21,6 +23,11 @@ module Generamba
     end
 
     private
+    def clear_installed_templates
+      install_path = Pathname.new(TEMPLATES_FOLDER)
+      FileUtils.rm_rf(Dir.glob(install_path))
+    end
+
     def strategy_for_type(type)
       case type
         when TemplateDeclarationType::LOCAL_TEMPLATE
