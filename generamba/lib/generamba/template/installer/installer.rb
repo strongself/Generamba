@@ -1,33 +1,16 @@
 require 'generamba/template/installer/rambaspec_validator.rb'
 
+
 module Generamba
   class Installer
-    def install_templates
-      rambafile = YAML.load_file('Rambafile')
-
-      templates = rambafile['project_templates']
-      if !templates || templates.count == 0
-        error_description = 'You must specify at least one template in Rambafile under the key *project_templates*'
-        raise StandardError.new(error_description)
-      end
-
-      local_templates = []
-      remote_templates = []
-      templates.each do |template|
-        if template['local']
-          local_templates.push(template)
-        end
-
-        if template['git']
-          remote_templates.push(template)
-        end
-
-      end
-
-
+    def install_template(template_declaration)
+      # Abstract method
     end
-
-    def install_local_template(template_name, local_path)
+  end
+  class LocalInstaller < Installer
+    def install_template(template_declaration)
+      template_name = template_declaration.name
+      local_path = template_declaration.local
       rambaspec_exist = Generamba::RambaspecValidator.validate_spec_existance(template_name, local_path)
 
       if rambaspec_exist == false
@@ -56,4 +39,12 @@ module Generamba
       puts("Installing is finished! Now you can call: generamba gen #{template_name}")
     end
   end
+
+  class RemoteInstaller < Installer
+    def install_template(template_declaration)
+      puts('oooops!')
+    end
+  end
+
+
 end
