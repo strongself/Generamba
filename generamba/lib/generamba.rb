@@ -1,6 +1,7 @@
 require 'xcodeproj'
 
 module Generamba
+  require 'generamba/constants/constants.rb'
   require 'generamba/cli/cli.rb'
   require 'generamba/code_generation/code_module.rb'
   require 'generamba/code_generation/module_template.rb'

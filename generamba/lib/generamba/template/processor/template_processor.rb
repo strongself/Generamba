@@ -5,7 +5,7 @@ require 'generamba/template/installer/remote_installer.rb'
 module Generamba
   class TemplateProcessor
     def install_templates
-      rambafile = YAML.load_file('Rambafile')
+      rambafile = YAML.load_file(RAMBAFILE_NAME)
 
       templates = rambafile['project_templates']
       if !templates || templates.count == 0
