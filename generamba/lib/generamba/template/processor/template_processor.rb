@@ -1,4 +1,6 @@
-require 'generamba/template/installer/template_declaration.rb'
+require 'generamba/template/processor/template_declaration.rb'
+require 'generamba/template/installer/local_installer.rb'
+require 'generamba/template/installer/remote_installer.rb'
 
 module Generamba
   class TemplateProcessor

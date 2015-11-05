@@ -1,13 +1,8 @@
-require 'generamba/template/installer/rambaspec_validator.rb'
-
+require 'generamba/template/installer/abstract_installer.rb'
+require 'generamba/template/helpers/rambaspec_validator.rb'
 
 module Generamba
-  class Installer
-    def install_template(template_declaration)
-      # Abstract method
-    end
-  end
-  class LocalInstaller < Installer
+  class LocalInstaller < AbstractInstaller
     def install_template(template_declaration)
       template_name = template_declaration.name
       local_path = template_declaration.local
@@ -39,12 +34,4 @@ module Generamba
       puts("Installing is finished! Now you can call: generamba gen #{template_name}")
     end
   end
-
-  class RemoteInstaller < Installer
-    def install_template(template_declaration)
-      puts('oooops!')
-    end
-  end
-
-
 end

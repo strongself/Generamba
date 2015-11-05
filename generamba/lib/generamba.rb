@@ -8,6 +8,5 @@ module Generamba
   require 'generamba/code_generation/content_generator.rb'
   require 'generamba/code_generation/rambafile_generator.rb'
   require 'generamba/module_generator.rb'
-  require 'generamba/template/installer/installer.rb'
-  require 'generamba/template/installer/template_processor.rb'
+  require 'generamba/template/processor/template_processor.rb'
 end
