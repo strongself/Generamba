@@ -7,6 +7,9 @@ module Generamba
 
     # A remote template - it's stored in a remote Git repository
     REMOTE_TEMPLATE = 1
+
+    # A template from our shared catalog
+    CATALOG_TEMPLATE = 2
   end
 
   # Describes a Generamba template declaration model
@@ -20,6 +23,7 @@ module Generamba
 
       @type = TemplateDeclarationType::LOCAL_TEMPLATE if @local
       @type = TemplateDeclarationType::REMOTE_TEMPLATE if @git
+      @type = TemplateDeclarationType::CATALOG_TEMPLATE if @git == nil && @local == nil
     end
 
     def install(strategy)

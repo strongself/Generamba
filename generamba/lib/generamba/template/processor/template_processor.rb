@@ -1,6 +1,8 @@
 require 'generamba/template/processor/template_declaration.rb'
 require 'generamba/template/installer/local_installer.rb'
 require 'generamba/template/installer/remote_installer.rb'
+require 'generamba/template/installer/catalog_installer.rb'
+require 'git'
 
 module Generamba
 
@@ -25,6 +27,10 @@ module Generamba
       templates.each do |template|
         template_declaration = Generamba::TemplateDeclaration.new(template)
         strategy = strategy_for_type(template_declaration.type)
+
+        # It's unnecessary to clone the template catalog if there are no appropriate templates in the Rambafile
+        update_shared_catalog_if_needed if template_declaration.type == TemplateDeclarationType::CATALOG_TEMPLATE
+
         template_declaration.install(strategy)
       end
     end
@@ -37,6 +43,21 @@ module Generamba
       FileUtils.rm_rf(Dir.glob(install_path))
     end
 
+    # Clones remote template catalog to the local directory
+    def update_shared_catalog_if_needed
+      # We should update the catalog exactly once
+      if @is_catalog_updated == true
+        return
+      end
+      puts('Updating shared generamba-catalog specs...')
+
+      # Cloning repo to the local directory
+      catalog_local_path = Pathname.new(Dir.getwd).join(CATALOGS_DIR)
+      FileUtils.mkdir_p catalog_local_path
+
+      Git.clone(RAMBLER_CATALOG_REPO, 'generamba-catalog', :path => catalog_local_path)
+    end
+
     # Provides the appropriate strategy for a given template type
     def strategy_for_type(type)
       case type
@@ -44,6 +65,8 @@ module Generamba
           return Generamba::LocalInstaller.new
         when TemplateDeclarationType::REMOTE_TEMPLATE
           return Generamba::RemoteInstaller.new
+        when TemplateDeclarationType::CATALOG_TEMPLATE
+          return Generamba::CatalogInstaller.new
         else
           return nil
       end
