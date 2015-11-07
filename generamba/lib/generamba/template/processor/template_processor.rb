@@ -11,6 +11,7 @@ module Generamba
 
     # This method parses Rambafile, serializes templates hashes into model objects and install them
     def install_templates
+      @is_catalog_updated = false
 
       # We always clear previously installed templates to avoid conflicts in different versions
       clear_installed_templates
@@ -57,6 +58,7 @@ module Generamba
       FileUtils.mkdir_p catalog_local_path
 
       Git.clone(RAMBLER_CATALOG_REPO, 'generamba-catalog', :path => catalog_local_path)
+      @is_catalog_updated = true
     end
 
     # Provides the appropriate strategy for a given template type
