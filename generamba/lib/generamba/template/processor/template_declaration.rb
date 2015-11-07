@@ -1,9 +1,15 @@
 module Generamba
+
+  # This class acts as an Enumeration for TemplateDeclaration types
   class TemplateDeclarationType
+    # A local template - usually it's stored somewhere outside the current project directory
     LOCAL_TEMPLATE = 0
+
+    # A remote template - it's stored in a remote Git repository
     REMOTE_TEMPLATE = 1
   end
 
+  # Describes a Generamba template declaration model
   class TemplateDeclaration
     attr_reader :name, :local, :git, :type
 

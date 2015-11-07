@@ -6,6 +6,8 @@ require 'fileutils'
 require 'tmpdir'
 
 module Generamba
+
+  # Incapsulates the logic of fetching remote templates, verifying and installing them
   class RemoteInstaller < AbstractInstaller
     def install_template(template_declaration)
       template_name = template_declaration.name

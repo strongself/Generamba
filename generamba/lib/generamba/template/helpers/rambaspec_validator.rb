@@ -16,6 +16,12 @@ module Generamba
       rambaspec_exist = File.file?(local_spec_path)
     end
 
+    # Validates the structure of a .rambaspec file for a given template
+    #
+    # @param template_name [String] The name of the template
+    # @param template_path [String] The local filepath to the template
+    #
+    # @return [Bool]
     def self.validate_spec(template_name, template_path)
       spec_path = self.obtain_spec_path(template_name, template_path)
       spec = Settingslogic.new(spec_path)
@@ -26,6 +32,12 @@ module Generamba
 
     private
 
+    # Returns a filepath for a given .rambaspec filename
+    #
+    # @param template_name [String] The name of the template
+    # @param template_path [String] The local filepath to the template
+    #
+    # @return [Bool]
     def self.obtain_spec_path(template_name, template_path)
       spec_filename = template_name + '.rambaspec'
       full_path = Pathname.new(template_path)

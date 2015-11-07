@@ -2,6 +2,8 @@ require 'generamba/template/installer/abstract_installer.rb'
 require 'generamba/template/helpers/rambaspec_validator.rb'
 
 module Generamba
+
+  # Incapsulates the logic of verifying and installing local templates
   class LocalInstaller < AbstractInstaller
     def install_template(template_declaration)
       template_name = template_declaration.name
