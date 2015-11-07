@@ -53,6 +53,7 @@ module Generamba
 
       # Cloning repo to the local directory
       catalog_local_path = Pathname.new(Dir.getwd).join(CATALOGS_DIR)
+      FileUtils.rm_rf catalog_local_path
       FileUtils.mkdir_p catalog_local_path
 
       Git.clone(RAMBLER_CATALOG_REPO, 'generamba-catalog', :path => catalog_local_path)

@@ -1,7 +1,6 @@
 require 'generamba/template/installer/abstract_installer.rb'
 require 'generamba/template/helpers/rambaspec_validator.rb'
 require 'git'
-require 'securerandom'
 require 'fileutils'
 require 'tmpdir'
 
