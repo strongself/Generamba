@@ -12,7 +12,7 @@ module Generamba::CLI
       properties = {}
 
       git_username = Git.init.config['user.name']
-      username = ''
+
       if git_username != nil && yes?("Your name in git is configured as #{git_username}. Do you want to use it in code headers? (yes/no)")
         username = git_username
       else
@@ -46,11 +46,20 @@ module Generamba::CLI
       project_target = ask_index("Select the appropriate target for adding your MODULES (type the index):\n" + targets_prompt,project.targets)
       test_target = ask_index("Select the appropriate target for adding your TESTS (type the index):\n" + targets_prompt,project.targets)
 
-      project_group_path = ask('The default group path for creating new modules:')
-      project_file_path = ask('The default file path for creating new modules:')
+      should_use_same_paths = yes?('Do you want to use the same paths for your files both in Xcode and the filesystem? (yes/no)')
+      if should_use_same_paths
+        project_group_path = ask('The default path for creating new modules:')
+        project_file_path = project_group_path
 
-      test_group_path = ask('The default group path for creating tests:')
-      test_file_path = ask('The default file path for creating tests:')
+        test_group_path = ask('The default path for creating tests:')
+        test_file_path = test_group_path
+      else
+        project_group_path = ask('The default path for creating new modules (in Xcode groups):')
+        project_file_path = ask('The default path for creating new modules (in the filesystem):')
+
+        test_group_path = ask('The default path for creating tests (in Xcode groups):')
+        test_file_path = ask('The default path for creating tests (in the filesystem):')
+      end
 
       properties['project_target'] = project_target.name
       properties['project_file_path'] = project_file_path
