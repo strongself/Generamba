@@ -1,6 +1,5 @@
 require 'fileutils'
 
-require 'generamba/helpers/template_helper.rb'
 require 'generamba/helpers/xcodeproj_helper.rb'
 
 module Generamba
