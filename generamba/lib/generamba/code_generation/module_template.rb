@@ -1,3 +1,4 @@
+require 'generamba/helpers/template_helper.rb'
 require 'settingslogic'
 
 module Generamba
