@@ -51,7 +51,9 @@ module Generamba
 
       puts('Updating shared generamba-catalog specs...')
 
-      catalog_local_path = Pathname.new(ENV['HOME']).join(CATALOGS_DIR)
+      catalog_local_path = Pathname.new(ENV['HOME'])
+                               .join(GENERAMBA_HOME_DIR)
+                               .join(CATALOGS_DIR)
       FileUtils.rm_rf catalog_local_path
       FileUtils.mkdir_p catalog_local_path
 

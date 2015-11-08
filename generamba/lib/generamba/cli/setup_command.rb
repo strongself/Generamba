@@ -12,18 +12,20 @@ module Generamba::CLI
       properties = {}
 
       git_username = Git.init.config['user.name']
-
+      username = ''
       if git_username != nil && yes?("Your name in git is configured as #{git_username}. Do you want to use it in code headers? (yes/no)")
-        properties['author_name'] = git_username
+        username = git_username
       else
-        properties['author_name'] = ask_non_empty_string('The author name which will be used in the headers:','User name should not be empty')
+        username = ask_non_empty_string('The author name which will be used in the headers:', 'User name should not be empty')
       end
+
+      Generamba::UserPreferences.save_username(username)
 
       properties['author_company'] = ask('The company name which will be used in the headers:')
 
       project_name = Pathname.new(Dir.getwd).basename.to_s
       is_right_project_name = yes?("The name of your project is #{project_name}. Do you want to use it? (yes/no)")
-      properties['project_name'] = is_right_project_name ? project_name : ask_non_empty_string('The project name:','Project name should not be empty')
+      properties['project_name'] = is_right_project_name ? project_name : ask_non_empty_string('The project name:', 'Project name should not be empty')
       properties['prefix']  = ask('The project prefix (if any):')
 
       project_files = Dir['*.xcodeproj']

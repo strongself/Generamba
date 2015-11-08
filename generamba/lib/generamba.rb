@@ -10,4 +10,5 @@ module Generamba
   require 'generamba/code_generation/rambafile_generator.rb'
   require 'generamba/module_generator.rb'
   require 'generamba/template/processor/template_processor.rb'
+  require 'generamba/configuration/user_preferences.rb'
 end
