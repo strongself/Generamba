@@ -11,27 +11,26 @@ module Generamba
 
     # This method parses Rambafile, serializes templates hashes into model objects and install them
     def install_templates
-      @is_catalog_updated = false
-
       # We always clear previously installed templates to avoid conflicts in different versions
       clear_installed_templates
 
       rambafile = YAML.load_file(RAMBAFILE_NAME)
 
-      templates = rambafile['project_templates']
+      # Mapping hashes to model objects
+      templates = rambafile['project_templates'].map { |template_hash|
+        template_declaration = Generamba::TemplateDeclaration.new(template_hash)
+      }
 
       if !templates || templates.count == 0
         error_description = 'You must specify at least one template in Rambafile under the key *project_templates*'
         raise StandardError.new(error_description)
       end
 
-      templates.each do |template|
-        template_declaration = Generamba::TemplateDeclaration.new(template)
+      # If there is at least one template from the shared catalog, we should update our local copy of the catalog
+      update_shared_catalog_if_needed(templates)
+
+      templates.each do |template_declaration|
         strategy = strategy_for_type(template_declaration.type)
-
-        # It's unnecessary to clone the template catalog if there are no appropriate templates in the Rambafile
-        update_shared_catalog_if_needed if template_declaration.type == TemplateDeclarationType::CATALOG_TEMPLATE
-
         template_declaration.install(strategy)
       end
     end
@@ -45,20 +44,18 @@ module Generamba
     end
 
     # Clones remote template catalog to the local directory
-    def update_shared_catalog_if_needed
-      # We should update the catalog exactly once
-      if @is_catalog_updated == true
-        return
-      end
+    def update_shared_catalog_if_needed(templates)
+      needs_update = templates.any? {|template| template.type == TemplateDeclarationType::CATALOG_TEMPLATE}
+
+      return unless needs_update
+
       puts('Updating shared generamba-catalog specs...')
 
-      # Cloning repo to the local directory
-      catalog_local_path = Pathname.new(Dir.getwd).join(CATALOGS_DIR)
+      catalog_local_path = Pathname.new(ENV['HOME']).join(CATALOGS_DIR)
       FileUtils.rm_rf catalog_local_path
       FileUtils.mkdir_p catalog_local_path
 
-      Git.clone(RAMBLER_CATALOG_REPO, 'generamba-catalog', :path => catalog_local_path)
-      @is_catalog_updated = true
+      Git.clone(RAMBLER_CATALOG_REPO, GENERAMBA_CATALOG_NAME, :path => catalog_local_path)
     end
 
     # Provides the appropriate strategy for a given template type

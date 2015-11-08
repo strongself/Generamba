@@ -7,6 +7,8 @@ module Generamba
   class LocalInstaller < AbstractInstaller
     def install_template(template_declaration)
       template_name = template_declaration.name
+      puts("Installing #{template_name}...")
+
       local_path = template_declaration.local
       rambaspec_exist = Generamba::RambaspecValidator.validate_spec_existance(template_name, local_path)
 
@@ -21,7 +23,6 @@ module Generamba
         raise StandardError.new(error_description)
       end
 
-      puts("Installing #{template_name}...")
       install_path = Pathname.new(TEMPLATES_FOLDER)
                          .join(template_name)
       FileUtils.mkdir_p install_path
