@@ -17,7 +17,7 @@ module Generamba
       rambafile = YAML.load_file(RAMBAFILE_NAME)
 
       # Mapping hashes to model objects
-      templates = rambafile['project_templates'].map { |template_hash|
+      templates = rambafile['templates'].map { |template_hash|
         template_declaration = Generamba::TemplateDeclaration.new(template_hash)
       }
 
