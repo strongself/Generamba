@@ -16,14 +16,14 @@ module Generamba::CLI
       if git_username != nil && yes?("Your name in git is configured as #{git_username}. Do you want to use it in code headers? (yes/no)")
         properties['author_name'] = git_username
       else
-        properties['author_name'] = askNonEmptyString('The author name which will be used in the headers:','User name should not be empty')
+        properties['author_name'] = ask_non_empty_string('The author name which will be used in the headers:','User name should not be empty')
       end
 
       properties['author_company'] = ask('The company name which will be used in the headers:')
 
       project_name = Pathname.new(Dir.getwd).basename.to_s
       is_right_project_name = yes?("The name of your project is #{project_name}. Do you want to use it? (yes/no)")
-      properties['project_name'] = is_right_project_name ? project_name : askNonEmptyString('The project name:','Project name should not be empty')
+      properties['project_name'] = is_right_project_name ? project_name : ask_non_empty_string('The project name:','Project name should not be empty')
       properties['prefix']  = ask('The project prefix (if any):')
 
       project_files = Dir['*.xcodeproj']
@@ -41,8 +41,8 @@ module Generamba::CLI
       targets_prompt = ''
       project.targets.each_with_index { |element, i| targets_prompt += ("#{i}. #{element.name}" + "\n") }
 
-      project_target = askIndex("Select the appropriate target for adding your MODULES (type the index):\n" + targets_prompt,project.targets)
-      test_target = askIndex("Select the appropriate target for adding your TESTS (type the index):\n" + targets_prompt,project.targets)
+      project_target = ask_index("Select the appropriate target for adding your MODULES (type the index):\n" + targets_prompt,project.targets)
+      test_target = ask_index("Select the appropriate target for adding your TESTS (type the index):\n" + targets_prompt,project.targets)
 
       project_group_path = ask('The default group path for creating new modules:')
       project_file_path = ask('The default file path for creating new modules:')
