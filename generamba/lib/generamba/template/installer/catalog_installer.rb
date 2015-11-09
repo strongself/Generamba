@@ -12,7 +12,8 @@ module Generamba
       puts("Installing #{template_name}...")
 
       template_name = template_declaration.name
-      catalog_path = Pathname.new(Dir.getwd)
+      catalog_path = Pathname.new(ENV['HOME'])
+                         .join(GENERAMBA_HOME_DIR)
                          .join(CATALOGS_DIR)
                          .join(GENERAMBA_CATALOG_NAME)
       template_path = catalog_path.join(template_name)
