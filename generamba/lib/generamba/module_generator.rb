@@ -7,9 +7,6 @@ module Generamba
 	# Responsible for creating the whole code module using information from the CLI
 	class ModuleGenerator
 
-		def initialize
-		end
-
 		def generate_module(template_name, name, description)
 			# Setting up CodeModule and ModuleTemplate objects.
 			# TODO: Move it to the CLI infrastructure
