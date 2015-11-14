@@ -1,12 +1,21 @@
+# Template information section
 name: {{ name }}
 summary: {{ summary }}
 author: {{ author }}
 version: 1.0.0
-license: "MIT"
+license: {{ license }}
 
+# The declarations for code files
 code_files:
 - {name: DefaultModule/DefaultClass.h, path: Code/DefaultModule/class.h.liquid}
 - {name: DefaultModule/DefaultClass.m, path: Code/DefaultModule/class.m.liquid}
 
+# The declarations for test files
 test_files:
 - {name: DefaultModule/DefaultClassTests.m, path: Code/DefaultModule/class_tests.m.liquid}
+
+# Template dependencies
+dependencies:
+{% for dependency in dependencies_list %}
+  - dependency
+{% endfor %}
