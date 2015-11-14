@@ -3,9 +3,11 @@ require 'xcodeproj'
 require 'liquid'
 require 'tilt'
 require 'git'
+require 'generamba/constants/rambafile_constants.rb'
 
 module Generamba::CLI
   class Application < Thor
+    include Generamba
 
     desc 'setup', 'Creates a Rambafile with a config for a given project'
     def setup
@@ -32,12 +34,12 @@ module Generamba::CLI
       count = project_files.count
       if count == 1
         is_right_path = yes?("The path to a .xcodeproj file of the project is #{project_files[0]}. Do you want to use it? (yes/no)")
-        xcode_path = is_right_path ? File.absolute_path(project_files[0]) : ask('The path to a .xcodeproj file of the project:')
+        xcode_path = is_right_path ? project_files[0] : ask('The path to a .xcodeproj file of the project:')
       else
         xcode_path = ask('The path to a .xcodeproj file of the project:')
       end
 
-      properties[XCODEPROJECT_PATH_KEY] = xcode_path
+      properties[XCODEPROJ_PATH_KEY] = xcode_path
       project = Xcodeproj::Project.open(xcode_path)
 
       targets_prompt = ''
@@ -60,6 +62,9 @@ module Generamba::CLI
         test_group_path = ask('The default path for creating tests (in Xcode groups):')
         test_file_path = ask('The default path for creating tests (in the filesystem):')
       end
+
+      properties[PODFILE_PATH_KEY]  = ask('The Podfile path (if any):')
+      properties[CARTFILE_PATH_KEY]  = ask('The Cartfile path (if any):')
 
       properties[PROJECT_TARGET_KEY] = project_target.name
       properties[PROJECT_FILE_PATH_KEY] = project_file_path

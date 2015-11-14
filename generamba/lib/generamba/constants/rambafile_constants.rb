@@ -4,7 +4,7 @@ module Generamba
   COMPANY_KEY = 'company'
   PROJECT_NAME_KEY = 'project_name'
   PROJECT_PREFIX_KEY = 'prefix'
-  XCODEPROJECT_PATH_KEY = 'xcodeproj_path'
+  XCODEPROJ_PATH_KEY = 'xcodeproj_path'
 
   PROJECT_TARGET_KEY = 'project_target'
   PROJECT_FILE_PATH_KEY = 'project_file_path'
@@ -14,8 +14,10 @@ module Generamba
   TEST_FILE_PATH_KEY = 'test_file_path'
   TEST_GROUP_PATH_KEY = 'test_group_path'
 
-  TEMPLATES_KEY = 'templates'
+  PODFILE_PATH_KEY = 'podfile_path'
+  CARTFILE_PATH_KEY = 'cartfile_path'
 
+  TEMPLATES_KEY = 'templates'
   TEMPLATE_DECLARATION_NAME_KEY = 'name'
   TEMPLATE_DECLARATION_LOCAL_KEY = 'local'
   TEMPLATE_DECLARATION_GIT_KEY = 'git'

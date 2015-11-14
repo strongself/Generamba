@@ -1,6 +1,5 @@
-### Author settings
-author: {{ author_name }}
-company: {{ author_company }}
+### Headers settings
+company: {{ company }}
 
 ### Xcode project settings
 project_name: {{ project_name }}
@@ -26,3 +25,13 @@ test_file_path: {{ test_file_path }}
 
 # The Xcode group path to new tests
 test_group_path: {{ test_group_path }}
+
+### Dependencies settings section
+podfile_path: {{ podfile_path }}
+cartfile_path: {{ cartfile_path }}
+
+### Templates
+templates:
+#- {name: local_template_name, path: absolute/file/path}
+#- {name: remote_template_name, git: https://github.com/igrekde/remote_template}
+#- {name: catalog_template_name}
