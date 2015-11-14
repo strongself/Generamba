@@ -21,12 +21,12 @@ module Generamba::CLI
 
       Generamba::UserPreferences.save_username(username)
 
-      properties['author_company'] = ask('The company name which will be used in the headers:')
+      properties[COMPANY_KEY] = ask('The company name which will be used in the headers:')
 
       project_name = Pathname.new(Dir.getwd).basename.to_s
       is_right_project_name = yes?("The name of your project is #{project_name}. Do you want to use it? (yes/no)")
-      properties['project_name'] = is_right_project_name ? project_name : ask_non_empty_string('The project name:', 'Project name should not be empty')
-      properties['prefix']  = ask('The project prefix (if any):')
+      properties[PROJECT_NAME_KEY] = is_right_project_name ? project_name : ask_non_empty_string('The project name:', 'Project name should not be empty')
+      properties[PROJECT_PREFIX_KEY]  = ask('The project prefix (if any):')
 
       project_files = Dir['*.xcodeproj']
       count = project_files.count
@@ -37,7 +37,7 @@ module Generamba::CLI
         xcode_path = ask('The path to a .xcodeproj file of the project:')
       end
 
-      properties['xcodeproj_path'] = xcode_path
+      properties[XCODEPROJECT_PATH_KEY] = xcode_path
       project = Xcodeproj::Project.open(xcode_path)
 
       targets_prompt = ''
@@ -61,12 +61,12 @@ module Generamba::CLI
         test_file_path = ask('The default path for creating tests (in the filesystem):')
       end
 
-      properties['project_target'] = project_target.name
-      properties['project_file_path'] = project_file_path
-      properties['project_group_path'] = project_group_path
-      properties['test_target'] = test_target.name
-      properties['test_file_path'] = test_file_path
-      properties['test_group_path'] = test_group_path
+      properties[PROJECT_TARGET_KEY] = project_target.name
+      properties[PROJECT_FILE_PATH_KEY] = project_file_path
+      properties[PROJECT_GROUP_PATH_KEY] = project_group_path
+      properties[TEST_TARGET_KEY] = test_target.name
+      properties[TEST_FILE_PATH_KEY] = test_file_path
+      properties[TEST_GROUP_PATH_KEY] = test_group_path
 
       Generamba::RambafileGenerator.create_rambafile(properties)
       puts('Rambafile successfully created! Now run generamba gen [MODULE_NAME]')

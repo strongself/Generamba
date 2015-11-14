@@ -14,7 +14,7 @@ module Generamba
       template = Tilt.new(File.dirname(__FILE__) + '/Rambafile.liquid')
       output = template.render(properties)
 
-      File.open('Rambafile', 'w+') {|f|
+      File.open(RAMBAFILE_NAME, 'w+') {|f|
         f.write(output)
       }
     end

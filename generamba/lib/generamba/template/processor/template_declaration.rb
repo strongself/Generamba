@@ -17,9 +17,9 @@ module Generamba
     attr_reader :name, :local, :git, :type
 
     def initialize(template_hash)
-      @name = template_hash['name']
-      @local = template_hash['local']
-      @git = template_hash['git']
+      @name = template_hash[TEMPLATE_DECLARATION_NAME_KEY]
+      @local = template_hash[TEMPLATE_DECLARATION_LOCAL_KEY]
+      @git = template_hash[TEMPLATE_DECLARATION_GIT_KEY]
 
       @type = TemplateDeclarationType::LOCAL_TEMPLATE if @local
       @type = TemplateDeclarationType::REMOTE_TEMPLATE if @git

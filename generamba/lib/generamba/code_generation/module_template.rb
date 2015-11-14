@@ -11,8 +11,8 @@ module Generamba
       spec_path = TemplateHelper.obtain_spec(name)
       spec = Settingslogic.new(spec_path)
 
-      @code_files = spec[:code_files]
-      @test_files = spec[:test_files]
+      @code_files = spec[TEMPLATE_CODE_FILES_KEY]
+      @test_files = spec[TEMPLATE_TEST_FILES_KEY]
       @template_name = spec.name
       @template_path = TemplateHelper.obtain_path(name)
     end

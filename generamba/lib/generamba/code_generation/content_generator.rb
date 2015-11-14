@@ -9,12 +9,12 @@ module Generamba
     # Generates and returns a body of a specific code file.
     # @param file []Hash<String,String>] A hashmap with template's filename and filepath
     # @param code_module [CodeModule] The model describing a generating module
-    # @param template [ModuleTemplate] The model sescriving a Generamba template used for code generation
+    # @param template [ModuleTemplate] The model describing a Generamba template used for code generation
     #
     # @return [String] The generated body
 		def self.create_file_content(file, code_module, template)
-			file_template = Tilt.new(template.template_path.join(file['path']))
-      file_name = File.basename(file['name'])
+			file_template = Tilt.new(template.template_path.join(file[TEMPLATE_FILE_PATH_KEY]))
+      file_name = File.basename(file[TEMPLATE_FILE_NAME_KEY])
 			module_info = {
 					'name' => code_module.name,
 					'file_name' => file_name,

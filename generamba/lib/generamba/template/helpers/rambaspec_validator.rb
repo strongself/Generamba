@@ -39,7 +39,7 @@ module Generamba
     #
     # @return [Bool]
     def self.obtain_spec_path(template_name, template_path)
-      spec_filename = template_name + '.rambaspec'
+      spec_filename = template_name + RAMBASPEC_EXTENSION
       full_path = Pathname.new(template_path)
                       .join(spec_filename)
     end
