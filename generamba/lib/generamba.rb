@@ -13,4 +13,5 @@ module Generamba
   require 'generamba/module_generator.rb'
   require 'generamba/template/processor/template_processor.rb'
   require 'generamba/configuration/user_preferences.rb'
+  require 'generamba/template/creator/template_creator.rb'
 end

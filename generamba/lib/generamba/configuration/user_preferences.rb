@@ -3,7 +3,7 @@ require 'generamba/constants/user_preferences_constants.rb'
 module Generamba
 
   # A class that provides methods for working with user-specific information.
-  # Currently it has methods for obtaining and saving username, later it may be improved to seomthing more general.
+  # Currently it has methods for obtaining and saving username, later it may be improved to something more general.
   class UserPreferences
 
     def self.obtain_username
