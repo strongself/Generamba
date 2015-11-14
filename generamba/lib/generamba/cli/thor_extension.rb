@@ -12,6 +12,16 @@ module Generamba::CLI
         return ask_with_validation(message,->(value){value.length > 0 },description)
       end
 
+      def ask_loop(message)
+        array = Array.new
+        loop do
+          value = ask(message)
+          break if value.empty?
+          array.push(value)
+        end
+        return array
+      end
+
       def ask_with_validation(message, is_valid_value, description = 'Invalid value')
         loop do
           value = ask(message)
