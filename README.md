@@ -1,5 +1,7 @@
 ### Overview
 
+[![Gem Version](https://badge.fury.io/rb/generamba.svg)](https://badge.fury.io/rb/generamba)
+
 **Generamba** - это генератор кода, заточенный под работу с Xcode. В первую очередь предназначен для генерации модулей VIPER - но достаточно легко настраивается и для генерации любых других классов.
 
 ![Generamba Screenshot](http://s11.postimg.org/ixp90vfr7/generamba.jpg)
