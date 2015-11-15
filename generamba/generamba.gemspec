@@ -10,6 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'e.tolstoy@rambler-co.ru'
 
   spec.summary       = 'Advanced code generator for Xcode projects with a nice and flexible template system.'
+  spec.description   = 'Generamba is a powerful and easy-to-use Xcode code generator. It provides a project-based configuration, flexible templates system, the ability to generate code and tests simultaneously.'
   spec.homepage      = 'https://github.com/rambler-ios/Generamba'
   spec.license       = 'MIT'
 
