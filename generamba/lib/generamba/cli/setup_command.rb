@@ -74,7 +74,7 @@ module Generamba::CLI
       properties[TEST_GROUP_PATH_KEY] = test_group_path
 
       Generamba::RambafileGenerator.create_rambafile(properties)
-      puts('Rambafile successfully created! Now run generamba gen [MODULE_NAME]')
+      say('Rambafile successfully created! Now add some templates to the Rambafile and run `generamba template install`.')
     end
   end
 end
