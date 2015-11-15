@@ -10,7 +10,7 @@ module Generamba
     end
 
     def author
-      ProjectConfiguration.author
+      Generamba::UserPreferences.obtain_username
     end
 
     def company

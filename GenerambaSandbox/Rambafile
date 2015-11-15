@@ -1,28 +1,35 @@
-### Author settings
-author: Egor Tolstoy
+### Headers settings
 company: Rambler&Co
 
 ### Xcode project settings
 project_name: GenerambaSandbox
 prefix: 
-xcodeproj_path: /Users/etolstoy/Generamba/GenerambaSandbox/GenerambaSandbox.xcodeproj
+xcodeproj_path: GenerambaSandbox.xcodeproj
 
 ### Code generation settings section
 # The main project target name
 project_target: GenerambaSandbox
 
 # The file path for new modules
-project_file_path: GenerambaSandbox/Classes/Modules/
+project_file_path: GenerambaSandbox/Classes/Modules
 
 # The Xcode group path to new modules
-project_group_path: GenerambaSandbox/Classes/Modules/
+project_group_path: GenerambaSandbox/Classes/Modules
 
 ### Tests generation settings section
 # The tests target name
 test_target: GenerambaSandboxTests
 
 # The file path for new tests
-test_file_path: GenerambaSandboxTests/Classes/Modules/
+test_file_path: GenerambaSandboxTests/Classes/Modules
 
 # The Xcode group path to new tests
-test_group_path: GenerambaSandboxTests/Classes/Modules/
+test_group_path: GenerambaSandboxTests/Classes/Modules
+
+### Dependencies settings section
+podfile_path: Podfile
+cartfile_path: 
+
+### Templates
+templates:
+- {name: rviper_controller}

@@ -2,7 +2,7 @@
 //  AuthorizationPresenter.h
 //  GenerambaSandbox
 //
-//  Created by Egor Tolstoy on 01/11/2015.
+//  Created by Egor Tolstoy on 15/11/2015.
 //  Copyright 2015 Rambler&Co. All rights reserved.
 //
 

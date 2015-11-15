@@ -9,7 +9,7 @@ module Generamba
     # @return [Pathname]
     def self.obtain_spec(template_name)
       template_path = self.obtain_path(template_name)
-      spec_path = template_path.join(template_name + '.rambaspec')
+      spec_path = template_path.join(template_name + RAMBASPEC_EXTENSION)
 
       return spec_path
     end
@@ -19,10 +19,12 @@ module Generamba
     #
     # @return [Pathname]
     def self.obtain_path(template_name)
-      path = Pathname.new(File.dirname(__FILE__)).parent()
-      path = path.join('default_templates').join(template_name)
+      path = Pathname.new(Dir.getwd)
+                 .join(TEMPLATES_FOLDER)
+                 .join(template_name)
 
-      raise StandardError.new('No such default template! Try another name.') if path.exist? == false
+      error_description = "Cannot find #{template_name}! Add it to the Rambafile and run *generamba template install*"
+      raise StandardError.new(error_description) if path.exist? == false
 
       return path
     end

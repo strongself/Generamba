@@ -1,15 +1,11 @@
 require 'fileutils'
 
-require 'generamba/helpers/template_helper.rb'
 require 'generamba/helpers/xcodeproj_helper.rb'
 
 module Generamba
 
 	# Responsible for creating the whole code module using information from the CLI
 	class ModuleGenerator
-
-		def initialize
-		end
 
 		def generate_module(template_name, name, description)
 			# Setting up CodeModule and ModuleTemplate objects.
@@ -25,9 +21,9 @@ module Generamba
 																									project)
 
 			# Configuring file paths
-			module_dir_path = Pathname.new(ProjectConfiguration.project_group_path)
+			module_dir_path = Pathname.new(ProjectConfiguration.project_file_path)
 														.join(name)
-			test_dir_path = Pathname.new(ProjectConfiguration.test_group_path)
+			test_dir_path = Pathname.new(ProjectConfiguration.test_file_path)
 													.join(name)
 			FileUtils.mkdir_p module_dir_path
 			FileUtils.mkdir_p test_dir_path
@@ -66,14 +62,15 @@ module Generamba
 		end
 
 		def process_files(files, name, code_module, template, project, target, group_path, dir_path)
+			XcodeprojHelper.clear_group(project, group_path)
 			files.each do |file|
 				# The target file's name consists of three parameters: project prefix, module name and template file name.
 				# E.g. RDS + Authorization + Presenter.h = RDSAuthorizationPresenter.h
-				file_basename = name + File.basename(file['name'])
+				file_basename = name + File.basename(file[TEMPLATE_NAME_KEY])
 				prefix = ProjectConfiguration.prefix
 				file_name = prefix ? prefix + file_basename : file_basename
 
-				file_group = File.dirname(file['name'])
+				file_group = File.dirname(file[TEMPLATE_NAME_KEY])
 
 				# Generating the content of the code file
 				file_content = ContentGenerator.create_file_content(file,

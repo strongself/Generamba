@@ -34,10 +34,21 @@ module Generamba
     def self.add_file_to_project_and_target(project, target, group_path, file_path)
       module_group = self.retreive_or_create_group(group_path, project)
       xcode_file = module_group.new_file(File.absolute_path(file_path))
+
       file_name = File.basename(file_path)
       if File.extname(file_name) == '.m'
         target.add_file_references([xcode_file])
       end
+    end
+
+    # Recursively clears children of te given group
+    # @param project [Xcodeproj::Project] The working Xcode project file
+    # @param group_path [Pathname] The full group path
+    #
+    # @return [Void]
+    def self.clear_group(project, group_path)
+      module_group = self.retreive_or_create_group(group_path, project)
+      module_group.clear
     end
 
     private

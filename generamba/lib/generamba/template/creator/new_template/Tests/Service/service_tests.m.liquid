@@ -1,0 +1,35 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+#import <XCTest/XCTest.h>
+
+#import "{{ prefix }}{{ module_info.name }}Service.h"
+
+@interface {{ prefix }}{{ module_info.name }}ServiceTests : XCTestCase
+
+@property (strong, nonatomic) {{ prefix }}{{ module_info.name }}Service *service;
+
+@end
+
+@implementation {{ prefix }}{{ module_info.name }}ServiceTests
+
+#pragma mark - Test environment setup
+
+- (void)setUp {
+    [super setUp];
+
+    self.service = [[{{ prefix }}{{ module_info.name }}Service alloc] init];
+}
+
+- (void)tearDown {
+    self.service = nil;
+
+    [super tearDown];
+}
+
+@end
