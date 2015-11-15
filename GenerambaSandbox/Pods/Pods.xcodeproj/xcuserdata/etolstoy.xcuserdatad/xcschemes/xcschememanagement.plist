@@ -9,17 +9,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-GenerambaSandboxTests-RamblerTyphoonUtils.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-GenerambaSandboxTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-RamblerTyphoonUtils.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RamblerMcFlurry.xcscheme</key>
+		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,12 +42,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>02E04B0855AAAE065D9BD6DC70DC8551</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2B363B3F8BC474DB7F331B449FC47DF0</key>
+		<key>3E52930C394EB8BB21240FBFA22A7141</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,17 +52,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A3BCBD0A6E1A1882030C01E15203A8D5</key>
+		<key>48C5378D35A500A5FCCBB802D88D1115</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5A1DCA916C1B876A92DC5D91F02B8A16</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6E1B0DFC24176930210715980D11EE2F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>884554F23BB964B2F57F219E5A9236F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D5DA4367D79A638F6342F04D1A99A284</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FCA58F421ACC45EDDEBA4F029CC0319E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

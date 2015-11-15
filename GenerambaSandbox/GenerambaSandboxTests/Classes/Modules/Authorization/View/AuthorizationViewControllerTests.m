@@ -2,7 +2,7 @@
 //  AuthorizationViewControllerTests.m
 //  GenerambaSandbox
 //
-//  Created by Egor Tolstoy on 01/11/2015.
+//  Created by Egor Tolstoy on 15/11/2015.
 //  Copyright 2015 Rambler&Co. All rights reserved.
 //
 
@@ -44,6 +44,16 @@
 }
 
 #pragma mark - Тестирование жизненного цикла
+
+- (void)testThatViewNotifiesPresenterOnDidLoad {
+	// given
+
+	// when
+	[self.controller viewDidLoad];
+
+	// then
+	OCMVerify([self.mockOutput didTriggerViewReadyEvent]);
+}
 
 #pragma mark - Тестирование методов интерфейса
 

@@ -2,7 +2,7 @@
 //  AuthorizationViewController.h
 //  GenerambaSandbox
 //
-//  Created by Egor Tolstoy on 01/11/2015.
+//  Created by Egor Tolstoy on 15/11/2015.
 //  Copyright 2015 Rambler&Co. All rights reserved.
 //
 
@@ -14,6 +14,6 @@
 
 @interface AuthorizationViewController : UIViewController <AuthorizationViewInput>
 
-@property (strong, nonatomic) id<AuthorizationViewOutput> output;
+@property (nonatomic, strong) id<AuthorizationViewOutput> output;
 
 @end

@@ -2,7 +2,7 @@
 //  AuthorizationAssembly.m
 //  GenerambaSandbox
 //
-//  Created by Egor Tolstoy on 01/11/2015.
+//  Created by Egor Tolstoy on 15/11/2015.
 //  Copyright 2015 Rambler&Co. All rights reserved.
 //
 
@@ -27,6 +27,14 @@
                           }];
 }
 
+- (AuthorizationInteractor *)interactorAuthorizationModule {
+    return [TyphoonDefinition withClass:[AuthorizationInteractor class]
+                          configuration:^(TyphoonDefinition *definition) {
+                              [definition injectProperty:@selector(output)
+                                                    with:[self presenterAuthorizationModule]];
+                          }];
+}
+
 - (AuthorizationPresenter *)presenterAuthorizationModule {
     return [TyphoonDefinition withClass:[AuthorizationPresenter class]
                           configuration:^(TyphoonDefinition *definition) {
@@ -36,14 +44,6 @@
                                                     with:[self interactorAuthorizationModule]];
                               [definition injectProperty:@selector(router)
                                                     with:[self routerAuthorizationModule]];
-                          }];
-}
-
-- (AuthorizationInteractor *)interactorAuthorizationModule {
-    return [TyphoonDefinition withClass:[AuthorizationInteractor class]
-                          configuration:^(TyphoonDefinition *definition) {
-                              [definition injectProperty:@selector(output)
-                                                    with:[self presenterAuthorizationModule]];
                           }];
 }
 

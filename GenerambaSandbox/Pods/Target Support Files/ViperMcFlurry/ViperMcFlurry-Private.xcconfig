@@ -1,5 +1,5 @@
 #include "ViperMcFlurry.xcconfig"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/ViperMcFlurry" "${PODS_ROOT}/Headers/Private/ViperMcFlurry/IntermoduleDataTransfer" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/OCMock" "${PODS_ROOT}/Headers/Public/RamblerMcFlurry" "${PODS_ROOT}/Headers/Public/RamblerMcFlurry/Testing/TyphoonAssemblyTests" "${PODS_ROOT}/Headers/Public/Typhoon" "${PODS_ROOT}/Headers/Public/ViperMcFlurry" "${PODS_ROOT}/Headers/Public/ViperMcFlurry/IntermoduleDataTransfer"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/ViperMcFlurry" "${PODS_ROOT}/Headers/Private/ViperMcFlurry/IntermoduleDataTransfer" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/OCMock" "${PODS_ROOT}/Headers/Public/RamblerTyphoonUtils" "${PODS_ROOT}/Headers/Public/RamblerTyphoonUtils/AssemblyCollector" "${PODS_ROOT}/Headers/Public/RamblerTyphoonUtils/AssemblyTesting" "${PODS_ROOT}/Headers/Public/Typhoon" "${PODS_ROOT}/Headers/Public/ViperMcFlurry" "${PODS_ROOT}/Headers/Public/ViperMcFlurry/IntermoduleDataTransfer"
 PODS_ROOT = ${SRCROOT}
 SKIP_INSTALL = YES

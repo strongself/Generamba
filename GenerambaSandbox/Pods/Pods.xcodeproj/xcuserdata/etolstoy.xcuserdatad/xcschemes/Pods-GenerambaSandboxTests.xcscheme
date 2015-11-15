@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "195239C1B1276EA2B9328373"
+               BlueprintIdentifier = "1A729723386EA398E68EC9C8"
                BuildableName = "libPods-GenerambaSandboxTests.a"
                BlueprintName = "Pods-GenerambaSandboxTests"
                ReferencedContainer = "container:Pods.xcodeproj">

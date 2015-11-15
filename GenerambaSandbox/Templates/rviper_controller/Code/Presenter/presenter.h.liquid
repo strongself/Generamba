@@ -1,0 +1,23 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+#import "{{ prefix }}{{ module_info.name }}ViewOutput.h"
+#import "{{ prefix }}{{ module_info.name }}InteractorOutput.h"
+#import "{{ prefix }}{{ module_info.name }}ModuleInput.h"
+
+@protocol {{ prefix }}{{ module_info.name }}ViewInput;
+@protocol {{ prefix }}{{ module_info.name }}InteractorInput;
+@protocol {{ prefix }}{{ module_info.name }}RouterInput;
+
+@interface {{ prefix }}{{ module_info.name }}Presenter : NSObject <{{ prefix }}{{ module_info.name }}ModuleInput, {{ prefix }}{{ module_info.name }}ViewOutput, {{ prefix }}{{ module_info.name }}InteractorOutput>
+
+@property (nonatomic, weak) id<{{ prefix }}{{ module_info.name }}ViewInput> view;
+@property (nonatomic, strong) id<{{ prefix }}{{ module_info.name }}InteractorInput> interactor;
+@property (nonatomic, strong) id<{{ prefix }}{{ module_info.name }}RouterInput> router;
+
+@end

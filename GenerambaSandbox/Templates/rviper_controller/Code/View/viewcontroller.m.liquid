@@ -1,0 +1,29 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+#import "{{ prefix }}{{ module_info.name }}ViewController.h"
+
+#import "{{ prefix }}{{ module_info.name }}ViewOutput.h"
+
+@implementation {{ prefix }}{{ module_info.name }}ViewController
+
+#pragma mark - Методы жизненного цикла
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+
+	[self.output didTriggerViewReadyEvent];
+}
+
+#pragma mark - Методы {{ prefix }}{{ module_info.name }}ViewInput
+
+- (void)setupInitialState {
+	// В этом методе происходит настройка параметров view, зависящих от ее жизненого цикла (создание элементов, анимации и пр.)
+}
+
+@end

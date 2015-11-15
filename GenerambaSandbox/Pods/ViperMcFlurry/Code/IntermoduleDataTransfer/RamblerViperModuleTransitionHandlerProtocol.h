@@ -9,7 +9,7 @@
 
 @class RamblerViperOpenModulePromise;
 @protocol RamblerViperModuleInput;
-@class RamblerViperModuleFabric;
+@class RamblerViperModuleFactory;
 @protocol RamblerViperModuleTransitionHandlerProtocol;
 
 typedef void (^ModuleTransitionBlock)(id<RamblerViperModuleTransitionHandlerProtocol> sourceModuleTransitionHandler,
@@ -27,8 +27,8 @@ typedef void (^ModuleTransitionBlock)(id<RamblerViperModuleTransitionHandlerProt
 
 // Method opens module using segue
 - (RamblerViperOpenModulePromise*)openModuleUsingSegue:(NSString*)segueIdentifier;
-// Method opens module using module fabric
-- (RamblerViperOpenModulePromise*)openModuleUsingFabric:(RamblerViperModuleFabric*)moduleFabric withTransitionBlock:(ModuleTransitionBlock)transitionBlock;
+// Method opens module using module factory
+- (RamblerViperOpenModulePromise*)openModuleUsingFactory:(RamblerViperModuleFactory *)moduleFactory withTransitionBlock:(ModuleTransitionBlock)transitionBlock;
 // Method removes/closes module
 - (void)closeCurrentModule;
 

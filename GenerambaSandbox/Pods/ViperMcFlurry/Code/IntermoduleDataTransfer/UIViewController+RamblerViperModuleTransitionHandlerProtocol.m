@@ -8,7 +8,7 @@
 #import "UIViewController+RamblerViperModuleTransitionHandlerProtocol.h"
 #import <objc/runtime.h>
 #import "RamblerViperOpenModulePromise.h"
-#import "RamblerViperModuleFabric.h"
+#import "RamblerViperModuleFactory.h"
 
 static IMP originalPrepareForSegueMethodImp;
 
@@ -44,10 +44,10 @@ static IMP originalPrepareForSegueMethodImp;
     return openModulePromise;
 }
 
-// Method opens module using module fabric
-- (RamblerViperOpenModulePromise*)openModuleUsingFabric:(RamblerViperModuleFabric*)moduleFabric withTransitionBlock:(ModuleTransitionBlock)transitionBlock {
+// Method opens module using module factory
+- (RamblerViperOpenModulePromise*)openModuleUsingFactory:(RamblerViperModuleFactory *)moduleFactory withTransitionBlock:(ModuleTransitionBlock)transitionBlock {
     RamblerViperOpenModulePromise *openModulePromise = [[RamblerViperOpenModulePromise alloc] init];
-    id<RamblerViperModuleTransitionHandlerProtocol> destinationModuleTransitionHandler = [moduleFabric instantiateModuleTransitionHandler];
+    id<RamblerViperModuleTransitionHandlerProtocol> destinationModuleTransitionHandler = [moduleFactory instantiateModuleTransitionHandler];
     id<RamblerViperModuleInput> moduleInput = nil;
     if ([destinationModuleTransitionHandler respondsToSelector:@selector(moduleInput)]) {
         moduleInput = [destinationModuleTransitionHandler moduleInput];

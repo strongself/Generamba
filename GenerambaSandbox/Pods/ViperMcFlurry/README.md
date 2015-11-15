@@ -8,12 +8,12 @@ Also it icludes **Templates** folder with XCode templates for VIPER modules.
 
 ## Install
 
-**ViperMcFlurryPod**
+**ViperMcFlurry**
 
 Add to podfile
 
 ```ruby
-pod "ViperMcFlurryPod"
+pod "ViperMcFlurry"
 ```
 
 **Templates**
@@ -44,6 +44,10 @@ Copy contents of *Templates/File Templates* folder into `~/Library/Developer/Xco
 - Added support of module input/output
 - Module communication was simplified
 - Moved Embed and Cross storyboard segues to separate Pods
+
+### v1.1
+
+- Moving to Github and Cocoapods
 
 
 ## How to add Intermodule transition ##
@@ -103,3 +107,34 @@ This works only for Module with ViewController as View.
 	}];
 
 ```
+
+## Working with Module Factory ##
+
+Module factory can be replaced with segues for most cases. Except you need to create complex module or nontrivial module instantiation logic.
+
+- Use **RamblerViperModuleFactory** object as module fabric with Typhoon.
+- Set definition Initializer to **initWithStoryboard:andRestorationId:**
+    - First parameter is UIStoryboard instance
+    - Second parameter is RestorationID of ViewController
+- Typhoon will initialize module from ViewController.
+- Inject this Factory into router
+- Call Transition Handler's method **openModuleUsingFactory:withTransitionBlock:**
+- Second block is place where transition from one to another viewController/transitionHandler should be performed
+```
+    [[self.transitionHandler openModuleUsingFactory:self.betaModuleFactory
+                                withTransitionBlock:^(id <RamblerViperModuleTransitionHandlerProtocol> sourceModuleTransitionHandler,
+                                        id <RamblerViperModuleTransitionHandlerProtocol> destinationModuleTransitionHandler) {
+
+                                    UIViewController *sourceViewController = (id) sourceModuleTransitionHandler;
+                                    UIViewController *destinationViewController = (id) destinationModuleTransitionHandler;
+
+                                    [sourceViewController.navigationController pushViewController:destinationViewController
+                                                                                         animated:YES];
+
+                                }] thenChainUsingBlock:^id<RamblerViperModuleOutput>(id<RamblerModuleBetaInput> moduleInput) {
+                                   [moduleInput configureWithExampleString:exampleString];
+                                   return nil;
+                               }];
+```
+- In example above one module is pushed to navigation stack of another module
+- Modules are linked with intermodule data transfer block
