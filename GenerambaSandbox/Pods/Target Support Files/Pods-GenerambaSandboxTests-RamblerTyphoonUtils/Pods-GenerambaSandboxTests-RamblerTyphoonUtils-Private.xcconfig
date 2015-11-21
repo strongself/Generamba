@@ -1,7 +1,0 @@
-#include "Pods-GenerambaSandboxTests-RamblerTyphoonUtils.xcconfig"
-FRAMEWORK_SEARCH_PATHS = ${PODS_GENERAMBASANDBOXTESTS_RAMBLERTYPHOONUTILS_FRAMEWORK_SEARCH_PATHS}
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/RamblerTyphoonUtils" "${PODS_ROOT}/Headers/Private/RamblerTyphoonUtils/AssemblyCollector" "${PODS_ROOT}/Headers/Private/RamblerTyphoonUtils/AssemblyTesting" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/OCMock" "${PODS_ROOT}/Headers/Public/RamblerTyphoonUtils" "${PODS_ROOT}/Headers/Public/RamblerTyphoonUtils/AssemblyCollector" "${PODS_ROOT}/Headers/Public/RamblerTyphoonUtils/AssemblyTesting" "${PODS_ROOT}/Headers/Public/Typhoon" "${PODS_ROOT}/Headers/Public/ViperMcFlurry" "${PODS_ROOT}/Headers/Public/ViperMcFlurry/IntermoduleDataTransfer"
-OTHER_LDFLAGS = ${PODS_GENERAMBASANDBOXTESTS_RAMBLERTYPHOONUTILS_OTHER_LDFLAGS}
-PODS_ROOT = ${SRCROOT}
-SKIP_INSTALL = YES

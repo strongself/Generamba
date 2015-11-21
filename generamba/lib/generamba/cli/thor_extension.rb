@@ -25,7 +25,7 @@ module Generamba::CLI
       def ask_with_validation(message, is_valid_value, description = 'Invalid value')
         loop do
           value = ask(message)
-          break if is_valid_value.call(value)
+          return value if is_valid_value.call(value)
           puts(description)
         end
       end

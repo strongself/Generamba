@@ -18,14 +18,16 @@ Gem::Specification.new do |spec|
   spec.executables   = ['generamba']
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'thor'
-  spec.add_dependency 'xcodeproj'
-  spec.add_dependency 'liquid'
-  spec.add_dependency 'tilt'
-  spec.add_dependency 'settingslogic'
-  spec.add_dependency 'git'
+  spec.required_ruby_version = '>= 2.2'
+
+  spec.add_runtime_dependency 'thor', '0.19.1'
+  spec.add_runtime_dependency 'xcodeproj', '0.28.2'
+  spec.add_runtime_dependency 'liquid', '3.0.6'
+  spec.add_runtime_dependency 'tilt', '2.0.1'
+  spec.add_runtime_dependency 'settingslogic', '2.0.9'
+  spec.add_runtime_dependency 'git', '1.2.9.1'
 
   spec.add_development_dependency 'bundler', '~> 1.10'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'rspec', '~> 3.4'
 end

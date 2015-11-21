@@ -1,5 +1,0 @@
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/OCMock" "${PODS_ROOT}/Headers/Public/RamblerTyphoonUtils" "${PODS_ROOT}/Headers/Public/RamblerTyphoonUtils/AssemblyCollector" "${PODS_ROOT}/Headers/Public/RamblerTyphoonUtils/AssemblyTesting" "${PODS_ROOT}/Headers/Public/Typhoon" "${PODS_ROOT}/Headers/Public/ViperMcFlurry" "${PODS_ROOT}/Headers/Public/ViperMcFlurry/IntermoduleDataTransfer"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/OCMock" -isystem "${PODS_ROOT}/Headers/Public/RamblerTyphoonUtils" -isystem "${PODS_ROOT}/Headers/Public/RamblerTyphoonUtils/AssemblyCollector" -isystem "${PODS_ROOT}/Headers/Public/RamblerTyphoonUtils/AssemblyTesting" -isystem "${PODS_ROOT}/Headers/Public/Typhoon" -isystem "${PODS_ROOT}/Headers/Public/ViperMcFlurry" -isystem "${PODS_ROOT}/Headers/Public/ViperMcFlurry/IntermoduleDataTransfer"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-RamblerTyphoonUtils" -l"Typhoon" -l"ViperMcFlurry"
-PODS_ROOT = ${SRCROOT}/Pods
