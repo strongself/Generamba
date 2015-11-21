@@ -1,5 +1,0 @@
-#include "OCMock.xcconfig"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/OCMock" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/OCMock" "${PODS_ROOT}/Headers/Public/RamblerTyphoonUtils" "${PODS_ROOT}/Headers/Public/RamblerTyphoonUtils/AssemblyCollector" "${PODS_ROOT}/Headers/Public/RamblerTyphoonUtils/AssemblyTesting" "${PODS_ROOT}/Headers/Public/Typhoon" "${PODS_ROOT}/Headers/Public/ViperMcFlurry" "${PODS_ROOT}/Headers/Public/ViperMcFlurry/IntermoduleDataTransfer"
-PODS_ROOT = ${SRCROOT}
-SKIP_INSTALL = YES
