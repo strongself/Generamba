@@ -14,6 +14,9 @@ module Generamba::CLI
         return
       end
 
+      setup_username_command = Generamba::CLI::SetupUsernameCommand.new
+      setup_username_command.setup_username
+
       default_module_description = "#{module_name} module"
       module_description = options[:description] ? options[:description] : default_module_description
 

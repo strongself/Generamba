@@ -13,20 +13,14 @@ module Generamba::CLI
     def setup
       properties = {}
 
-      git_username = Git.init.config['user.name']
-
-      if git_username != nil && yes?("Your name in git is configured as #{git_username}. Do you want to use it in code headers? (yes/no)")
-        username = git_username
-      else
-        username = ask_non_empty_string('The author name which will be used in the headers:', 'User name should not be empty')
-      end
-
-      Generamba::UserPreferences.save_username(username)
+      setup_username_command = Generamba::CLI::SetupUsernameCommand.new
+      setup_username_command.setup_username
 
       properties[COMPANY_KEY] = ask('The company name which will be used in the headers:')
 
       project_name = Pathname.new(Dir.getwd).basename.to_s
       is_right_project_name = yes?("The name of your project is #{project_name}. Do you want to use it? (yes/no)")
+
       properties[PROJECT_NAME_KEY] = is_right_project_name ? project_name : ask_non_empty_string('The project name:', 'Project name should not be empty')
       properties[PROJECT_PREFIX_KEY]  = ask('The project prefix (if any):')
 
@@ -44,7 +38,6 @@ module Generamba::CLI
 
       targets_prompt = ''
       project.targets.each_with_index { |element, i| targets_prompt += ("#{i}. #{element.name}" + "\n") }
-
       project_target = ask_index("Select the appropriate target for adding your MODULES (type the index):\n" + targets_prompt,project.targets)
       test_target = ask_index("Select the appropriate target for adding your TESTS (type the index):\n" + targets_prompt,project.targets)
 
