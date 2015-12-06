@@ -7,12 +7,7 @@ module Generamba
 	# Responsible for creating the whole code module using information from the CLI
 	class ModuleGenerator
 
-		def generate_module(template_name, name, description)
-			# Setting up CodeModule and ModuleTemplate objects.
-			# TODO: Move it to the CLI infrastructure
-			code_module = CodeModule.new(name, description)
-			template = ModuleTemplate.new(template_name)
-
+		def generate_module(name, code_module, template)
 			# Setting up Xcode objects
 			project = XcodeprojHelper.obtain_project(ProjectConfiguration.xcodeproj_path)
 			project_target = XcodeprojHelper.obtain_target(ProjectConfiguration.project_target,
@@ -21,18 +16,14 @@ module Generamba
 																									project)
 
 			# Configuring file paths
-			module_dir_path = Pathname.new(ProjectConfiguration.project_file_path)
-														.join(name)
-			test_dir_path = Pathname.new(ProjectConfiguration.test_file_path)
-													.join(name)
+			module_dir_path = code_module.module_file_path
+			test_dir_path = code_module.test_file_path
 			FileUtils.mkdir_p module_dir_path
 			FileUtils.mkdir_p test_dir_path
 
 			# Configuring group paths
-			module_group_path = Pathname.new(ProjectConfiguration.project_group_path)
-															.join(name)
-			test_group_path = Pathname.new(ProjectConfiguration.test_group_path)
-														.join(name)
+			module_group_path = code_module.module_group_path
+			test_group_path = code_module.test_group_path
 
 			# Creating code files
 			puts('Creating code files...')
