@@ -16,13 +16,13 @@ module Generamba
 																									project)
 
 			# Configuring file paths
-			module_dir_path = code_module.project_file_path
+			module_dir_path = code_module.module_file_path
 			test_dir_path = code_module.test_file_path
 			FileUtils.mkdir_p module_dir_path
 			FileUtils.mkdir_p test_dir_path
 
 			# Configuring group paths
-			module_group_path = code_module.project_group_path
+			module_group_path = code_module.module_group_path
 			test_group_path = code_module.test_group_path
 
 			# Creating code files
