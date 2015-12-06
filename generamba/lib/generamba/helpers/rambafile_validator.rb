@@ -22,13 +22,13 @@ module Generamba
 
       mandatory_fields.each { |field|
         if preferences.has_key?(field) == false
-          error_description = "Rambafile is broken! Cannot find #{field} field, which is mandatory. Either add it manually, or run *generamba setup*."
+          error_description = "Rambafile is broken! Cannot find #{field} field, which is mandatory. Either add it manually, or run *generamba setup*.".red
           raise StandardError.new(error_description)
         end
       }
 
       if preferences[TEMPLATES_KEY] == nil
-        error_description = "You can't run *generamba gen* without any templates installed. Add their declarations to a Rambafile and run *generamba template install*."
+        error_description = "You can't run *generamba gen* without any templates installed. Add their declarations to a Rambafile and run *generamba template install*.".red
         raise StandardError.new(error_description)
       end
 

@@ -5,7 +5,7 @@ module Generamba::CLI
       def setup_username
         username = Generamba::UserPreferences.obtain_username
         if username == nil
-          puts('The author name is not configured!')
+          puts('The author name is not configured!'.red)
           git_username = Git.init.config['user.name']
           if git_username != nil && yes?("Your name in git is configured as #{git_username}. Do you want to use it in code headers? (yes/no)")
             username = git_username

@@ -26,7 +26,7 @@ module Generamba::CLI
         loop do
           value = ask(message)
           return value if is_valid_value.call(value)
-          puts(description)
+          puts(description.red)
         end
       end
     end
