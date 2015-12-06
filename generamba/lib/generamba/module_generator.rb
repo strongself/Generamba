@@ -7,12 +7,7 @@ module Generamba
 	# Responsible for creating the whole code module using information from the CLI
 	class ModuleGenerator
 
-		def generate_module(template_name, name, description)
-			# Setting up CodeModule and ModuleTemplate objects.
-			# TODO: Move it to the CLI infrastructure
-			code_module = CodeModule.new(name, description)
-			template = ModuleTemplate.new(template_name)
-
+		def generate_module(name, code_module, template)
 			# Setting up Xcode objects
 			project = XcodeprojHelper.obtain_project(ProjectConfiguration.xcodeproj_path)
 			project_target = XcodeprojHelper.obtain_target(ProjectConfiguration.project_target,

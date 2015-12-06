@@ -6,7 +6,7 @@ module Generamba::CLI
 
     include Generamba
 
-    desc 'gen [MODULE_NAME] [TEMPLATE_NAME_KEY]', 'Creates a new VIPER module with a given name from a specific template'
+    desc 'gen [MODULE_NAME] [TEMPLATE_NAME]', 'Creates a new VIPER module with a given name from a specific template'
     method_option :description, :aliases => '-d', :desc => 'Provides a full description to the module'
     def gen(module_name, template_name)
 
@@ -26,8 +26,11 @@ module Generamba::CLI
       default_module_description = "#{module_name} module"
       module_description = options[:description] ? options[:description] : default_module_description
 
+      code_module = CodeModule.new(module_name, module_description)
+      template = ModuleTemplate.new(template_name)
+
       generator = Generamba::ModuleGenerator.new()
-      generator.generate_module(template_name, module_name, module_description)
+      generator.generate_module(module_name, code_module, template)
 
     end
 
