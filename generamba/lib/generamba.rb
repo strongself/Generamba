@@ -14,4 +14,5 @@ module Generamba
   require 'generamba/template/processor/template_processor.rb'
   require 'generamba/configuration/user_preferences.rb'
   require 'generamba/template/creator/template_creator.rb'
+  require 'generamba/tools/string-colorize.rb'
 end
