@@ -49,7 +49,7 @@ module Generamba
 
 			# Saving the current changes in the Xcode project
 			project.save
-			puts("Module #{name} successfully created!")
+			puts("Module #{name} successfully created!".green)
 		end
 
 		def process_files(files, name, code_module, template, project, target, group_path, dir_path)

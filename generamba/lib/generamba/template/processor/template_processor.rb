@@ -22,7 +22,7 @@ module Generamba
       }
 
       if !templates || templates.count == 0
-        error_description = 'You must specify at least one template in Rambafile under the key *project_templates*'
+        error_description = 'You must specify at least one template in Rambafile under the key *project_templates*'.red
         raise StandardError.new(error_description)
       end
 
