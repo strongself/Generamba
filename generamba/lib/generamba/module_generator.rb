@@ -16,18 +16,14 @@ module Generamba
 																									project)
 
 			# Configuring file paths
-			module_dir_path = Pathname.new(ProjectConfiguration.project_file_path)
-														.join(name)
-			test_dir_path = Pathname.new(ProjectConfiguration.test_file_path)
-													.join(name)
+			module_dir_path = code_module.project_file_path
+			test_dir_path = code_module.test_file_path
 			FileUtils.mkdir_p module_dir_path
 			FileUtils.mkdir_p test_dir_path
 
 			# Configuring group paths
-			module_group_path = Pathname.new(ProjectConfiguration.project_group_path)
-															.join(name)
-			test_group_path = Pathname.new(ProjectConfiguration.test_group_path)
-														.join(name)
+			module_group_path = code_module.project_group_path
+			test_group_path = code_module.test_group_path
 
 			# Creating code files
 			puts('Creating code files...')
