@@ -2,8 +2,7 @@ module Generamba
 
   # Represents currently generating code module
   class CodeModule
-    attr_reader :name, :description
-    attr_accessor :module_file_path, :module_group_path, :test_file_path, :test_group_path
+    attr_reader :name, :description, :module_file_path, :module_group_path, :test_file_path, :test_group_path
 
     def initialize(name, description, options)
       @name = name
