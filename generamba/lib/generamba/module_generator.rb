@@ -23,32 +23,38 @@ module Generamba
 
 			# Creating code files
 			puts('Creating code files...')
-			process_files(template.code_files,
-										name,
-									 	code_module,
-									 	template,
-										project,
-									 	code_module.project_targets,
-										module_group_path,
-										module_dir_path)
+			process_files_if_needed(template.code_files,
+															name,
+															code_module,
+															template,
+															project,
+															code_module.project_targets,
+															module_group_path,
+															module_dir_path)
 
 			# Creating test files
 			puts('Creating test files...')
-			process_files(template.test_files,
-										name,
-										code_module,
-										template,
-										project,
-										code_module.test_targets,
-										test_group_path,
-										test_dir_path)
+			process_files_if_needed(template.test_files,
+															name,
+															code_module,
+															template,
+															project,
+															code_module.test_targets,
+															test_group_path,
+															test_dir_path)
 
 			# Saving the current changes in the Xcode project
 			project.save
 			puts("Module #{name} successfully created!".green)
 		end
 
-		def process_files(files, name, code_module, template, project, targets, group_path, dir_path)
+		def process_files_if_needed(files, name, code_module, template, project, targets, group_path, dir_path)
+			# It's possible that current project doesn't test targets configured, so it doesn't need to generate tests.
+			# The same is for files property - a template can have only test or project files
+			if targets.count == 0 || files.count == 0
+				return
+			end
+
 			XcodeprojHelper.clear_group(project, group_path)
 			files.each do |file|
 				# The target file's name consists of three parameters: project prefix, module name and template file name.
