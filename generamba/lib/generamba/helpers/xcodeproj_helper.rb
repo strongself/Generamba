@@ -26,18 +26,20 @@ module Generamba
 
     # Adds a provided file to a specific Project and Target
     # @param project [Xcodeproj::Project] The target xcodeproj file
-    # @param target [AbstractTarget] The target for a file
+    # @param targets [AbstractTarget] Array of tatgets
     # @param group_path [Pathname] The Xcode group path for current file
     # @param file_path [Pathname] The file path for current file
     #
     # @return [void]
-    def self.add_file_to_project_and_target(project, target, group_path, file_path)
+    def self.add_file_to_project_and_targets(project, targets, group_path, file_path)
       module_group = self.retreive_or_create_group(group_path, project)
       xcode_file = module_group.new_file(File.absolute_path(file_path))
 
       file_name = File.basename(file_path)
       if File.extname(file_name) == '.m'
-        target.add_file_references([xcode_file])
+        targets.each do |target|
+          target.add_file_references([xcode_file])
+        end
       end
     end
 

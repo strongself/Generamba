@@ -10,10 +10,6 @@ module Generamba
 		def generate_module(name, code_module, template)
 			# Setting up Xcode objects
 			project = XcodeprojHelper.obtain_project(ProjectConfiguration.xcodeproj_path)
-			project_target = XcodeprojHelper.obtain_target(ProjectConfiguration.project_target,
-																										 project)
-			test_target = XcodeprojHelper.obtain_target(ProjectConfiguration.test_target,
-																									project)
 
 			# Configuring file paths
 			module_dir_path = code_module.module_file_path
@@ -32,7 +28,7 @@ module Generamba
 									 	code_module,
 									 	template,
 										project,
-									 	project_target,
+									 	code_module.project_targets,
 										module_group_path,
 										module_dir_path)
 
@@ -43,7 +39,7 @@ module Generamba
 										code_module,
 										template,
 										project,
-										test_target,
+										code_module.test_targets,
 										test_group_path,
 										test_dir_path)
 
@@ -52,7 +48,7 @@ module Generamba
 			puts("Module #{name} successfully created!".green)
 		end
 
-		def process_files(files, name, code_module, template, project, target, group_path, dir_path)
+		def process_files(files, name, code_module, template, project, targets, group_path, dir_path)
 			XcodeprojHelper.clear_group(project, group_path)
 			files.each do |file|
 				# The target file's name consists of three parameters: project prefix, module name and template file name.
@@ -78,8 +74,8 @@ module Generamba
 				end
 
 				# Creating the file in the Xcode project
-				XcodeprojHelper.add_file_to_project_and_target(project,
-																											 target,
+				XcodeprojHelper.add_file_to_project_and_targets(project,
+																											 targets,
 																											 group_path.join(file_group),
 																											 file_path)
 			end
