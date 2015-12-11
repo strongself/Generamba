@@ -15,6 +15,9 @@ module Generamba
       @name = name
       @description = description
 
+      @project_targets = options[:module_targets].split(',') if options[:module_targets]
+      @test_targets = options[:test_targets].split(',') if options[:test_targets]
+
       @module_file_path = Pathname.new(options[:module_file_path]) if options[:module_file_path]
       @module_group_path = Pathname.new(options[:module_group_path]) if options[:module_group_path]
       @test_file_path = Pathname.new(options[:test_file_path]) if options[:test_file_path]
@@ -84,6 +87,11 @@ module Generamba
       if ProjectConfiguration.project_targets != nil
         targets = ProjectConfiguration.project_targets
       end
+
+      if @project_targets != nil
+        targets = @project_targets
+      end
+
       return targets
     end
 
@@ -96,6 +104,11 @@ module Generamba
       if ProjectConfiguration.test_targets != nil
         targets = ProjectConfiguration.test_targets
       end
+
+      if @test_targets != nil
+        targets = @test_targets
+      end
+
       return targets
     end
   end
