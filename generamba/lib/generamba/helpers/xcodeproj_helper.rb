@@ -11,19 +11,6 @@ module Generamba
       Xcodeproj::Project.open(project_name)
     end
 
-    # Returns an AbstractTarget class for a given name
-    # @param target_name [String] The name of the target
-    # @param project [Xcodeproj::Project] The target xcodeproj file
-    #
-    # @return [Xcodeproj::AbstractTarget]
-    def self.obtain_target(target_name, project)
-      project.targets.each { |target|
-        if target.name == target_name
-          return target
-        end
-      }
-    end
-
     # Adds a provided file to a specific Project and Target
     # @param project [Xcodeproj::Project] The target xcodeproj file
     # @param targets [AbstractTarget] Array of tatgets
@@ -38,7 +25,8 @@ module Generamba
       file_name = File.basename(file_path)
       if File.extname(file_name) == '.m'
         targets.each do |target|
-          target.add_file_references([xcode_file])
+          xcode_target = self.obtain_target(target, project)
+          xcode_target.add_file_references([xcode_file])
         end
       end
     end
@@ -75,6 +63,19 @@ module Generamba
       end
 
       return final_group
+    end
+
+    # Returns an AbstractTarget class for a given name
+    # @param target_name [String] The name of the target
+    # @param project [Xcodeproj::Project] The target xcodeproj file
+    #
+    # @return [Xcodeproj::AbstractTarget]
+    def self.obtain_target(target_name, project)
+      project.targets.each { |target|
+        if target.name == target_name
+          return target
+        end
+      }
     end
 
     # Splits the provided Xcode group path to an array of separate groups
