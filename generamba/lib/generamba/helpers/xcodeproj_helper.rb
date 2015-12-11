@@ -71,11 +71,14 @@ module Generamba
     #
     # @return [Xcodeproj::AbstractTarget]
     def self.obtain_target(target_name, project)
-      project.targets.each { |target|
+      project.targets.each do |target|
         if target.name == target_name
           return target
         end
-      }
+      end
+
+      error_description = "Cannot find a target with name #{target_name} in Xcode project".red
+      raise StandardError.new(error_description)
     end
 
     # Splits the provided Xcode group path to an array of separate groups
