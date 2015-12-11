@@ -65,17 +65,27 @@ module Generamba
     end
 
     def test_file_path
-      return @test_file_path != nil ?
-          @test_file_path :
-          Pathname.new(ProjectConfiguration.test_file_path)
-              .join(@name)
+      if @test_file_path == nil
+        if ProjectConfiguration.test_file_path == nil
+          return nil
+        end
+
+        return Pathname.new(ProjectConfiguration.test_file_path)
+                   .join(@name)
+      end
+      return @test_file_path
     end
 
     def test_group_path
-      return @test_group_path != nil ?
-          @test_group_path :
-          Pathname.new(ProjectConfiguration.test_group_path)
-              .join(@name)
+      if @test_group_path == nil
+        if ProjectConfiguration.test_group_path == nil
+          return nil
+        end
+
+        return Pathname.new(ProjectConfiguration.test_group_path)
+                   .join(@name)
+      end
+      return @test_group_path
     end
 
     def project_targets

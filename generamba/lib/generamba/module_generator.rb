@@ -15,7 +15,10 @@ module Generamba
 			module_dir_path = code_module.module_file_path
 			test_dir_path = code_module.test_file_path
 			FileUtils.mkdir_p module_dir_path
-			FileUtils.mkdir_p test_dir_path
+
+			if test_dir_path != nil
+				FileUtils.mkdir_p test_dir_path
+			end
 
 			# Configuring group paths
 			module_group_path = code_module.module_group_path
@@ -51,7 +54,7 @@ module Generamba
 		def process_files_if_needed(files, name, code_module, template, project, targets, group_path, dir_path)
 			# It's possible that current project doesn't test targets configured, so it doesn't need to generate tests.
 			# The same is for files property - a template can have only test or project files
-			if targets.count == 0 || files.count == 0
+			if targets.count == 0 || files == nil || files.count == 0 || dir_path == nil || group_path == nil
 				return
 			end
 

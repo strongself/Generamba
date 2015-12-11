@@ -14,8 +14,6 @@ module Generamba
                           XCODEPROJ_PATH_KEY,
                           PROJECT_FILE_PATH_KEY,
                           PROJECT_GROUP_PATH_KEY,
-                          TEST_FILE_PATH_KEY,
-                          TEST_GROUP_PATH_KEY,
                           TEMPLATES_KEY]
 
       interchangable_fields = [[PROJECT_TARGETS_KEY, PROJECT_TARGET_KEY]]
