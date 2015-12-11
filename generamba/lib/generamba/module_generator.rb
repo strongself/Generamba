@@ -10,16 +10,15 @@ module Generamba
 		def generate_module(name, code_module, template)
 			# Setting up Xcode objects
 			project = XcodeprojHelper.obtain_project(ProjectConfiguration.xcodeproj_path)
-			project_target = XcodeprojHelper.obtain_target(ProjectConfiguration.project_target,
-																										 project)
-			test_target = XcodeprojHelper.obtain_target(ProjectConfiguration.test_target,
-																									project)
 
 			# Configuring file paths
 			module_dir_path = code_module.module_file_path
 			test_dir_path = code_module.test_file_path
 			FileUtils.mkdir_p module_dir_path
-			FileUtils.mkdir_p test_dir_path
+
+			if test_dir_path != nil
+				FileUtils.mkdir_p test_dir_path
+			end
 
 			# Configuring group paths
 			module_group_path = code_module.module_group_path
@@ -27,32 +26,38 @@ module Generamba
 
 			# Creating code files
 			puts('Creating code files...')
-			process_files(template.code_files,
-										name,
-									 	code_module,
-									 	template,
-										project,
-									 	project_target,
-										module_group_path,
-										module_dir_path)
+			process_files_if_needed(template.code_files,
+															name,
+															code_module,
+															template,
+															project,
+															code_module.project_targets,
+															module_group_path,
+															module_dir_path)
 
 			# Creating test files
 			puts('Creating test files...')
-			process_files(template.test_files,
-										name,
-										code_module,
-										template,
-										project,
-										test_target,
-										test_group_path,
-										test_dir_path)
+			process_files_if_needed(template.test_files,
+															name,
+															code_module,
+															template,
+															project,
+															code_module.test_targets,
+															test_group_path,
+															test_dir_path)
 
 			# Saving the current changes in the Xcode project
 			project.save
 			puts("Module #{name} successfully created!".green)
 		end
 
-		def process_files(files, name, code_module, template, project, target, group_path, dir_path)
+		def process_files_if_needed(files, name, code_module, template, project, targets, group_path, dir_path)
+			# It's possible that current project doesn't test targets configured, so it doesn't need to generate tests.
+			# The same is for files property - a template can have only test or project files
+			if targets.count == 0 || files == nil || files.count == 0 || dir_path == nil || group_path == nil
+				return
+			end
+
 			XcodeprojHelper.clear_group(project, group_path)
 			files.each do |file|
 				# The target file's name consists of three parameters: project prefix, module name and template file name.
@@ -78,8 +83,8 @@ module Generamba
 				end
 
 				# Creating the file in the Xcode project
-				XcodeprojHelper.add_file_to_project_and_target(project,
-																											 target,
+				XcodeprojHelper.add_file_to_project_and_targets(project,
+																											 targets,
 																											 group_path.join(file_group),
 																											 file_path)
 			end

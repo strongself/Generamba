@@ -7,10 +7,12 @@ module Generamba
   XCODEPROJ_PATH_KEY = 'xcodeproj_path'
 
   PROJECT_TARGET_KEY = 'project_target'
+  PROJECT_TARGETS_KEY = 'project_targets'
   PROJECT_FILE_PATH_KEY = 'project_file_path'
   PROJECT_GROUP_PATH_KEY = 'project_group_path'
 
   TEST_TARGET_KEY = 'test_target'
+  TEST_TARGETS_KEY = 'test_targets'
   TEST_FILE_PATH_KEY = 'test_file_path'
   TEST_GROUP_PATH_KEY = 'test_group_path'
 
