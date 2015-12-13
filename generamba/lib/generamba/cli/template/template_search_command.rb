@@ -15,6 +15,10 @@ module Generamba::CLI
         template_path.split.last.to_s
       }.select { |template_name|
         template_name.include?(term)
+      }.map { |template_name|
+        keywords = term.squeeze.strip.split(' ').compact.uniq
+        matcher = Regexp.new('(' + keywords.join('|') + ')')
+        template_name.gsub(matcher) { |match| "#{match}".yellow }
       }.each { |template_name|
         puts(template_name)
       }
