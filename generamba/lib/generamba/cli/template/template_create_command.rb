@@ -23,7 +23,7 @@ module Generamba::CLI
 
       template_creator = Generamba::TemplateCreator.new
       template_creator.create_template(properties)
-      say("The template #{template_name} is successfully generated! Now add some file templates into it.")
+      puts("The template #{template_name} is successfully generated! Now add some file templates into it.".green)
     end
   end
 end

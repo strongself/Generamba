@@ -23,7 +23,7 @@ module Generamba
                  .join(TEMPLATES_FOLDER)
                  .join(template_name)
 
-      error_description = "Cannot find #{template_name}! Add it to the Rambafile and run *generamba template install*"
+      error_description = "Cannot find template named #{template_name}! Add it to the Rambafile and run *generamba template install*".red
       raise StandardError.new(error_description) if path.exist? == false
 
       return path
