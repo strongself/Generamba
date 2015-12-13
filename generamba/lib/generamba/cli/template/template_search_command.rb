@@ -1,4 +1,4 @@
-require 'git'
+require 'generamba/template/helpers/catalog_downloader.rb'
 
 module Generamba::CLI
   class Template < Thor
@@ -6,15 +6,8 @@ module Generamba::CLI
 
     desc 'search', 'Searches a template with a given name in the shared GitHub catalog'
     def search(term)
-      catalog_local_path = Pathname.new(ENV['HOME'])
-                               .join(GENERAMBA_HOME_DIR)
-                               .join(CATALOGS_DIR)
-      FileUtils.rm_rf catalog_local_path
-      FileUtils.mkdir_p catalog_local_path
-
-      Git.clone(RAMBLER_CATALOG_REPO, GENERAMBA_CATALOG_NAME, :path => catalog_local_path)
-
-      generamba_catalog_path = catalog_local_path.join(GENERAMBA_CATALOG_NAME)
+      downloader = CatalogDownloader.new
+      generamba_catalog_path = downloader.download_catalog(GENERAMBA_CATALOG_NAME, RAMBLER_CATALOG_REPO)
 
       generamba_catalog_path.children.select { |child|
         child.directory? && child.split.last.to_s[0] != '.'
