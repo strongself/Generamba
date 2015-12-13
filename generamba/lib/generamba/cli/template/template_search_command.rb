@@ -4,7 +4,7 @@ module Generamba::CLI
   class Template < Thor
     include Generamba
 
-    desc 'search', 'Searches a template with a given name in the shared GitHub catalog'
+    desc 'search [SEARCH_STRING]', 'Searches a template with a given name in the shared GitHub catalog'
     def search(term)
       downloader = CatalogDownloader.new
       generamba_catalog_path = downloader.download_catalog(GENERAMBA_CATALOG_NAME, RAMBLER_CATALOG_REPO)
