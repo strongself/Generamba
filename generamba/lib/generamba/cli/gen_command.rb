@@ -39,7 +39,6 @@ module Generamba::CLI
 
       generator = Generamba::ModuleGenerator.new()
       generator.generate_module(module_name, code_module, template)
-
     end
 
   end

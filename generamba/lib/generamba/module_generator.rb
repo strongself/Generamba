@@ -12,17 +12,11 @@ module Generamba
 			project = XcodeprojHelper.obtain_project(ProjectConfiguration.xcodeproj_path)
 
 			# Configuring file paths
-			module_dir_path = code_module.module_file_path
-			test_dir_path = code_module.test_file_path
-			FileUtils.mkdir_p module_dir_path
+			FileUtils.mkdir_p code_module.module_file_path
 
-			if test_dir_path != nil
-				FileUtils.mkdir_p test_dir_path
+			if code_module.test_file_path != nil
+				FileUtils.mkdir_p code_module.test_file_path
 			end
-
-			# Configuring group paths
-			module_group_path = code_module.module_group_path
-			test_group_path = code_module.test_group_path
 
 			# Creating code files
 			puts('Creating code files...')
@@ -32,8 +26,8 @@ module Generamba
 															template,
 															project,
 															code_module.project_targets,
-															module_group_path,
-															module_dir_path)
+															code_module.module_group_path,
+															code_module.module_file_path)
 
 			# Creating test files
 			puts('Creating test files...')
@@ -43,12 +37,17 @@ module Generamba
 															template,
 															project,
 															code_module.test_targets,
-															test_group_path,
-															test_dir_path)
+															code_module.test_group_path,
+															code_module.test_file_path)
 
 			# Saving the current changes in the Xcode project
 			project.save
-			puts("Module #{name} successfully created!".green)
+			puts("Module successfully created!\n" +
+							 "Name: #{name}".green + "\n" +
+							 "Module file path: #{code_module.module_file_path}".green + "\n" +
+							 "Module group path: #{code_module.module_group_path}".green + "\n" +
+							 "Test file path: #{code_module.test_file_path}".green + "\n" +
+							 "Test group path: #{code_module.test_group_path}".green)
 		end
 
 		def process_files_if_needed(files, name, code_module, template, project, targets, group_path, dir_path)
