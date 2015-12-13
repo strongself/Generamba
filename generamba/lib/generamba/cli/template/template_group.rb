@@ -1,5 +1,6 @@
 require 'generamba/cli/template/template_install_command.rb'
 require 'generamba/cli/template/template_create_command.rb'
+require 'generamba/cli/template/template_list_command.rb'
 
 module Generamba::CLI
   class Application < Thor
