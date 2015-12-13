@@ -2,6 +2,7 @@ require 'generamba/template/processor/template_declaration.rb'
 require 'generamba/template/installer/local_installer.rb'
 require 'generamba/template/installer/remote_installer.rb'
 require 'generamba/template/installer/catalog_installer.rb'
+require 'generamba/template/helpers/catalog_downloader.rb'
 require 'git'
 
 module Generamba
@@ -51,13 +52,8 @@ module Generamba
 
       puts('Updating shared generamba-catalog specs...')
 
-      catalog_local_path = Pathname.new(ENV['HOME'])
-                               .join(GENERAMBA_HOME_DIR)
-                               .join(CATALOGS_DIR)
-      FileUtils.rm_rf catalog_local_path
-      FileUtils.mkdir_p catalog_local_path
-
-      Git.clone(RAMBLER_CATALOG_REPO, GENERAMBA_CATALOG_NAME, :path => catalog_local_path)
+      downloader = CatalogDownloader.new
+      downloader.download_catalog(GENERAMBA_CATALOG_NAME, RAMBLER_CATALOG_REPO)
     end
 
     # Provides the appropriate strategy for a given template type

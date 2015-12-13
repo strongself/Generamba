@@ -3,8 +3,8 @@ company: {{ company }}
 
 ### Xcode project settings
 project_name: {{ project_name }}
-prefix: {{ prefix }}
 xcodeproj_path: {{ xcodeproj_path }}
+{% if prefix != "" %}prefix: {{ prefix }}{% endif %}
 
 ### Code generation settings section
 # The main project target name
@@ -16,19 +16,19 @@ project_file_path: {{ project_file_path }}
 # The Xcode group path to new modules
 project_group_path: {{ project_group_path }}
 
-### Tests generation settings section
-# The tests target name
-test_target: {{ test_target }}
+{% if test_target != "" or test_file_path != "" or test_group_path != "" %}### Tests generation settings section{% endif %}
+{% if test_target != "" %}# The tests target name
+test_target: {{ test_target }}{% endif %}
 
-# The file path for new tests
-test_file_path: {{ test_file_path }}
+{% if test_file_path != "" %}# The file path for new tests
+test_file_path: {{ test_file_path }}{% endif %}
 
-# The Xcode group path to new tests
-test_group_path: {{ test_group_path }}
+{% if test_group_path != "" %}# The Xcode group path to new tests
+test_group_path: {{ test_group_path }}{% endif %}
 
-### Dependencies settings section
-podfile_path: {{ podfile_path }}
-cartfile_path: {{ cartfile_path }}
+{% if podfile_path != "" or cartfile_path != "" %}### Dependencies settings section{% endif %}
+{% if podfile_path != "" %}podfile_path: {{ podfile_path }}{% endif %}
+{% if cartfile_path != "" %}cartfile_path: {{ cartfile_path }}{% endif %}
 
 ### Templates
 templates:
