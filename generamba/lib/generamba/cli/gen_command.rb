@@ -34,8 +34,10 @@ module Generamba::CLI
       default_module_description = "#{module_name} module"
       module_description = options[:description] ? options[:description] : default_module_description
 
+      rambafile = YAML.load_file(RAMBAFILE_NAME)
+
       template = ModuleTemplate.new(template_name)
-      code_module = CodeModule.new(module_name, module_description, options)
+      code_module = CodeModule.new(module_name, module_description, rambafile, options)
 
       generator = Generamba::ModuleGenerator.new()
       generator.generate_module(module_name, code_module, template)
