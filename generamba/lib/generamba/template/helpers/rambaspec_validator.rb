@@ -1,5 +1,3 @@
-require 'settingslogic'
-
 module Generamba
 
   # Provides methods that validate .rambaspec file existance and structure
@@ -13,7 +11,7 @@ module Generamba
     # @return [Bool]
     def self.validate_spec_existance(template_name, template_path)
       local_spec_path = self.obtain_spec_path(template_name, template_path)
-      rambaspec_exist = File.file?(local_spec_path)
+      File.file?(local_spec_path)
     end
 
     # Validates the structure of a .rambaspec file for a given template
@@ -24,9 +22,13 @@ module Generamba
     # @return [Bool]
     def self.validate_spec(template_name, template_path)
       spec_path = self.obtain_spec_path(template_name, template_path)
-      spec = Settingslogic.new(spec_path)
+      spec = YAML.load_file(spec_path)
 
-      is_spec_valid = spec.name != nil && spec.author != nil && spec.version != nil && spec.code_files != nil
+      is_spec_valid =
+          spec[TEMPLATE_NAME_KEY] != nil &&
+          spec[TEMPLATE_AUTHOR_KEY] != nil &&
+          spec[TEMPLATE_VERSION_KEY] != nil &&
+          spec[TEMPLATE_CODE_FILES_KEY] != nil
       return is_spec_valid
     end
 
@@ -40,8 +42,8 @@ module Generamba
     # @return [Bool]
     def self.obtain_spec_path(template_name, template_path)
       spec_filename = template_name + RAMBASPEC_EXTENSION
-      full_path = Pathname.new(template_path)
-                      .join(spec_filename)
+      Pathname.new(template_path)
+          .join(spec_filename)
     end
   end
 end
