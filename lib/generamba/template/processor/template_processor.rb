@@ -25,12 +25,18 @@ module Generamba
       end
 
       # Mapping hashes to model objects
-      templates = templates.map { |template_hash|
-        template_declaration = Generamba::TemplateDeclaration.new(template_hash)
+      templates = rambafile[TEMPLATES_KEY].map { |template_hash|
+        Generamba::TemplateDeclaration.new(template_hash)
       }
 
+      if !templates || templates.count == 0
+        error_description = 'You must specify at least one template in Rambafile under the key *project_templates*'.red
+        raise StandardError.new(error_description)
+      end
+
+      catalogs = rambafile[CATALOGS_KEY]
       # If there is at least one template from the shared catalog, we should update our local copy of the catalog
-      update_shared_catalog_if_needed(templates)
+      update_catalogs_if_needed(catalogs, templates)
 
       templates.each do |template_declaration|
         strategy = strategy_for_type(template_declaration.type)
@@ -46,16 +52,24 @@ module Generamba
       FileUtils.rm_rf(Dir.glob(install_path))
     end
 
-    # Clones remote template catalog to the local directory
-    def update_shared_catalog_if_needed(templates)
+    # Clones remote template catalogs to the local directory
+    def update_catalogs_if_needed(catalogs, templates)
       needs_update = templates.any? {|template| template.type == TemplateDeclarationType::CATALOG_TEMPLATE}
 
       return unless needs_update
 
-      puts('Updating shared generamba-catalog specs...')
-
       downloader = CatalogDownloader.new
+
+      puts('Updating shared generamba-catalog specs...')
       downloader.download_catalog(GENERAMBA_CATALOG_NAME, RAMBLER_CATALOG_REPO)
+
+      return unless catalogs != nil && catalogs.count > 0
+
+      catalogs.each do |catalog_url|
+        catalog_name = catalog_url.split('/').last
+        puts("Updating #{catalog_name} specs...")
+        downloader.download_catalog(catalog_name, catalog_url)
+      end
     end
 
     # Provides the appropriate strategy for a given template type
