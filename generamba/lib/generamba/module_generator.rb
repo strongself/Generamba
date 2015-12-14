@@ -9,7 +9,7 @@ module Generamba
 
 		def generate_module(name, code_module, template)
 			# Setting up Xcode objects
-			project = XcodeprojHelper.obtain_project(ProjectConfiguration.xcodeproj_path)
+			project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
 
 			# Configuring file paths
 			FileUtils.mkdir_p code_module.module_file_path
@@ -62,7 +62,7 @@ module Generamba
 				# The target file's name consists of three parameters: project prefix, module name and template file name.
 				# E.g. RDS + Authorization + Presenter.h = RDSAuthorizationPresenter.h
 				file_basename = name + File.basename(file[TEMPLATE_NAME_KEY])
-				prefix = ProjectConfiguration.prefix
+				prefix = code_module.prefix
 				file_name = prefix ? prefix + file_basename : file_basename
 
 				file_group = File.dirname(file[TEMPLATE_NAME_KEY])

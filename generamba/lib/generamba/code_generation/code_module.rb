@@ -9,6 +9,7 @@ module Generamba
                 :year,
                 :prefix,
                 :project_name,
+                :xcodeproj_path,
                 :module_file_path,
                 :module_group_path,
                 :test_file_path,
@@ -27,6 +28,7 @@ module Generamba
 
       @prefix = rambafile[PROJECT_PREFIX_KEY]
       @project_name = rambafile[PROJECT_NAME_KEY]
+      @xcodeproj_path = rambafile[XCODEPROJ_PATH_KEY]
 
       @module_file_path = Pathname.new(rambafile[PROJECT_FILE_PATH_KEY]).join(@name)
       @module_group_path = Pathname.new(rambafile[PROJECT_GROUP_PATH_KEY]).join(@name)
