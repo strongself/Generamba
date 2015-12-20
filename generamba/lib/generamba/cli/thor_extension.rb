@@ -29,6 +29,19 @@ module Generamba::CLI
           puts(description.red)
         end
       end
+
+      def ask_file_with_path(pattern, message_file_name)
+        project_files = Dir[pattern]
+        count = project_files.count
+        default_message = "The path to a #{message_file_name}:"
+        if count == 1
+          is_right_path = yes?"The path to a #{message_file_name} is '#{project_files[0]}'. Do you want to use it? (yes/no)"
+          xcode_path = is_right_path ? project_files[0] : ask(default_message)
+        else
+          xcode_path = ask(default_message)
+        end
+        return xcode_path
+      end
     end
   end
 end

@@ -24,17 +24,11 @@ module Generamba::CLI
       properties[PROJECT_NAME_KEY] = is_right_project_name ? project_name : ask_non_empty_string('The project name:', 'Project name should not be empty')
       properties[PROJECT_PREFIX_KEY]  = ask('The project prefix (if any):')
 
-      project_files = Dir['*.xcodeproj']
-      count = project_files.count
-      if count == 1
-        is_right_path = yes?("The path to a .xcodeproj file of the project is #{project_files[0]}. Do you want to use it? (yes/no)")
-        xcode_path = is_right_path ? project_files[0] : ask('The path to a .xcodeproj file of the project:')
-      else
-        xcode_path = ask('The path to a .xcodeproj file of the project:')
-      end
+      xcodeproj_path = ask_file_with_path('*.xcodeproj',
+                                          '.xcodeproj file of the project')
 
-      properties[XCODEPROJ_PATH_KEY] = xcode_path
-      project = Xcodeproj::Project.open(xcode_path)
+      properties[XCODEPROJ_PATH_KEY] = xcodeproj_path
+      project = Xcodeproj::Project.open(xcodeproj_path)
 
       targets_prompt = ''
       project.targets.each_with_index { |element, i| targets_prompt += ("#{i}. #{element.name}" + "\n") }
@@ -56,8 +50,17 @@ module Generamba::CLI
         test_file_path = ask('The default path for creating tests (in the filesystem):')
       end
 
-      properties[PODFILE_PATH_KEY]  = ask('The Podfile path (if any):')
-      properties[CARTFILE_PATH_KEY]  = ask('The Cartfile path (if any):')
+      using_pods = yes?('Are you using Cocoapods? (yes/no)')
+      if using_pods
+        properties[PODFILE_PATH_KEY] = ask_file_with_path('Podfile',
+                                                          'Podfile')
+      end
+
+      using_carthage = yes?('Are you using Carthage? (yes/no)')
+      if using_carthage
+        properties[CARTFILE_PATH_KEY] = ask_file_with_path('Cartfile',
+                                                           'Cartfile')
+      end
 
       properties[PROJECT_TARGET_KEY] = project_target.name
       properties[PROJECT_FILE_PATH_KEY] = project_file_path
