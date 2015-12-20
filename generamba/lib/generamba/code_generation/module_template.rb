@@ -1,5 +1,4 @@
 require 'generamba/helpers/template_helper.rb'
-require 'settingslogic'
 
 module Generamba
 
@@ -9,11 +8,11 @@ module Generamba
 
     def initialize(name)
       spec_path = TemplateHelper.obtain_spec(name)
-      spec = Settingslogic.new(spec_path)
+      spec = YAML.load_file(spec_path)
 
       @code_files = spec[TEMPLATE_CODE_FILES_KEY]
       @test_files = spec[TEMPLATE_TEST_FILES_KEY]
-      @template_name = spec.name
+      @template_name = spec[TEMPLATE_NAME_KEY]
       @template_path = TemplateHelper.obtain_path(name)
     end
   end
