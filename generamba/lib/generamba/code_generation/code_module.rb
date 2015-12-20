@@ -46,16 +46,16 @@ module Generamba
       @project_targets = options[:module_targets].split(',') if options[:module_targets]
       @test_targets = options[:test_targets].split(',') if options[:test_targets]
 
-      @module_file_path = Pathname.new(options[:module_file_path]) if options[:module_file_path]
-      @module_group_path = Pathname.new(options[:module_group_path]) if options[:module_group_path]
-      @test_file_path = Pathname.new(options[:test_file_path]) if options[:test_file_path]
-      @test_group_path = Pathname.new(options[:test_group_path]) if options[:test_group_path]
+      @module_file_path = Pathname.new(options[:module_file_path]).join(@name) if options[:module_file_path]
+      @module_group_path = Pathname.new(options[:module_group_path]).join(@name) if options[:module_group_path]
+      @test_file_path = Pathname.new(options[:test_file_path]).join(@name) if options[:test_file_path]
+      @test_group_path = Pathname.new(options[:test_group_path]).join(@name) if options[:test_group_path]
 
       # The priority is given to `module_path` and 'test_path' options
-      @module_file_path = Pathname.new(options[:module_path]) if options[:module_path]
-      @module_group_path = Pathname.new(options[:module_path]) if options[:module_path]
-      @test_file_path = Pathname.new(options[:test_path]) if options[:test_path]
-      @test_group_path = Pathname.new(options[:test_path]) if options[:test_path]
+      @module_file_path = Pathname.new(options[:module_path]).join(@name) if options[:module_path]
+      @module_group_path = Pathname.new(options[:module_path]).join(@name) if options[:module_path]
+      @test_file_path = Pathname.new(options[:test_path]).join(@name) if options[:test_path]
+      @test_group_path = Pathname.new(options[:test_path]).join(@name) if options[:test_path]
     end
   end
 end
