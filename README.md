@@ -2,44 +2,44 @@
 
 [![Gem Version](https://badge.fury.io/rb/generamba.svg)](https://badge.fury.io/rb/generamba)
 
-**Generamba** - это генератор кода, заточенный под работу с Xcode. В первую очередь предназначен для генерации модулей VIPER - но достаточно легко настраивается и для генерации любых других классов.
+**Generamba** is a code generator made for working with Xcode. Primarily it is designed to generate VIPER modules but it is quite easy to customize it for generation of any other classes.
 
 ![Generamba Screenshot](http://s11.postimg.org/ixp90vfr7/generamba.jpg)
 
-### Основные особенности
+### Key features
 
-- Из коробки поддерживает работу с *.xcodeproj* файлами - все сгенерированные классы автоматически распределяются как по файловой структуре, так и по группам в проекте.
-- Умеет генерировать как непосредственно код, так и тесты, автоматически распределяя их по правильным таргетам.
-- Основан на работе с [liquid-шаблонами](https://github.com/Shopify/liquid) - синтаксис простой и понятный, особенно в сравнении с шаблонами для Xcode.
-- Создать новый модуль очень просто: `generamba gen [MODULE_NAME] [TEMPLATE_NAME]`. Не требуется каждый раз вводить кучу данных - каждому проекту соответствует один конфигурационный файл, содержащий в себе стандартные пути в файловой системе и Xcode-проекте, названия таргетов, информацию о проекте.
+- Supports work with *.xcodeproj* files out of the box. All generated class files are automaticly placed on specific folders and groups of Xcode project.
+- Can generate both code itself and tests adding them to right targets.
+- Based on work with [liquid-templates](https://github.com/Shopify/liquid) that have plain and readable syntax in comparison with teamplates for Xcode.
+- It is very easy to create a new module: `generamba gen [MODULE_NAME] [TEMPLATE_NAME]`. You do not need to input a bunch of data each time because each project corresponds to only one configuration file that holds standard file system and Xcode-project pathes, names of targets, information about the author.
 
-### Установка
+### Installation
 
-> Для работы генератора необходим Ruby версии 2.2 и выше. Чтобы проверить, какая версия установлена у вас сейчас, выполните следующую команду в терминале:
+> Ruby 2.2 or later version is required. To check your current Ruby version run this command in terminal:
 ```bash
 $ ruby --version
 ```
-Если необходимо, нужную версию Ruby можно установить при помощи [`rvm`](http://octopress.org/docs/setup/rvm/) или [`rbenv`](http://octopress.org/docs/setup/rbenv/).
+When necessary you can install the required Ruby version with the help of [`rvm`](http://octopress.org/docs/setup/rvm/) or [`rbenv`](http://octopress.org/docs/setup/rbenv/).
 
-Вызовите команду `gem install generamba`
+Run the command `gem install generamba`.
 
-### Использование
-1. В корневой директории своего проекта вызовите `generamba setup`. Эта команда помогает автоматически создать и настроить *Rambafile*, описывающий всю конфигурацию, необходимую для генерации кода. В дальнейшем этот файл может быть модифицирован вручную.
-2. Добавьте в сгенерированный Rambafile все шаблоны, которые планируется использовать в проекте. Начать можно с одного из шаблонов каталога: `{name: 'rviper_controller'}`.
-3. Вызовите команду `generamba template install`. Все указанные шаблоны будут установлены в папке `/Templates` текущего проекта.
-4. `generamba gen [MODULE_NAME] [TEMPLATE_NAME]` - генерирует модуль с указанным названием из указанного шаблона.
+### Using
+1. Run `generamba setup` in the project root folder. This command helps to create *Rambafile* that define all configuration needed to generate code. You can modify this file directly in future.
+2. Add all templates planned to use in the project to the generated *Rambafile*. You can begin with one of the templates from our catalog: `{name: 'rviper_controller'}`.
+3. Run `generamba template install`. All the templates will be placed in the '/Templates' folder of your current project.
+4. Run `generamba gen [MODULE_NAME] [TEMPLATE_NAME]` - It creates module with specific name from specific template.
 
-### Дополнительная информация
 
-Команда `generamba help` поможет узнать больше о каждой из поддерживаемых Генерамбой функций.
+### Additional info
 
-- [Как устроен Rambafile](https://github.com/rambler-ios/Generamba/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-Rambafile)
-- [Как устроены шаблоны](https://github.com/rambler-ios/Generamba/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%B0)
+Run `generamba help` to learn more about each of the Generamba features.
+- [Understanding the Rambafile](https://github.com/rambler-ios/Generamba/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-Rambafile)
+- [Understanding templates](https://github.com/rambler-ios/Generamba/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%B0)
 
-### Авторы
+### Authors
 
 - Rambler.iOS team
 
-### Лицензия
+### License
 
 MIT
