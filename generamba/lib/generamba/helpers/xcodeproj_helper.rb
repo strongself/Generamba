@@ -56,7 +56,7 @@ module Generamba
       group_names.each do |group_name|
         next_group = final_group[group_name]
         if (next_group == nil)
-          next_group = final_group.new_group(group_name)
+          next_group = final_group.new_group(group_name, group_name)
         end
 
         final_group = next_group
