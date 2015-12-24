@@ -25,7 +25,7 @@ Run the command `gem install generamba`.
 
 ### Using
 1. Run `generamba setup` in the project root folder. This command helps to create [Rambafile](https://github.com/rambler-ios/Generamba/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-Rambafile) that define all configuration needed to generate code. You can modify this file directly in future.
-2. Add all templates planned to use in the project to the generated *Rambafile*. You can begin with one of the templates from our catalog: `{name: 'rviper_controller'}`.
+2. Add all templates planned to use in the project to the generated [Rambafile](https://github.com/rambler-ios/Generamba/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-Rambafile). You can begin with one of the templates from our catalog: `{name: 'rviper_controller'}`.
 3. Run `generamba template install`. All the templates will be placed in the '/Templates' folder of your current project.
 4. Run `generamba gen [MODULE_NAME] [TEMPLATE_NAME]` - It creates module with specific name from specific template.
 
