@@ -57,7 +57,7 @@ module Generamba
 				return
 			end
 
-			XcodeprojHelper.clear_group(project, group_path)
+			XcodeprojHelper.clear_group(project, targets, group_path)
 			files.each do |file|
 				# The target file's name consists of three parameters: project prefix, module name and template file name.
 				# E.g. RDS + Authorization + Presenter.h = RDSAuthorizationPresenter.h
@@ -68,12 +68,8 @@ module Generamba
 				file_group = File.dirname(file[TEMPLATE_NAME_KEY])
 
 				# Generating the content of the code file
-				file_content = ContentGenerator.create_file_content(file,
-																														code_module,
-																														template)
-				file_path = dir_path
-												.join(file_group)
-												.join(file_name)
+				file_content = ContentGenerator.create_file_content(file, code_module, template)
+				file_path = dir_path.join(file_group).join(file_name)
 
 				# Creating the file in the filesystem
 				FileUtils.mkdir_p File.dirname(file_path)
@@ -82,10 +78,7 @@ module Generamba
 				end
 
 				# Creating the file in the Xcode project
-				XcodeprojHelper.add_file_to_project_and_targets(project,
-																											 targets,
-																											 group_path.join(file_group),
-																											 file_path)
+				XcodeprojHelper.add_file_to_project_and_targets(project, targets, group_path.join(file_group), file_path)
 			end
 		end
 	end
