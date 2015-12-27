@@ -1,13 +1,15 @@
+require 'thor'
 require 'fileutils'
 
 require 'generamba/helpers/xcodeproj_helper.rb'
 
+
 module Generamba
 
 	# Responsible for creating the whole code module using information from the CLI
-	class ModuleGenerator
-
-		def generate_module(name, code_module, template)
+	class ModuleGenerator < Thor
+		no_commands {
+			def generate_module(name, code_module, template)
 			# Setting up Xcode objects
 			project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
 
@@ -17,6 +19,9 @@ module Generamba
 			if code_module.test_file_path != nil
 				FileUtils.mkdir_p code_module.test_file_path
 			end
+
+			replace_exists_module = yes?("#{name} module already exists. Replace? (yes/no)")
+			return if replace_exists_module == false
 
 			# Creating code files
 			puts('Creating code files...')
@@ -81,5 +86,6 @@ module Generamba
 				XcodeprojHelper.add_file_to_project_and_targets(project, targets, group_path.join(file_group), file_path)
 			end
 		end
+		}
 	end
 end
