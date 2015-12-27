@@ -3,7 +3,6 @@ require 'fileutils'
 
 require 'generamba/helpers/xcodeproj_helper.rb'
 
-
 module Generamba
 
 	# Responsible for creating the whole code module using information from the CLI
