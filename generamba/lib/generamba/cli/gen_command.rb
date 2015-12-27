@@ -41,9 +41,9 @@ module Generamba::CLI
       code_module = CodeModule.new(module_name, module_description, rambafile, options)
 
       project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
-      module_group = XcodeprojHelper.module_with_group_path_already_exists(project, code_module.module_group_path)
+      module_group_already_exists = XcodeprojHelper.module_with_group_path_already_exists(project, code_module.module_group_path)
 
-      if (module_group == true)
+      if (module_group_already_exists == true)
         replace_exists_module = yes?("#{module_name} module already exists. Replace? (yes/no)")
       
         if (replace_exists_module == false)
