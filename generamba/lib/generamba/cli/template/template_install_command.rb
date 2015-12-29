@@ -5,7 +5,7 @@ module Generamba::CLI
     def install
       does_rambafile_exist = Dir[RAMBAFILE_NAME].count > 0
 
-      if (does_rambafile_exist == false)
+      unless does_rambafile_exist
         puts('Rambafile not found! Run `generamba setup` in the working directory instead!'.red)
         return
       end

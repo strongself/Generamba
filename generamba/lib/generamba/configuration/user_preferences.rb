@@ -33,14 +33,14 @@ module Generamba
 
       path_exists = Dir.exist?(home_path)
 
-      if path_exists == false
+      unless path_exists
         FileUtils.mkdir_p home_path
       end
 
       preferences_path = home_path.join(USER_PREFERENCES_FILE)
       preferences_exist = File.file?(preferences_path)
 
-      if preferences_exist == false
+      unless preferences_exist
         File.open(preferences_path, 'w+') { |f| f.write('') }
       end
 

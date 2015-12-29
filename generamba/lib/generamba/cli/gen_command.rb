@@ -21,7 +21,7 @@ module Generamba::CLI
 
       does_rambafile_exist = Dir[RAMBAFILE_NAME].count > 0
 
-      if (does_rambafile_exist == false)
+      unless does_rambafile_exist
         puts('Rambafile not found! Run `generamba setup` in the working directory instead!'.red)
         return
       end
@@ -43,10 +43,10 @@ module Generamba::CLI
       project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
       module_group_already_exists = XcodeprojHelper.module_with_group_path_already_exists(project, code_module.module_group_path)
 
-      if (module_group_already_exists == true)
+      if module_group_already_exists
         replace_exists_module = yes?("#{module_name} module already exists. Replace? (yes/no)")
       
-        if (replace_exists_module == false)
+        unless replace_exists_module
           return
         end
       end

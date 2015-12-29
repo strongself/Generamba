@@ -38,10 +38,10 @@ module Generamba
     # @return [Void]
     def self.clear_group(project, targets_name, group_path)
       module_group = self.retreive_group_or_create_if_needed(group_path, project, false)
-      return if module_group == nil
+      return unless module_group
 
       files_path = self.files_path_from_group(module_group, project)
-      return if files_path == nil
+      return unless files_path
 
       files_path.each do |file_path|
         self.remove_file_by_file_path(file_path, targets_name, project)
@@ -65,18 +65,18 @@ module Generamba
     # Finds or creates a group in a xcodeproj file with a given path
     # @param group_path [Pathname] The full group path
     # @param project [Xcodeproj::Project] The working Xcode project file
-    # @param create_group_in_not_exists [TrueClass or FalseClass] If true notexistent group will be created
+    # @param create_group_if_not_exists [TrueClass or FalseClass] If true notexistent group will be created
     #
     # @return [PBXGroup]
-    def self.retreive_group_or_create_if_needed(group_path, project, create_group_in_not_exists)
+    def self.retreive_group_or_create_if_needed(group_path, project, create_group_if_not_exists)
       group_names = group_names_from_group_path(group_path)
 
       final_group = project
 
       group_names.each do |group_name|
         next_group = final_group[group_name]
-        if next_group == nil
-          if create_group_in_not_exists == false
+        unless next_group
+          unless create_group_if_not_exists
             return nil
           end
             
