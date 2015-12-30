@@ -17,15 +17,17 @@ module Generamba
 
       rambafile = YAML.load_file(RAMBAFILE_NAME)
 
-      # Mapping hashes to model objects
-      templates = rambafile[TEMPLATES_KEY].map { |template_hash|
-        template_declaration = Generamba::TemplateDeclaration.new(template_hash)
-      }
+      templates = rambafile[TEMPLATES_KEY]
 
       if !templates || templates.count == 0
-        error_description = 'You must specify at least one template in Rambafile under the key *project_templates*'.red
-        raise StandardError.new(error_description)
+        puts 'You must specify at least one template in Rambafile under the key *templates*'.red
+        return
       end
+
+      # Mapping hashes to model objects
+      templates = templates.map { |template_hash|
+        template_declaration = Generamba::TemplateDeclaration.new(template_hash)
+      }
 
       # If there is at least one template from the shared catalog, we should update our local copy of the catalog
       update_shared_catalog_if_needed(templates)
