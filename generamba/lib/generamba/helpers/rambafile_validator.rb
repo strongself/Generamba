@@ -11,37 +11,79 @@ module Generamba
 
       mandatory_fields = [COMPANY_KEY,
                           PROJECT_NAME_KEY,
-                          XCODEPROJ_PATH_KEY,
-                          PROJECT_FILE_PATH_KEY,
-                          PROJECT_GROUP_PATH_KEY,
-                          TEMPLATES_KEY]
-
-      interchangable_fields = [[PROJECT_TARGETS_KEY, PROJECT_TARGET_KEY]]
+                          XCODEPROJ_PATH_KEY]
 
       mandatory_fields.each do |field|
-        if preferences.has_key?(field) == false
-          error_description = "Rambafile is broken! Cannot find #{field} field, which is mandatory. Either add it manually, or run *generamba setup*.".red
-          raise StandardError.new(error_description)
+        unless preferences[field]
+          puts "Rambafile is broken! *#{field}* field cannot be empty, because it is mandatory. Either add it manually, or run *generamba setup*.".red
+          exit
         end
       end
 
-      interchangable_fields.each do |fields_array|
-        has_value = false
-        fields_array.each do |field|
-          has_value = preferences.has_key?(field) || has_value
-        end
+      project_failure_fields = all_project_failure_fields(preferences)
+      test_failure_fields = all_test_failure_fields(preferences)
+      failure_fields = project_failure_fields + test_failure_fields
 
-        if has_value == false
-          error_description = "Rambafile is broken! Cannot find any of #{fields_array} fields, one of them is mandatory. Either add it manually, or run *generamba setup*.".red
-          raise StandardError.new(error_description)
-        end
+      if failure_fields.count > 0
+        puts "Rambafile is broken! Cannot find any of #{failure_fields} fields, one of them is mandatory. Either add it manually, or run *generamba setup*.".red
+        exit
       end
 
-      if preferences[TEMPLATES_KEY] == nil
-        error_description = "You can't run *generamba gen* without any templates installed. Add their declarations to a Rambafile and run *generamba template install*.".red
-        raise StandardError.new(error_description)
+      unless preferences[TEMPLATES_KEY]
+        puts "You can't run *generamba gen* without any templates installed. Add their declarations to a Rambafile and run *generamba template install*.".red
+        exit
+      end
+    end
+
+    private
+
+    def all_project_failure_fields(preferences)
+      return all_nil_mandatory_fields_for_target_type("project", preferences)
+    end
+
+    def all_test_failure_fields(preferences)
+      target = preferences[TEST_TARGET_KEY]
+      targets = preferences[TEST_TARGETS_KEY]
+      file_path = preferences[TEST_FILE_PATH_KEY]
+      group_path = preferences[TEST_GROUP_PATH_KEY]
+
+      has_test_fields = target || targets || file_path || group_path
+
+      unless has_test_fields
+        return []
+      end
+      
+      return all_nil_mandatory_fields_for_target_type("test", preferences)
+    end
+
+    def all_nil_mandatory_fields_for_target_type(target_type, preferences)
+      target_type = target_type.upcase
+
+      target_const_value = Generamba.const_get(target_type + "_TARGET_KEY")
+      targets_const_value = Generamba.const_get(target_type + "_TARGETS_KEY")
+
+      target = preferences[target_const_value]
+      targets = preferences[targets_const_value]
+
+      fields = []
+
+      if !target && (!targets || (targets && targets.count == 0))
+        fields.push(target_const_value)
       end
 
+      file_path_const_value = Generamba.const_get(target_type + "_FILE_PATH_KEY")      
+
+      unless preferences[file_path_const_value]
+        fields.push(file_path_const_value)
+      end 
+
+      group_path_const_value = Generamba.const_get(target_type + "_GROUP_PATH_KEY")
+
+      unless preferences[group_path_const_value]
+        fields.push(group_path_const_value)
+      end
+
+      return fields
     end
 
   end
