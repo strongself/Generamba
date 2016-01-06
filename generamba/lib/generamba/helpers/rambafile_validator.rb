@@ -5,6 +5,8 @@ module Generamba
 
     # Method validates Rambafile contents
     # @param path [String] The path to a Rambafile
+    #
+    # @return [Void]
     def validate(path)
       file_contents = open(path).read
       preferences = file_contents.empty? ? {} : YAML.load(file_contents).to_hash
@@ -37,10 +39,18 @@ module Generamba
 
     private
 
+    # Method which return all project failure fields
+    # @param preferences [Hash] Converted Rambafile
+    #
+    # @return [Array]
     def all_project_failure_fields(preferences)
       return all_nil_mandatory_fields_for_target_type("project", preferences)
     end
 
+    # Method which return all test failure fields
+    # @param preferences [Hash] Converted Rambafile
+    #
+    # @return [Array]
     def all_test_failure_fields(preferences)
       target = preferences[TEST_TARGET_KEY]
       targets = preferences[TEST_TARGETS_KEY]
@@ -56,6 +66,11 @@ module Generamba
       return all_nil_mandatory_fields_for_target_type("test", preferences)
     end
 
+    # Method which return all failure fields for target_type
+    # @param target_type [String] "project" or "test"
+    # @param preferences [Hash] Converted Rambafile
+    # 
+    # @return [Array]
     def all_nil_mandatory_fields_for_target_type(target_type, preferences)
       target_type = target_type.upcase
 
