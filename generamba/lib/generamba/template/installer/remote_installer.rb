@@ -20,14 +20,14 @@ module Generamba
       Git.clone(repo_url, template_name, :path => temp_path)
 
       rambaspec_exist = Generamba::RambaspecValidator.validate_spec_existance(template_name, template_dir)
-      if rambaspec_exist == false
+      unless rambaspec_exist
         FileUtils.rm_rf(temp_path)
         error_description = "Cannot find #{template_name + RAMBASPEC_EXTENSION} in the root directory of specified repository.".red
         raise StandardError.new(error_description)
       end
 
       rambaspec_valid = Generamba::RambaspecValidator.validate_spec(template_name, template_dir)
-      if rambaspec_valid == false
+      unless rambaspec_valid
         error_description = "#{template_name + RAMBASPEC_EXTENSION} is not valid.".red
         raise StandardError.new(error_description)
       end

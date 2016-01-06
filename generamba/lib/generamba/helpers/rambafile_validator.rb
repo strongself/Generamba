@@ -19,7 +19,7 @@ module Generamba
       interchangable_fields = [[PROJECT_TARGETS_KEY, PROJECT_TARGET_KEY]]
 
       mandatory_fields.each do |field|
-        if preferences.has_key?(field) == false
+        unless preferences.has_key?(field)
           error_description = "Rambafile is broken! Cannot find #{field} field, which is mandatory. Either add it manually, or run *generamba setup*.".red
           raise StandardError.new(error_description)
         end
@@ -31,13 +31,13 @@ module Generamba
           has_value = preferences.has_key?(field) || has_value
         end
 
-        if has_value == false
+        unless has_value
           error_description = "Rambafile is broken! Cannot find any of #{fields_array} fields, one of them is mandatory. Either add it manually, or run *generamba setup*.".red
           raise StandardError.new(error_description)
         end
       end
 
-      if preferences[TEMPLATES_KEY] == nil
+      unless preferences[TEMPLATES_KEY]
         error_description = "You can't run *generamba gen* without any templates installed. Add their declarations to a Rambafile and run *generamba template install*.".red
         raise StandardError.new(error_description)
       end
