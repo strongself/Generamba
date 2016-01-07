@@ -23,15 +23,21 @@ module Generamba
       xcode_file = module_group.new_file(File.absolute_path(file_path))
 
       file_name = File.basename(file_path)
-      if File.extname(file_name) == '.m'
-        targets_name.each do |target|
-          xcode_target = self.obtain_target(target, project)
-          xcode_target.add_file_references([xcode_file])
-        end
-      end
+      targets_name.each do |target|
+        xcode_target = self.obtain_target(target, project)
+        xcode_target.add_file_references([xcode_file])
+      end if self.add_file_to_target?(file_name)
     end
 
-    # Recursively clears children of te given group
+    # Decides should file be added
+    # @param file_name [String] Array of targets name
+    #
+    # @return [TrueClass or FalseClass]
+    def self.add_file_to_target?(file_name)
+      File.extname(file_name) == '.m' || File.extname(file_name) == '.swift' || File.extname(file_name) == '.mm'
+    end
+
+    # Recursively clears children of the given group
     # @param project [Xcodeproj::Project] The working Xcode project file
     # @param group_path [Pathname] The full group path
     #
