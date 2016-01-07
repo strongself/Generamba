@@ -2,9 +2,9 @@
 
 [![Gem Version](https://badge.fury.io/rb/generamba.svg)](https://badge.fury.io/rb/generamba)
 
-**Generamba** is a code generator made for working with Xcode. Primarily it is designed to generate VIPER modules but it is quite easy to customize it for generation of any other classes.
+**Generamba** is a code generator made for working with Xcode. Primarily it is designed to generate VIPER modules but it is quite easy to customize it for generation of any other classes (both in Objective-C and Swift).
 
-![Generamba Screenshot](http://s11.postimg.org/ixp90vfr7/generamba.jpg)
+![Generamba Screenshot](http://s24.postimg.org/gej9cg1cl/generamba.jpg)
 
 ### Key features
 
@@ -24,21 +24,21 @@ When necessary you can install the required Ruby version with the help of [`rvm`
 Run the command `gem install generamba`.
 
 ### Using
-1. Run `generamba setup` in the project root folder. This command helps to create [Rambafile](https://github.com/rambler-ios/Generamba/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-Rambafile) that define all configuration needed to generate code. You can modify this file directly in future.
-2. Add all templates planned to use in the project to the generated [Rambafile](https://github.com/rambler-ios/Generamba/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-Rambafile). You can begin with one of the templates from our catalog: `{name: 'rviper_controller'}`.
-3. Run `generamba template install`. All the templates will be placed in the '/Templates' folder of your current project.
-4. Run `generamba gen [MODULE_NAME] [TEMPLATE_NAME]` - It creates module with specific name from specific template.
-
+1. Run [`generamba setup`](https://github.com/rambler-ios/Generamba/wiki/Available-Commands#basic-generamba-configuration) in the project root folder. This command helps to create [Rambafile]https://github.com/rambler-ios/Generamba/wiki/Rambafile-Structure) that define all configuration needed to generate code. You can modify this file directly in future.
+2. Add all templates planned to use in the project to the generated [Rambafile](https://github.com/rambler-ios/Generamba/wiki/Rambafile-Structure). You can begin with one of the templates from our catalog: `{name: 'rviper_controller'}`.
+3. Run [`generamba template install`](https://github.com/rambler-ios/Generamba/wiki/Available-Commands#template-installation). All the templates will be placed in the '/Templates' folder of your current project.
+4. Run [`generamba gen [MODULE_NAME] [TEMPLATE_NAME]`](https://github.com/rambler-ios/Generamba/wiki/Available-Commands#module-generation) - It creates module with specific name from specific template.
 
 ### Additional info
 
 Run `generamba help` to learn more about each of the Generamba features.
-- [Understanding the Rambafile](https://github.com/rambler-ios/Generamba/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-Rambafile)
-- [Understanding templates](https://github.com/rambler-ios/Generamba/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%B0)
+- [Command list](https://github.com/rambler-ios/Generamba/wiki/Available-Commands)
+- [Understanding the Rambafile](https://github.com/rambler-ios/Generamba/wiki/Rambafile-Structure)
+- [Understanding templates](https://github.com/rambler-ios/Generamba/wiki/Template-Structure)
 
 ### Authors
 
-- Rambler.iOS team
+- Egor Tolstoy, Beniamin Sarkisyan, Andrey Zarembo and the rest of [Rambler.iOS team](https://github.com/orgs/rambler-ios/people).
 
 ### License
 
