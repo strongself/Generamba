@@ -6,6 +6,7 @@ module Generamba
 
 	# Responsible for creating the whole code module using information from the CLI
 	class ModuleGenerator
+
 		def generate_module(name, code_module, template)
 			# Setting up Xcode objects
 			project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
@@ -20,33 +21,41 @@ module Generamba
 			# Creating code files
 			puts('Creating code files...')
 			process_files_if_needed(template.code_files,
-															name,
-															code_module,
-															template,
-															project,
-															code_module.project_targets,
-															code_module.module_group_path,
-															code_module.module_file_path)
+									name,
+									code_module,
+									template,
+									project,
+									code_module.project_targets,
+									code_module.module_group_path,
+									code_module.module_file_path)
 
 			# Creating test files
-			puts('Creating test files...')
-			process_files_if_needed(template.test_files,
-															name,
-															code_module,
-															template,
-															project,
-															code_module.test_targets,
-															code_module.test_group_path,
-															code_module.test_file_path)
+			included_tests = code_module.test_targets && code_module.test_group_path && code_module.test_file_path
+
+			if included_tests
+				puts('Creating test files...')
+				process_files_if_needed(template.test_files,
+										name,
+										code_module,
+										template,
+										project,
+										code_module.test_targets,
+										code_module.test_group_path,
+										code_module.test_file_path)
+			end
 
 			# Saving the current changes in the Xcode project
 			project.save
+
+			test_file_path_created_message = !code_module.test_file_path ? "" : "Test file path: #{code_module.test_file_path}".green + "\n"
+			test_group_path_created_message = !code_module.test_group_path ? "" : "Test group path: #{code_module.test_group_path}".green
+
 			puts("Module successfully created!\n" +
-							 "Name: #{name}".green + "\n" +
-							 "Module file path: #{code_module.module_file_path}".green + "\n" +
-							 "Module group path: #{code_module.module_group_path}".green + "\n" +
-							 "Test file path: #{code_module.test_file_path}".green + "\n" +
-							 "Test group path: #{code_module.test_group_path}".green)
+				 "Name: #{name}".green + "\n" +
+				 "Module file path: #{code_module.module_file_path}".green + "\n" +
+				 "Module group path: #{code_module.module_group_path}".green + "\n" +
+				 test_file_path_created_message +
+				 test_group_path_created_message)
 		end
 
 		def process_files_if_needed(files, name, code_module, template, project, targets, group_path, dir_path)
@@ -56,7 +65,7 @@ module Generamba
 				return
 			end
 
-			XcodeprojHelper.clear_group(project, targets, group_path)
+			XcodeprojHelper.clear_group(project, group_path)
 			files.each do |file|
 				# The target file's name consists of three parameters: project prefix, module name and template file name.
 				# E.g. RDS + Authorization + Presenter.h = RDSAuthorizationPresenter.h
@@ -68,7 +77,8 @@ module Generamba
 
 				# Generating the content of the code file
 				file_content = ContentGenerator.create_file_content(file, code_module, template)
-				file_path = dir_path.join(file_group).join(file_name)
+				file_path = dir_path.join(file_group)
+									.join(file_name)
 
 				# Creating the file in the filesystem
 				FileUtils.mkdir_p File.dirname(file_path)
