@@ -1,5 +1,6 @@
 require 'thor'
 require 'generamba/helpers/rambafile_validator.rb'
+require 'generamba/helpers/xcodeproj_helper.rb'
 
 module Generamba::CLI
   class Application < Thor
@@ -20,7 +21,7 @@ module Generamba::CLI
 
       does_rambafile_exist = Dir[RAMBAFILE_NAME].count > 0
 
-      if (does_rambafile_exist == false)
+      unless does_rambafile_exist
         puts('Rambafile not found! Run `generamba setup` in the working directory instead!'.red)
         return
       end
@@ -38,6 +39,17 @@ module Generamba::CLI
 
       template = ModuleTemplate.new(template_name)
       code_module = CodeModule.new(module_name, module_description, rambafile, options)
+
+      project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
+      module_group_already_exists = XcodeprojHelper.module_with_group_path_already_exists(project, code_module.module_group_path)
+
+      if module_group_already_exists
+        replace_exists_module = yes?("#{module_name} module already exists. Replace? (yes/no)")
+      
+        unless replace_exists_module
+          return
+        end
+      end
 
       generator = Generamba::ModuleGenerator.new()
       generator.generate_module(module_name, code_module, template)

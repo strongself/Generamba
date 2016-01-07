@@ -26,9 +26,9 @@ test_file_path: {{ test_file_path }}{% endif %}
 {% if test_group_path != "" %}# The Xcode group path to new tests
 test_group_path: {{ test_group_path }}{% endif %}
 
-{% if podfile_path != "" or cartfile_path != "" %}### Dependencies settings section{% endif %}
-{% if podfile_path != "" %}podfile_path: {{ podfile_path }}{% endif %}
-{% if cartfile_path != "" %}cartfile_path: {{ cartfile_path }}{% endif %}
+{% if podfile_path != nil or cartfile_path != nil %}### Dependencies settings section{% endif %}
+{% if podfile_path != nil %}podfile_path: {{ podfile_path }}{% endif %}
+{% if cartfile_path != nil %}cartfile_path: {{ cartfile_path }}{% endif %}
 
 ### Templates
 templates:
