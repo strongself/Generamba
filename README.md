@@ -32,9 +32,14 @@ Run the command `gem install generamba`.
 ### Additional info
 
 Run `generamba help` to learn more about each of the Generamba features.
+
+**Wiki:**
 - [Command list](https://github.com/rambler-ios/Generamba/wiki/Available-Commands)
 - [Understanding the Rambafile](https://github.com/rambler-ios/Generamba/wiki/Rambafile-Structure)
 - [Understanding templates](https://github.com/rambler-ios/Generamba/wiki/Template-Structure)
+
+**Other materials:**
+- [Russian] Rambler.iOS V: Generamba and Code Generation ([Slides](http://www.slideshare.net/Rambler-iOS/viper-56423582) | [Video](http://www.youtube.com/watch?v=NXNiN9FaUnY))
 
 ### Authors
 
