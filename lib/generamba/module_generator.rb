@@ -65,7 +65,7 @@ module Generamba
 				return
 			end
 
-			XcodeprojHelper.clear_group(project, group_path)
+			XcodeprojHelper.clear_group(project, targets, group_path)
 			files.each do |file|
 				# The target file's name consists of three parameters: project prefix, module name and template file name.
 				# E.g. RDS + Authorization + Presenter.h = RDSAuthorizationPresenter.h
