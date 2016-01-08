@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe 'CatalogDownloader' do
-  include FakeFS::SpecHelpers
-
   describe 'method download_catalog' do
     it 'should clone catalog from remote repository' do
       catalog_name = 'catalog'
