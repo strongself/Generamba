@@ -35,7 +35,7 @@ module Generamba
       end
 
       catalogs = rambafile[CATALOGS_KEY]
-      # If there is at least one template from the shared catalog, we should update our local copy of the catalog
+      # If there is at least one template from catalogs, we should update our local copy of the catalog
       update_catalogs_if_needed(catalogs, templates)
 
       templates.each do |template_declaration|
@@ -66,7 +66,7 @@ module Generamba
       return unless catalogs != nil && catalogs.count > 0
 
       catalogs.each do |catalog_url|
-        catalog_name = catalog_url.split('/').last
+        catalog_name = catalog_url.split('://').last
         puts("Updating #{catalog_name} specs...")
         downloader.download_catalog(catalog_name, catalog_url)
       end
