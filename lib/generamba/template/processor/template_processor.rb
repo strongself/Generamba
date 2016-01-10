@@ -63,6 +63,7 @@ module Generamba
 
       catalogs.each do |catalog_url|
         catalog_name = catalog_url.split('://').last
+        catalog_name = catalog_name.gsub('/', '-');
         puts("Updating #{catalog_name} specs...")
         @catalog_downloader.download_catalog(catalog_name, catalog_url)
       end

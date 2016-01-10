@@ -11,6 +11,7 @@ module Generamba
   require 'generamba/code_generation/rambafile_generator.rb'
   require 'generamba/module_generator.rb'
   require 'generamba/template/processor/template_processor.rb'
+  require 'generamba/template/installer/template_installer_factory'
   require 'generamba/configuration/user_preferences.rb'
   require 'generamba/template/creator/template_creator.rb'
   require 'generamba/tools/string-colorize.rb'

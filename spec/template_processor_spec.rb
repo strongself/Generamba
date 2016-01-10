@@ -49,6 +49,7 @@ describe 'TemplateProcessor' do
     it 'should update other catalogs if needed' do
       test_catalog_url = 'http://github.com/catalog1'
       test_catalog_name = test_catalog_url.split('://').last
+      test_catalog_name = test_catalog_name.gsub('/', '-');
       rambafile = {
           Generamba::TEMPLATES_KEY => [
               {
