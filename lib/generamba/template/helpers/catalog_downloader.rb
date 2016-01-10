@@ -17,7 +17,6 @@ module Generamba
                                .join(CATALOGS_DIR)
       current_catalog_path = catalogs_local_path
                                  .join(name)
-      FileUtils.rm_rf current_catalog_path
 
       Git.clone(url, name, :path => catalogs_local_path)
 

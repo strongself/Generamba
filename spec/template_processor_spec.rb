@@ -140,5 +140,36 @@ describe 'TemplateProcessor' do
       expect(installer_factory).to have_received(:installer_for_type).with(Generamba::TemplateDeclarationType::CATALOG_TEMPLATE)
       expect(mock_installer).to have_received(:install_template)
     end
+
+    it 'should clear previously downloaded catalogs' do
+      rambafile = {
+          Generamba::TEMPLATES_KEY => [
+              {
+                  Generamba::TEMPLATE_DECLARATION_NAME_KEY => 'test'
+              }
+          ]
+      }
+      downloader = instance_double('Generamba::CatalogDownloader')
+      allow(downloader).to receive(:download_catalog)
+
+      mock_installer = instance_double('Generamba::CatalogInstaller')
+      allow(mock_installer).to receive(:install_template)
+      installer_factory = instance_double('Generamba::TemplateInstallerFactory')
+      allow(installer_factory).to receive(:installer_for_type).and_return(mock_installer)
+
+      FakeFS do
+        catalogs_path = Pathname.new(ENV['HOME'])
+                            .join(Generamba::GENERAMBA_HOME_DIR)
+                            .join(Generamba::CATALOGS_DIR)
+        custom_catalog_path = catalogs_path.join('custom-catalog')
+        FileUtils.mkdir_p(custom_catalog_path)
+
+        processor = Generamba::TemplateProcessor.new(downloader, installer_factory)
+        processor.install_templates(rambafile)
+        result = custom_catalog_path.exist?
+
+        expect(result).to eq(false)
+      end
+    end
   end
 end
