@@ -14,6 +14,7 @@ module Generamba
 
   # Describes a Generamba template declaration model
   class TemplateDeclaration
+
     attr_reader :name, :local, :git, :type
 
     def initialize(template_hash)

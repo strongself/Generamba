@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 describe 'XcodeprojHelper' do
     describe 'method add_file_to_target?' do
       it 'should return true for Swift file' do

@@ -10,8 +10,12 @@ module Generamba::CLI
         return
       end
 
-      template_processor = Generamba::TemplateProcessor.new
-      template_processor.install_templates
+      catalog_downloader = Generamba::CatalogDownloader.new
+      installer_factory = Generamba::TemplateInstallerFactory.new
+      template_processor = Generamba::TemplateProcessor.new(catalog_downloader, installer_factory)
+
+      rambafile = YAML.load_file(RAMBAFILE_NAME)
+      template_processor.install_templates(rambafile)
     end
   end
 end

@@ -12,16 +12,16 @@ module Generamba
     #
     # @return [Pathname] A filepath to the downloaded catalog
     def download_catalog(name, url)
-      catalog_local_path = Pathname.new(ENV['HOME'])
+      catalogs_local_path = Pathname.new(ENV['HOME'])
                                .join(GENERAMBA_HOME_DIR)
                                .join(CATALOGS_DIR)
-      FileUtils.rm_rf catalog_local_path
-      FileUtils.mkdir_p catalog_local_path
+      current_catalog_path = catalogs_local_path
+                                 .join(name)
+      FileUtils.rm_rf current_catalog_path
 
-      Git.clone(url, name, :path => catalog_local_path)
+      Git.clone(url, name, :path => catalogs_local_path)
 
-      return catalog_local_path
-                 .join(name)
+      return current_catalog_path
     end
   end
 end
