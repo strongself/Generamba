@@ -25,20 +25,23 @@ module Generamba
 
       if catalog_path == nil
         error_description = "Cannot find #{template_name} in any catalog. Try another name.".red
-        raise StandardError.new(error_description)
+        puts(error_description)
+        return
       end
 
       template_path = catalog_path.join(template_name)
       rambaspec_exist = Generamba::RambaspecValidator.validate_spec_existance(template_name, template_path)
       unless rambaspec_exist
         error_description = "Cannot find #{template_name + RAMBASPEC_EXTENSION} in the template catalog #{catalog_path}. Try another name.".red
-        raise StandardError.new(error_description)
+        puts(error_description)
+        return
       end
 
       rambaspec_valid = Generamba::RambaspecValidator.validate_spec(template_name, template_path)
       unless rambaspec_valid
         error_description = "#{template_name + RAMBASPEC_EXTENSION} is not valid.".red
-        raise StandardError.new(error_description)
+        puts(error_description)
+        return
       end
 
       install_path = Pathname.new(TEMPLATES_FOLDER)

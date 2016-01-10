@@ -4,20 +4,6 @@ require 'generamba/template/processor/template_declaration'
 
 describe 'method install_template' do
 
-  context 'when template missing in any catalog' do
-    it 'should throw error' do
-      declaration = Generamba::TemplateDeclaration.new({Generamba::TEMPLATE_DECLARATION_NAME_KEY => 'test'})
-      installer = Generamba::CatalogInstaller.new
-      catalogs_path = Pathname.new(ENV['HOME'])
-                          .join(Generamba::GENERAMBA_HOME_DIR)
-                          .join(Generamba::CATALOGS_DIR)
-      FakeFS do
-        FileUtils.mkdir_p(catalogs_path)
-        expect {installer.install_template(declaration)}.to raise_error('Cannot find test in any catalog. Try another name.'.red)
-      end
-    end
-  end
-
   it 'should install template from shared catalog' do
     template_name = 'test'
     catalog_path = Pathname.new(ENV['HOME'])
