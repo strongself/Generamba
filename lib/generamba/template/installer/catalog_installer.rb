@@ -12,10 +12,21 @@ module Generamba
       puts("Installing #{template_name}...")
 
       template_name = template_declaration.name
-      catalog_path = Pathname.new(ENV['HOME'])
+      catalogs_path = Pathname.new(ENV['HOME'])
                          .join(GENERAMBA_HOME_DIR)
                          .join(CATALOGS_DIR)
-                         .join(GENERAMBA_CATALOG_NAME)
+      catalogs_path.children.select { |child|
+        child.directory?
+      }.each { |catalog_name|
+        catalog_path = catalogs_path.join(catalog_name)
+        process_catalog(catalog_path, template_name)
+      }
+    end
+
+    private
+
+    # Browses a given catalog and installs found template
+    def process_catalog(catalog_path, template_name)
       template_path = catalog_path.join(template_name)
 
       rambaspec_exist = Generamba::RambaspecValidator.validate_spec_existance(template_name, template_path)
@@ -32,9 +43,11 @@ module Generamba
       end
 
       install_path = Pathname.new(TEMPLATES_FOLDER)
-                            .join(template_name)
+                         .join(template_name)
       FileUtils.mkdir_p install_path
-      FileUtils.copy_entry(template_path, install_path)
+
+      src = template_path.to_s + '/.'
+      FileUtils.cp_r(src, install_path)
     end
   end
 end
