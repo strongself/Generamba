@@ -18,7 +18,7 @@ module Generamba
       current_catalog_path = catalogs_local_path
                                  .join(name)
 
-      if File.exists? current_catalog_path
+      if File.exists?(current_catalog_path)
         g = Git.open(current_catalog_path)
         g.pull
       else
