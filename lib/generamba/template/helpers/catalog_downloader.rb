@@ -18,7 +18,12 @@ module Generamba
       current_catalog_path = catalogs_local_path
                                  .join(name)
 
-      Git.clone(url, name, :path => catalogs_local_path)
+      if File.exists? current_catalog_path
+        g = Git.open(current_catalog_path)
+        g.pull
+      else
+        Git.clone(url, name, :path => catalogs_local_path)
+      end
 
       return current_catalog_path
     end
