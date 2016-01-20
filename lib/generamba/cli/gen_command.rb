@@ -1,6 +1,7 @@
 require 'thor'
 require 'generamba/helpers/rambafile_validator.rb'
 require 'generamba/helpers/xcodeproj_helper.rb'
+require 'generamba/helpers/dependency_checker.rb'
 
 module Generamba::CLI
   class Application < Thor
@@ -39,6 +40,8 @@ module Generamba::CLI
 
       template = ModuleTemplate.new(template_name)
       code_module = CodeModule.new(module_name, module_description, rambafile, options)
+
+      Generamba::DependencyChecker.check_all_required_dependencies_has_in_podfile(template.dependencies, code_module.podfile_path)
 
       project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
       module_group_already_exists = XcodeprojHelper.module_with_group_path_already_exists(project, code_module.module_group_path)
