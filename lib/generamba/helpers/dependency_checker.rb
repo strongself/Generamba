@@ -7,11 +7,11 @@ module Generamba
 
     # Check podfile for dependencies
     # @param dependencies [Array] Array of dependencies name
-    # @param podfile_path [String] Podfile path
+    # @param podfile_path [String] String of Podfile path
     #
     # @return [void]
     def self.check_all_required_dependencies_has_in_podfile(dependencies, podfile_path)
-      return unless podfile_path
+      return if !dependencies or dependencies.count == 0 or !podfile_path
 
       dependencies_names = []
       Pod::Podfile.from_file(Pathname.new(podfile_path)).dependencies.each do |dependency|
