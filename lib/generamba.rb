@@ -1,5 +1,3 @@
-require 'xcodeproj'
-
 module Generamba
   require 'generamba/constants/constants.rb'
   require 'generamba/constants/rambafile_constants.rb'

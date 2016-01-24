@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'liquid', '3.0.6'
   spec.add_runtime_dependency 'tilt', '2.0.1'
   spec.add_runtime_dependency 'git', '1.2.9.1'
+  spec.add_runtime_dependency 'cocoapods-core', '0.39.0'
 
   spec.add_development_dependency 'bundler', '~> 1.10'
   spec.add_development_dependency 'rake', '~> 10.0'
