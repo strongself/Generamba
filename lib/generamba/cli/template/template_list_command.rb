@@ -19,7 +19,7 @@ module Generamba::CLI
 
       downloader = CatalogDownloader.new
       catalog_paths = [downloader.download_catalog(GENERAMBA_CATALOG_NAME, RAMBLER_CATALOG_REPO)]
-      
+
       if catalogs != nil && catalogs.count > 0
         catalogs.each do |catalog_url|
           catalog_name = catalog_url.split('://').last
