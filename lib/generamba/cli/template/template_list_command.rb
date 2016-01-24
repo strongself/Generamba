@@ -1,4 +1,5 @@
-require 'generamba/template/helpers/catalog_downloader.rb'
+require 'generamba/template/helpers/catalog_downloader'
+require 'generamba/template/helpers/catalog_template_list_helper'
 
 module Generamba::CLI
   class Template < Thor
@@ -7,15 +8,18 @@ module Generamba::CLI
     desc 'list', 'Prints out the list of all templates available in the shared GitHub catalog'
     def list
       downloader = CatalogDownloader.new
-      generamba_catalog_path = downloader.download_catalog(GENERAMBA_CATALOG_NAME, RAMBLER_CATALOG_REPO)
+      catalog_template_list_helper = CatalogTemplateListHelper.new
 
-      generamba_catalog_path.children.select { |child|
-        child.directory? && child.split.last.to_s[0] != '.'
-      }.map { |template_path|
-        template_path.split.last.to_s
-      }.each { |template_name|
+      templates = []
+      catalog_paths = downloader.update_all_catalogs_and_return_filepaths
+      catalog_paths.each do |path|
+        templates += catalog_template_list_helper.obtain_all_templates_from_a_catalog(path)
+        templates = templates.uniq
+      end
+
+      templates.each do |template_name|
         puts(template_name)
-      }
+      end
     end
   end
 end

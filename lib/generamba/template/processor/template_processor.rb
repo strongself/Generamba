@@ -3,6 +3,7 @@ require 'generamba/template/installer/local_installer.rb'
 require 'generamba/template/installer/remote_installer.rb'
 require 'generamba/template/installer/catalog_installer.rb'
 require 'generamba/template/helpers/catalog_downloader.rb'
+require 'generamba/template/helpers/catalog_terminator'
 require 'git'
 
 module Generamba
@@ -56,7 +57,8 @@ module Generamba
 
       return unless needs_update
 
-      remove_all_catalogs
+      terminator = CatalogTerminator.new
+      terminator.remove_all_catalogs
       puts('Updating shared generamba-catalog specs...')
       @catalog_downloader.download_catalog(GENERAMBA_CATALOG_NAME, RAMBLER_CATALOG_REPO)
 
@@ -68,20 +70,6 @@ module Generamba
         puts("Updating #{catalog_name} specs...")
         @catalog_downloader.download_catalog(catalog_name, catalog_url)
       end
-    end
-
-    def remove_all_catalogs
-      catalogs_path = Pathname.new(ENV['HOME'])
-                          .join(GENERAMBA_HOME_DIR)
-                          .join(CATALOGS_DIR)
-      if Dir.exist?(catalogs_path) == false
-        FileUtils.mkdir_p catalogs_path
-      end
-      catalogs_path.children.select { |child|
-        child.directory? && child.split.last.to_s[0] != '.'
-      }.each { |catalog_path|
-        FileUtils.rm_rf(catalog_path)
-      }
     end
   end
 end
