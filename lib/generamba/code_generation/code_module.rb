@@ -15,7 +15,8 @@ module Generamba
                 :test_file_path,
                 :test_group_path,
                 :project_targets,
-                :test_targets
+                :test_targets,
+                :podfile_path
 
     def initialize(name, description, rambafile, options)
       # Base initialization
@@ -56,6 +57,8 @@ module Generamba
       @module_group_path = Pathname.new(options[:module_path]).join(@name) if options[:module_path]
       @test_file_path = Pathname.new(options[:test_path]).join(@name) if options[:test_path]
       @test_group_path = Pathname.new(options[:test_path]).join(@name) if options[:test_path]
+
+      @podfile_path = rambafile[PODFILE_PATH_KEY] if rambafile[PODFILE_PATH_KEY] != nil
     end
   end
 end
