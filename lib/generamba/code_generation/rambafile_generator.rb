@@ -12,7 +12,7 @@ module Generamba
     # @return void
     def self.create_rambafile(properties)
       template = Tilt.new(File.dirname(__FILE__) + '/Rambafile.liquid')
-      output = template.render(properties)
+      output = template.render(properties).gsub!(/[\n]{3,}/, "\n\n");
 
       File.open(RAMBAFILE_NAME, 'w+') {|f|
         f.write(output)
