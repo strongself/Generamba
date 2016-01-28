@@ -33,7 +33,7 @@ module Generamba::CLI
       targets_prompt = ''
       project.targets.each_with_index { |element, i| targets_prompt += ("#{i}. #{element.name}" + "\n") }
       project_target = ask_index("Select the appropriate target for adding your MODULES (type the index):\n" + targets_prompt,project.targets)
-      include_tests = yes?('Do you want to generate tests? (yes/no)')
+      include_tests = yes?('Are you using unit-tests in this project? (yes/no)')
 
       if include_tests
         test_target = ask_index("Select the appropriate target for adding your TESTS (type the index):\n" + targets_prompt,project.targets)
