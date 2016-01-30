@@ -33,21 +33,29 @@ module Generamba::CLI
       targets_prompt = ''
       project.targets.each_with_index { |element, i| targets_prompt += ("#{i}. #{element.name}" + "\n") }
       project_target = ask_index("Select the appropriate target for adding your MODULES (type the index):\n" + targets_prompt,project.targets)
-      test_target = ask_index("Select the appropriate target for adding your TESTS (type the index):\n" + targets_prompt,project.targets)
+      include_tests = yes?('Are you using unit-tests in this project? (yes/no)')
+
+      if include_tests
+        test_target = ask_index("Select the appropriate target for adding your TESTS (type the index):\n" + targets_prompt,project.targets)
+      end
 
       should_use_same_paths = yes?('Do you want to use the same paths for your files both in Xcode and the filesystem? (yes/no)')
       if should_use_same_paths
         project_group_path = ask('The default path for creating new modules:')
         project_file_path = project_group_path
 
-        test_group_path = ask('The default path for creating tests:')
-        test_file_path = test_group_path
+        if include_tests
+          test_group_path = ask('The default path for creating tests:')
+          test_file_path = test_group_path
+        end
       else
         project_group_path = ask('The default path for creating new modules (in Xcode groups):')
         project_file_path = ask('The default path for creating new modules (in the filesystem):')
 
-        test_group_path = ask('The default path for creating tests (in Xcode groups):')
-        test_file_path = ask('The default path for creating tests (in the filesystem):')
+        if include_tests
+          test_group_path = ask('The default path for creating tests (in Xcode groups):')
+          test_file_path = ask('The default path for creating tests (in the filesystem):')
+        end
       end
 
       using_pods = yes?('Are you using Cocoapods? (yes/no)')
@@ -65,9 +73,18 @@ module Generamba::CLI
       properties[PROJECT_TARGET_KEY] = project_target.name
       properties[PROJECT_FILE_PATH_KEY] = project_file_path
       properties[PROJECT_GROUP_PATH_KEY] = project_group_path
-      properties[TEST_TARGET_KEY] = test_target.name
-      properties[TEST_FILE_PATH_KEY] = test_file_path
-      properties[TEST_GROUP_PATH_KEY] = test_group_path
+
+      if test_target
+        properties[TEST_TARGET_KEY] = test_target.name
+      end
+
+      if test_file_path
+        properties[TEST_FILE_PATH_KEY] = test_file_path
+      end
+
+      if test_group_path
+        properties[TEST_GROUP_PATH_KEY] = test_group_path
+      end
 
       Generamba::RambafileGenerator.create_rambafile(properties)
       puts('Rambafile successfully created! Now add some templates to the Rambafile and run `generamba template install`.'.green)
