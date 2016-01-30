@@ -25,16 +25,30 @@ module Generamba
       file_name = File.basename(file_path)
       targets_name.each do |target|
         xcode_target = self.obtain_target(target, project)
-        xcode_target.add_file_references([xcode_file])
-      end if self.add_file_to_target?(file_name)
+
+        if self.is_compile_source?(file_name)
+          xcode_target.add_file_references([xcode_file])
+        elsif self.is_bundle_resource?(file_name)
+          xcode_target.add_resources([xcode_file])
+        end
+
+      end
     end
 
-    # Decides should file be added
-    # @param file_name [String] Array of targets name
+    # File is a compiled source
+    # @param file_name [String] String of file name
     #
     # @return [TrueClass or FalseClass]
-    def self.add_file_to_target?(file_name)
+    def self.is_compile_source?(file_name)
       File.extname(file_name) == '.m' || File.extname(file_name) == '.swift' || File.extname(file_name) == '.mm'
+    end
+
+    # File is a resource
+    # @param resource_name [String] String of resource name
+    #
+    # @return [TrueClass or FalseClass]
+    def self.is_bundle_resource?(resource_name)
+      File.extname(resource_name) == '.xib' || File.extname(resource_name) == '.storyboard'
     end
 
     # Recursively clears children of the given group
@@ -75,7 +89,7 @@ module Generamba
     #
     # @return [PBXGroup]
     def self.retreive_group_or_create_if_needed(group_path, project, create_group_if_not_exists)
-      group_names = group_names_from_group_path(group_path)
+      group_names = path_names_from_path(group_path)
 
       final_group = project
 
@@ -112,13 +126,13 @@ module Generamba
       raise StandardError.new(error_description)
     end
 
-    # Splits the provided Xcode group path to an array of separate groups
-    # @param group_path The full group path
+    # Splits the provided Xcode path to an array of separate paths
+    # @param path The full group or file path
     #
     # @return [[String]]
-    def self.group_names_from_group_path(group_path)
-      groups = group_path.to_s.split('/')
-      return groups
+    def self.path_names_from_path(path)
+      paths = path.to_s.split('/')
+      return paths
     end
 
     # Remove build file from target build phase
@@ -128,14 +142,26 @@ module Generamba
     #
     # @return [Void]
     def self.remove_file_by_file_path(file_path, targets_name, project)
-      build_phases = self.build_phases_from_targets(targets_name, project)
-      
+      file_names = path_names_from_path(file_path)
+
+      build_phases = nil
+
+      if self.is_compile_source?(file_names.last)
+        build_phases = self.build_phases_from_targets(targets_name, project)
+      elsif self.is_bundle_resource?(file_names.last)
+        build_phases  = self.resources_build_phase_from_targets(targets_name, project)
+      end
+
+      self.remove_file_from_build_phases(file_path, build_phases)
+    end
+
+    def self.remove_file_from_build_phases(file_path, build_phases)
       build_phases.each do |build_phase|
         build_phase.files.each do |build_file|
           next if build_file.nil? || build_file.file_ref.nil?
 
           build_file_path = self.configure_file_ref_path(build_file.file_ref)
-          
+
           if build_file_path == file_path
             build_phase.remove_build_file(build_file)
           end
@@ -161,6 +187,22 @@ module Generamba
       end
 
       return build_phases
+    end
+
+    # Find and return target resources build phase
+    # @param targets_name [String] Array of targets
+    # @param project [Xcodeproj::Project] The target xcodeproj file
+    #
+    # @return [[PBXResourcesBuildPhase]]
+    def self.resources_build_phase_from_targets(targets_name, project)
+      resource_build_phase = []
+
+      targets_name.each do |target_name|
+        xcode_target = self.obtain_target(target_name, project)
+        resource_build_phase.push(xcode_target.resources_build_phase)
+      end
+
+      return resource_build_phase
     end
 
     # Get configure file full path
