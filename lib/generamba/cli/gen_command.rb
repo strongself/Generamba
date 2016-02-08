@@ -3,6 +3,7 @@ require 'generamba/helpers/print_table.rb'
 require 'generamba/helpers/rambafile_validator.rb'
 require 'generamba/helpers/xcodeproj_helper.rb'
 require 'generamba/helpers/dependency_checker.rb'
+require 'generamba/helpers/gen_command_table_parameters_formatter.rb'
 
 module Generamba::CLI
   class Application < Thor
@@ -39,7 +40,11 @@ module Generamba::CLI
 
       rambafile = YAML.load_file(RAMBAFILE_NAME)
 
-      print_parameters_in_table(rambafile, module_name)
+      parameters = GenCommandTableParametersFormatter.prepare_parameters_for_displaying(rambafile)
+      PrintTable.print_values(
+          values: parameters,
+          title: "Summary for gen #{module_name}"
+      )
 
       template = ModuleTemplate.new(template_name)
       code_module = CodeModule.new(module_name, module_description, rambafile, options)
@@ -60,25 +65,6 @@ module Generamba::CLI
       generator = Generamba::ModuleGenerator.new()
       generator.generate_module(module_name, code_module, template)
     end
-
-    no_commands {
-      def print_parameters_in_table(parameters, module_name)
-        params = parameters.clone
-
-        templates = []
-
-        params["templates"].each do |param|
-          templates += param.values
-        end
-
-        params["templates"] = templates
-
-        PrintTable.print_values(
-            values: params,
-            title: "Summary for gen #{module_name}"
-        )
-      end
-    }
 
   end
 end
