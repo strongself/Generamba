@@ -1,3 +1,5 @@
+require 'generamba/helpers/print_table.rb'
+
 module Generamba::CLI
   class Template < Thor
     include Generamba
@@ -17,13 +19,22 @@ module Generamba::CLI
           TEMPLATE_NAME_KEY => template_name,
           TEMPLATE_SUMMARY_KEY => summary,
           TEMPLATE_AUTHOR_KEY => author,
-          TEMPLATE_LICENSE_KEY => license,
-          TEMPLATE_DEPENDENCIES_KEY => dependencies
+          TEMPLATE_LICENSE_KEY => license
       }
+
+      if dependencies and !dependencies.empty?
+        properties[TEMPLATE_DEPENDENCIES_KEY] = dependencies
+      end
+
+      PrintTable.print_values(
+          values: properties,
+          title: "Summary for template create"
+      )
 
       template_creator = Generamba::TemplateCreator.new
       template_creator.create_template(properties)
       puts("The template #{template_name} is successfully generated! Now add some file templates into it.".green)
     end
+
   end
 end

@@ -4,6 +4,7 @@ require 'liquid'
 require 'tilt'
 require 'git'
 require 'generamba/constants/rambafile_constants.rb'
+require 'generamba/helpers/print_table.rb'
 
 module Generamba::CLI
   class Application < Thor
@@ -85,6 +86,11 @@ module Generamba::CLI
       if test_group_path
         properties[TEST_GROUP_PATH_KEY] = test_group_path
       end
+
+      PrintTable.print_values(
+          values: properties,
+          title: "Summary for generamba setup"
+      )
 
       Generamba::RambafileGenerator.create_rambafile(properties)
       puts('Rambafile successfully created! Now add some templates to the Rambafile and run `generamba template install`.'.green)
