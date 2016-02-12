@@ -58,9 +58,6 @@
 
 - Can generamba be used to generate swift modules? [\#61](https://github.com/rambler-ios/Generamba/issues/61)
 - Git 1.2.9.1 [\#57](https://github.com/rambler-ios/Generamba/issues/57)
-- Clarify generamba parameters usage [\#51](https://github.com/rambler-ios/Generamba/issues/51)
-- Add documentation for liquid templates [\#48](https://github.com/rambler-ios/Generamba/issues/48)
-- The documentation is not translated into English [\#13](https://github.com/rambler-ios/Generamba/issues/13)
 
 **Merged pull requests:**
 
@@ -144,11 +141,6 @@
 - The author name should be configured without `generamba setup` [\#31](https://github.com/rambler-ios/Generamba/issues/31)
 - Sometimes Generamba fills in the wrong test target in the Rambafile [\#30](https://github.com/rambler-ios/Generamba/issues/30)
 - Seems that Generamba doesn't add project name to the headers [\#29](https://github.com/rambler-ios/Generamba/issues/29)
-
-**Closed issues:**
-
-- Add a documentation for a .rambaspec file and overall template structure [\#24](https://github.com/rambler-ios/Generamba/issues/24)
-- Rambafile format is not documented [\#9](https://github.com/rambler-ios/Generamba/issues/9)
 
 ## [0.6.0](https://github.com/rambler-ios/Generamba/tree/0.6.0) (2015-11-15)
 [Full Changelog](https://github.com/rambler-ios/Generamba/compare/0.5.0...0.6.0)
