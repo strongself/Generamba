@@ -1,7 +1,6 @@
 require 'thor'
 require 'xcodeproj'
 require 'liquid'
-require 'tilt'
 require 'git'
 require 'generamba/constants/rambafile_constants.rb'
 require 'generamba/helpers/print_table.rb'

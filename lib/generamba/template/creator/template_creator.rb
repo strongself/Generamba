@@ -13,13 +13,14 @@ module Generamba
     #
     # @return [Void]
     def create_template(properties)
-      template_dir_path = Pathname.new(File.dirname(__FILE__))
-                          .join(NEW_TEMPLATE_FOLDER)
+      template_dir_path = Pathname.new(File.dirname(__FILE__)).join(NEW_TEMPLATE_FOLDER)
       rambaspec_template_file_path = template_dir_path.join(RAMBASPEC_TEMPLATE_NAME)
       code_file_path = template_dir_path.join(CODE_FOLDER)
       tests_file_path = template_dir_path.join(TESTS_FOLDER)
 
-      template = Tilt.new(rambaspec_template_file_path)
+      file_source = IO.read(rambaspec_template_file_path)
+
+      template = Liquid::Template.parse(file_source)
       output = template.render(properties)
 
       result_name = properties[TEMPLATE_NAME_KEY] + RAMBASPEC_EXTENSION

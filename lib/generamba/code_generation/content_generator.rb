@@ -1,5 +1,4 @@
 require 'liquid'
-require 'tilt'
 
 module Generamba
 
@@ -13,13 +12,17 @@ module Generamba
     #
     # @return [String] The generated body
 		def self.create_file_content(file, code_module, template)
-			file_template = Tilt.new(template.template_path.join(file[TEMPLATE_FILE_PATH_KEY]))
-      		file_name = File.basename(file[TEMPLATE_FILE_NAME_KEY])
+			file_source = IO.read(template.template_path.join(file[TEMPLATE_FILE_PATH_KEY]))
+			Liquid::Template.file_system = Liquid::LocalFileSystem.new(template.template_path.join('snippets'), '%s.liquid')
+
+			template = Liquid::Template.parse(file_source)
+			file_name = File.basename(file[TEMPLATE_FILE_NAME_KEY])
+
 			module_info = {
 					'name' => code_module.name,
 					'file_name' => file_name,
 					'description' => code_module.description,
-          			'project_name' => code_module.project_name
+					'project_name' => code_module.project_name
 			}
 
 			developer = {
@@ -35,7 +38,8 @@ module Generamba
 					'prefix' => code_module.prefix
 			}
 
-			output = file_template.render(scope)
+			output = template.render(scope)
+
 			return output
 		end
 	end
