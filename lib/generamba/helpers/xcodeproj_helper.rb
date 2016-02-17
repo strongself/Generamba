@@ -149,13 +149,15 @@ module Generamba
       if self.is_compile_source?(file_names.last)
         build_phases = self.build_phases_from_targets(targets_name, project)
       elsif self.is_bundle_resource?(file_names.last)
-        build_phases  = self.resources_build_phase_from_targets(targets_name, project)
+        build_phases = self.resources_build_phase_from_targets(targets_name, project)
       end
 
       self.remove_file_from_build_phases(file_path, build_phases)
     end
 
     def self.remove_file_from_build_phases(file_path, build_phases)
+      return if build_phases == nil
+
       build_phases.each do |build_phase|
         build_phase.files.each do |build_file|
           next if build_file.nil? || build_file.file_ref.nil?
