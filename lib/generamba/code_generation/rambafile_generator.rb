@@ -1,5 +1,4 @@
 require 'liquid'
-require 'tilt'
 
 module Generamba
 
@@ -11,7 +10,9 @@ module Generamba
     #
     # @return void
     def self.create_rambafile(properties)
-      template = Tilt.new(File.dirname(__FILE__) + '/Rambafile.liquid')
+      file_source = IO.read(File.dirname(__FILE__) + '/Rambafile.liquid')
+
+      template = Liquid::Template.parse(file_source)
       output = template.render(properties).gsub!(/[\n]{3,}/, "\n\n");
 
       File.open(RAMBAFILE_NAME, 'w+') {|f|
