@@ -5,6 +5,8 @@
 
 **Generamba** is a code generator made for working with Xcode. Primarily it is designed to generate VIPER modules but it is quite easy to customize it for generation of any other classes (both in Objective-C and Swift).
 
+*We're keep evolving Generamba:* [changelog](https://github.com/rambler-ios/Generamba/blob/develop/CHANGELOG.md), [release notes](https://github.com/rambler-ios/Generamba/releases).
+
 ![Generamba Screenshot](http://s24.postimg.org/gej9cg1cl/generamba.jpg)
 
 ### Key features
@@ -41,6 +43,7 @@ Run `generamba help` to learn more about each of the Generamba features.
 
 **Other materials:**
 - [Russian] Rambler.iOS V: Generamba and Code Generation ([Slides](http://www.slideshare.net/Rambler-iOS/viper-56423582) | [Video](http://www.youtube.com/watch?v=NXNiN9FaUnY))
+- [Introduction to Generamba](http://etolstoy.com/2016/02/10/generamba/)
 
 ### Authors
 
