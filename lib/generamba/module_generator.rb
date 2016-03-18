@@ -20,7 +20,7 @@ module Generamba
 
 			# Creating code files
 			puts('Creating code files...')
-			process_files_if_needed(template.code_files,
+			success = process_files_if_needed(template.code_files,
 									name,
 									code_module,
 									template,
@@ -34,7 +34,7 @@ module Generamba
 
 			if included_tests
 				puts('Creating test files...')
-				process_files_if_needed(template.test_files,
+				success |= process_files_if_needed(template.test_files,
 										name,
 										code_module,
 										template,
@@ -44,18 +44,22 @@ module Generamba
 										code_module.test_file_path)
 			end
 
-			# Saving the current changes in the Xcode project
-			project.save
+			if success
+				# Saving the current changes in the Xcode project
+				project.save
 
-			test_file_path_created_message = !code_module.test_file_path ? "" : "Test file path: #{code_module.test_file_path}".green + "\n"
-			test_group_path_created_message = !code_module.test_group_path ? "" : "Test group path: #{code_module.test_group_path}".green
+				test_file_path_created_message = !code_module.test_file_path ? "" : "Test file path: #{code_module.test_file_path}".green + "\n"
+				test_group_path_created_message = !code_module.test_group_path ? "" : "Test group path: #{code_module.test_group_path}".green
 
-			puts("Module successfully created!\n" +
-				 "Name: #{name}".green + "\n" +
-				 "Module file path: #{code_module.module_file_path}".green + "\n" +
-				 "Module group path: #{code_module.module_group_path}".green + "\n" +
-				 test_file_path_created_message +
-				 test_group_path_created_message)
+				puts("Module successfully created!\n" +
+					 "Name: #{name}".green + "\n" +
+					 "Module file path: #{code_module.module_file_path}".green + "\n" +
+					 "Module group path: #{code_module.module_group_path}".green + "\n" +
+					 test_file_path_created_message +
+					 test_group_path_created_message)
+				else
+					puts("Module does not created!\n".red)
+				end
 		end
 
 		def process_files_if_needed(files, name, code_module, template, project, targets, group_path, dir_path)
@@ -65,7 +69,7 @@ module Generamba
 				return
 			end
 
-			XcodeprojHelper.clear_group(project, targets, group_path)
+			# XcodeprojHelper.clear_group(project, targets, group_path)
 			files.each do |file|
 				# The target file's name consists of three parameters: project prefix, module name and template file name.
 				# E.g. RDS + Authorization + Presenter.h = RDSAuthorizationPresenter.h
@@ -80,6 +84,11 @@ module Generamba
 				file_path = dir_path.join(file_group)
 									.join(file_name)
 
+				if File.exist?(file_path)
+					puts "file #{file_path} already exists.".red
+					return false
+				end
+
 				# Creating the file in the filesystem
 				FileUtils.mkdir_p File.dirname(file_path)
 				File.open(file_path, 'w+') do |f|
@@ -89,6 +98,8 @@ module Generamba
 				# Creating the file in the Xcode project
 				XcodeprojHelper.add_file_to_project_and_targets(project, targets, group_path.join(file_group), file_path)
 			end
+
+			return true
 		end
 	end
 end
