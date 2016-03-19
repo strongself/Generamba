@@ -52,6 +52,15 @@ module Generamba::CLI
       DependencyChecker.check_all_required_dependencies_has_in_podfile(template.dependencies, code_module.podfile_path)
 
       generator = Generamba::ModuleGenerator.new()
+
+      if generator.module_exist?(module_name, code_module, template)
+        replace_exists_module = yes?("#{module_name} module already exists. Replace? (yes/no)")
+
+        unless replace_exists_module
+          return
+        end
+      end
+
       generator.generate_module(module_name, code_module, template)
     end
 
