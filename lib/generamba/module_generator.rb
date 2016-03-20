@@ -35,7 +35,7 @@ module Generamba
 
 			# Creating code files
 			puts('Creating code files...')
-			success = process_files_if_needed(template.code_files,
+			process_files_if_needed(template.code_files,
 									name,
 									code_module,
 									template,
@@ -49,7 +49,7 @@ module Generamba
 
 			if included_tests
 				puts('Creating test files...')
-				success |= process_files_if_needed(template.test_files,
+				process_files_if_needed(template.test_files,
 										name,
 										code_module,
 										template,
@@ -59,22 +59,18 @@ module Generamba
 										code_module.test_file_path)
 			end
 
-			if success
-				# Saving the current changes in the Xcode project
-				project.save
+			# Saving the current changes in the Xcode project
+			project.save
 
-				test_file_path_created_message = !code_module.test_file_path ? "" : "Test file path: #{code_module.test_file_path}".green + "\n"
-				test_group_path_created_message = !code_module.test_group_path ? "" : "Test group path: #{code_module.test_group_path}".green
+			test_file_path_created_message = !code_module.test_file_path ? "" : "Test file path: #{code_module.test_file_path}".green + "\n"
+			test_group_path_created_message = !code_module.test_group_path ? "" : "Test group path: #{code_module.test_group_path}".green
 
-				puts("Module successfully created!\n" +
-					 "Name: #{name}".green + "\n" +
-					 "Module file path: #{code_module.module_file_path}".green + "\n" +
-					 "Module group path: #{code_module.module_group_path}".green + "\n" +
-					 test_file_path_created_message +
-					 test_group_path_created_message)
-				else
-					puts("Module does not created!\n".red)
-				end
+			puts("Module successfully created!\n" +
+				 "Name: #{name}".green + "\n" +
+				 "Module file path: #{code_module.module_file_path}".green + "\n" +
+				 "Module group path: #{code_module.module_group_path}".green + "\n" +
+				 test_file_path_created_message +
+				 test_group_path_created_message)
 		end
 
 		def process_files_if_needed(files, name, code_module, template, project, targets, group_path, dir_path)

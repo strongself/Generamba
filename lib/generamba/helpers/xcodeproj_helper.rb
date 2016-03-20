@@ -20,7 +20,12 @@ module Generamba
     # @return [void]
     def self.add_file_to_project_and_targets(project, targets_name, group_path, file_path)
       module_group = self.retreive_group_or_create_if_needed(group_path, project, true)
-      xcode_file = module_group.new_file(File.absolute_path(file_path))
+
+      xcode_file = self.project_file_in_group(project, module_group, file_path)
+
+      if xcode_file == nil
+        xcode_file = module_group.new_file(File.absolute_path(file_path))
+      end
 
       file_name = File.basename(file_path)
       targets_name.each do |target|
@@ -66,7 +71,7 @@ module Generamba
       files_path.each do |file_path|
         self.remove_file_by_file_path(file_path, targets_name, project)
       end
-      
+
       module_group.clear
     end
 
@@ -99,7 +104,7 @@ module Generamba
           unless create_group_if_not_exists
             return nil
           end
-            
+
           new_group_path = group_name
           next_group = final_group.new_group(group_name, new_group_path)
         end
@@ -234,6 +239,25 @@ module Generamba
       end
 
       return files_path
+    end
+
+    # Find xcodeproj file in group with given file_path
+    # @param project [Xcodeproj::Project] The working Xcode project file
+    # @param module_group [PBXGroup] The module group
+    # @param file_path [String] File path to search
+    #
+    # @return [PBXFileReference]
+    def self.project_file_in_group(project, group, file_path)
+      files = group.files
+      return nil unless files
+
+      files.each do |file|
+        if file.real_path.to_s == File.absolute_path(file_path).to_s
+          return file
+        end
+      end
+
+      return nil
     end
 
   end
