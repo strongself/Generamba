@@ -1,26 +1,12 @@
 require 'fileutils'
 
 require 'generamba/helpers/xcodeproj_helper.rb'
+require 'generamba/helpers/paths_generator.rb'
 
 module Generamba
 
 	# Responsible for creating the whole code module using information from the CLI
 	class ModuleGenerator
-
-		def module_exist?(name, code_module, template)
-
-			template.code_files.each do |file|
-
-				file_path = generate_file_path(code_module.prefix, name, file[TEMPLATE_NAME_KEY], code_module.module_file_path)
-
-				if File.exist?(file_path)
-					return true
-				end
-
-			end
-
-			return false
-		end
 
 		def generate_module(name, code_module, template)
 			# Setting up Xcode objects
@@ -82,8 +68,8 @@ module Generamba
 
 			files.each do |file|
 
-				file_path = generate_file_path(code_module.prefix, name, file[TEMPLATE_NAME_KEY], dir_path)
-				group_file_path = generate_group_path(file[TEMPLATE_NAME_KEY], file_path, group_path)
+				file_path = PathsGenerator.generate_file_path(code_module.prefix, name, file[TEMPLATE_NAME_KEY], dir_path)
+				group_file_path = PathsGenerator.generate_group_path(file[TEMPLATE_NAME_KEY], file_path, group_path)
 
 				# Generating the content of the code file
 				file_content = ContentGenerator.create_file_content(file, code_module, template)
@@ -99,22 +85,6 @@ module Generamba
 			end
 
 			return true
-		end
-
-		def generate_file_path(prefix, name, template_name, dir_path)
-			# The target file's name consists of three parameters: project prefix, module name and template file name.
-			# E.g. RDS + Authorization + Presenter.h = RDSAuthorizationPresenter.h
-			file_basename = name + File.basename(template_name)
-			file_name = prefix ? prefix + file_basename : file_basename
-
-			file_group = File.dirname(template_name)
-			file_path = dir_path.join(file_group)
-								.join(file_name)
-		end
-
-		def generate_group_path(template_name, dir_path, group_path)
-			file_group = File.dirname(template_name)
-			return group_path.join(file_group)
 		end
 
 	end

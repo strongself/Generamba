@@ -4,6 +4,7 @@ require 'generamba/helpers/rambafile_validator.rb'
 require 'generamba/helpers/xcodeproj_helper.rb'
 require 'generamba/helpers/dependency_checker.rb'
 require 'generamba/helpers/gen_command_table_parameters_formatter.rb'
+require 'generamba/helpers/module_existance_checker.rb'
 
 module Generamba::CLI
   class Application < Thor
@@ -53,7 +54,7 @@ module Generamba::CLI
 
       generator = Generamba::ModuleGenerator.new
 
-      if generator.module_exist?(module_name, code_module, template)
+      if ModuleExistanceChecker.module_exist?(module_name, code_module, template)
         replace_exists_module = yes?("#{module_name} module already exists. Replace? (yes/no)")
 
         unless replace_exists_module
