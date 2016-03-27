@@ -85,10 +85,6 @@ module Generamba
 				file_path = generate_file_path(code_module.prefix, name, file[TEMPLATE_NAME_KEY], dir_path)
 				group_file_path = generate_group_path(file[TEMPLATE_NAME_KEY], file_path, group_path)
 
-				puts file_path
-				puts group_file_path
-				puts ""
-
 				# Generating the content of the code file
 				file_content = ContentGenerator.create_file_content(file, code_module, template)
 
