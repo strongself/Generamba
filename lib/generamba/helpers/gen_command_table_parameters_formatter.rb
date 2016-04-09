@@ -13,7 +13,7 @@ module Generamba
         templates.push(param['name'])
       end
 
-      params['templates'] = templates.join(', ')
+      params['templates'] = templates.join("\n")
 
       return params
     end
