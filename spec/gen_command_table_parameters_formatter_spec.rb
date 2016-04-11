@@ -1,10 +1,10 @@
-require 'spec_helper'
+require_relative 'spec_helper'
 
 describe 'GenCommandTableParametersFormatter' do
 
   describe 'method prepare_parameters_for_displaying' do
     it 'should convert array of hash to array of strings' do
-      expected_string = 'name1, name2'
+      expected_string = "name1\nname2"
 
       parameters = {
           'templates' => [
