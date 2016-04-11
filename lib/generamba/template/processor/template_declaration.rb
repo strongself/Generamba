@@ -15,12 +15,13 @@ module Generamba
   # Describes a Generamba template declaration model
   class TemplateDeclaration
 
-    attr_reader :name, :local, :git, :type
+    attr_reader :name, :local, :git, :branch, :type
 
     def initialize(template_hash)
       @name = template_hash[TEMPLATE_DECLARATION_NAME_KEY]
       @local = template_hash[TEMPLATE_DECLARATION_LOCAL_KEY]
       @git = template_hash[TEMPLATE_DECLARATION_GIT_KEY]
+      @branch = template_hash[TEMPLATE_DECLARATION_BRANCH_KEY]
 
       @type = TemplateDeclarationType::LOCAL_TEMPLATE if @local
       @type = TemplateDeclarationType::REMOTE_TEMPLATE if @git
