@@ -5,6 +5,8 @@
 
 **Generamba** is a code generator made for working with Xcode. Primarily it is designed to generate VIPER modules but it is quite easy to customize it for generation of any other classes (both in Objective-C and Swift).
 
+*We keep evolving Generamba:* [changelog](https://github.com/rambler-ios/Generamba/blob/develop/CHANGELOG.md), [release notes](https://github.com/rambler-ios/Generamba/releases).
+
 ![Generamba Screenshot](http://s24.postimg.org/gej9cg1cl/generamba.jpg)
 
 ### Key features
@@ -24,7 +26,7 @@ When necessary you can install the required Ruby version with the help of [`rvm`
 
 Run the command `gem install generamba`.
 
-### Using
+### Usage
 1. Run [`generamba setup`](https://github.com/rambler-ios/Generamba/wiki/Available-Commands#basic-generamba-configuration) in the project root folder. This command helps to create [Rambafile](https://github.com/rambler-ios/Generamba/wiki/Rambafile-Structure) that define all configuration needed to generate code. You can modify this file directly in future.
 2. Add all templates planned to use in the project to the generated [Rambafile](https://github.com/rambler-ios/Generamba/wiki/Rambafile-Structure). You can begin with one of the templates from our catalog: `{name: 'rviper_controller'}`.
 3. Run [`generamba template install`](https://github.com/rambler-ios/Generamba/wiki/Available-Commands#template-installation). All the templates will be placed in the '/Templates' folder of your current project.
@@ -41,6 +43,7 @@ Run `generamba help` to learn more about each of the Generamba features.
 
 **Other materials:**
 - [Russian] Rambler.iOS V: Generamba and Code Generation ([Slides](http://www.slideshare.net/Rambler-iOS/viper-56423582) | [Video](http://www.youtube.com/watch?v=NXNiN9FaUnY))
+- [Introduction to Generamba](http://etolstoy.com/2016/02/10/generamba/)
 
 ### Authors
 

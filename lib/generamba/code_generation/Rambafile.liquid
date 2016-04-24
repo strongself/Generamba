@@ -16,15 +16,16 @@ project_file_path: {{ project_file_path }}
 # The Xcode group path to new modules
 project_group_path: {{ project_group_path }}
 
-{% if test_target != "" or test_file_path != "" or test_group_path != "" %}### Tests generation settings section{% endif %}
-{% if test_target != "" %}# The tests target name
+{% if (test_target != nil and test_target != "") or (test_file_path != nil and test_file_path != "") or (test_group_path != nil and test_group_path != "") %}### Tests generation settings section
+{% if test_target != nil and test_target != "" %}# The tests target name
 test_target: {{ test_target }}{% endif %}
 
-{% if test_file_path != "" %}# The file path for new tests
+{% if test_file_path != nil and test_file_path != "" %}# The file path for new tests
 test_file_path: {{ test_file_path }}{% endif %}
 
-{% if test_group_path != "" %}# The Xcode group path to new tests
+{% if test_group_path != nil and test_group_path != "" %}# The Xcode group path to new tests
 test_group_path: {{ test_group_path }}{% endif %}
+{% endif %}
 
 {% if podfile_path != nil or cartfile_path != nil %}### Dependencies settings section{% endif %}
 {% if podfile_path != nil %}podfile_path: {{ podfile_path }}{% endif %}
