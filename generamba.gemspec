@@ -6,7 +6,7 @@ require 'generamba/version'
 Gem::Specification.new do |spec|
   spec.name          = 'generamba'
   spec.version       = Generamba::VERSION
-  spec.authors       = ['Egor Tolstoy', 'Andrey Zarembo']
+  spec.authors       = ['Egor Tolstoy', 'Andrey Zarembo', 'Beniamin Sarkisyan']
   spec.email         = 'e.tolstoy@rambler-co.ru'
 
   spec.summary       = 'Advanced code generator for Xcode projects with a nice and flexible template system.'
