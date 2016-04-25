@@ -23,7 +23,12 @@ module Generamba
       @name = name
       @description = description
 
-      @author = UserPreferences.obtain_username
+      if rambafile[AUTHOR_NAME_KEY] != nil
+        @author = rambafile[AUTHOR_NAME_KEY]
+      else
+        @author = UserPreferences.obtain_username
+      end
+
       @company = rambafile[COMPANY_KEY]
       @year = Time.now.year.to_s
 
@@ -44,6 +49,7 @@ module Generamba
       @test_targets = rambafile[TEST_TARGETS_KEY] if rambafile[TEST_TARGETS_KEY] != nil
 
       # Options adaptation
+      @author = options[:author] if options[:author]
       @project_targets = options[:module_targets].split(',') if options[:module_targets]
       @test_targets = options[:test_targets].split(',') if options[:test_targets]
 
