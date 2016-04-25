@@ -49,6 +49,7 @@ module Generamba
       @test_targets = rambafile[TEST_TARGETS_KEY] if rambafile[TEST_TARGETS_KEY] != nil
 
       # Options adaptation
+      @author = options[:author] if options[:author]
       @project_targets = options[:module_targets].split(',') if options[:module_targets]
       @test_targets = options[:test_targets].split(',') if options[:test_targets]
 
