@@ -2,6 +2,7 @@ module Generamba
 
   # Keys of Rambafile files
   COMPANY_KEY = 'company'
+  AUTHOR_NAME_KEY = 'author'
   PROJECT_NAME_KEY = 'project_name'
   PROJECT_PREFIX_KEY = 'prefix'
   XCODEPROJ_PATH_KEY = 'xcodeproj_path'

@@ -23,7 +23,12 @@ module Generamba
       @name = name
       @description = description
 
-      @author = UserPreferences.obtain_username
+      if rambafile[AUTHOR_NAME_KEY] != nil
+        @author = rambafile[AUTHOR_NAME_KEY]
+      else
+        @author = UserPreferences.obtain_username
+      end
+
       @company = rambafile[COMPANY_KEY]
       @year = Time.now.year.to_s
 

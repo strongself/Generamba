@@ -12,6 +12,7 @@ module Generamba::CLI
 
     desc 'gen [MODULE_NAME] [TEMPLATE_NAME]', 'Creates a new VIPER module with a given name from a specific template'
     method_option :description, :aliases => '-d', :desc => 'Provides a full description to the module'
+    method_option :author, :desc => 'Specifies the author name for generated module'
     method_option :module_targets, :desc => 'Specifies project targets for adding new module files'
     method_option :module_file_path, :desc => 'Specifies a location in the filesystem for new files'
     method_option :module_group_path, :desc => 'Specifies a location in Xcode groups for new files'
