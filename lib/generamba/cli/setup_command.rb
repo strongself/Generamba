@@ -70,6 +70,15 @@ module Generamba::CLI
                                                            'Cartfile')
       end
 
+      should_add_templates = yes?('Do you want to add some well known templates to the Rambafile? (yes/no)')
+      if should_add_templates
+        properties[TEMPLATES_KEY] = [
+            '{name: rviper_controller}',
+            '{name: mvvm_controller}',
+            '{name: swifty_viper}'
+        ]
+      end
+
       properties[PROJECT_TARGET_KEY] = project_target.name
       properties[PROJECT_FILE_PATH_KEY] = project_file_path
       properties[PROJECT_GROUP_PATH_KEY] = project_group_path
@@ -88,11 +97,16 @@ module Generamba::CLI
 
       PrintTable.print_values(
           values: properties,
-          title: "Summary for generamba setup"
+          title: 'Summary for generamba setup'
       )
 
       Generamba::RambafileGenerator.create_rambafile(properties)
-      puts('Rambafile successfully created! Now add some templates to the Rambafile and run `generamba template install`.'.green)
+      if should_add_templates
+        puts('Rambafile successfully created! Now run `generamba template install`.'.green)
+      else
+        puts('Rambafile successfully created!\n Go on and find some templates in our catalog using `generamba template list` command.\n Add any of them to the Rambafile and run `generamba template install`.'.green)
+      end
+
     end
   end
 end
