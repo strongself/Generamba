@@ -73,8 +73,9 @@ module Generamba::CLI
       should_add_templates = yes?('Do you want to add some well known templates to the Rambafile? (yes/no)')
       if should_add_templates
         properties[TEMPLATES_KEY] = [
-            'name: rviper_controller',
-            'name: mvvm_controller'
+            '{name: rviper_controller}',
+            '{name: mvvm_controller}',
+            '{name: swifty_viper}'
         ]
       end
 
@@ -96,7 +97,7 @@ module Generamba::CLI
 
       PrintTable.print_values(
           values: properties,
-          title: "Summary for generamba setup"
+          title: 'Summary for generamba setup'
       )
 
       Generamba::RambafileGenerator.create_rambafile(properties)

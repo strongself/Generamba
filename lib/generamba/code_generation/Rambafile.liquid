@@ -33,6 +33,8 @@ test_group_path: {{ test_group_path }}{% endif %}
 
 ### Templates
 templates:
-#- {name: local_template_name, local: 'absolute/file/path'}
+{% if templates.size > 0 %}{% for item in templates %}- {{ item }}
+{% endfor %}{% else %}#- {name: local_template_name, local: 'absolute/file/path'}
 #- {name: remote_template_name, git: 'https://github.com/igrekde/remote_template'}
 #- {name: catalog_template_name}
+{% endif %}
