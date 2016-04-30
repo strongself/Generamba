@@ -22,7 +22,9 @@ module Generamba
 					'name' => code_module.name,
 					'file_name' => file_name,
 					'description' => code_module.description,
-					'project_name' => code_module.project_name
+					'project_name' => code_module.project_name,
+					'project_targets' => code_module.project_targets,
+					'test_targets' => code_module.test_targets
 			}
 
 			developer = {
