@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/rambler-ios/Generamba.svg)](https://travis-ci.org/rambler-ios/Generamba)
 [![Gem Version](https://badge.fury.io/rb/generamba.svg)](https://badge.fury.io/rb/generamba)
+[![Code Climate](https://codeclimate.com/github/rambler-ios/Generamba/badges/gpa.svg)](https://codeclimate.com/github/rambler-ios/Generamba)
 
 **Generamba** is a code generator made for working with Xcode. Primarily it is designed to generate VIPER modules but it is quite easy to customize it for generation of any other classes (both in Objective-C and Swift).
 
