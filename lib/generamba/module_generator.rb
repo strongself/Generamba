@@ -1,6 +1,7 @@
 require 'fileutils'
 
 require 'generamba/helpers/xcodeproj_helper.rb'
+require 'generamba/helpers/paths_generator.rb'
 
 module Generamba
 
@@ -65,20 +66,13 @@ module Generamba
 				return
 			end
 
-			XcodeprojHelper.clear_group(project, targets, group_path)
 			files.each do |file|
-				# The target file's name consists of three parameters: project prefix, module name and template file name.
-				# E.g. RDS + Authorization + Presenter.h = RDSAuthorizationPresenter.h
-				file_basename = name + File.basename(file[TEMPLATE_NAME_KEY])
-				prefix = code_module.prefix
-				file_name = prefix ? prefix + file_basename : file_basename
 
-				file_group = File.dirname(file[TEMPLATE_NAME_KEY])
+				file_path = PathsGenerator.generate_file_path(code_module.prefix, name, file[TEMPLATE_NAME_KEY], dir_path)
+				group_file_path = PathsGenerator.generate_group_path(file[TEMPLATE_NAME_KEY], file_path, group_path)
 
 				# Generating the content of the code file
 				file_content = ContentGenerator.create_file_content(file, code_module, template)
-				file_path = dir_path.join(file_group)
-									.join(file_name)
 
 				# Creating the file in the filesystem
 				FileUtils.mkdir_p File.dirname(file_path)
@@ -87,8 +81,11 @@ module Generamba
 				end
 
 				# Creating the file in the Xcode project
-				XcodeprojHelper.add_file_to_project_and_targets(project, targets, group_path.join(file_group), file_path)
+				XcodeprojHelper.add_file_to_project_and_targets(project, targets, group_file_path, file_path)
 			end
+
+			return true
 		end
+
 	end
 end

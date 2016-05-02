@@ -4,6 +4,7 @@ require 'generamba/helpers/rambafile_validator.rb'
 require 'generamba/helpers/xcodeproj_helper.rb'
 require 'generamba/helpers/dependency_checker.rb'
 require 'generamba/helpers/gen_command_table_parameters_formatter.rb'
+require 'generamba/helpers/module_existance_checker.rb'
 
 module Generamba::CLI
   class Application < Thor
@@ -52,18 +53,16 @@ module Generamba::CLI
 
       DependencyChecker.check_all_required_dependencies_has_in_podfile(template.dependencies, code_module.podfile_path)
 
-      project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
-      module_group_already_exists = XcodeprojHelper.module_with_group_path_already_exists(project, code_module.module_group_path)
+      generator = Generamba::ModuleGenerator.new
 
-      if module_group_already_exists
+      if ModuleExistanceChecker.module_exist?(module_name, code_module, template)
         replace_exists_module = yes?("#{module_name} module already exists. Replace? (yes/no)")
-      
+
         unless replace_exists_module
           return
         end
       end
 
-      generator = Generamba::ModuleGenerator.new()
       generator.generate_module(module_name, code_module, template)
     end
 
