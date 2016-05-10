@@ -55,7 +55,7 @@ module Generamba
     
 		def self.file_name_template(file)
 			template_default_text = "{{ prefix }}{{ module_info.name }}{{ module_info.file_basename }}"
-			template_text = file[TEMPLATE_FLIE_FILENAME_KEY] || template_default_text
+			template_text = file[TEMPLATE_FILE_FILENAME_KEY] || template_default_text
 			return Liquid::Template.parse(template_text)
 		end
 	end
