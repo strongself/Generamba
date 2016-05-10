@@ -11,6 +11,7 @@ module Generamba
   TEMPLATE_TEST_FILES_KEY = 'test_files'
   TEMPLATE_FILE_NAME_KEY = 'name'
   TEMPLATE_FILE_PATH_KEY = 'path'
+  TEMPLATE_FLIE_FILENAME_KEY = 'file_name'
 
   TEMPLATE_DEPENDENCIES_KEY = 'dependencies'
 end

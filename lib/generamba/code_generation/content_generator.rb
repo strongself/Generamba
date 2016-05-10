@@ -10,17 +10,18 @@ module Generamba
     # @param code_module [CodeModule] The model describing a generating module
     # @param template [ModuleTemplate] The model describing a Generamba template used for code generation
     #
-    # @return [String] The generated body
-		def self.create_file_content(file, code_module, template)
+    # @return [String], [String] The generated file_name and body
+		def self.create_file(file, code_module, template)
 			file_source = IO.read(template.template_path.join(file[TEMPLATE_FILE_PATH_KEY]))
 			Liquid::Template.file_system = Liquid::LocalFileSystem.new(template.template_path.join('snippets'), '%s.liquid')
 
 			template = Liquid::Template.parse(file_source)
-			file_name = File.basename(file[TEMPLATE_FILE_NAME_KEY])
+            filename_template = self.file_name_template(file)
+      
+            file_basename = File.basename(file[TEMPLATE_FILE_NAME_KEY])
 
 			module_info = {
 					'name' => code_module.name,
-					'file_name' => file_name,
 					'description' => code_module.description,
 					'project_name' => code_module.project_name,
 					'project_targets' => code_module.project_targets,
@@ -39,10 +40,23 @@ module Generamba
 					'module_info' => module_info,
 					'prefix' => code_module.prefix
 			}
+      
+            module_info['file_basename'] = file_basename
 
-			output = template.render(scope)
+            file_name = filename_template.render(scope)
 
-			return output
+            module_info['file_name'] = file_name
+            module_info.delete('file_basename')
+
+			content = template.render(scope)
+
+			return file_name, content
 		end
+    
+        def self.file_name_template(file)
+            template_default_text = "{{ prefix }}{{ module_info.name }}{{ module_info.file_basename }}"
+            template_text = file[TEMPLATE_FLIE_FILENAME_KEY] || template_default_text
+            return Liquid::Template.parse(template_text) 
+        end
 	end
 end
