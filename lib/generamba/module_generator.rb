@@ -80,9 +80,11 @@ module Generamba
 				File.open(file_path, 'w+') do |f|
 					f.write(file_content)
 				end
+        
+				file_type = file[TEMPLATE_FILE_FILETYPE_KEY]
 
 				# Creating the file in the Xcode project
-				XcodeprojHelper.add_file_to_project_and_targets(project, targets, group_path.join(file_group), file_path)
+				XcodeprojHelper.add_file_to_project_and_targets(project, targets, group_path.join(file_group), file_path, file_type)
 			end
 		end
 	end
