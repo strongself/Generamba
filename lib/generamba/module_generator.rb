@@ -72,8 +72,7 @@ module Generamba
 
 				# Generating the content of the code file and it's name
 				file_name, file_content = ContentGenerator.create_file(file, code_module, template)
-				file_path = dir_path.join(file_group)
-									.join(file_name)
+				file_path = dir_path.join(file_group).join(file_name)
                   
 				# Creating the file in the filesystem
 				FileUtils.mkdir_p File.dirname(file_path)
