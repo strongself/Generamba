@@ -34,8 +34,10 @@ module Generamba
             file_type = 'resource'
           end
         end
-        
-        self.add_file_to_target(xcode_target, xcode_file, file_type)
+
+        if file_type != nil
+          self.add_file_to_target(xcode_target, xcode_file, file_type)
+        end
       end
     end
     
