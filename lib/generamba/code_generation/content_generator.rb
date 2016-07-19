@@ -38,7 +38,8 @@ module Generamba
 					'date' => Time.now.strftime('%d/%m/%Y'),
 					'developer' => developer,
 					'module_info' => module_info,
-					'prefix' => code_module.prefix
+					'prefix' => code_module.prefix,
+					'custom_parameters' => code_module.custom_parameters
 			}
       
 			module_info['file_basename'] = file_basename

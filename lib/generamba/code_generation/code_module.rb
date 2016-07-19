@@ -17,7 +17,8 @@ module Generamba
                 :project_targets,
                 :test_targets,
                 :podfile_path,
-                :cartfile_path
+                :cartfile_path,
+                :custom_parameters
 
     def initialize(name, description, rambafile, options)
       # Base initialization
@@ -48,6 +49,9 @@ module Generamba
 
       @test_targets = [rambafile[TEST_TARGET_KEY]] if rambafile[TEST_TARGET_KEY] != nil
       @test_targets = rambafile[TEST_TARGETS_KEY] if rambafile[TEST_TARGETS_KEY] != nil
+
+      # Custom parameters
+      @custom_parameters = options[:custom_parameters]
 
       # Options adaptation
       @author = options[:author] if options[:author]
