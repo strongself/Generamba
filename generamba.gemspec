@@ -31,4 +31,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.4'
   spec.add_development_dependency 'fakefs', '~> 0.6.1'
+  # ActiveSupport dependency is not used by dashramba; instead some other dependency
+  # requires it. We lock it to 4.2.7 so as to avoid using 5.0, which is
+  # not compatible with older versions of Ruby. 
+  spec.add_development_dependency 'activesupport', '~> 4.2.7'
 end
