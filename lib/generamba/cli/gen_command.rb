@@ -51,6 +51,7 @@ module Generamba::CLI
       code_module = CodeModule.new(module_name, module_description, rambafile, options)
 
       DependencyChecker.check_all_required_dependencies_has_in_podfile(template.dependencies, code_module.podfile_path)
+      DependencyChecker.check_all_required_dependencies_has_in_cartfile(template.dependencies, code_module.cartfile_path)
 
       project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
       module_group_already_exists = XcodeprojHelper.module_with_group_path_already_exists(project, code_module.module_group_path)
