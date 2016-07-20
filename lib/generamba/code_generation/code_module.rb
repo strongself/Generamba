@@ -62,22 +62,22 @@ module Generamba
 
       if options[:module_file_path]
         @module_file_path = options[:module_file_path].gsub(SLASH_REGEX, '')
-        @module_file_path = Pathname.new(@module_file_path).join(@name) if @module_file_path
+        @module_file_path = Pathname.new(@module_file_path).join(@name)
       end
 
       if options[:module_group_path]
         @module_group_path = options[:module_group_path].gsub(SLASH_REGEX, '')
-        @module_group_path = Pathname.new(@module_group_path).join(@name) if @module_group_path
+        @module_group_path = Pathname.new(@module_group_path).join(@name)
       end
 
       if options[:test_file_path]
         @test_file_path = options[:test_file_path].gsub(SLASH_REGEX, '')
-        @test_file_path = Pathname.new(@test_file_path).join(@name) if @test_file_path
+        @test_file_path = Pathname.new(@test_file_path).join(@name)
       end
 
       if options[:test_group_path]
         @test_group_path = options[:test_group_path].gsub(SLASH_REGEX, '')
-        @test_group_path = Pathname.new(@test_group_path).join(@name) if @test_group_path
+        @test_group_path = Pathname.new(@test_group_path).join(@name)
       end
 
       # The priority is given to `module_path` and 'test_path' options
