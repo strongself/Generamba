@@ -7,7 +7,19 @@ module Generamba::CLI
 
     desc 'version', 'Prints out Generamba current version'
     def version
-      puts(Generamba::VERSION.green)
+      options = {}
+      options['Version'] = Generamba::VERSION.green
+      options['Release date'] = Generamba::RELEASE_DATE.green
+      options['Change notes'] = Generamba::RELEASE_LINK.green
+
+      values = []
+
+      options.each do |title, value|
+        values.push("#{title}: #{value}")
+      end
+
+      output = values.join("\n")
+      puts(output)
     end
   end
 end
