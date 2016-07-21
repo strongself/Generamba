@@ -67,23 +67,30 @@ module Generamba
 
 			XcodeprojHelper.clear_group(project, targets, group_path)
 			files.each do |file|
-       
-				file_group = File.dirname(file[TEMPLATE_NAME_KEY])
+				unless file[TEMPLATE_FILE_PATH_KEY]
+					directory_name = file[TEMPLATE_NAME_KEY].gsub(/^\/|\/$/, '')
+					file_group = dir_path.join(directory_name)
 
-				# Generating the content of the code file and it's name
-				file_name, file_content = ContentGenerator.create_file(file, code_module, template)
-				file_path = dir_path.join(file_group).join(file_name)
-                  
-				# Creating the file in the filesystem
-				FileUtils.mkdir_p File.dirname(file_path)
-				File.open(file_path, 'w+') do |f|
-					f.write(file_content)
+					FileUtils.mkdir_p file_group
+					XcodeprojHelper.add_group_to_project(project, file_group)
+				else
+					file_group = File.dirname(file[TEMPLATE_NAME_KEY])
+
+					# Generating the content of the code file and it's name
+					file_name, file_content = ContentGenerator.create_file(file, code_module, template)
+					file_path = dir_path.join(file_group).join(file_name)
+
+					# Creating the file in the filesystem
+					FileUtils.mkdir_p File.dirname(file_path)
+					File.open(file_path, 'w+') do |f|
+						f.write(file_content)
+					end
+
+					file_type = file[TEMPLATE_FILE_FILETYPE_KEY]
+
+					# Creating the file in the Xcode project
+					XcodeprojHelper.add_file_to_project_and_targets(project, targets, group_path.join(file_group), file_path, file_type)
 				end
-        
-				file_type = file[TEMPLATE_FILE_FILETYPE_KEY]
-
-				# Creating the file in the Xcode project
-				XcodeprojHelper.add_file_to_project_and_targets(project, targets, group_path.join(file_group), file_path, file_type)
 			end
 		end
 	end

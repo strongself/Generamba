@@ -20,7 +20,7 @@ module Generamba
     #
     # @return [void]
     def self.add_file_to_project_and_targets(project, targets_name, group_path, file_path, file_type = nil)
-      module_group = self.retreive_group_or_create_if_needed(group_path, project, true)
+      module_group = self.retrieve_group_or_create_if_needed(group_path, project, true)
       xcode_file = module_group.new_file(File.absolute_path(file_path))
 
       file_name = File.basename(file_path)
@@ -39,6 +39,15 @@ module Generamba
           self.add_file_to_target(xcode_target, xcode_file, file_type)
         end
       end
+    end
+
+    # Adds a provided directory to a specific Project
+    # @param project [Xcodeproj::Project] The target xcodeproj file
+    # @param group_path [Pathname] The Xcode group path for current directory
+    #
+    # @return [void]
+    def self.add_group_to_project(project, group_path)
+      self.retrieve_group_or_create_if_needed(group_path, project, true)
     end
     
     # Adds xcode file to target based on it's type
@@ -79,7 +88,7 @@ module Generamba
     #
     # @return [Void]
     def self.clear_group(project, targets_name, group_path)
-      module_group = self.retreive_group_or_create_if_needed(group_path, project, false)
+      module_group = self.retrieve_group_or_create_if_needed(group_path, project, false)
       return unless module_group
 
       files_path = self.files_path_from_group(module_group, project)
@@ -98,7 +107,7 @@ module Generamba
     #
     # @return [TrueClass or FalseClass]
     def self.module_with_group_path_already_exists(project, group_path)
-      module_group = self.retreive_group_or_create_if_needed(group_path, project, false)
+      module_group = self.retrieve_group_or_create_if_needed(group_path, project, false)
       return module_group == nil ? false : true
     end
 
@@ -110,18 +119,19 @@ module Generamba
     # @param create_group_if_not_exists [TrueClass or FalseClass] If true notexistent group will be created
     #
     # @return [PBXGroup]
-    def self.retreive_group_or_create_if_needed(group_path, project, create_group_if_not_exists)
+    def self.retrieve_group_or_create_if_needed(group_path, project, create_group_if_not_exists)
       group_names = path_names_from_path(group_path)
 
       final_group = project
 
       group_names.each do |group_name|
         next_group = final_group[group_name]
+
         unless next_group
           unless create_group_if_not_exists
             return nil
           end
-            
+
           new_group_path = group_name
           next_group = final_group.new_group(group_name, new_group_path)
         end
