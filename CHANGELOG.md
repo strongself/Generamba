@@ -1,5 +1,45 @@
 # Change Log
 
+## [1.0.0](https://github.com/rambler-ios/Generamba/tree/1.0.0) (2016-07-23)
+[Full Changelog](https://github.com/rambler-ios/Generamba/compare/0.7.8...1.0.0)
+
+**Implemented enhancements:**
+
+- Add more info to `generamba version` command [\#122](https://github.com/rambler-ios/Generamba/issues/122)
+- Empty group in Xcode structure [\#118](https://github.com/rambler-ios/Generamba/issues/118)
+- Gem dependency of cocoapods-core-0.39.0 [\#114](https://github.com/rambler-ios/Generamba/issues/114)
+- Remove adding module name in module\_group\_path  if it set from cli [\#98](https://github.com/rambler-ios/Generamba/issues/98)
+- Check for missing Carthage dependencies [\#83](https://github.com/rambler-ios/Generamba/issues/83)
+- Additional template parameters [\#46](https://github.com/rambler-ios/Generamba/issues/46)
+
+**Fixed bugs:**
+
+- Can't add file with type . Only 'source' and 'resource' are acceptable [\#116](https://github.com/rambler-ios/Generamba/issues/116)
+- If option --module-group-path starts with '/' Generamba add folder with empty name in root folder [\#99](https://github.com/rambler-ios/Generamba/issues/99)
+
+**Closed issues:**
+
+- Generamba as file converter [\#41](https://github.com/rambler-ios/Generamba/issues/41)
+
+## [0.7.8](https://github.com/rambler-ios/Generamba/tree/0.7.8) (2016-05-16)
+[Full Changelog](https://github.com/rambler-ios/Generamba/compare/0.7.7...0.7.8)
+
+## [0.7.7](https://github.com/rambler-ios/Generamba/tree/0.7.7) (2016-05-10)
+[Full Changelog](https://github.com/rambler-ios/Generamba/compare/0.7.6...0.7.7)
+
+**Implemented enhancements:**
+
+- Project target name in module\_info [\#110](https://github.com/rambler-ios/Generamba/issues/110)
+- Author setting setup [\#107](https://github.com/rambler-ios/Generamba/issues/107)
+- Give a user more information about templates during `generamba setup` [\#86](https://github.com/rambler-ios/Generamba/issues/86)
+
+## [0.7.6](https://github.com/rambler-ios/Generamba/tree/0.7.6) (2016-04-30)
+[Full Changelog](https://github.com/rambler-ios/Generamba/compare/0.7.5...0.7.6)
+
+**Fixed bugs:**
+
+- Failed adding files to project [\#96](https://github.com/rambler-ios/Generamba/issues/96)
+
 ## [0.7.5](https://github.com/rambler-ios/Generamba/tree/0.7.5) (2016-04-24)
 [Full Changelog](https://github.com/rambler-ios/Generamba/compare/0.7.4...0.7.5)
 
@@ -11,24 +51,21 @@
 
 - Generamba generator: Could not find 'generamba' [\#103](https://github.com/rambler-ios/Generamba/issues/103)
 - Layout issue in "Summary for gen module" [\#95](https://github.com/rambler-ios/Generamba/issues/95)
+- Non human exception when wrong template name or catalog [\#77](https://github.com/rambler-ios/Generamba/issues/77)
+- Error on empty template folder [\#76](https://github.com/rambler-ios/Generamba/issues/76)
 
 **Closed issues:**
 
 - Module Name in .rambaspec support [\#102](https://github.com/rambler-ios/Generamba/issues/102)
+- \[WIP\] fix module\_group\_path option [\#100](https://github.com/rambler-ios/Generamba/issues/100)
 - Generate with project and tests targets in command line [\#97](https://github.com/rambler-ios/Generamba/issues/97)
 - Easy setup template path to local templates in Rambafile [\#94](https://github.com/rambler-ios/Generamba/issues/94)
-
-**Merged pull requests:**
-
-- Fixed \#104 [\#106](https://github.com/rambler-ios/Generamba/pull/106) ([Beniamiiin](https://github.com/Beniamiiin))
-- Fixed \#95 [\#105](https://github.com/rambler-ios/Generamba/pull/105) ([Beniamiiin](https://github.com/Beniamiiin))
 
 ## [0.7.4](https://github.com/rambler-ios/Generamba/tree/0.7.4) (2016-02-21)
 [Full Changelog](https://github.com/rambler-ios/Generamba/compare/0.7.3...0.7.4)
 
 **Implemented enhancements:**
 
-- Asks the user if he needed tests in `generamba setup` command [\#85](https://github.com/rambler-ios/Generamba/issues/85)
 - Improve the visualization of commands with parameters [\#69](https://github.com/rambler-ios/Generamba/issues/69)
 - Can we introduce something similar to view partials in rails \(for duplicated parts of views\) [\#62](https://github.com/rambler-ios/Generamba/issues/62)
 
@@ -51,7 +88,6 @@
 **Closed issues:**
 
 - Can we use constants from rambafile in templates? [\#81](https://github.com/rambler-ios/Generamba/issues/81)
-- Arguments for `generamba gen Name modulename` [\#80](https://github.com/rambler-ios/Generamba/issues/80)
 
 ## [0.7.2](https://github.com/rambler-ios/Generamba/tree/0.7.2) (2016-01-10)
 [Full Changelog](https://github.com/rambler-ios/Generamba/compare/0.7.1...0.7.2)
@@ -60,12 +96,10 @@
 
 - --version command [\#54](https://github.com/rambler-ios/Generamba/issues/54)
 - Incorrect behavior when generate module which already exists [\#52](https://github.com/rambler-ios/Generamba/issues/52)
-- Add the ability to specify custom template catalogs in Rambafile [\#44](https://github.com/rambler-ios/Generamba/issues/44)
 
 **Fixed bugs:**
 
 - Don't set target in swift projects [\#65](https://github.com/rambler-ios/Generamba/issues/65)
-- Errors if default path is empty [\#64](https://github.com/rambler-ios/Generamba/issues/64)
 - Default template set can not be used [\#60](https://github.com/rambler-ios/Generamba/issues/60)
 - Incorrect behavior when generate module which already exists [\#52](https://github.com/rambler-ios/Generamba/issues/52)
 
@@ -74,14 +108,12 @@
 - Can generamba be used to generate swift modules? [\#61](https://github.com/rambler-ios/Generamba/issues/61)
 - Git 1.2.9.1 [\#57](https://github.com/rambler-ios/Generamba/issues/57)
 - Clarify generamba parameters usage [\#51](https://github.com/rambler-ios/Generamba/issues/51)
-- Add documentation for liquid templates [\#48](https://github.com/rambler-ios/Generamba/issues/48)
 
 ## [0.7.1](https://github.com/rambler-ios/Generamba/tree/0.7.1) (2015-12-20)
 [Full Changelog](https://github.com/rambler-ios/Generamba/compare/0.7.0...0.7.1)
 
 **Implemented enhancements:**
 
-- Podfile path setup during generamba setup needs clarification [\#50](https://github.com/rambler-ios/Generamba/issues/50)
 - Remove the Settingslogic dependency [\#42](https://github.com/rambler-ios/Generamba/issues/42)
 
 **Fixed bugs:**
@@ -95,17 +127,8 @@
 ## [0.7.0](https://github.com/rambler-ios/Generamba/tree/0.7.0) (2015-12-13)
 [Full Changelog](https://github.com/rambler-ios/Generamba/compare/0.6.2...0.7.0)
 
-**Implemented enhancements:**
-
-- Add coloured output [\#28](https://github.com/rambler-ios/Generamba/issues/28)
-- Add -filepath and -grouppath options for `generamba gen` command [\#27](https://github.com/rambler-ios/Generamba/issues/27)
-- Add a `generamba template search` command [\#26](https://github.com/rambler-ios/Generamba/issues/26)
-- Add a `generamba template list` command [\#25](https://github.com/rambler-ios/Generamba/issues/25)
-- Add the if statements to the Rambafile.liquid [\#22](https://github.com/rambler-ios/Generamba/issues/22)
-
 **Fixed bugs:**
 
-- Non-informative error message when running `generamba template install` in the wrong directory [\#39](https://github.com/rambler-ios/Generamba/issues/39)
 - undefined method `each' for nil:NilClass \(NoMethodError\) [\#37](https://github.com/rambler-ios/Generamba/issues/37)
 
 ## [0.6.2](https://github.com/rambler-ios/Generamba/tree/0.6.2) (2015-11-25)
@@ -114,36 +137,12 @@
 **Fixed bugs:**
 
 - Can't install template from git repo  [\#36](https://github.com/rambler-ios/Generamba/issues/36)
-- Can't find template by local fullpath [\#35](https://github.com/rambler-ios/Generamba/issues/35)
-
-**Closed issues:**
-
-- Need more information about dependencies  [\#34](https://github.com/rambler-ios/Generamba/issues/34)
 
 ## [0.6.1](https://github.com/rambler-ios/Generamba/tree/0.6.1) (2015-11-21)
 [Full Changelog](https://github.com/rambler-ios/Generamba/compare/0.6.0...0.6.1)
 
-**Fixed bugs:**
-
-- The author name should be configured without `generamba setup` [\#31](https://github.com/rambler-ios/Generamba/issues/31)
-- Sometimes Generamba fills in the wrong test target in the Rambafile [\#30](https://github.com/rambler-ios/Generamba/issues/30)
-- Seems that Generamba doesn't add project name to the headers [\#29](https://github.com/rambler-ios/Generamba/issues/29)
-
-**Closed issues:**
-
-- Add a documentation for a .rambaspec file and overall template structure [\#24](https://github.com/rambler-ios/Generamba/issues/24)
-
 ## [0.6.0](https://github.com/rambler-ios/Generamba/tree/0.6.0) (2015-11-15)
 [Full Changelog](https://github.com/rambler-ios/Generamba/compare/0.5.0...0.6.0)
-
-**Implemented enhancements:**
-
-- Add a podfile\_path/cartfile\_path fields to a Rambafile [\#19](https://github.com/rambler-ios/Generamba/issues/19)
-- Add a dependencies field to the .rambaspec [\#18](https://github.com/rambler-ios/Generamba/issues/18)
-
-**Fixed bugs:**
-
-- Duplicate file reference in project.pbxproj [\#20](https://github.com/rambler-ios/Generamba/issues/20)
 
 ## [0.5.0](https://github.com/rambler-ios/Generamba/tree/0.5.0) (2015-11-01)
 
