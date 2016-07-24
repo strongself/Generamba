@@ -8,7 +8,7 @@
 
 *We keep evolving Generamba:* [changelog](https://github.com/rambler-ios/Generamba/blob/develop/CHANGELOG.md), [release notes](https://github.com/rambler-ios/Generamba/releases).
 
-![Generamba Screenshot](http://s24.postimg.org/gej9cg1cl/generamba.jpg)
+![Generamba Screenshot](https://habrastorage.org/files/b98/770/b37/b98770b37dc54de98daf0e22fea38478.gif)
 
 ### Key features
 
