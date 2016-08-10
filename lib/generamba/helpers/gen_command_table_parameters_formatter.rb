@@ -1,8 +1,6 @@
 module Generamba
-
   # Provides methods for prepare parameters for displaying in table.
   class GenCommandTableParametersFormatter
-
     # This method prepared parameter for displaying
     def self.prepare_parameters_for_displaying(parameters)
       params = parameters.clone
@@ -15,9 +13,7 @@ module Generamba
 
       params['templates'] = templates.join("\n")
 
-      return params
+      params
     end
-
   end
-
 end

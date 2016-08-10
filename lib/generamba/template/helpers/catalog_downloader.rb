@@ -1,10 +1,8 @@
 require 'git'
 
 module Generamba
-
   # Provides the functionality to download template catalogs from the remote repository
   class CatalogDownloader
-
     # Updates all of the template catalogs and returns their filepaths.
     # If there is a Rambafile in the current directory, it also updates all of the catalogs specified there.
     #
@@ -22,14 +20,14 @@ module Generamba
 
       catalog_paths = [download_catalog(GENERAMBA_CATALOG_NAME, RAMBLER_CATALOG_REPO)]
 
-      if catalogs != nil && catalogs.count > 0
+      if !catalogs.nil? && catalogs.count > 0
         catalogs.each do |catalog_url|
           catalog_name = catalog_url.split('://').last
-          catalog_name = catalog_name.gsub('/', '-');
+          catalog_name = catalog_name.tr('/', '-')
           catalog_paths.push(download_catalog(catalog_name, catalog_url))
         end
       end
-      return catalog_paths
+      catalog_paths
     end
 
     # Clones a template catalog from a remote repository
@@ -40,19 +38,19 @@ module Generamba
     # @return [Pathname] A filepath to the downloaded catalog
     def download_catalog(name, url)
       catalogs_local_path = Pathname.new(ENV['HOME'])
-                               .join(GENERAMBA_HOME_DIR)
-                               .join(CATALOGS_DIR)
+                                    .join(GENERAMBA_HOME_DIR)
+                                    .join(CATALOGS_DIR)
       current_catalog_path = catalogs_local_path
-                                 .join(name)
+                             .join(name)
 
-      if File.exists?(current_catalog_path)
+      if File.exist?(current_catalog_path)
         g = Git.open(current_catalog_path)
         g.pull
       else
-        Git.clone(url, name, :path => catalogs_local_path)
+        Git.clone(url, name, path: catalogs_local_path)
       end
 
-      return current_catalog_path
+      current_catalog_path
     end
   end
 end
