@@ -40,11 +40,21 @@ module Generamba
       @project_name = rambafile[PROJECT_NAME_KEY]
       @xcodeproj_path = rambafile[XCODEPROJ_PATH_KEY]
 
-      @module_file_path = Pathname.new(rambafile[PROJECT_FILE_PATH_KEY]).join(@name)
-      @module_group_path = Pathname.new(rambafile[PROJECT_GROUP_PATH_KEY]).join(@name)
+      @module_file_path = rambafile[PROJECT_FILE_PATH_KEY].gsub(SLASH_REGEX, '')
+      @module_file_path = Pathname.new(@module_file_path).join(@name)
 
-      @test_file_path = Pathname.new(rambafile[TEST_FILE_PATH_KEY]).join(@name) if rambafile[TEST_FILE_PATH_KEY] != nil
-      @test_group_path = Pathname.new(rambafile[TEST_GROUP_PATH_KEY]).join(@name) if rambafile[TEST_GROUP_PATH_KEY] != nil
+      @module_group_path = rambafile[PROJECT_GROUP_PATH_KEY].gsub(SLASH_REGEX, '')
+      @module_group_path = Pathname.new(@module_group_path).join(@name)
+
+      if rambafile[TEST_FILE_PATH_KEY] != nil
+        @test_file_path = rambafile[TEST_FILE_PATH_KEY].gsub(SLASH_REGEX, '')
+        @test_file_path = Pathname.new(@test_file_path).join(@name)
+      end
+
+      if rambafile[TEST_GROUP_PATH_KEY] != nil
+        @test_group_path = rambafile[TEST_GROUP_PATH_KEY].gsub(SLASH_REGEX, '')
+        @test_group_path = Pathname.new(@test_group_path).join(@name)
+      end
 
       @project_targets = [rambafile[PROJECT_TARGET_KEY]] if rambafile[PROJECT_TARGET_KEY] != nil
       @project_targets = rambafile[PROJECT_TARGETS_KEY] if rambafile[PROJECT_TARGETS_KEY] != nil
