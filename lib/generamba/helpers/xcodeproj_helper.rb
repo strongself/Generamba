@@ -1,8 +1,6 @@
 module Generamba
-
   # Provides a number of helper methods for working with xcodeproj gem
   class XcodeprojHelper
-
     # Returns a PBXProject class for a given name
     # @param project_name [String] The name of the project file
     #
@@ -20,23 +18,23 @@ module Generamba
     #
     # @return [void]
     def self.add_file_to_project_and_targets(project, targets_name, group_path, file_path, file_type = nil)
-      module_group = self.retrieve_group_or_create_if_needed(group_path, project, true)
+      module_group = retrieve_group_or_create_if_needed(group_path, project, true)
       xcode_file = module_group.new_file(File.absolute_path(file_path))
 
       file_name = File.basename(file_path)
       targets_name.each do |target|
-        xcode_target = self.obtain_target(target, project)
+        xcode_target = obtain_target(target, project)
 
         unless file_type
-          if self.is_compile_source?(file_name)
+          if is_compile_source?(file_name)
             file_type = 'source'
-          elsif self.is_bundle_resource?(file_name)
+          elsif is_bundle_resource?(file_name)
             file_type = 'resource'
           end
         end
 
-        if file_type != nil
-          self.add_file_to_target(xcode_target, xcode_file, file_type)
+        unless file_type.nil?
+          add_file_to_target(xcode_target, xcode_file, file_type)
         end
       end
     end
@@ -49,7 +47,7 @@ module Generamba
     def self.add_group_to_project(project, group_path)
       self.retrieve_group_or_create_if_needed(group_path, project, true)
     end
-    
+
     # Adds xcode file to target based on it's type
     # @param target [Xcodeproj::AbstractTarget] xcode target to use
     # @param file [Xcodeproj::PBXFileReference] file reference to add
@@ -57,12 +55,12 @@ module Generamba
     #
     def self.add_file_to_target(target, file, type)
       case type
-        when 'source'
-          target.add_file_references([file])
-        when 'resource'
-          target.add_resources([file])
-        else
-          puts "Can't add file with type #{type}. Only 'source' and 'resource' are acceptable"
+      when 'source'
+        target.add_file_references([file])
+      when 'resource'
+        target.add_resources([file])
+      else
+        puts "Can't add file with type #{type}. Only 'source' and 'resource' are acceptable"
       end
     end
 
@@ -97,7 +95,7 @@ module Generamba
       files_path.each do |file_path|
         self.remove_file_by_file_path(file_path, targets_name, project)
       end
-      
+
       module_group.clear
     end
 
@@ -108,7 +106,7 @@ module Generamba
     # @return [TrueClass or FalseClass]
     def self.module_with_group_path_already_exists(project, group_path)
       module_group = self.retrieve_group_or_create_if_needed(group_path, project, false)
-      return module_group == nil ? false : true
+      module_group.nil? ? false : true
     end
 
     private
@@ -128,9 +126,7 @@ module Generamba
         next_group = final_group[group_name]
 
         unless next_group
-          unless create_group_if_not_exists
-            return nil
-          end
+          return nil unless create_group_if_not_exists
 
           new_group_path = group_name
           next_group = final_group.new_group(group_name, new_group_path)
@@ -138,8 +134,7 @@ module Generamba
 
         final_group = next_group
       end
-
-      return final_group
+      final_group
     end
 
     # Returns an AbstractTarget class for a given name
@@ -149,13 +144,11 @@ module Generamba
     # @return [Xcodeproj::AbstractTarget]
     def self.obtain_target(target_name, project)
       project.targets.each do |target|
-        if target.name == target_name
-          return target
-        end
+        return target if target.name == target_name
       end
 
       error_description = "Cannot find a target with name #{target_name} in Xcode project".red
-      raise StandardError.new(error_description)
+      raise StandardError, error_description
     end
 
     # Splits the provided Xcode path to an array of separate paths
@@ -163,8 +156,7 @@ module Generamba
     #
     # @return [[String]]
     def self.path_names_from_path(path)
-      paths = path.to_s.split('/')
-      return paths
+      path.to_s.split('/')
     end
 
     # Remove build file from target build phase
@@ -188,7 +180,7 @@ module Generamba
     end
 
     def self.remove_file_from_build_phases(file_path, build_phases)
-      return if build_phases == nil
+      return if build_phases.nil?
 
       build_phases.each do |build_phase|
         build_phase.files.each do |build_file|
@@ -220,7 +212,7 @@ module Generamba
         end
       end
 
-      return build_phases
+      build_phases
     end
 
     # Find and return target resources build phase
@@ -236,7 +228,7 @@ module Generamba
         resource_build_phase.push(xcode_target.resources_build_phase)
       end
 
-      return resource_build_phase
+      resource_build_phase
     end
 
     # Get configure file full path
@@ -247,7 +239,7 @@ module Generamba
       build_file_ref_path = file_ref.hierarchy_path.to_s
       build_file_ref_path[0] = ''
 
-      return build_file_ref_path
+      build_file_ref_path
     end
 
     # Get all files path from group path
@@ -255,18 +247,17 @@ module Generamba
     # @param project [Xcodeproj::Project] The target xcodeproj file
     #
     # @return [[String]]
-    def self.files_path_from_group(module_group, project)
+    def self.files_path_from_group(module_group, _project)
       files_path = []
 
       module_group.recursive_children.each do |file_ref|
         if file_ref.isa == 'PBXFileReference'
-          file_ref_path = self.configure_file_ref_path(file_ref)
+          file_ref_path = configure_file_ref_path(file_ref)
           files_path.push(file_ref_path)
         end
       end
 
-      return files_path
+      files_path
     end
-
   end
 end

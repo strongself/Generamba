@@ -1,17 +1,15 @@
 require 'cocoapods-core'
 
 module Generamba
-
   # Provides methods for check dependencies from rambaspec in podfile
   class DependencyChecker
-
     # Check Podfile for dependencies
     # @param dependencies [Array] Array of dependencies name
     # @param podfile_path [String] String of Podfile path
     #
     # @return [void]
     def self.check_all_required_dependencies_has_in_podfile(dependencies, podfile_path)
-      return if !dependencies or dependencies.count == 0 or !podfile_path
+      return if !dependencies || dependencies.count == 0 || !podfile_path
 
       dependencies_names = []
       Pod::Podfile.from_file(Pathname.new(podfile_path)).dependencies.each do |dependency|
@@ -37,7 +35,7 @@ module Generamba
     #
     # @return [void]
     def self.check_all_required_dependencies_has_in_cartfile(dependencies, cartfile_path)
-      return if !dependencies or dependencies.count == 0 or !cartfile_path
+      return if !dependencies || dependencies.count == 0 || !cartfile_path
 
       cartfile_string = File.read(cartfile_path)
 
@@ -52,7 +50,5 @@ module Generamba
         puts "[Warning] Dependencies #{not_existing_dependency} missed in Cartfile".yellow
       end
     end
-
   end
-
 end
