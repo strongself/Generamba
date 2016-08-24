@@ -16,10 +16,10 @@ module Generamba
     # @param targets_name [String] Array of targets name
     # @param group_path [Pathname] The Xcode group path for current file
     # @param file_path [Pathname] The file path for current file
-    # @param file_type is either 'source' or 'resource' - it affects on where file will be added. Put nil for autodetect
+    # @param file_is_resource [TrueClass or FalseClass] If true then file is resource
     #
     # @return [void]
-    def self.add_file_to_project_and_targets(project, targets_name, group_path, file_path, file_type = nil)
+    def self.add_file_to_project_and_targets(project, targets_name, group_path, file_path, file_is_resource = false)
       module_group = self.retrieve_group_or_create_if_needed(group_path, project, true)
       xcode_file = module_group.new_file(File.absolute_path(file_path))
 
@@ -27,16 +27,10 @@ module Generamba
       targets_name.each do |target|
         xcode_target = self.obtain_target(target, project)
 
-        unless file_type
-          if self.is_compile_source?(file_name)
-            file_type = 'source'
-          elsif self.is_bundle_resource?(file_name)
-            file_type = 'resource'
-          end
-        end
-
-        if file_type != nil
-          self.add_file_to_target(xcode_target, xcode_file, file_type)
+        if file_is_resource || self.is_bundle_resource?(file_name)
+          xcode_target.add_resources([xcode_file])
+        elsif self.is_compile_source?(file_name)
+          xcode_target.add_file_references([xcode_file])
         end
       end
     end
@@ -48,22 +42,6 @@ module Generamba
     # @return [void]
     def self.add_group_to_project(project, group_path)
       self.retrieve_group_or_create_if_needed(group_path, project, true)
-    end
-    
-    # Adds xcode file to target based on it's type
-    # @param target [Xcodeproj::AbstractTarget] xcode target to use
-    # @param file [Xcodeproj::PBXFileReference] file reference to add
-    # @param type [String] is either 'source' or 'resource'
-    #
-    def self.add_file_to_target(target, file, type)
-      case type
-        when 'source'
-          target.add_file_references([file])
-        when 'resource'
-          target.add_resources([file])
-        else
-          puts "Can't add file with type #{type}. Only 'source' and 'resource' are acceptable"
-      end
     end
 
     # File is a compiled source
