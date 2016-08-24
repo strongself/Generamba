@@ -1,8 +1,6 @@
 module Generamba
-
   # Provides methods for validating Rambafile contents
   class RambafileValidator
-
     # Method validates Rambafile contents
     # @param path [String] The path to a Rambafile
     #
@@ -44,7 +42,7 @@ module Generamba
     #
     # @return [Array]
     def all_project_failure_fields(preferences)
-      return all_nil_mandatory_fields_for_target_type("project", preferences)
+      all_nil_mandatory_fields_for_target_type('project', preferences)
     end
 
     # Method which return all test failure fields
@@ -59,23 +57,21 @@ module Generamba
 
       has_test_fields = target || targets || file_path || group_path
 
-      unless has_test_fields
-        return []
-      end
-      
-      return all_nil_mandatory_fields_for_target_type("test", preferences)
+      return [] unless has_test_fields
+
+      all_nil_mandatory_fields_for_target_type('test', preferences)
     end
 
     # Method which return all failure fields for target_type
     # @param target_type [String] "project" or "test"
     # @param preferences [Hash] Converted Rambafile
-    # 
+    #
     # @return [Array]
     def all_nil_mandatory_fields_for_target_type(target_type, preferences)
       target_type = target_type.upcase
 
-      target_const_value = Generamba.const_get(target_type + "_TARGET_KEY")
-      targets_const_value = Generamba.const_get(target_type + "_TARGETS_KEY")
+      target_const_value = Generamba.const_get(target_type + '_TARGET_KEY')
+      targets_const_value = Generamba.const_get(target_type + '_TARGETS_KEY')
 
       target = preferences[target_const_value]
       targets = preferences[targets_const_value]
@@ -86,20 +82,19 @@ module Generamba
         fields.push(target_const_value)
       end
 
-      file_path_const_value = Generamba.const_get(target_type + "_FILE_PATH_KEY")      
+      file_path_const_value = Generamba.const_get(target_type + '_FILE_PATH_KEY')
 
       unless preferences[file_path_const_value]
         fields.push(file_path_const_value)
-      end 
+      end
 
-      group_path_const_value = Generamba.const_get(target_type + "_GROUP_PATH_KEY")
+      group_path_const_value = Generamba.const_get(target_type + '_GROUP_PATH_KEY')
 
       unless preferences[group_path_const_value]
         fields.push(group_path_const_value)
       end
 
-      return fields
+      fields
     end
-
   end
 end
