@@ -67,7 +67,7 @@ module Generamba
 
       # Options adaptation
       @author = options[:author] if options[:author]
-      @project_targets = options[:module_targets].split(',') if options[:module_targets]
+      @project_targets = options[:project_targets].split(',') if options[:project_targets]
       @test_targets = options[:test_targets].split(',') if options[:test_targets]
 
       if options[:module_file_path]
@@ -106,5 +106,6 @@ module Generamba
       @podfile_path = rambafile[PODFILE_PATH_KEY] if rambafile[PODFILE_PATH_KEY] != nil
       @cartfile_path = rambafile[CARTFILE_PATH_KEY] if rambafile[CARTFILE_PATH_KEY] != nil
     end
+
   end
 end

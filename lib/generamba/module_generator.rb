@@ -47,15 +47,12 @@ module Generamba
 			# Saving the current changes in the Xcode project
 			project.save
 
-			test_file_path_created_message = !code_module.test_file_path ? "" : "Test file path: #{code_module.test_file_path}".green + "\n"
-			test_group_path_created_message = !code_module.test_group_path ? "" : "Test group path: #{code_module.test_group_path}".green
-
-			puts("Module successfully created!\n" +
-				 "Name: #{name}".green + "\n" +
-				 "Module file path: #{code_module.module_file_path}".green + "\n" +
-				 "Module group path: #{code_module.module_group_path}".green + "\n" +
-				 test_file_path_created_message +
-				 test_group_path_created_message)
+			puts 'Module successfully created!'
+			puts "Name: #{name}".green
+			puts "Module file path: #{code_module.module_file_path}".green
+			puts "Module group path: #{code_module.module_group_path}".green
+			puts !code_module.test_file_path ? '' : "Test file path: #{code_module.test_file_path}".green
+			puts !code_module.test_group_path ? '' : "Test group path: #{code_module.test_group_path}".green
 		end
 
 		def process_files_if_needed(files, name, code_module, template, project, targets, group_path, dir_path)
@@ -73,24 +70,26 @@ module Generamba
 
 					FileUtils.mkdir_p file_group
 					XcodeprojHelper.add_group_to_project(project, file_group)
-				else
-					file_group = File.dirname(file[TEMPLATE_NAME_KEY])
 
-					# Generating the content of the code file and it's name
-					file_name, file_content = ContentGenerator.create_file(file, code_module, template)
-					file_path = dir_path.join(file_group).join(file_name)
-
-					# Creating the file in the filesystem
-					FileUtils.mkdir_p File.dirname(file_path)
-					File.open(file_path, 'w+') do |f|
-						f.write(file_content)
-					end
-
-					file_type = file[TEMPLATE_FILE_FILETYPE_KEY]
-
-					# Creating the file in the Xcode project
-					XcodeprojHelper.add_file_to_project_and_targets(project, targets, group_path.join(file_group), file_path, file_type)
+					next
 				end
+
+				file_group = File.dirname(file[TEMPLATE_NAME_KEY])
+
+				# Generating the content of the code file and it's name
+				file_name, file_content = ContentGenerator.create_file(file, code_module, template)
+				file_path = dir_path.join(file_group).join(file_name)
+
+				# Creating the file in the filesystem
+				FileUtils.mkdir_p File.dirname(file_path)
+				File.open(file_path, 'w+') do |f|
+					f.write(file_content)
+				end
+
+				file_is_resource = file[TEMPLATE_FILE_IS_RESOURCE_KEY]
+
+				# Creating the file in the Xcode project
+				XcodeprojHelper.add_file_to_project_and_targets(project, targets, group_path.join(file_group), file_path, file_is_resource)
 			end
 		end
 	end
