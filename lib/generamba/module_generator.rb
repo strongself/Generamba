@@ -69,7 +69,7 @@ module Generamba
 					file_group = dir_path.join(directory_name)
 
 					FileUtils.mkdir_p file_group
-					XcodeprojHelper.add_group_to_project(project, file_group)
+					XcodeprojHelper.add_group_to_project(project, group_path, dir_path, directory_name)
 
 					next
 				end
@@ -89,7 +89,13 @@ module Generamba
 				file_is_resource = file[TEMPLATE_FILE_IS_RESOURCE_KEY]
 
 				# Creating the file in the Xcode project
-				XcodeprojHelper.add_file_to_project_and_targets(project, targets, group_path.join(file_group), file_path, file_is_resource)
+				XcodeprojHelper.add_file_to_project_and_targets(project,
+																												targets,
+																												group_path,
+																												dir_path,
+																												file_group,
+																												file_name,
+																												file_is_resource)
 			end
 		end
 	end
