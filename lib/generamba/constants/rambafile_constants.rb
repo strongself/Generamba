@@ -12,6 +12,8 @@ module Generamba
   PROJECT_FILE_PATH_KEY = 'project_file_path'
   PROJECT_GROUP_PATH_KEY = 'project_group_path'
 
+  PRODUCT_MODULE_NAME_KEY = 'product_module_name'
+
   TEST_TARGET_KEY = 'test_target'
   TEST_TARGETS_KEY = 'test_targets'
   TEST_FILE_PATH_KEY = 'test_file_path'

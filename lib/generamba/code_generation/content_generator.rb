@@ -21,7 +21,7 @@ module Generamba
 			file_basename = File.basename(file[TEMPLATE_FILE_NAME_KEY])
 
 			module_info = scope['module_info']
-
+			
 			module_info['file_basename'] = file_basename
 
 			file_name = filename_template.render(scope)
