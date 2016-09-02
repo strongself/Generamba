@@ -24,6 +24,7 @@ module Generamba
 					'name' => code_module.name,
 					'description' => code_module.description,
 					'project_name' => code_module.project_name,
+                    'product_module_name' => code_module.product_module_name,
 					'project_targets' => code_module.project_targets,
 					'test_targets' => code_module.test_targets
 			}

@@ -1,7 +1,8 @@
 module Generamba
 
   SLASH_REGEX = /^\/|\/$/
-
+  C99IDENTIFIER = /[^\w]/
+  
   # Represents currently generating code module
   class CodeModule
     attr_reader :name,
@@ -11,6 +12,7 @@ module Generamba
                 :year,
                 :prefix,
                 :project_name,
+                :product_module_name,
                 :xcodeproj_path,
                 :module_file_path,
                 :module_group_path,
@@ -38,6 +40,7 @@ module Generamba
 
       @prefix = rambafile[PROJECT_PREFIX_KEY]
       @project_name = rambafile[PROJECT_NAME_KEY]
+      @product_module_name = rambafile[PRODUCT_MODULE_NAME_KEY] || @project_name.gsub(C99IDENTIFIER, '_')
       @xcodeproj_path = rambafile[XCODEPROJ_PATH_KEY]
 
       @module_file_path = rambafile[PROJECT_FILE_PATH_KEY].gsub(SLASH_REGEX, '')
