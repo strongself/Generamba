@@ -13,15 +13,17 @@ module Generamba
     # @param project [Xcodeproj::Project] The target xcodeproj file
     # @param targets_name [String] Array of targets name
     # @param group_path [Pathname] The Xcode group path for current file
-    # @param file_path [Pathname] The file path for current file
+    # @param dir_path [Pathname] The directory path for current file
+    # @param file_group_path [String] Directory path
+    # @param file_name [String] Current file name
     # @param file_is_resource [TrueClass or FalseClass] If true then file is resource
     #
     # @return [void]
-    def self.add_file_to_project_and_targets(project, targets_name, group_path, file_path, file_is_resource = false)
-      module_group = self.retrieve_group_or_create_if_needed(group_path, project, true)
+    def self.add_file_to_project_and_targets(project, targets_name, group_path, dir_path, file_group_path, file_name, file_is_resource = false)
+      file_path = dir_path.join(file_group_path).join(file_name)
+      module_group = self.retrieve_group_or_create_if_needed(group_path, dir_path, file_group_path, project, true)
       xcode_file = module_group.new_file(File.absolute_path(file_path))
 
-      file_name = File.basename(file_path)
       targets_name.each do |target|
         xcode_target = obtain_target(target, project)
 
@@ -36,10 +38,12 @@ module Generamba
     # Adds a provided directory to a specific Project
     # @param project [Xcodeproj::Project] The target xcodeproj file
     # @param group_path [Pathname] The Xcode group path for current directory
+    # @param dir_path [Pathname] The directory path for current directory
+    # @param directory_name [String] Current directory name
     #
     # @return [void]
-    def self.add_group_to_project(project, group_path)
-      self.retrieve_group_or_create_if_needed(group_path, project, true)
+    def self.add_group_to_project(project, group_path, dir_path, directory_name)
+      self.retrieve_group_or_create_if_needed(group_path, dir_path, directory_name, project, true)
     end
 
     # File is a compiled source
@@ -64,7 +68,7 @@ module Generamba
     #
     # @return [Void]
     def self.clear_group(project, targets_name, group_path)
-      module_group = self.retrieve_group_or_create_if_needed(group_path, project, false)
+      module_group = self.retrieve_group_or_create_if_needed(group_path, nil, nil, project, false)
       return unless module_group
 
       files_path = self.files_path_from_group(module_group, project)
@@ -83,35 +87,43 @@ module Generamba
     #
     # @return [TrueClass or FalseClass]
     def self.module_with_group_path_already_exists(project, group_path)
-      module_group = self.retrieve_group_or_create_if_needed(group_path, project, false)
+      module_group = self.retrieve_group_or_create_if_needed(group_path, nil, nil, project, false)
       module_group.nil? ? false : true
     end
 
     private
 
     # Finds or creates a group in a xcodeproj file with a given path
-    # @param group_path [Pathname] The full group path
+    # @param group_path [Pathname] The Xcode group path for module
+    # @param dir_path [Pathname] The directory path for module
+    # @param file_group_path [String] Directory path
     # @param project [Xcodeproj::Project] The working Xcode project file
-    # @param create_group_if_not_exists [TrueClass or FalseClass] If true notexistent group will be created
+    # @param create_group_if_not_exists [TrueClass or FalseClass] If true nonexistent group will be created
     #
     # @return [PBXGroup]
-    def self.retrieve_group_or_create_if_needed(group_path, project, create_group_if_not_exists)
+    def self.retrieve_group_or_create_if_needed(group_path, dir_path, file_group_path, project, create_group_if_not_exists)
       group_names = path_names_from_path(group_path)
+      group_components_count = group_names.count
+      group_names += path_names_from_path(file_group_path) if file_group_path
 
       final_group = project
 
-      group_names.each do |group_name|
+      group_names.each_with_index do |group_name, index|
         next_group = final_group[group_name]
 
         unless next_group
           return nil unless create_group_if_not_exists
 
-          new_group_path = group_name
-          next_group = final_group.new_group(group_name, new_group_path)
+          if group_path != dir_path && index == group_components_count-1
+            next_group = final_group.new_group(group_name, dir_path, :project)
+          else
+            next_group = final_group.new_group(group_name, group_name)
+          end
         end
 
         final_group = next_group
       end
+
       final_group
     end
 
