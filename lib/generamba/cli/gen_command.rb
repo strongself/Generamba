@@ -4,6 +4,7 @@ require 'generamba/helpers/rambafile_validator.rb'
 require 'generamba/helpers/xcodeproj_helper.rb'
 require 'generamba/helpers/dependency_checker.rb'
 require 'generamba/helpers/gen_command_table_parameters_formatter.rb'
+require 'generamba/helpers/module_validator.rb'
 
 module Generamba::CLI
   class Application < Thor
@@ -37,9 +38,6 @@ module Generamba::CLI
       setup_username_command = Generamba::CLI::SetupUsernameCommand.new
       setup_username_command.setup_username
 
-      default_module_description = "#{module_name} module"
-      module_description = options[:description] ? options[:description] : default_module_description
-
       rambafile = YAML.load_file(RAMBAFILE_NAME)
 
       parameters = GenCommandTableParametersFormatter.prepare_parameters_for_displaying(rambafile)
@@ -48,8 +46,12 @@ module Generamba::CLI
           title: "Summary for gen #{module_name}"
       )
 
+      code_module = CodeModule.new(module_name, rambafile, options)
+
+      module_validator = ModuleValidator.new
+      module_validator.validate(code_module)
+
       template = ModuleTemplate.new(template_name)
-      code_module = CodeModule.new(module_name, module_description, rambafile, options)
 
       DependencyChecker.check_all_required_dependencies_has_in_podfile(template.dependencies, code_module.podfile_path)
       DependencyChecker.check_all_required_dependencies_has_in_cartfile(template.dependencies, code_module.cartfile_path)

@@ -2,7 +2,10 @@ module Generamba
 
   SLASH_REGEX = /^\/|\/$/
   C99IDENTIFIER = /[^\w]/
-  
+
+  PATH_TYPE_MODULE = 'module'
+  PATH_TYPE_TEST = 'test'
+
   # Represents currently generating code module
   class CodeModule
     attr_reader :name,
@@ -24,17 +27,11 @@ module Generamba
                 :cartfile_path,
                 :custom_parameters
 
-    def initialize(name, description, rambafile, options)
+    def initialize(name, rambafile, options)
       # Base initialization
       @name = name
-      @description = description
-
-      if rambafile[AUTHOR_NAME_KEY] != nil
-        @author = rambafile[AUTHOR_NAME_KEY]
-      else
-        @author = UserPreferences.obtain_username
-      end
-
+      @description = options[:description] ? options[:description] : "#{name} module"
+      @author = rambafile[AUTHOR_NAME_KEY] ? rambafile[AUTHOR_NAME_KEY] : UserPreferences.obtain_username
       @company = rambafile[COMPANY_KEY]
       @year = Time.now.year.to_s
 
@@ -43,27 +40,14 @@ module Generamba
       @product_module_name = rambafile[PRODUCT_MODULE_NAME_KEY] || @project_name.gsub(C99IDENTIFIER, '_')
       @xcodeproj_path = rambafile[XCODEPROJ_PATH_KEY]
 
-      @module_file_path = rambafile[PROJECT_FILE_PATH_KEY].gsub(SLASH_REGEX, '')
-      @module_file_path = Pathname.new(@module_file_path).join(@name)
+      setup_file_and_group_paths(rambafile[PROJECT_FILE_PATH_KEY], rambafile[PROJECT_GROUP_PATH_KEY], PATH_TYPE_MODULE)
+      setup_file_and_group_paths(rambafile[TEST_FILE_PATH_KEY], rambafile[TEST_GROUP_PATH_KEY], PATH_TYPE_TEST)
 
-      @module_group_path = rambafile[PROJECT_GROUP_PATH_KEY].gsub(SLASH_REGEX, '')
-      @module_group_path = Pathname.new(@module_group_path).join(@name)
+      @project_targets = [rambafile[PROJECT_TARGET_KEY]] if rambafile[PROJECT_TARGET_KEY]
+      @project_targets = rambafile[PROJECT_TARGETS_KEY] if rambafile[PROJECT_TARGETS_KEY]
 
-      if rambafile[TEST_FILE_PATH_KEY] != nil
-        @test_file_path = rambafile[TEST_FILE_PATH_KEY].gsub(SLASH_REGEX, '')
-        @test_file_path = Pathname.new(@test_file_path).join(@name)
-      end
-
-      if rambafile[TEST_GROUP_PATH_KEY] != nil
-        @test_group_path = rambafile[TEST_GROUP_PATH_KEY].gsub(SLASH_REGEX, '')
-        @test_group_path = Pathname.new(@test_group_path).join(@name)
-      end
-
-      @project_targets = [rambafile[PROJECT_TARGET_KEY]] if rambafile[PROJECT_TARGET_KEY] != nil
-      @project_targets = rambafile[PROJECT_TARGETS_KEY] if rambafile[PROJECT_TARGETS_KEY] != nil
-
-      @test_targets = [rambafile[TEST_TARGET_KEY]] if rambafile[TEST_TARGET_KEY] != nil
-      @test_targets = rambafile[TEST_TARGETS_KEY] if rambafile[TEST_TARGETS_KEY] != nil
+      @test_targets = [rambafile[TEST_TARGET_KEY]] if rambafile[TEST_TARGET_KEY]
+      @test_targets = rambafile[TEST_TARGETS_KEY] if rambafile[TEST_TARGETS_KEY]
 
       # Custom parameters
       @custom_parameters = options[:custom_parameters]
@@ -72,43 +56,40 @@ module Generamba
       @author = options[:author] if options[:author]
       @project_targets = options[:project_targets].split(',') if options[:project_targets]
       @test_targets = options[:test_targets].split(',') if options[:test_targets]
-
-      if options[:module_file_path]
-        @module_file_path = options[:module_file_path].gsub(SLASH_REGEX, '')
-        @module_file_path = Pathname.new(@module_file_path).join(@name)
-      end
-
-      if options[:module_group_path]
-        @module_group_path = options[:module_group_path].gsub(SLASH_REGEX, '')
-        @module_group_path = Pathname.new(@module_group_path).join(@name)
-      end
-
-      if options[:test_file_path]
-        @test_file_path = options[:test_file_path].gsub(SLASH_REGEX, '')
-        @test_file_path = Pathname.new(@test_file_path).join(@name)
-      end
-
-      if options[:test_group_path]
-        @test_group_path = options[:test_group_path].gsub(SLASH_REGEX, '')
-        @test_group_path = Pathname.new(@test_group_path).join(@name)
-      end
+      
+      setup_file_and_group_paths(options[:module_file_path], options[:module_group_path], PATH_TYPE_MODULE)
+      setup_file_and_group_paths(options[:test_file_path], options[:test_group_path], PATH_TYPE_TEST)
 
       # The priority is given to `module_path` and 'test_path' options
-      if options[:module_path]
-        @module_path = options[:module_path].gsub(SLASH_REGEX, '')
-        @module_file_path = Pathname.new(@module_path).join(@name)
-        @module_group_path = Pathname.new(@module_path).join(@name)
-      end
+      setup_file_and_group_paths(options[:module_path], options[:module_path], PATH_TYPE_MODULE)
+      setup_file_and_group_paths(options[:test_path], options[:test_path], PATH_TYPE_TEST)
 
-      if options[:test_path]
-        @test_path = options[:test_path].gsub(SLASH_REGEX, '')
-        @test_file_path = Pathname.new(@test_path).join(@name)
-        @test_group_path = Pathname.new(@test_path).join(@name)
-      end
-
-      @podfile_path = rambafile[PODFILE_PATH_KEY] if rambafile[PODFILE_PATH_KEY] != nil
-      @cartfile_path = rambafile[CARTFILE_PATH_KEY] if rambafile[CARTFILE_PATH_KEY] != nil
+      @podfile_path = rambafile[PODFILE_PATH_KEY] if rambafile[PODFILE_PATH_KEY]
+      @cartfile_path = rambafile[CARTFILE_PATH_KEY] if rambafile[CARTFILE_PATH_KEY]
     end
 
+    def setup_file_and_group_paths(file_path, group_path, path_type)
+      if file_path || group_path
+        variable_name = "#{path_type}_file_path"
+
+        if file_path || !instance_variable_get("@#{variable_name}")
+          file_path = group_path unless file_path
+
+          variable_value = file_path.gsub(SLASH_REGEX, '')
+          variable_value = Pathname.new(variable_value).join(@name)
+          instance_variable_set("@#{variable_name}", variable_value)
+        end
+
+        variable_name = "#{path_type}_group_path"
+
+        if group_path || !instance_variable_get("@#{variable_name}")
+          group_path = file_path unless group_path
+
+          variable_value = group_path.gsub(SLASH_REGEX, '')
+          variable_value = Pathname.new(variable_value).join(@name)
+          instance_variable_set("@#{variable_name}", variable_value)
+        end
+      end
+    end
   end
 end

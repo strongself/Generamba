@@ -6,15 +6,16 @@ project_name: {{ project_name }}
 xcodeproj_path: {{ xcodeproj_path }}
 {% if prefix != "" %}prefix: {{ prefix }}{% endif %}
 
-### Code generation settings section
-# The main project target name
-project_target: {{ project_target }}
+{% if (project_target != nil and project_target != "") or (project_file_path != nil and project_file_path != "") or (project_group_path != nil and project_group_path != "") %}### Code generation settings section
+{% if project_target != nil and project_target != "" %}# The main project target name
+project_target: {{ project_target }}{% endif %}
 
-# The file path for new modules
-project_file_path: {{ project_file_path }}
+{% if project_file_path != nil and project_file_path != "" %}# The file path for new modules
+project_file_path: {{ project_file_path }}{% endif %}
 
-# The Xcode group path to new modules
-project_group_path: {{ project_group_path }}
+{% if project_group_path != nil and project_group_path != "" %}# The Xcode group path to new modules
+project_group_path: {{ project_group_path }}{% endif %}
+{% endif %}
 
 {% if (test_target != nil and test_target != "") or (test_file_path != nil and test_file_path != "") or (test_group_path != nil and test_group_path != "") %}### Tests generation settings section
 {% if test_target != nil and test_target != "" %}# The tests target name
