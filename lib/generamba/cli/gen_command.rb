@@ -42,14 +42,14 @@ module Generamba::CLI
 
       rambafile = YAML.load_file(RAMBAFILE_NAME)
 
-      parameters = GenCommandTableParametersFormatter.prepare_parameters_for_displaying(rambafile)
+      template = ModuleTemplate.new(template_name)
+      code_module = CodeModule.new(module_name, module_description, rambafile, options)
+
+      parameters = GenCommandTableParametersFormatter.prepare_parameters_for_displaying(code_module, template_name)
       PrintTable.print_values(
           values: parameters,
           title: "Summary for gen #{module_name}"
       )
-
-      template = ModuleTemplate.new(template_name)
-      code_module = CodeModule.new(module_name, module_description, rambafile, options)
 
       DependencyChecker.check_all_required_dependencies_has_in_podfile(template.dependencies, code_module.podfile_path)
       DependencyChecker.check_all_required_dependencies_has_in_cartfile(template.dependencies, code_module.cartfile_path)
