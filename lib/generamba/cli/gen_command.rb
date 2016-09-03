@@ -47,7 +47,7 @@ module Generamba::CLI
       module_info = ModuleInfoGenerator.new(code_module)
       template = ModuleTemplate.new(template_name, module_info.scope)
 
-      parameters = GenCommandTableParametersFormatter.prepare_parameters_for_displaying(rambafile)
+      parameters = GenCommandTableParametersFormatter.prepare_parameters_for_displaying(code_module, template_name)
       PrintTable.print_values(
           values: parameters,
           title: "Summary for gen #{module_name}"
