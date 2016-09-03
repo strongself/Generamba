@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative 'spec_helper'
 
 describe 'CatalogDownloader' do
   describe 'method download_catalog' do

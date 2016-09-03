@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative 'spec_helper'
 require 'generamba/template/installer/template_installer_factory'
 require 'generamba/template/processor/template_declaration'
 

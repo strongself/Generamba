@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative 'spec_helper'
 require 'fakefs/spec_helpers'
 
 describe 'TemplateProcessor' do
