@@ -1,5 +1,4 @@
-require 'spec_helper'
-require 'fakefs/spec_helpers'
+require_relative 'spec_helper'
 require 'generamba/template/processor/template_declaration'
 
 describe 'method install_template' do

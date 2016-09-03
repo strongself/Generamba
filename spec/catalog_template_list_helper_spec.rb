@@ -1,5 +1,4 @@
-require 'spec_helper'
-require 'fakefs/spec_helpers'
+require_relative 'spec_helper'
 require 'generamba/template/helpers/catalog_template_list_helper'
 
 describe 'method obtain_all_templates_from_a_catalog' do

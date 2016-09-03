@@ -42,6 +42,11 @@ module Generamba
     #
     # @return [Array]
     def all_project_failure_fields(preferences)
+      file_path = preferences[PROJECT_FILE_PATH_KEY]
+      group_path = preferences[PROJECT_GROUP_PATH_KEY]
+
+      return [] if !file_path || !group_path
+
       all_nil_mandatory_fields_for_target_type('project', preferences)
     end
 

@@ -4,6 +4,7 @@ require 'generamba/helpers/rambafile_validator.rb'
 require 'generamba/helpers/xcodeproj_helper.rb'
 require 'generamba/helpers/dependency_checker.rb'
 require 'generamba/helpers/gen_command_table_parameters_formatter.rb'
+require 'generamba/helpers/module_validator.rb'
 require 'generamba/helpers/module_info_generator.rb'
 
 module Generamba::CLI
@@ -38,14 +39,14 @@ module Generamba::CLI
       setup_username_command = Generamba::CLI::SetupUsernameCommand.new
       setup_username_command.setup_username
 
-      default_module_description = "#{module_name} module"
-      module_description = options[:description] ? options[:description] : default_module_description
-
       rambafile = YAML.load_file(RAMBAFILE_NAME)
 
-      code_module = CodeModule.new(module_name, module_description, rambafile, options)
-      module_info = ModuleInfoGenerator.new(code_module)
-      template = ModuleTemplate.new(template_name, module_info.scope)
+      code_module = CodeModule.new(module_name, rambafile, options)
+
+      module_validator = ModuleValidator.new
+      module_validator.validate(code_module)
+
+      template = ModuleTemplate.new(template_name)
 
       parameters = GenCommandTableParametersFormatter.prepare_parameters_for_displaying(code_module, template_name)
       PrintTable.print_values(
