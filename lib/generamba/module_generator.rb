@@ -1,6 +1,7 @@
 require 'fileutils'
 
 require 'generamba/helpers/xcodeproj_helper.rb'
+require 'generamba/helpers/module_info_generator.rb'
 
 module Generamba
 
@@ -51,8 +52,8 @@ module Generamba
 			puts "Name: #{name}".green
 			puts "Module file path: #{code_module.module_file_path}".green
 			puts "Module group path: #{code_module.module_group_path}".green
-			puts !code_module.test_file_path ? '' : "Test file path: #{code_module.test_file_path}".green
-			puts !code_module.test_group_path ? '' : "Test group path: #{code_module.test_group_path}".green
+			puts "Test file path: #{code_module.test_file_path}".green if code_module.test_file_path
+			puts "Test group path: #{code_module.test_group_path}".green if code_module.test_group_path
 		end
 
 		def process_files_if_needed(files, name, code_module, template, project, targets, group_path, dir_path)
@@ -69,15 +70,17 @@ module Generamba
 					file_group = dir_path.join(directory_name)
 
 					FileUtils.mkdir_p file_group
-					XcodeprojHelper.add_group_to_project(project, file_group)
+					XcodeprojHelper.add_group_to_project(project, group_path, dir_path, directory_name)
 
 					next
 				end
 
 				file_group = File.dirname(file[TEMPLATE_NAME_KEY])
 
+				module_info = ModuleInfoGenerator.new(code_module)
+
 				# Generating the content of the code file and it's name
-				file_name, file_content = ContentGenerator.create_file(file, code_module, template)
+				file_name, file_content = ContentGenerator.create_file(file, module_info.scope, template)
 				file_path = dir_path.join(file_group).join(file_name)
 
 				# Creating the file in the filesystem
@@ -89,7 +92,13 @@ module Generamba
 				file_is_resource = file[TEMPLATE_FILE_IS_RESOURCE_KEY]
 
 				# Creating the file in the Xcode project
-				XcodeprojHelper.add_file_to_project_and_targets(project, targets, group_path.join(file_group), file_path, file_is_resource)
+				XcodeprojHelper.add_file_to_project_and_targets(project,
+																												targets,
+																												group_path,
+																												dir_path,
+																												file_group,
+																												file_name,
+																												file_is_resource)
 			end
 		end
 	end
