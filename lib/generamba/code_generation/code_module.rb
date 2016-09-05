@@ -39,7 +39,7 @@ module Generamba
       @project_name = rambafile[PROJECT_NAME_KEY]
 
       @product_module_name = rambafile[PRODUCT_MODULE_NAME_KEY]
-      @product_module_name = @project_name.gsub(C99IDENTIFIER, '_') if @project_name
+      @product_module_name = @project_name.gsub(C99IDENTIFIER, '_') if !@product_module_name && @project_name
 
       @xcodeproj_path = rambafile[XCODEPROJ_PATH_KEY]
 
