@@ -3,7 +3,7 @@ module Generamba
   SLASH_REGEX = /^\/|\/$/
   C99IDENTIFIER = /[^\w]/
 
-  PATH_TYPE_MODULE = 'module'
+  PATH_TYPE_PROJECT = 'project'
   PATH_TYPE_TEST = 'test'
 
   # Represents currently generating code module
@@ -17,8 +17,8 @@ module Generamba
                 :project_name,
                 :product_module_name,
                 :xcodeproj_path,
-                :module_file_path,
-                :module_group_path,
+                :project_file_path,
+                :project_group_path,
                 :test_file_path,
                 :test_group_path,
                 :project_targets,
@@ -37,10 +37,13 @@ module Generamba
 
       @prefix = rambafile[PROJECT_PREFIX_KEY]
       @project_name = rambafile[PROJECT_NAME_KEY]
-      @product_module_name = rambafile[PRODUCT_MODULE_NAME_KEY] || @project_name.gsub(C99IDENTIFIER, '_')
+
+      @product_module_name = rambafile[PRODUCT_MODULE_NAME_KEY]
+      @product_module_name = @project_name.gsub(C99IDENTIFIER, '_') if !@product_module_name && @project_name
+
       @xcodeproj_path = rambafile[XCODEPROJ_PATH_KEY]
 
-      setup_file_and_group_paths(rambafile[PROJECT_FILE_PATH_KEY], rambafile[PROJECT_GROUP_PATH_KEY], PATH_TYPE_MODULE)
+      setup_file_and_group_paths(rambafile[PROJECT_FILE_PATH_KEY], rambafile[PROJECT_GROUP_PATH_KEY], PATH_TYPE_PROJECT)
       setup_file_and_group_paths(rambafile[TEST_FILE_PATH_KEY], rambafile[TEST_GROUP_PATH_KEY], PATH_TYPE_TEST)
 
       @project_targets = [rambafile[PROJECT_TARGET_KEY]] if rambafile[PROJECT_TARGET_KEY]
@@ -57,16 +60,18 @@ module Generamba
       @project_targets = options[:project_targets].split(',') if options[:project_targets]
       @test_targets = options[:test_targets].split(',') if options[:test_targets]
       
-      setup_file_and_group_paths(options[:module_file_path], options[:module_group_path], PATH_TYPE_MODULE)
+      setup_file_and_group_paths(options[:project_file_path], options[:project_group_path], PATH_TYPE_PROJECT)
       setup_file_and_group_paths(options[:test_file_path], options[:test_group_path], PATH_TYPE_TEST)
 
       # The priority is given to `module_path` and 'test_path' options
-      setup_file_and_group_paths(options[:module_path], options[:module_path], PATH_TYPE_MODULE)
+      setup_file_and_group_paths(options[:module_path], options[:module_path], PATH_TYPE_PROJECT)
       setup_file_and_group_paths(options[:test_path], options[:test_path], PATH_TYPE_TEST)
 
       @podfile_path = rambafile[PODFILE_PATH_KEY] if rambafile[PODFILE_PATH_KEY]
       @cartfile_path = rambafile[CARTFILE_PATH_KEY] if rambafile[CARTFILE_PATH_KEY]
     end
+
+    private
 
     def setup_file_and_group_paths(file_path, group_path, path_type)
       if file_path || group_path

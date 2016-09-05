@@ -7,11 +7,11 @@ module Generamba
     def self.prepare_parameters_for_displaying(code_module, template_name)
       params = {}
 
-      params['Targets'] = code_module.project_targets.join(',')
-      params['Module path'] = code_module.module_file_path
+      params['Targets'] = code_module.project_targets.join(',') if code_module.project_targets
+      params['Module path'] = code_module.project_file_path if code_module.project_file_path
 
-      if code_module.module_file_path != code_module.module_group_path
-        params['Module group path'] = code_module.module_group_path
+      if code_module.project_file_path != code_module.project_group_path
+        params['Module group path'] = code_module.project_group_path
       end
 
       params['Test targets'] = code_module.test_targets.join(',') if code_module.test_targets
@@ -23,7 +23,7 @@ module Generamba
 
       params['Template'] = template_name
 
-      if code_module.custom_parameters
+      unless code_module.custom_parameters.empty?
         params['Custom parameters'] = code_module.custom_parameters.to_json
       end
 
