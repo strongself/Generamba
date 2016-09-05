@@ -71,12 +71,15 @@ module Generamba
 				end
 
 				file_group = File.dirname(file[TEMPLATE_NAME_KEY])
+				file_group = nil if file_group == '.'
 
 				module_info = ModuleInfoGenerator.new(code_module)
 
 				# Generating the content of the code file and it's name
 				file_name, file_content = ContentGenerator.create_file(file, module_info.scope, template)
-				file_path = dir_path.join(file_group).join(file_name)
+				file_path = dir_path
+				file_path = file_path.join(file_group) if file_group
+				file_path = file_path.join(file_name) if file_name
 
 				# Creating the file in the filesystem
 				FileUtils.mkdir_p File.dirname(file_path)
