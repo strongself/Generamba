@@ -32,7 +32,7 @@ describe 'GenCommandTableParametersFormatter' do
       options = {}
       options[:custom_parameters] = {:key => 'value'}
 
-      code_module = Generamba::CodeModule.new('name', 'description', rambafile, options)
+      code_module = Generamba::CodeModule.new('name', rambafile, options)
       template_name = 'Template'
 
       params = Generamba::GenCommandTableParametersFormatter.prepare_parameters_for_displaying(code_module, template_name)
