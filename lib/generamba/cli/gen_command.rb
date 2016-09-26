@@ -45,7 +45,8 @@ module Generamba::CLI
       module_validator = ModuleValidator.new
       module_validator.validate(code_module)
 
-      template = ModuleTemplate.new(template_name)
+      module_info = ModuleInfoGenerator.new(code_module)
+      template = ModuleTemplate.new(template_name, module_info.scope)
 
       parameters = GenCommandTableParametersFormatter.prepare_parameters_for_displaying(code_module, template_name)
       PrintTable.print_values(
