@@ -22,7 +22,11 @@ module Generamba
     # @return [Bool]
     def self.validate_spec(template_name, template_path)
       spec_path = self.obtain_spec_path(template_name, template_path)
-      spec = YAML.load_file(spec_path)
+
+      spec_source = IO.read(spec_path)
+      spec_template = Liquid::Template.parse(spec_source)
+      spec_content = spec_template.render
+      spec = YAML.load(spec_content)
 
       is_spec_valid =
           spec[TEMPLATE_NAME_KEY] != nil &&
