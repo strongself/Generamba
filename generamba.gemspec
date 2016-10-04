@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Advanced code generator for Xcode projects with a nice and flexible template system.'
   spec.description   = 'Generamba is a powerful and easy-to-use Xcode code generator. It provides a project-based configuration, flexible templates system, the ability to generate code and tests simultaneously.'
-  spec.homepage      = 'https://github.com/rambler-ios/Generamba'
+  spec.homepage      = 'https://github.com/rambler-digital-solutions/Generamba'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

@@ -5,7 +5,7 @@ describe 'CatalogDownloader' do
 
     it 'should pull catalog from remote repository if directory exists' do
       catalog_name = 'catalog'
-      catalog_url = 'https://github.com/rambler-ios/generamba-catalog'
+      catalog_url = 'https://github.com/rambler-digital-solutions/generamba-catalog'
 
       allow(File).to receive(:exists?) { true }
 
@@ -21,7 +21,7 @@ describe 'CatalogDownloader' do
 
     it 'should clone catalog from remote repository if directory not exists' do
       catalog_name = 'catalog'
-      catalog_url = 'https://github.com/rambler-ios/generamba-catalog'
+      catalog_url = 'https://github.com/rambler-digital-solutions/generamba-catalog'
 
       allow(File).to receive(:exists?) { false }
 
@@ -34,7 +34,7 @@ describe 'CatalogDownloader' do
 
     it 'should return local catalog directory' do
       catalog_name = 'catalog'
-      catalog_url = 'https://github.com/rambler-ios/generamba-catalog'
+      catalog_url = 'https://github.com/rambler-digital-solutions/generamba-catalog'
       catalogs_local_path = Pathname.new(ENV['HOME'])
                                 .join(Generamba::GENERAMBA_HOME_DIR)
                                 .join(Generamba::CATALOGS_DIR)
