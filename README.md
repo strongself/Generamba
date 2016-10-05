@@ -1,6 +1,6 @@
 ### Overview
 
-[![Build Status](https://travis-ci.org/rambler-digital-solutions/Generamba.svg)](https://travis-ci.org/rambler-ios/Generamba)
+[![Build Status](https://travis-ci.org/rambler-digital-solutions/Generamba.svg)](https://travis-ci.org/rambler-digital-solutions/Generamba)
 [![Gem Version](https://badge.fury.io/rb/generamba.svg)](https://badge.fury.io/rb/generamba)
 [![Code Climate](https://codeclimate.com/github/rambler-digital-solutions/Generamba/badges/gpa.svg)](https://codeclimate.com/github/rambler-digital-solutions/Generamba)
 
@@ -48,7 +48,7 @@ Run `generamba help` to learn more about each of the Generamba features.
 
 ### Authors
 
-- Egor Tolstoy, Beniamin Sarkisyan, Andrey Zarembo and the rest of [Rambler.iOS team](https://github.com/orgs/rambler-ios/people).
+- Egor Tolstoy, Beniamin Sarkisyan, Andrey Zarembo and the rest of [Rambler.iOS team](https://github.com/orgs/rambler-digital-solutions/teams/ios-team).
 
 ### License
 
