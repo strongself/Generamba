@@ -49,7 +49,7 @@ The main building block of *Rambafile* is `ramba`:
 
 ```
 desc "Creates a new Xcode project"
-ramba :viper_module do |options|
+ramba :viper_module do
   # Detailed description of generation steps
 end
 ```
@@ -64,8 +64,8 @@ A user can set options in any part of *Rambafile* structure. It's important to n
 ```
 set :project_name, 'MyProject'
 
-ramba :viper_module do |options|
-	options[:project_name] = 'ViperProject'
+ramba :viper_module do
+  set :project_name, 'MyProject'
 end
 ```
 
@@ -92,14 +92,14 @@ There are multiple types of hooks, which make possible to perform some action or
 
 A user can specify a hook, that'll execute before a specific `ramba`:
 ```
-before :viper_module do |options|
+before :viper_module do
 	# Some logic here...
 end
 ```
 
 It's also possible to write a hook that'll execute before each `ramba`:
 ```
-before_each do |ramba_name, options|
+before_each do |ramba_name|
 	# Some logic here...
 end
 ```
@@ -108,14 +108,14 @@ end
 
 A user can specify a hook, that'll execute after a specific `ramba`:
 ```
-after :viper_module do |options|
+after :viper_module do
 	# Some logic here...
 end
 ```
 
 It's also possible to write a hook that'll execute after each `ramba`:
 ```
-after_each do |ramba_name, options|
+after_each do |ramba_name|
 	# Some logic here...
 end
 ```
@@ -124,13 +124,13 @@ end
 
 If any action returns an error, it's possible to customize the resulting behavior for a specific `ramba` :
 ```
-error :viper_module do |options|
+error :viper_module do
 	# Some logic here...
 end
 ```
 It's also possible to write a hook that'll execute in case of error in any `ramba`:
 ```
-error_each do |ramba_name, options|
+error_each do |ramba_name|
 	# Some logic here...
 end
 ```
@@ -142,13 +142,13 @@ As we've already mentioned, `ramba` consists of three main steps. Multiple actio
 ##### Validation actions
 
 ```
-ramba :viper_module do |options|
+ramba :viper_module do
 	...
-	validate :validate_plugin_name do |options|
-   		option[:some_option] = 'some_value'
-    		any_custom_action()
-  	end
-  	...
+	validate :validate_plugin_name do
+    set :some_option, 'some_value'
+    any_custom_action()
+  end
+  ...
 end
 ```
 
@@ -164,13 +164,13 @@ validate :validate_plugin_name
 ##### Generation actions
 
 ```
-ramba :viper_module do |options|
+ramba :viper_module do
 	...
-  	gen :viper_module do |options|
-    		option[:some_option] = 'some_value'
-    		any_custom_action(parameter1)
+  gen :viper_module do
+    set :some_option, 'some_value'
+    any_custom_action(parameter1)
  	end
-  	...
+  ...
 end
 ```
 
@@ -186,13 +186,13 @@ gen :viper_module
 ##### Saving actions
 
 ```
-ramba :viper_module do |options|
+ramba :viper_module do
 	...
-	save :save_plugin_name do |options|
-    		option[:some_option] = 'some_value'
-    		any_custom_action()
-  	end
-  	...
+	save :save_plugin_name do
+    set :some_option, 'some_value'
+    any_custom_action()
+  end
+  ...
 end
 ```
 
@@ -209,10 +209,10 @@ save :save_plugin_name
 
 Besides system plugins (validation and saving), a user can create a general-purpose plugin which contains some specific reusable logic. E.g. a plugin which clears the environment - calls `git reset`, uninstalls some packages and so on. It's called simply by calling it's name:
 ```
-ramba :viper_module do |options|
+ramba :viper_module do
 	...
 	any_custom_action()
-  	...
+  ...
 end
 ```
 
@@ -245,29 +245,29 @@ module Generamba
 			
 			# The description of what this plugin does
 			def self.description
-        			'Verifies dependencies version in the project Podfile'
-      			end
+        'Verifies dependencies version in the project Podfile'
+      end
 
 			# Explicitly declaring available plugin options
 			def self.available_options
-        			[
-          				Generamba::ConfigItem.new(key: :package_versions,
-                                       			          description: "The hash with dependencies names and required versions",
-                                       				  default_value: [])
-        			]
-      			end
+        [
+          Generamba::ConfigItem.new(key: :package_versions,
+                                    description: "The hash with dependencies names and required versions",
+                                    default_value: [])
+          ]
+      end
 
 			# Declaring the output parameters
-      			def self.output
-        			[
-          				['COCOAPODS_CHECK_RESULT', 'The result of dependency checking']
-        			]
-      			end
+      def self.output
+        [
+          ['COCOAPODS_CHECK_RESULT', 'The result of dependency checking']
+        ]
+      end
 
 			# Who created this plugin
-      			def self.authors
-        			["etolstoy"]
-      			end
+      def self.authors
+        ["etolstoy"]
+      end
 		end
 	end
 end
@@ -291,56 +291,51 @@ ramba_import_git('git', 'branch')
 
 set :project_name, 'LiveJournal'
 
-before :viper_module do |options|
-  options[:company] = 'Rambler&Co'
-  options[:xcodeproj_path] = 'LiveJournal.xcodeproj'
-  options[:project_targets] = ['LiveJournal1', 'LiveJournal2']
-  options[:test_target] = 'LiveJournalTests'
+before :viper_module do
+  set :company, 'Rambler&Co'
+  set :xcodeproj_path, 'LiveJournal.xcodeproj'
+  set :project_targets, ['LiveJournal1', 'LiveJournal2']
+  set :test_target, 'LiveJournalTests'
 end
 
 desc "Creates a simple VIPER module"
-ramba :viper_module do |options|
-  validate :plugin_validate_name do |options|
-    option[:some_option] = '456'
+ramba :viper_module do
+  validate :plugin_validate_name do
+    set :some_option, '456'
     any_custom_action()
   end
 
-  gen :template_name do |options|
-    option[:some_option] = '123'
+  gen :template_name do
+    set :some_option, '123'
     any_custom_action(parameter1)
   end
 
-  save :file_system do |options|
-    option[:some_option] = '789'
+  save :file_system do
+    set :some_option, '789'
   end
 
   save :xcode_proj
 end
 
 desc "Creates a new Xcode project"
-ramba :create_project do |options|
+ramba :create_project do
   sh("liftoff") # Calling a shell script which invokes a 'liftoff' utility
   add_pods(["Typhoon", "MagicalRecord"])
 
-  gen :app_delegate do |options|
-    options[:template_name] = 'AppDelegate'
-  end
-
-  gen :core_data_stack do |options|
-    options[:template_name] = 'core_data_stack_template'
-  end
+  gen :app_delegate
+  gen :core_data_stack
 
   save :file_system
   save :xcode_proj
 end
 
 # It's called after each 'ramba' execution
-after_each do |ramba_name, options|
+after_each do |ramba_name|
   # Some logic here
 end
 
 # It's called in case of an error in any 'ramba'
-error :viper_module do |options|
+error :viper_module do
   # Some error handling logic here
 end
 ```
