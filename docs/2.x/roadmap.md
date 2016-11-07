@@ -145,16 +145,16 @@ As we've already mentioned, `ramba` consists of three main steps. Multiple actio
 ramba :viper_module do |options|
 	...
 	validate :validate_plugin_name do |options|
-    option[:some_option] = 'some_value'
-    any_custom_action()
-  end
-  ...
+   		option[:some_option] = 'some_value'
+    		any_custom_action()
+  	end
+  	...
 end
 ```
 
 This notation means the following steps:
 	- The lambda passed to the validate action is executed.
-	* The plugin with name `validate_plugin_name` is called with options modified by lambda.
+	- The plugin with name `validate_plugin_name` is called with options modified by lambda.
 
 The notation can be simplified to:
 ```
@@ -166,11 +166,11 @@ validate :validate_plugin_name
 ```
 ramba :viper_module do |options|
 	...
-  gen :viper_module do |options|
-    option[:some_option] = 'some_value'
-    any_custom_action(parameter1)
-  end
-  ...
+  	gen :viper_module do |options|
+    		option[:some_option] = 'some_value'
+    		any_custom_action(parameter1)
+ 	end
+  	...
 end
 ```
 
@@ -189,16 +189,16 @@ gen :viper_module
 ramba :viper_module do |options|
 	...
 	save :save_plugin_name do |options|
-    option[:some_option] = 'some_value'
-    any_custom_action()
-  end
-  ...
+    		option[:some_option] = 'some_value'
+    		any_custom_action()
+  	end
+  	...
 end
 ```
 
 This notation means the following steps:
 	- The lambda passed to the saving action is executed.
-	* The plugin with name `save_plugin_name` is called with options modified by lambda.
+	- The plugin with name `save_plugin_name` is called with options modified by lambda.
 
 The notation can be simplified to:
 ```
@@ -212,7 +212,7 @@ Besides system plugins (validation and saving), a user can create a general-purp
 ramba :viper_module do |options|
 	...
 	any_custom_action()
-  ...
+  	...
 end
 ```
 
@@ -245,29 +245,29 @@ module Generamba
 			
 			# The description of what this plugin does
 			def self.description
-        		'Verifies dependencies version in the project Podfile'
-      	end
+        			'Verifies dependencies version in the project Podfile'
+      			end
 
 			# Explicitly declaring available plugin options
 			def self.available_options
-        [
-          Generamba::ConfigItem.new(key: :package_versions,
-                                       description: "The hash with dependencies names and required versions",
-                                       default_value: [])
-        ]
-      end
+        			[
+          				Generamba::ConfigItem.new(key: :package_versions,
+                                       			          description: "The hash with dependencies names and required versions",
+                                       				  default_value: [])
+        			]
+      			end
 
-		# Declaring the output parameters
-      def self.output
-        [
-          ['COCOAPODS_CHECK_RESULT', 'The result of dependency checking']
-        ]
-      end
+			# Declaring the output parameters
+      			def self.output
+        			[
+          				['COCOAPODS_CHECK_RESULT', 'The result of dependency checking']
+        			]
+      			end
 
-		# Who created this plugin
-      def self.authors
-        ["etolstoy"]
-      end
+			# Who created this plugin
+      			def self.authors
+        			["etolstoy"]
+      			end
 		end
 	end
 end
