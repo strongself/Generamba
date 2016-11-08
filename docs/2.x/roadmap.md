@@ -219,12 +219,14 @@ end
 ### Plugins
 
 The main ideas behind plugin system are:
+
 	- Increase code reusability between different projects,
 	* Keep the Generamba core as simple as possible,
 	* Abstract from specific implementations of different IDEs,
 	* Allow users to easily extend Generamba functionality for their needs.
 
 As we've already mentioned, there are two types of plugins:
+
 	- System plugins - validation and saving,
 	* Custom plugins.
 
