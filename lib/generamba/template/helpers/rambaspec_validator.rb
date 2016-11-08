@@ -32,7 +32,7 @@ module Generamba
           spec[TEMPLATE_NAME_KEY] != nil &&
           spec[TEMPLATE_AUTHOR_KEY] != nil &&
           spec[TEMPLATE_VERSION_KEY] != nil &&
-          spec[TEMPLATE_CODE_FILES_KEY] != nil
+          (spec[TEMPLATE_CODE_FILES_KEY] != nil || spec[TEMPLATE_TEST_FILES_KEY] != nil)
       return is_spec_valid
     end
 
