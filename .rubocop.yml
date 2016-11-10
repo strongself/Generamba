@@ -1,0 +1,38 @@
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'spec/**/*'
+    - '*.gemspec'
+    - 'vendor/**/*'
+
+Rails:
+  Enabled: false
+
+AlignParameters:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 100
+
+Metrics/MethodLength:
+  Max: 20
+
+Style/IndentHash:
+  EnforcedStyle: consistent
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/SpaceInsideHashLiteralBraces:
+  Enabled: true
+  Exclude:
+    - spec/**/*
+
+Style/BlockComments:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Documentation:
+  Enabled: false

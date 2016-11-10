@@ -2,4 +2,4 @@
 
 require 'generamba'
 
-Generamba::CLI::Application.start(ARGV)
+Rake.application.run

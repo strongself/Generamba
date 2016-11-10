@@ -1,5 +1,6 @@
 module Generamba
-  VERSION = '1.3.0'
-  RELEASE_DATE = '05.10.2016'
-  RELEASE_LINK = "https://github.com/rambler-digital-solutions/Generamba/releases/tag/#{VERSION}"
+  VERSION = '2.0.0'.freeze
+  RELEASE_DATE = '09.11.2016'.freeze
+  RELEASE_LINK =
+    "https://github.com/rambler-digital-solutions/Generamba/releases/tag/#{VERSION}".freeze
 end
