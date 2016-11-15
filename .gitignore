@@ -2,3 +2,4 @@
 .rakeTasks
 encodings.xml
 Gemfile.lock
+.DS_Store
