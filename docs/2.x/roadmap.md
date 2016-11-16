@@ -222,9 +222,21 @@ Templates and tempalte catalogs, used for code generation, can be specified righ
 
 ```
 ramba :viper_module do
-
+	catalog 'https://github.com/user/catalog', branch:'develop'
+	template 'viper_ios', version:'1.2.5'
+	template 'viper_ios2', path:'/local_templates'
 end
 ```
+
+- `catalog` keyword specifies a custom template catalog (like https://github.com/rambler-digital-solutions/generamba-catalog).
+  - `branch` parameter specifies a concrete catalog branch
+- `template` keyword declares a template that needs to be installed
+  - `version` parameter specifies a concrete template version.
+  - `path` parameter specifies a local path to the template.
+  - `git` parameter specifies a remote repository path to a template.
+  - `branch` parameter is used together with `git` to specify a branch.
+  
+The `generamba template install` command aggregates all of the templates from the `Rambafile` and installs them in a `.generamba` hidden directory. When a user triggers some `ramba`, templates are loaded from this directory. The only exception are local templates - they are always installed from the specified in the `Rambafile` local path.
 
 ### Plugins
 
