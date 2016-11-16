@@ -216,6 +216,16 @@ ramba :viper_module do
 end
 ```
 
+##### Templates and Catalogs
+
+Templates and tempalte catalogs, used for code generation, can be specified right in the `ramba`'s.
+
+```
+ramba :viper_module do
+
+end
+```
+
 ### Plugins
 
 The main ideas behind plugin system are:
