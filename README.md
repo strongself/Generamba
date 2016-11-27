@@ -1,4 +1,6 @@
-### Overview
+<p align="center">
+  <img src="http://i.imgur.com/1AwoVaN.png"/>
+</p>
 
 [![Build Status](https://travis-ci.org/rambler-digital-solutions/Generamba.svg)](https://travis-ci.org/rambler-digital-solutions/Generamba)
 [![Gem Version](https://badge.fury.io/rb/generamba.svg)](https://badge.fury.io/rb/generamba)
