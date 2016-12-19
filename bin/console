@@ -10,5 +10,5 @@ require "generamba"
 # require "pry"
 # Pry.start
 
-require "irb"
+require 'irb'
 IRB.start

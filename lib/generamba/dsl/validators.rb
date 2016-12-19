@@ -1,12 +1,12 @@
 module Generamba
   module DSL
     module Validators
-      def validate(validate_name, _ = {})
+      def validate(_validate_name, _options = {})
         result = Proc.new.call if block_given?
         # load plugin
         result = true unless block_given?
 
-        raise "validator #{validate_name} raise error" unless result
+        raise Generamba::Error::Validator unless result
       end
     end
   end
