@@ -1,12 +1,16 @@
 class RambaApplication < Rake::Application
-  attr_accessor :current_task, :before_hooks, :after_hooks, :error_hooks
+  attr_accessor :current_task
+  attr_accessor :before_hooks, :after_hooks, :error_hooks
+  attr_accessor :raw_templates_list, :selected_templates
 
   def initialize
     super
     @rakefiles = DEFAULT_RAKEFILES.dup << 'Rambafile'
-    @before_hooks = {}
-    @after_hooks  = {}
-    @error_hooks  = {}
+    @before_hooks        = {}
+    @after_hooks         = {}
+    @error_hooks         = {}
+    @raw_templates_list  = {}
+    @selected_templates  = {}
   end
 
   def standard_rake_options

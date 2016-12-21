@@ -1,0 +1,8 @@
+name: "local_template"
+summary: "test catalog"
+author: "rspec"
+version: "0.0.1"
+license: "MIT"
+
+files:
+- {name: Code/test_template.txt, path: Code/test_template.liquid}

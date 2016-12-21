@@ -2,4 +2,5 @@
 
 require 'generamba'
 
+Rake.load_rakefile('generamba/tasks/default.rake')
 Rake.application.run

@@ -6,7 +6,7 @@ describe Generamba::DSL::Validators do
           validate :test_validator do
             false
           end
-        }.to raise_error(RuntimeError)
+        }.to raise_error(Generamba::Error::Validator)
       end
 
       it 'should remain silent if it return true' do
