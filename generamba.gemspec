@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.2'
 
   spec.add_runtime_dependency 'thor', '0.19.1'
-  spec.add_runtime_dependency 'xcodeproj', '1.4.2'
+  spec.add_runtime_dependency 'xcodeproj', '1.4.4'
   spec.add_runtime_dependency 'liquid', '4.0.0'
   spec.add_runtime_dependency 'git', '1.2.9.1'
   spec.add_runtime_dependency 'cocoapods-core', '1.2.1'
