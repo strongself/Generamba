@@ -37,7 +37,8 @@ module Generamba
 																project,
 																code_module.test_targets,
 																code_module.test_group_path,
-																code_module.test_file_path)
+																code_module.test_file_path,
+																[code_module.project_group_path])
 			end
 
 			# Saving the current changes in the Xcode project
@@ -51,14 +52,14 @@ module Generamba
 			puts "Test group path: #{code_module.test_group_path}".green if code_module.test_group_path
 		end
 
-		def process_files_if_needed(files, code_module, template, project, targets, group_path, dir_path)
+		def process_files_if_needed(files, code_module, template, project, targets, group_path, dir_path, processed_groups = [])
 			# It's possible that current project doesn't test targets configured, so it doesn't need to generate tests.
 			# The same is for files property - a template can have only test or project files
 			if targets.count == 0 || files == nil || files.count == 0 || dir_path == nil || group_path == nil
 				return
 			end
 
-			XcodeprojHelper.clear_group(project, targets, group_path)
+			XcodeprojHelper.clear_group(project, targets, group_path) unless processed_groups.include? group_path
 			files.each do |file|
 				unless file[TEMPLATE_FILE_PATH_KEY]
 					directory_name = file[TEMPLATE_NAME_KEY].gsub(/^\/|\/$/, '')
