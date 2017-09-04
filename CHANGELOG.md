@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.4.1](https://github.com/rambler-digital-solutions/Generamba/tree/1.4.1) (2017-09-04)
+[Full Changelog](https://github.com/rambler-digital-solutions/Generamba/compare/1.4.0...1.4.1)
+
+**Merged pull requests:**
+
+* Do not clear tests group if **test\_group\_path** is the same as **project\_group\_path** [\#193](https://github.com/rambler-digital-solutions/Generamba/pull/193) ([RamTararam](https://github.com/RamTararam))
+
 ## [1.2.2](https://github.com/rambler-digital-solutions/Generamba/tree/1.2.2) (2016-09-27)
 [Full Changelog](https://github.com/rambler-digital-solutions/Generamba/compare/1.2.1...1.2.2)
 
