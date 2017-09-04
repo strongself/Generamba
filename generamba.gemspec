@@ -6,8 +6,8 @@ require 'generamba/version'
 Gem::Specification.new do |spec|
   spec.name          = 'generamba'
   spec.version       = Generamba::VERSION
-  spec.authors       = ['Egor Tolstoy', 'Andrey Zarembo', 'Beniamin Sarkisyan']
-  spec.email         = 'e.tolstoy@rambler-co.ru'
+  spec.authors       = ['Egor Tolstoy', 'Andrey Zarembo', 'Beniamin Sarkisyan', 'Aleksandr Sychev']
+  spec.email         = 'rambler.ios@rambler-co.ru'
 
   spec.summary       = 'Advanced code generator for Xcode projects with a nice and flexible template system.'
   spec.description   = 'Generamba is a powerful and easy-to-use Xcode code generator. It provides a project-based configuration, flexible templates system, the ability to generate code and tests simultaneously.'
@@ -34,5 +34,5 @@ Gem::Specification.new do |spec|
   # ActiveSupport dependency is not used by dashramba; instead some other dependency
   # requires it. We lock it to 4.2.7 so as to avoid using 5.0, which is
   # not compatible with older versions of Ruby.
-  spec.add_development_dependency 'activesupport', '~> 4.2.7'
+  spec.add_development_dependency 'activesupport', '~> 4.2', '>= 4.2.7'
 end
