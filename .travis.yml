@@ -1,0 +1,17 @@
+language: objective-c
+osx_image: xcode7.3
+
+cache:
+  bundler: true
+
+bundler_args: --jobs 3 --retry 3
+
+rvm:
+  - 2.2.1
+  - 2.3.1
+
+before_install:
+  - gem update --system --no-doc --no-ri
+  - gem install bundler --no-doc --no-ri
+
+script: bundle exec rake
