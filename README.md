@@ -13,13 +13,13 @@
 - [Changelog](https://github.com/rambler-digital-solutions/Generamba/blob/develop/CHANGELOG.md), 
 - [Release notes](https://github.com/rambler-digital-solutions/Generamba/releases).
 
-Besides it, we started work on 2.0 version with powerful DSL and plugins. Check the [release roadmap](https://github.com/rambler-digital-solutions/Generamba/blob/develop/docs/2.x/roadmap.md)!
+Besides, we started working on 2.0 version with powerful DSL and plugins. Check the [release roadmap](https://github.com/rambler-digital-solutions/Generamba/blob/develop/docs/2.x/roadmap.md)!
 
 ![Generamba Screenshot](https://habrastorage.org/files/b98/770/b37/b98770b37dc54de98daf0e22fea38478.gif)
 
 ### Key features
 
-- Supports work with *.xcodeproj* files out of the box. All generated class files are automatically placed on specific folders and groups of Xcode project.
+- Supports work with *.xcodeproj* files out of the box. All generated class files are automatically placed to specific folders and groups of Xcode project.
 - Can generate both code itself and tests adding them to right targets.
 - Based on work with [liquid-templates](https://github.com/Shopify/liquid) that have plain and readable syntax in comparison with templates for Xcode.
 - It is very easy to create a new module: `generamba gen [MODULE_NAME] [TEMPLATE_NAME]`. You do not need to input a bunch of data each time because each project corresponds to only one configuration file that holds standard file system and Xcode-project pathes, names of targets, information about the author.
