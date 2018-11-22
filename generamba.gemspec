@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'xcodeproj', '>= 1.5.0', '< 2.0.0'
   spec.add_runtime_dependency 'liquid', '4.0.0'
   spec.add_runtime_dependency 'git', '1.2.9.1'
-  spec.add_runtime_dependency 'cocoapods-core', '1.5.3'
+  spec.add_runtime_dependency 'cocoapods-core', '>= 1.4.0', '< 2.0.0'
   spec.add_runtime_dependency 'terminal-table', '1.4.5'
 
   spec.add_development_dependency 'bundler', '~> 1.10'
