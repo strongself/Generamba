@@ -12,6 +12,6 @@ rvm:
 
 before_install:
   - gem update --system --no-doc --no-ri
-  - gem install bundler -v 1.17.3 --no-doc --no-ri
+  - gem install bundler -v 1.17.3 --no-document
 
 script: bundle exec rake
