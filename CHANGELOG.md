@@ -1,5 +1,16 @@
 # Change Log
 
+## [1.5.0](https://github.com/rambler-digital-solutions/Generamba/tree/1.5.0) (2019-04-29)
+[Full Changelog](https://github.com/rambler-digital-solutions/Generamba/compare/1.4.1...1.5.0)
+
+**Merged pull requests:**
+
+* Resolve Cocoapods Dependency hell [\#230](https://github.com/strongself/Generamba/pull/230)
+* Update xcodeproj & cocoapods-core dependencies [\#222](https://github.com/strongself/Generamba/pull/222)
+* Bump gems versions [\#201](https://github.com/strongself/Generamba/pull/201)
+* Remove the author-specific information from Rambafile [\#1](https://github.com/strongself/Generamba/issues/1)
+* Grammar fixes [\#1](https://github.com/strongself/Generamba/pull/198)
+
 ## [1.4.1](https://github.com/rambler-digital-solutions/Generamba/tree/1.4.1) (2017-09-04)
 [Full Changelog](https://github.com/rambler-digital-solutions/Generamba/compare/1.4.0...1.4.1)
 
