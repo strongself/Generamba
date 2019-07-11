@@ -18,6 +18,8 @@ module Generamba
   TEST_TARGETS_KEY = 'test_targets'
   TEST_FILE_PATH_KEY = 'test_file_path'
   TEST_GROUP_PATH_KEY = 'test_group_path'
+  
+  CREATE_LOGICAL_GROUPS_KEY = 'create_logical_groups'
 
   PODFILE_PATH_KEY = 'podfile_path'
   CARTFILE_PATH_KEY = 'cartfile_path'

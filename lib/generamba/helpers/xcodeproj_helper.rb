@@ -19,12 +19,12 @@ module Generamba
     # @param file_is_resource [TrueClass or FalseClass] If true then file is resource
     #
     # @return [void]
-    def self.add_file_to_project_and_targets(project, targets_name, group_path, dir_path, file_group_path, file_name, file_is_resource = false)
+    def self.add_file_to_project_and_targets(project, targets_name, group_path, dir_path, file_group_path, file_name, file_is_resource = false, group_is_logical = false)
       file_path = dir_path
-      file_path = file_path.join(file_group_path) if file_group_path
+      file_path = file_path.join(file_group_path) if (file_group_path && !group_is_logical)
       file_path = file_path.join(file_name) if file_name
 
-      module_group = self.retrieve_group_or_create_if_needed(group_path, dir_path, file_group_path, project, true)
+      module_group = self.retrieve_group_or_create_if_needed(group_path, dir_path, file_group_path, project, true, group_is_logical)
       xcode_file = module_group.new_file(File.absolute_path(file_path))
 
       targets_name.each do |target|
@@ -45,8 +45,8 @@ module Generamba
     # @param directory_name [String] Current directory name
     #
     # @return [void]
-    def self.add_group_to_project(project, group_path, dir_path, directory_name)
-      self.retrieve_group_or_create_if_needed(group_path, dir_path, directory_name, project, true)
+    def self.add_group_to_project(project, group_path, dir_path, directory_name, group_is_logical = false)
+      self.retrieve_group_or_create_if_needed(group_path, dir_path, directory_name, project, true, group_is_logical)
     end
 
     # File is a compiled source
@@ -71,7 +71,7 @@ module Generamba
     #
     # @return [Void]
     def self.clear_group(project, targets_name, group_path)
-      module_group = self.retrieve_group_or_create_if_needed(group_path, nil, nil, project, false)
+      module_group = self.retrieve_group_or_create_if_needed(group_path, nil, nil, project, false, false)
       return unless module_group
 
       files_path = self.files_path_from_group(module_group, project)
@@ -90,7 +90,7 @@ module Generamba
     #
     # @return [TrueClass or FalseClass]
     def self.module_with_group_path_already_exists(project, group_path)
-      module_group = self.retrieve_group_or_create_if_needed(group_path, nil, nil, project, false)
+      module_group = self.retrieve_group_or_create_if_needed(group_path, nil, nil, project, false, false)
       module_group.nil? ? false : true
     end
 
@@ -104,11 +104,10 @@ module Generamba
     # @param create_group_if_not_exists [TrueClass or FalseClass] If true nonexistent group will be created
     #
     # @return [PBXGroup]
-    def self.retrieve_group_or_create_if_needed(group_path, dir_path, file_group_path, project, create_group_if_not_exists)
+def self.retrieve_group_or_create_if_needed(group_path, dir_path, file_group_path, project, create_group_if_not_exists, group_is_logical = false)
       group_names = path_names_from_path(group_path)
       group_components_count = group_names.count
       group_names += path_names_from_path(file_group_path) if file_group_path
-
       final_group = project
 
       group_names.each_with_index do |group_name, index|
@@ -119,6 +118,10 @@ module Generamba
 
           if group_path != dir_path && index == group_components_count-1
             next_group = final_group.new_group(group_name, dir_path, :project)
+          elsif index == group_components_count-1 && group_is_logical
+            next_group = final_group.new_group(group_name, group_name)
+          elsif group_is_logical
+            next_group = final_group.new_group(group_name)
           else
             next_group = final_group.new_group(group_name, group_name)
           end

@@ -25,7 +25,8 @@ module Generamba
                 :test_targets,
                 :podfile_path,
                 :cartfile_path,
-                :custom_parameters
+                :custom_parameters,
+                :create_logical_groups
 
     def initialize(name, rambafile, options)
       # Base initialization
@@ -69,6 +70,7 @@ module Generamba
 
       @podfile_path = rambafile[PODFILE_PATH_KEY] if rambafile[PODFILE_PATH_KEY]
       @cartfile_path = rambafile[CARTFILE_PATH_KEY] if rambafile[CARTFILE_PATH_KEY]
+      @create_logical_groups = rambafile[CREATE_LOGICAL_GROUPS_KEY] if rambafile[CREATE_LOGICAL_GROUPS_KEY]
     end
 
     private

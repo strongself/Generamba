@@ -66,7 +66,7 @@ module Generamba
 					file_group = dir_path.join(directory_name)
 
 					FileUtils.mkdir_p file_group
-					XcodeprojHelper.add_group_to_project(project, group_path, dir_path, directory_name)
+					XcodeprojHelper.add_group_to_project(project, group_path, dir_path, directory_name, code_module.create_logical_groups)
 
 					next
 				end
@@ -79,10 +79,11 @@ module Generamba
 				# Generating the content of the code file and it's name
 				file_name, file_content = ContentGenerator.create_file(file, module_info.scope, template)
 				file_path = dir_path
-				file_path = file_path.join(file_group) if file_group
+                file_path = file_path.join(file_group) if (file_group && !code_module.create_logical_groups)
 				file_path = file_path.join(file_name) if file_name
 
 				# Creating the file in the filesystem
+
 				FileUtils.mkdir_p File.dirname(file_path)
 				File.open(file_path, 'w+') do |f|
 					f.write(file_content)
@@ -97,7 +98,9 @@ module Generamba
 																												dir_path,
 																												file_group,
 																												file_name,
-																												file_is_resource)
+																												file_is_resource,
+
+                                                                             code_module.create_logical_groups)
 			end
 		end
 	end
