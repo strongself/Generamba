@@ -18,14 +18,17 @@ module Generamba
                 :product_module_name,
                 :xcodeproj_path,
                 :project_file_path,
+				:project_file_root,
                 :project_group_path,
                 :test_file_path,
+				:test_file_root,
                 :test_group_path,
                 :project_targets,
                 :test_targets,
                 :podfile_path,
                 :cartfile_path,
-                :custom_parameters
+                :custom_parameters,
+                :create_logical_groups
 
     def initialize(name, rambafile, options)
       # Base initialization
@@ -46,6 +49,12 @@ module Generamba
       setup_file_and_group_paths(rambafile[PROJECT_FILE_PATH_KEY], rambafile[PROJECT_GROUP_PATH_KEY], PATH_TYPE_PROJECT)
       setup_file_and_group_paths(rambafile[TEST_FILE_PATH_KEY], rambafile[TEST_GROUP_PATH_KEY], PATH_TYPE_TEST)
 
+      @create_logical_groups = rambafile[CREATE_LOGICAL_GROUPS_KEY] if rambafile[CREATE_LOGICAL_GROUPS_KEY]
+      if create_logical_groups
+          @project_file_root = Pathname.new(rambafile[PROJECT_FILE_PATH_KEY])
+          @test_file_root = Pathname.new(rambafile[TEST_FILE_PATH_KEY])
+      end
+      
       @project_targets = [rambafile[PROJECT_TARGET_KEY]] if rambafile[PROJECT_TARGET_KEY]
       @project_targets = rambafile[PROJECT_TARGETS_KEY] if rambafile[PROJECT_TARGETS_KEY]
 
