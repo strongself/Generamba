@@ -12,9 +12,14 @@ module Generamba
 			# Setting up Xcode objects
 			project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
 
-			# Configuring file paths
-			FileUtils.mkdir_p code_module.project_file_path if code_module.project_file_path
-			FileUtils.mkdir_p code_module.test_file_path if code_module.test_file_path
+            # Configuring file paths
+            if code_module.project_file_root && code_module.test_file_root
+                FileUtils.mkdir_p code_module.project_file_root if code_module.project_file_root
+                FileUtils.mkdir_p code_module.test_file_root if code_module.test_file_root
+            else
+                FileUtils.mkdir_p code_module.project_file_path if code_module.project_file_path
+                FileUtils.mkdir_p code_module.test_file_path if code_module.test_file_path
+            end
 
 			# Creating code files
 			if code_module.project_targets && code_module.project_group_path && code_module.project_file_path
@@ -25,8 +30,10 @@ module Generamba
 																project,
 																code_module.project_targets,
 																code_module.project_group_path,
-																code_module.project_file_path)
+																code_module.project_file_path,
+																code_module.project_file_root)
 			end
+
 
 			# Creating test files
 			if code_module.test_targets && code_module.test_group_path && code_module.test_file_path
@@ -38,6 +45,7 @@ module Generamba
 																code_module.test_targets,
 																code_module.test_group_path,
 																code_module.test_file_path,
+																code_module.test_file_root,
 																[code_module.project_group_path])
 			end
 
@@ -52,21 +60,21 @@ module Generamba
 			puts "Test group path: #{code_module.test_group_path}".green if code_module.test_group_path
 		end
 
-		def process_files_if_needed(files, code_module, template, project, targets, group_path, dir_path, processed_groups = [])
+		def process_files_if_needed(files, code_module, template, project, targets, group_path, dir_path, root_path, processed_groups = [])
 			# It's possible that current project doesn't test targets configured, so it doesn't need to generate tests.
 			# The same is for files property - a template can have only test or project files
 			if targets.count == 0 || files == nil || files.count == 0 || dir_path == nil || group_path == nil
 				return
 			end
 
-			XcodeprojHelper.clear_group(project, targets, group_path) unless processed_groups.include? group_path
+			XcodeprojHelper.clear_group(project, targets, group_path, code_module.create_logical_groups) unless processed_groups.include? group_path
 			files.each do |file|
 				unless file[TEMPLATE_FILE_PATH_KEY]
 					directory_name = file[TEMPLATE_NAME_KEY].gsub(/^\/|\/$/, '')
 					file_group = dir_path.join(directory_name)
 
-					FileUtils.mkdir_p file_group
-					XcodeprojHelper.add_group_to_project(project, group_path, dir_path, directory_name)
+					FileUtils.mkdir_p root_path
+					XcodeprojHelper.add_group_to_project(project, group_path, dir_path, directory_name, code_module.create_logical_groups)
 
 					next
 				end
@@ -78,12 +86,17 @@ module Generamba
 
 				# Generating the content of the code file and it's name
 				file_name, file_content = ContentGenerator.create_file(file, module_info.scope, template)
-				file_path = dir_path
-				file_path = file_path.join(file_group) if file_group
+                if code_module.create_logical_groups
+                    file_path = root_path
+                else
+                    file_path = dir_path
+                    file_path = file_path.join(file_group) if file_group
+                end
+                
 				file_path = file_path.join(file_name) if file_name
 
 				# Creating the file in the filesystem
-				FileUtils.mkdir_p File.dirname(file_path)
+                FileUtils.mkdir_p File.dirname(file_path) if !code_module.create_logical_groups
 				File.open(file_path, 'w+') do |f|
 					f.write(file_content)
 				end
@@ -97,6 +110,7 @@ module Generamba
 																												dir_path,
 																												file_group,
 																												file_name,
+																												root_path,
 																												file_is_resource)
 			end
 		end

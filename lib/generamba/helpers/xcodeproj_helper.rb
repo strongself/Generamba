@@ -19,12 +19,18 @@ module Generamba
     # @param file_is_resource [TrueClass or FalseClass] If true then file is resource
     #
     # @return [void]
-    def self.add_file_to_project_and_targets(project, targets_name, group_path, dir_path, file_group_path, file_name, file_is_resource = false)
-      file_path = dir_path
-      file_path = file_path.join(file_group_path) if file_group_path
+    def self.add_file_to_project_and_targets(project, targets_name, group_path, dir_path, file_group_path, file_name, root_path, file_is_resource = false)
+      
+      if root_path
+          file_path = root_path
+      else
+          file_path = dir_path
+          file_path = file_path.join(file_group_path) if file_group_path
+      end
+
       file_path = file_path.join(file_name) if file_name
 
-      module_group = self.retrieve_group_or_create_if_needed(group_path, dir_path, file_group_path, project, true)
+      module_group = self.retrieve_group_or_create_if_needed(group_path, dir_path, file_group_path, project, true, root_path)
       xcode_file = module_group.new_file(File.absolute_path(file_path))
 
       targets_name.each do |target|
@@ -45,8 +51,8 @@ module Generamba
     # @param directory_name [String] Current directory name
     #
     # @return [void]
-    def self.add_group_to_project(project, group_path, dir_path, directory_name)
-      self.retrieve_group_or_create_if_needed(group_path, dir_path, directory_name, project, true)
+    def self.add_group_to_project(project, group_path, dir_path, directory_name, group_is_logical)
+      self.retrieve_group_or_create_if_needed(group_path, dir_path, directory_name, project, true, group_is_logical)
     end
 
     # File is a compiled source
@@ -70,8 +76,8 @@ module Generamba
     # @param group_path [Pathname] The full group path
     #
     # @return [Void]
-    def self.clear_group(project, targets_name, group_path)
-      module_group = self.retrieve_group_or_create_if_needed(group_path, nil, nil, project, false)
+    def self.clear_group(project, targets_name, group_path, group_is_logical)
+      module_group = self.retrieve_group_or_create_if_needed(group_path, nil, nil, project, false, group_is_logical)
       return unless module_group
 
       files_path = self.files_path_from_group(module_group, project)
@@ -89,8 +95,8 @@ module Generamba
     # @param group_path [Pathname] The full group path
     #
     # @return [TrueClass or FalseClass]
-    def self.module_with_group_path_already_exists(project, group_path)
-      module_group = self.retrieve_group_or_create_if_needed(group_path, nil, nil, project, false)
+    def self.module_with_group_path_already_exists(project, group_path, group_is_logical)
+      module_group = self.retrieve_group_or_create_if_needed(group_path, nil, nil, project, false, group_is_logical)
       module_group.nil? ? false : true
     end
 
@@ -104,7 +110,7 @@ module Generamba
     # @param create_group_if_not_exists [TrueClass or FalseClass] If true nonexistent group will be created
     #
     # @return [PBXGroup]
-    def self.retrieve_group_or_create_if_needed(group_path, dir_path, file_group_path, project, create_group_if_not_exists)
+    def self.retrieve_group_or_create_if_needed(group_path, dir_path, file_group_path, project, create_group_if_not_exists, group_is_logical = false)
       group_names = path_names_from_path(group_path)
       group_components_count = group_names.count
       group_names += path_names_from_path(file_group_path) if file_group_path
@@ -118,9 +124,9 @@ module Generamba
           return nil unless create_group_if_not_exists
 
           if group_path != dir_path && index == group_components_count-1
-            next_group = final_group.new_group(group_name, dir_path, :project)
+              next_group = group_is_logical ? final_group.new_group(group_name) : final_group.new_group(group_name, dir_path, :project)
           else
-            next_group = final_group.new_group(group_name, group_name)
+          next_group = group_is_logical ?  final_group.new_group(group_name) : final_group.new_group(group_name, group_name)
           end
         end
 
