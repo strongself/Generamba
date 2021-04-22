@@ -20,7 +20,6 @@ module Generamba
     #
     # @return [void]
     def self.add_file_to_project_and_targets(project, targets_name, group_path, dir_path, file_group_path, file_name, root_path, file_is_resource = false)
-      
       if root_path
           file_path = root_path
       else
@@ -33,7 +32,7 @@ module Generamba
       module_group = self.retrieve_group_or_create_if_needed(group_path, dir_path, file_group_path, project, true, root_path)
       xcode_file = module_group.new_file(File.absolute_path(file_path))
 
-      targets_name.each do |target|
+      project.present? && targets_name.each do |target|
         xcode_target = obtain_target(target, project)
 
         if file_is_resource || self.is_bundle_resource?(file_name)
@@ -117,7 +116,7 @@ module Generamba
 
       final_group = project
 
-      group_names.each_with_index do |group_name, index|
+      project.present? && group_names.each_with_index do |group_name, index|
         next_group = final_group[group_name]
 
         unless next_group
@@ -142,6 +141,8 @@ module Generamba
     #
     # @return [Xcodeproj::AbstractTarget]
     def self.obtain_target(target_name, project)
+      return nil if project.blank?
+
       project.targets.each do |target|
         return target if target.name == target_name
       end
@@ -200,6 +201,8 @@ module Generamba
     #
     # @return [[PBXSourcesBuildPhase]]
     def self.build_phases_from_targets(targets_name, project)
+      return [] if project.blank?
+
       build_phases = []
 
       targets_name.each do |target_name|
@@ -220,6 +223,8 @@ module Generamba
     #
     # @return [[PBXResourcesBuildPhase]]
     def self.resources_build_phase_from_targets(targets_name, project)
+      return [] if project.blank?
+
       resource_build_phase = []
 
       targets_name.each do |target_name|

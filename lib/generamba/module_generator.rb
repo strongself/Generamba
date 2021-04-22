@@ -10,16 +10,19 @@ module Generamba
 
 		def generate_module(name, code_module, template)
 			# Setting up Xcode objects
-			project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
+			project =
+				if code_module.xcodeproj_path.present?
+					XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
+				end
 
-            # Configuring file paths
-            if code_module.project_file_root && code_module.test_file_root
-                FileUtils.mkdir_p code_module.project_file_root if code_module.project_file_root
-                FileUtils.mkdir_p code_module.test_file_root if code_module.test_file_root
-            else
-                FileUtils.mkdir_p code_module.project_file_path if code_module.project_file_path
-                FileUtils.mkdir_p code_module.test_file_path if code_module.test_file_path
-            end
+			# Configuring file paths
+			if code_module.project_file_root && code_module.test_file_root
+					FileUtils.mkdir_p code_module.project_file_root if code_module.project_file_root
+					FileUtils.mkdir_p code_module.test_file_root if code_module.test_file_root
+			else
+					FileUtils.mkdir_p code_module.project_file_path if code_module.project_file_path
+					FileUtils.mkdir_p code_module.test_file_path if code_module.test_file_path
+			end
 
 			# Creating code files
 			if code_module.project_targets && code_module.project_group_path && code_module.project_file_path
@@ -50,7 +53,7 @@ module Generamba
 			end
 
 			# Saving the current changes in the Xcode project
-			project.save
+			project&.save
 
 			puts 'Module successfully created!'
 			puts "Name: #{name}".green
@@ -92,7 +95,7 @@ module Generamba
                     file_path = dir_path
                     file_path = file_path.join(file_group) if file_group
                 end
-                
+
 				file_path = file_path.join(file_name) if file_name
 
 				# Creating the file in the filesystem
@@ -104,7 +107,7 @@ module Generamba
 				file_is_resource = file[TEMPLATE_FILE_IS_RESOURCE_KEY]
 
 				# Creating the file in the Xcode project
-				XcodeprojHelper.add_file_to_project_and_targets(project,
+				project.present? && XcodeprojHelper.add_file_to_project_and_targets(project,
 																												targets,
 																												group_path,
 																												dir_path,
