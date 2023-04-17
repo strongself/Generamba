@@ -12,14 +12,14 @@ module Generamba
 			# Setting up Xcode objects
 			project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
 
-            # Configuring file paths
-            if code_module.project_file_root && code_module.test_file_root
-                FileUtils.mkdir_p code_module.project_file_root if code_module.project_file_root
-                FileUtils.mkdir_p code_module.test_file_root if code_module.test_file_root
-            else
-                FileUtils.mkdir_p code_module.project_file_path if code_module.project_file_path
-                FileUtils.mkdir_p code_module.test_file_path if code_module.test_file_path
-            end
+			# Configuring file paths
+			if code_module.project_file_root && code_module.test_file_root
+				FileUtils.mkdir_p code_module.project_file_root if code_module.project_file_root
+				FileUtils.mkdir_p code_module.test_file_root if code_module.test_file_root
+			else
+				FileUtils.mkdir_p code_module.project_file_path if code_module.project_file_path
+				FileUtils.mkdir_p code_module.test_file_path if code_module.test_file_path
+			end
 
 			# Creating code files
 			if code_module.project_targets && code_module.project_group_path && code_module.project_file_path
@@ -86,17 +86,17 @@ module Generamba
 
 				# Generating the content of the code file and it's name
 				file_name, file_content = ContentGenerator.create_file(file, module_info.scope, template)
-                if code_module.create_logical_groups
-                    file_path = root_path
-                else
-                    file_path = dir_path
-                    file_path = file_path.join(file_group) if file_group
-                end
+				if code_module.create_logical_groups
+						file_path = root_path
+				else
+						file_path = dir_path
+						file_path = file_path.join(file_group) if file_group
+				end
                 
 				file_path = file_path.join(file_name) if file_name
 
 				# Creating the file in the filesystem
-                FileUtils.mkdir_p File.dirname(file_path) if !code_module.create_logical_groups
+				FileUtils.mkdir_p File.dirname(file_path) if !code_module.create_logical_groups
 				File.open(file_path, 'w+') do |f|
 					f.write(file_content)
 				end
