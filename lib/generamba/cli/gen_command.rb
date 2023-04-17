@@ -2,6 +2,7 @@ require 'thor'
 require 'generamba/helpers/print_table.rb'
 require 'generamba/helpers/rambafile_validator.rb'
 require 'generamba/helpers/xcodeproj_helper.rb'
+require 'generamba/helpers/non_xcode_proj_helper.rb'
 require 'generamba/helpers/dependency_checker.rb'
 require 'generamba/helpers/gen_command_table_parameters_formatter.rb'
 require 'generamba/helpers/module_validator.rb'
@@ -57,20 +58,24 @@ module Generamba::CLI
       DependencyChecker.check_all_required_dependencies_has_in_podfile(template.dependencies, code_module.podfile_path)
       DependencyChecker.check_all_required_dependencies_has_in_cartfile(template.dependencies, code_module.cartfile_path)
 
-      project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
-      module_group_already_exists = XcodeprojHelper.module_with_group_path_already_exists(project, code_module.project_group_path, code_module.create_logical_groups)
-
-      if module_group_already_exists
+      if module_exists?(code_module)
         replace_exists_module = yes?("#{module_name} module already exists. Replace? (yes/no)")
-      
-        unless replace_exists_module
-          return
-        end
+        return unless replace_exists_module
       end
 
       generator = Generamba::ModuleGenerator.new
       generator.generate_module(module_name, code_module, template)
     end
 
+    private
+
+    def module_exists?(code_module)
+      if code_module.xcodeproj_path
+        project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
+        return XcodeprojHelper.module_with_group_path_already_exists(project, code_module.project_group_path, code_module.create_logical_groups)
+      else
+        return NonXcodeProjHelper.has_files?(code_module.project_group_path)
+      end
+    end
   end
 end

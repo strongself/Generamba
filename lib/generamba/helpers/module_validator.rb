@@ -10,9 +10,7 @@ module Generamba
     #
     # @return [Void]
     def validate(code_module)
-      mandatory_fields = [COMPANY_KEY,
-                          PROJECT_NAME_KEY,
-                          XCODEPROJ_PATH_KEY]
+      mandatory_fields = [COMPANY_KEY]
 
       mandatory_fields.each do |field|
         unless code_module.instance_variable_get("@#{field}")
