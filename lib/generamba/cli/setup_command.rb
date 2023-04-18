@@ -48,8 +48,6 @@ module Generamba::CLI
 
       test_file_path = nil
       test_group_path = nil
-      
-      create_logical_groups = nil
 
       if should_add_all_modules_by_one_path || include_tests
         should_use_same_paths = false
@@ -81,8 +79,6 @@ module Generamba::CLI
         end
       end
 
-      create_logical_groups = yes?('Do you want to create Groups in Xcode without folders in filesystem? (yes/no)')
-      
       using_pods = yes?('Are you using Cocoapods? (yes/no)')
       if using_pods
         properties[PODFILE_PATH_KEY] = ask_file_with_path('Podfile', 'Podfile')
@@ -108,8 +104,7 @@ module Generamba::CLI
       properties[TEST_TARGET_KEY] = test_target.name if test_target
       properties[TEST_FILE_PATH_KEY] = test_file_path if test_file_path
       properties[TEST_GROUP_PATH_KEY] = test_group_path if test_group_path
-      properties[CREATE_LOGICAL_GROUPS_KEY] = create_logical_groups if create_logical_groups
-      
+
       PrintTable.print_values(
           values: properties,
           title: 'Summary for generamba setup'

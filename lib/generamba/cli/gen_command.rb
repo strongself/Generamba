@@ -70,9 +70,9 @@ module Generamba::CLI
     private
 
     def module_exists?(code_module)
-      if code_module.xcodeproj_path
-        project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
-        return XcodeprojHelper.module_with_group_path_already_exists(project, code_module.project_group_path, code_module.create_logical_groups)
+      project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
+      if project
+        return XcodeprojHelper.module_with_group_path_already_exists(project, code_module.project_group_path)
       else
         return NonXcodeProjHelper.has_files?(code_module.project_group_path)
       end

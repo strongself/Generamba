@@ -22,8 +22,6 @@ module Generamba
   PODFILE_PATH_KEY = 'podfile_path'
   CARTFILE_PATH_KEY = 'cartfile_path'
 
-  CREATE_LOGICAL_GROUPS_KEY = 'create_logical_groups'
-
   CATALOGS_KEY = 'catalogs'
   TEMPLATES_KEY = 'templates'
   TEMPLATE_DECLARATION_NAME_KEY = 'name'

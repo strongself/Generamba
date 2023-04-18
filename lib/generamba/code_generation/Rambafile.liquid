@@ -28,9 +28,6 @@ test_file_path: {{ test_file_path }}{% endif %}
 test_group_path: {{ test_group_path }}{% endif %}
 {% endif %}
 
-{% if create_logical_groups != nil and create_logical_groups %}# Create Groups in Xcode without folders in filesystem
-create_logical_groups: {{ create_logical_groups }} {% endif %}
-
 {% if podfile_path != nil or cartfile_path != nil %}### Dependencies settings section{% endif %}
 {% if podfile_path != nil %}podfile_path: {{ podfile_path }}{% endif %}
 {% if cartfile_path != nil %}cartfile_path: {{ cartfile_path }}{% endif %}
