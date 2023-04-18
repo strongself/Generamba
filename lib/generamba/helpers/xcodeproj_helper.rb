@@ -236,9 +236,7 @@ module Generamba
     # @return [String]
     def self.configure_file_ref_path(file_ref)
       build_file_ref_path = file_ref.hierarchy_path.to_s
-      build_file_ref_path[0] = ''
-
-      build_file_ref_path
+      build_file_ref_path.slice(1, build_file_ref_path.length)
     end
 
     # Get all files path from group path
