@@ -26,6 +26,7 @@ module Generamba
                 :test_targets,
                 :podfile_path,
                 :cartfile_path,
+                :no_module_root_directory,
                 :custom_parameters
 
     def initialize(name, rambafile, options)

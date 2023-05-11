@@ -57,10 +57,12 @@ module Generamba
 				return
 			end
 
-			if project
-				XcodeprojHelper.clear_group(project, targets, group_path) unless processed_groups.include? group_path
-			else
-				NonXcodeProjHelper.clear_group(group_path)
+			unless processed_groups.include? group_path or code_module.no_module_root_directory
+				if project
+					XcodeprojHelper.clear_group(project, targets, group_path)
+				else
+					NonXcodeProjHelper.clear_group(group_path)
+				end
 			end
 
 			files.each do |file|
