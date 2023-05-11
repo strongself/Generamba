@@ -5,8 +5,8 @@ module Generamba
   AUTHOR_NAME_KEY = 'author'
   PROJECT_NAME_KEY = 'project_name'
   PROJECT_PREFIX_KEY = 'prefix'
-  XCODEPROJ_PATH_KEY = 'xcodeproj_path'
 
+  PROJECT_XCODEPROJ_PATH_KEY = 'project_xcodeproj_path'
   PROJECT_TARGET_KEY = 'project_target'
   PROJECT_TARGETS_KEY = 'project_targets'
   PROJECT_FILE_PATH_KEY = 'project_file_path'
@@ -14,6 +14,7 @@ module Generamba
 
   PRODUCT_MODULE_NAME_KEY = 'product_module_name'
 
+  TEST_XCODEPROJ_PATH_KEY = 'test_xcodeproj_path'
   TEST_TARGET_KEY = 'test_target'
   TEST_TARGETS_KEY = 'test_targets'
   TEST_FILE_PATH_KEY = 'test_file_path'

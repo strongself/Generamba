@@ -3,7 +3,8 @@ company: {{ company }}
 
 ### Xcode project settings
 project_name: {{ project_name }}
-xcodeproj_path: {{ xcodeproj_path }}
+{% if project_xcodeproj_path != "" %}project_xcodeproj_path: {{ project_xcodeproj_path }}{% endif %}
+
 {% if prefix != "" %}prefix: {{ prefix }}{% endif %}
 
 {% if (project_target != nil and project_target != "") or (project_file_path != nil and project_file_path != "") or (project_group_path != nil and project_group_path != "") %}### Code generation settings section
@@ -18,6 +19,7 @@ project_group_path: {{ project_group_path }}{% endif %}
 {% endif %}
 
 {% if (test_target != nil and test_target != "") or (test_file_path != nil and test_file_path != "") or (test_group_path != nil and test_group_path != "") %}### Tests generation settings section
+{% if test_xcodeproj_path != "" %}test_xcodeproj_path: {{ test_xcodeproj_path }}{% endif %}
 {% if test_target != nil and test_target != "" %}# The tests target name
 test_target: {{ test_target }}{% endif %}
 

@@ -9,9 +9,6 @@ module Generamba
 	class ModuleGenerator
 
 		def generate_module(name, code_module, template)
-			# Setting up Xcode objects
-			project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
-
 			# Configuring file paths
 			FileUtils.mkdir_p code_module.project_file_path if code_module.project_file_path
 			FileUtils.mkdir_p code_module.test_file_path if code_module.test_file_path
@@ -19,6 +16,7 @@ module Generamba
 			# Creating code files
 			if code_module.project_group_path && code_module.project_file_path
 				puts('Creating code files...')
+				project = XcodeprojHelper.obtain_project(code_module.project_xcodeproj_path)
 				process_files_if_needed(template.code_files,
 																code_module,
 																template,
@@ -26,11 +24,13 @@ module Generamba
 																code_module.project_targets,
 																code_module.project_group_path,
 																code_module.project_file_path)
+				project.save if project
 			end
 
 			# Creating test files
 			if code_module.test_group_path && code_module.test_file_path
 				puts('Creating test files...')
+				project = XcodeprojHelper.obtain_project(code_module.test_xcodeproj_path)
 				process_files_if_needed(template.test_files,
 																code_module,
 																template,
@@ -39,10 +39,8 @@ module Generamba
 																code_module.test_group_path,
 																code_module.test_file_path,
 																[code_module.project_group_path])
+				project.save if project
 			end
-
-			# Saving the current changes in the Xcode project
-			project.save if project
 
 			puts 'Module successfully created!'
 			puts "Name: #{name}".green

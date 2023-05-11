@@ -59,8 +59,8 @@ module Generamba::CLI
       DependencyChecker.check_all_required_dependencies_has_in_cartfile(template.dependencies, code_module.cartfile_path)
 
       if module_exists?(code_module)
-        replace_exists_module = yes?("#{module_name} module already exists. Replace? (yes/no)")
-        return unless replace_exists_module
+        replace_existing_module = yes?("#{module_name} module already exists. Replace? (yes/no)")
+        return unless replace_existing_module
       end
 
       generator = Generamba::ModuleGenerator.new
@@ -70,7 +70,7 @@ module Generamba::CLI
     private
 
     def module_exists?(code_module)
-      project = XcodeprojHelper.obtain_project(code_module.xcodeproj_path)
+      project = XcodeprojHelper.obtain_project(code_module.project_xcodeproj_path)
       if project
         return XcodeprojHelper.module_with_group_path_already_exists(project, code_module.project_group_path)
       else

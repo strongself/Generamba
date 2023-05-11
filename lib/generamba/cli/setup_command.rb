@@ -24,20 +24,26 @@ module Generamba::CLI
       properties[PROJECT_NAME_KEY] = is_right_project_name ? project_name : ask_non_empty_string('The project name:', 'Project name should not be empty')
       properties[PROJECT_PREFIX_KEY]  = ask('The project prefix (if any):')
 
-      xcodeproj_path = ask_file_with_path('*.xcodeproj',
-                                          '.xcodeproj file of the project')
+      use_xcodeproj = ask('Do you need to add code files to .xcodeproj structure? (yes/no)')
+      if use_xcodeproj
+        project_xcodeproj_path = ask_file_with_path('*.xcodeproj', '.xcodeproj file of the project for adding code files')
+        properties[PROJECT_XCODEPROJ_PATH_KEY] = project_xcodeproj_path
+        project = Xcodeproj::Project.open(project_xcodeproj_path)
 
-      properties[XCODEPROJ_PATH_KEY] = xcodeproj_path
-      project = Xcodeproj::Project.open(xcodeproj_path)
+        targets_prompt = ''
+        project.targets.each_with_index { |element, i| targets_prompt += ("#{i}. #{element.name}" + "\n") }
+        project_target = ask_index("Select the appropriate target for adding your MODULES (type the index):\n" + targets_prompt,project.targets)
+      end
 
-      targets_prompt = ''
-      project.targets.each_with_index { |element, i| targets_prompt += ("#{i}. #{element.name}" + "\n") }
-      project_target = ask_index("Select the appropriate target for adding your MODULES (type the index):\n" + targets_prompt,project.targets)
       include_tests = yes?('Are you using unit-tests in this project? (yes/no)')
 
       test_target = nil
 
       if include_tests
+        test_xcodeproj_path = ask_file_with_path('*.xcodeproj', '.xcodeproj file of the project for adding test files')
+        project = Xcodeproj::Project.open(test_xcodeproj_path)
+        targets_prompt = ''
+        project.targets.each_with_index { |element, i| targets_prompt += ("#{i}. #{element.name}" + "\n") }
         test_target = ask_index("Select the appropriate target for adding your TESTS (type the index):\n" + targets_prompt,project.targets)
       end
 

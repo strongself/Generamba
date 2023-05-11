@@ -16,9 +16,10 @@ module Generamba
                 :prefix,
                 :project_name,
                 :product_module_name,
-                :xcodeproj_path,
+                :project_xcodeproj_path,
                 :project_file_path,
                 :project_group_path,
+                :test_xcodeproj_path,
                 :test_file_path,
                 :test_group_path,
                 :project_targets,
@@ -41,11 +42,12 @@ module Generamba
       @product_module_name = rambafile[PRODUCT_MODULE_NAME_KEY]
       @product_module_name = @project_name.gsub(C99IDENTIFIER, '_') if !@product_module_name && @project_name
 
-      @xcodeproj_path = rambafile[XCODEPROJ_PATH_KEY]
+      @project_xcodeproj_path = rambafile[PROJECT_XCODEPROJ_PATH_KEY]
+      @test_xcodeproj_path = rambafile[TEST_XCODEPROJ_PATH_KEY]
 
       setup_file_and_group_paths(rambafile[PROJECT_FILE_PATH_KEY], rambafile[PROJECT_GROUP_PATH_KEY], PATH_TYPE_PROJECT)
       setup_file_and_group_paths(rambafile[TEST_FILE_PATH_KEY], rambafile[TEST_GROUP_PATH_KEY], PATH_TYPE_TEST)
-      
+
       @project_targets = [rambafile[PROJECT_TARGET_KEY]] if rambafile[PROJECT_TARGET_KEY]
       @project_targets = rambafile[PROJECT_TARGETS_KEY] if rambafile[PROJECT_TARGETS_KEY]
 
@@ -59,7 +61,7 @@ module Generamba
       @author = options[:author] if options[:author]
       @project_targets = options[:project_targets].split(',') if options[:project_targets]
       @test_targets = options[:test_targets].split(',') if options[:test_targets]
-      
+
       setup_file_and_group_paths(options[:project_file_path], options[:project_group_path], PATH_TYPE_PROJECT)
       setup_file_and_group_paths(options[:test_file_path], options[:test_group_path], PATH_TYPE_TEST)
 
