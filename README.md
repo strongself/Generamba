@@ -13,9 +13,15 @@
 - [Changelog](https://github.com/rambler-digital-solutions/Generamba/blob/develop/CHANGELOG.md), 
 - [Release notes](https://github.com/rambler-digital-solutions/Generamba/releases).
 
-Besides, we started working on 2.0 version with powerful DSL and plugins. Check the [release roadmap](https://github.com/rambler-digital-solutions/Generamba/blob/develop/docs/2.x/roadmap.md)!
+### About this fork
 
-![Generamba Screenshot](https://habrastorage.org/files/b98/770/b37/b98770b37dc54de98daf0e22fea38478.gif)
+Original Generamba cannot create files without adding them to .xcodeproj structure. So it is impossible to generate code inside SPM packages, for example.
+This fork has these key differences:
+
+- Fields `project_name`, `xcodeproj_path`, `project_targets` in Rambafile are now optional. It means no Xcode dependency - files can be created anywhere!
+- Separate options `project_xcodeproj_path` and `test_xcodeproj_path` instead of single `xcodeproj_path`. Code files can be located in SPM package while test files – in Xcode project. In this case only `test_xcodeproj_path` should be present in Rambafile.
+- `project_xcodeproj_path`, `project_targets`, `test_xcodeproj_path` options can now be placed as command line arguments so that different templates in your project can have different generation behavior. It also enables support for projects where child modules are Xcode projects nested in single Xcode Workspace.
+- `--no_module_root_directory` command line flag. Original Generamba always creates module files in a new directory named same as your module. This flag disables grouping new module files in a separate directory.
 
 ### Key features
 
