@@ -24,6 +24,7 @@ module Generamba::CLI
     method_option :test_file_path, :desc => 'Specifies a location in the filesystem for new test files'
     method_option :test_group_path, :desc => 'Specifies a location in Xcode groups for new test files'
     method_option :test_path, :desc => 'Specifies a location (both in the filesystem and Xcode) for new test files'
+    method_option :no_module_root_directory, :type => :boolean, :default => false , :desc => 'If specified, code files are generated without common root directory'
     method_option :custom_parameters, :type => :hash, :default => {}, :desc => 'Specifies extra parameters in format `key1:value1 key2:value2` for usage during code generation'
     def gen(module_name, template_name)
       does_rambafile_exist = Dir[RAMBAFILE_NAME].count > 0

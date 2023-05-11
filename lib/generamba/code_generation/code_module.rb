@@ -45,6 +45,8 @@ module Generamba
       @project_xcodeproj_path = rambafile[PROJECT_XCODEPROJ_PATH_KEY]
       @test_xcodeproj_path = rambafile[TEST_XCODEPROJ_PATH_KEY]
 
+      @no_module_root_directory = options[:no_module_root_directory]
+
       setup_file_and_group_paths(rambafile[PROJECT_FILE_PATH_KEY], rambafile[PROJECT_GROUP_PATH_KEY], PATH_TYPE_PROJECT)
       setup_file_and_group_paths(rambafile[TEST_FILE_PATH_KEY], rambafile[TEST_GROUP_PATH_KEY], PATH_TYPE_TEST)
 
@@ -83,7 +85,8 @@ module Generamba
           file_path = group_path unless file_path
 
           variable_value = file_path.gsub(SLASH_REGEX, '')
-          variable_value = Pathname.new(variable_value).join(@name)
+          variable_value = Pathname.new(variable_value)
+          variable_value = variable_value.join(@name) unless @no_module_root_directory
           instance_variable_set("@#{variable_name}", variable_value)
         end
 
@@ -93,7 +96,8 @@ module Generamba
           group_path = file_path unless group_path
 
           variable_value = group_path.gsub(SLASH_REGEX, '')
-          variable_value = Pathname.new(variable_value).join(@name)
+          variable_value = Pathname.new(variable_value)
+          variable_value = variable_value.join(@name) unless @no_module_root_directory
           instance_variable_set("@#{variable_name}", variable_value)
         end
       end
