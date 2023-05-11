@@ -62,7 +62,11 @@ module Generamba
 
       # Options adaptation
       @author = options[:author] if options[:author]
+
+      @project_xcodeproj_path = options[:project_xcodeproj_path] if options[:project_xcodeproj_path]
       @project_targets = options[:project_targets].split(',') if options[:project_targets]
+
+      @test_xcodeproj_path = options[:test_xcodeproj_path] if options[:test_xcodeproj_path]
       @test_targets = options[:test_targets].split(',') if options[:test_targets]
 
       setup_file_and_group_paths(options[:project_file_path], options[:project_group_path], PATH_TYPE_PROJECT)
