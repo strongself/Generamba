@@ -17,7 +17,7 @@ module Generamba
 			FileUtils.mkdir_p code_module.test_file_path if code_module.test_file_path
 
 			# Creating code files
-			if code_module.project_targets && code_module.project_group_path && code_module.project_file_path
+			if code_module.project_group_path && code_module.project_file_path
 				puts('Creating code files...')
 				process_files_if_needed(template.code_files,
 																code_module,
@@ -29,7 +29,7 @@ module Generamba
 			end
 
 			# Creating test files
-			if code_module.test_targets && code_module.test_group_path && code_module.test_file_path
+			if code_module.test_group_path && code_module.test_file_path
 				puts('Creating test files...')
 				process_files_if_needed(template.test_files,
 																code_module,
@@ -55,7 +55,7 @@ module Generamba
 		def process_files_if_needed(files, code_module, template, project, targets, group_path, dir_path, processed_groups = [])
 			# It's possible that current project doesn't test targets configured, so it doesn't need to generate tests.
 			# The same is for files property - a template can have only test or project files
-			if targets.count == 0 || files == nil || files.count == 0 || dir_path == nil || group_path == nil
+			if files == nil || files.count == 0 || dir_path == nil || group_path == nil
 				return
 			end
 

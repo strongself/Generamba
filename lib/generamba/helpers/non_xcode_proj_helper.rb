@@ -6,6 +6,7 @@ module Generamba
   class NonXcodeProjHelper
     # Recursively checks if directory contains any files
     def self.has_files?(path)
+      return false unless Dir.exist?(path)
       children = Dir.children(path)
                     .filter { |child| not child.start_with?(".") }
                     .map { |child| [path, child].join("/") }
@@ -22,4 +23,3 @@ module Generamba
     end
   end
 end
-
