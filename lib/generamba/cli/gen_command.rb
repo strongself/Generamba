@@ -73,6 +73,7 @@ module Generamba::CLI
     private
 
     def module_exists?(code_module)
+      return false if options[:no_module_root_directory]
       project = XcodeprojHelper.obtain_project(code_module.project_xcodeproj_path)
       if project
         return XcodeprojHelper.module_with_group_path_already_exists(project, code_module.project_group_path)
